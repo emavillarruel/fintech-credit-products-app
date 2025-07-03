@@ -148,3 +148,32 @@ fintech-app/
 
 **Testing Lab criado:** July 2025  
 **Status:** �� Ready for experimentation
+
+### 💬 Versão B - Conversacional
+
+**Conceito**: Dashboard conversacional que simula uma conversa com um especialista em crédito.
+
+**Características**:
+- **Interface**: Chat mobile-first com typing indicators
+- **Fluxo**: 3 perguntas → recomendação personalizada → explicação
+- **Personalidade**: Bot empático que educates while recommending
+- **Lógica**: Decisões baseadas em perfil e necessidades específicas
+
+**Casos de uso ideais**:
+- Usuários novos em produtos financeiros
+- Quem prefere interação humana
+- Necessita educação sobre diferenças entre produtos
+- Valoriza recomendações personalizadas
+
+**Métricas esperadas**:
+- Tempo na conversa: >2 minutos
+- Taxa de completude: >80%
+- Confiança na recomendação: >85%
+
+**Vantagens**:
+- Mais personalizada que Versão A
+- Menos intimidante que Versão Original
+- Educa naturalmente sobre produtos
+- Constrói confiança gradualmente
+
+**Arquivo**: `versions/B-proximaversion/dashboard-conversacional-preview.html`

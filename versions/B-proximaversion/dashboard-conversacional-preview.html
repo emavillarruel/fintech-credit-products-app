@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 Versão B - Dashboard Conversacional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .chat-container {
+            max-width: 420px;
+            margin: 0 auto;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #3483FA, #4285F4);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .message {
+            margin-bottom: 16px;
+            animation: fadeInUp 0.4s ease-out;
+        }
+        
+        .bot-message {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .user-message {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3483FA, #4285F4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .message-bubble {
+            max-width: 280px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+        
+        .bot-bubble {
+            background: white;
+            color: #333;
+            border: 1px solid #e1e5e9;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .user-bubble {
+            background: #3483FA;
+            color: white;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 18px;
+            border: 1px solid #e1e5e9;
+            margin-left: 52px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        .quick-replies {
+            padding: 0 20px 20px;
+            background: #f8f9fa;
+        }
+        
+        .quick-reply-button {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: white;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        
+        .quick-reply-button:hover {
+            border-color: #3483FA;
+            background: #f0f7ff;
+        }
+        
+        .quick-reply-button.selected {
+            background: #3483FA;
+            color: white;
+            border-color: #3483FA;
+        }
+        
+        .recommendation-card {
+            background: linear-gradient(135deg, #00A650, #00d66a);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .comparison-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e1e5e9;
+        }
+        
+        .comparison-item.recommended {
+            border-color: #00A650;
+            background: #f0fff4;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+        
+        .final-cta {
+            background: #00A650;
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 16px 0;
+            transition: background 0.2s ease;
+        }
+        
+        .final-cta:hover {
+            background: #008f44;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="text-2xl font-bold mb-2">💬 Assistente de Crédito</div>
+            <div class="text-sm opacity-90">Vou te ajudar a encontrar o produto ideal</div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Initial bot message -->
+            <div class="message">
+                <div class="bot-message">
+                    <div class="bot-avatar">🤖</div>
+                    <div class="message-bubble bot-bubble">
+                        <div class="font-medium mb-1">Olá! 👋</div>
+                        <div>Sou seu assistente pessoal de crédito. Vou te ajudar a descobrir qual produto é perfeito para você, em uma conversa simples e rápida.</div>
+                        <div class="mt-2 text-sm text-gray-600">Sem termos complicados, sem pressa! 😊</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Replies -->
+        <div class="quick-replies" id="quickReplies">
+            <button class="quick-reply-button" onclick="startConversation()">
+                🚀 Vamos começar!
+            </button>
+            <button class="quick-reply-button" onclick="showHelp()">
+                ❓ Como funciona?
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let conversationStep = 0;
+        let userNeed = null;
+        let userProfile = {
+            hasCredit: false,
+            frequency: null,
+            amount: null,
+            urgency: null
+        };
+
+        const conversations = {
+            step1: {
+                bot: "Perfeito! Primeira pergunta bem simples: <br><br><strong>Para que você precisa de dinheiro?</strong> 🤔",
+                options: [
+                    { text: "🛒 Comprar algo específico", value: "BUY_SPECIFIC" },
+                    { text: "💰 Ter uma quantia disponível", value: "HAVE_MONEY" },
+                    { text: "🏢 Investir no meu negócio", value: "BUSINESS" },
+                    { text: "🤷‍♂️ Ainda não sei bem", value: "UNSURE" }
+                ]
+            },
+            step2: {
+                bot: "Entendi! Agora me conta: <br><br><strong>Com que frequência você costuma precisar de crédito?</strong> ��",
+                options: [
+                    { text: "🔄 Frequentemente (todo mês)", value: "FREQUENT" },
+                    { text: "⏱️ De vez em quando", value: "OCCASIONAL" },
+                    { text: "🆕 É minha primeira vez", value: "FIRST_TIME" }
+                ]
+            },
+            step3: {
+                bot: "Ótimo! Uma última pergunta: <br><br><strong>Você prefere...</strong> 🎯",
+                options: [
+                    { text: "📊 Saber exatamente quanto vou pagar", value: "PREDICTABLE" },
+                    { text: "🔄 Ter flexibilidade para usar quando quiser", value: "FLEXIBLE" },
+                    { text: "💰 A opção mais barata", value: "CHEAPEST" }
+                ]
+            }
+        };
+
+        function addMessage(content, isUser = false, delay = 0) {
+            setTimeout(() => {
+                const messagesContainer = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                
+                if (isUser) {
+                    messageDiv.innerHTML = `
+                        <div class="user-message">
+                            <div class="message-bubble user-bubble">${content}</div>
+                        </div>
+                    `;
+                } else {
+                    messageDiv.innerHTML = `
+                        <div class="bot-message">
+                            <div class="bot-avatar">🤖</div>
+                            <div class="message-bubble bot-bubble">${content}</div>
+                        </div>
+                    `;
+                }
+                
+                messagesContainer.appendChild(messageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, delay);
+        }
+
+        function showTyping(duration = 2000) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message';
+            typingDiv.id = 'typing';
+            typingDiv.innerHTML = `
+                <div class="bot-message">
+                    <div class="bot-avatar">🤖</div>
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            setTimeout(() => {
+                const typing = document.getElementById('typing');
+                if (typing) typing.remove();
+            }, duration);
+        }
+
+        function updateQuickReplies(options) {
+            const repliesContainer = document.getElementById('quickReplies');
+            repliesContainer.innerHTML = '';
+            
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'quick-reply-button';
+                button.innerHTML = option.text;
+                button.onclick = () => selectOption(option.text, option.value);
+                repliesContainer.appendChild(button);
+            });
+        }
+
+        function startConversation() {
+            addMessage("🚀 Vamos começar!", true);
+            
+            showTyping(1500);
+            addMessage(conversations.step1.bot, false, 2000);
+            
+            setTimeout(() => {
+                updateQuickReplies(conversations.step1.options);
+                conversationStep = 1;
+            }, 2500);
+        }
+
+        function selectOption(text, value) {
+            addMessage(text, true);
+            
+            // Store user response
+            if (conversationStep === 1) {
+                userNeed = value;
+            } else if (conversationStep === 2) {
+                userProfile.frequency = value;
+            } else if (conversationStep === 3) {
+                userProfile.preference = value;
+            }
+            
+            document.getElementById('quickReplies').innerHTML = '';
+            
+            // Progress to next step
+            if (conversationStep < 3) {
+                conversationStep++;
+                showTyping(1500);
+                addMessage(conversations[`step${conversationStep}`].bot, false, 2000);
+                
+                setTimeout(() => {
+                    updateQuickReplies(conversations[`step${conversationStep}`].options);
+                }, 2500);
+            } else {
+                // Generate recommendation
+                generateRecommendation();
+            }
+        }
+
+        function generateRecommendation() {
+            showTyping(2000);
+            
+            setTimeout(() => {
+                addMessage("Perfeito! Baseado no que você me contou, já sei qual é o produto ideal para você! 🎯", false);
+                
+                setTimeout(() => {
+                    showRecommendation();
+                }, 1500);
+            }, 2500);
+        }
+
+        function showRecommendation() {
+            let recommendation = getRecommendation();
+            
+            const recommendationHTML = `
+                <div class="recommendation-card">
+                    <div class="text-3xl mb-2">${recommendation.icon}</div>
+                    <div class="text-xl font-bold mb-2">RECOMENDO: ${recommendation.name}</div>
+                    <div class="text-sm opacity-90">${recommendation.subtitle}</div>
+                </div>
+                
+                <div class="mt-3">
+                    <strong>Por que é perfeito para você:</strong>
+                    <div class="mt-2 space-y-1">
+                        ${recommendation.reasons.map(reason => `<div class="flex items-start gap-2"><span class="text-green-500">✅</span><span class="text-sm">${reason}</span></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            
+            addMessage(recommendationHTML, false, 500);
+            
+            setTimeout(() => {
+                showComparison(recommendation);
+            }, 2000);
+        }
+
+        function showComparison(recommendation) {
+            const comparisonHTML = `
+                <div class="mt-3">
+                    <strong>Vou te mostrar a diferença:</strong>
+                    <div class="comparison-grid mt-3">
+                        <div class="comparison-item ${recommendation.type === 'LC' ? 'recommended' : ''}">
+                            <div class="text-lg mb-1">💳</div>
+                            <div class="text-xs font-semibold">LINHA DE CRÉDITO</div>
+                            <div class="text-xs mt-1 text-gray-600">Para compras flexíveis</div>
+                        </div>
+                        <div class="comparison-item ${recommendation.type === 'PL' ? 'recommended' : ''}">
+                            <div class="text-lg mb-1">💵</div>
+                            <div class="text-xs font-semibold">EMPRÉSTIMO</div>
+                            <div class="text-xs mt-1 text-gray-600">Para quantia fixa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-3 text-sm">
+                    <strong>No seu caso específico:</strong><br>
+                    ${recommendation.explanation}
+                </div>
+            `;
+            
+            addMessage(comparisonHTML, false, 500);
+            
+            setTimeout(() => {
+                showFinalMessage(recommendation);
+            }, 2000);
+        }
+
+        function showFinalMessage(recommendation) {
+            const finalHTML = `
+                <div class="mt-3">
+                    <strong>Ficou claro? 😊</strong>
+                    <div class="text-sm mt-2 text-gray-600">
+                        Se tiver qualquer dúvida, é só perguntar! Estou aqui para ajudar.
+                    </div>
+                </div>
+                
+                <div class="final-cta mt-4" onclick="proceedWithRecommendation('${recommendation.type}')">
+                    ✅ ENTENDI! QUERO ${recommendation.name.toUpperCase()}
+                </div>
+                
+                <div style="text-align: center; margin-top: 12px;">
+                    <button onclick="askQuestion()" style="background: none; border: none; color: #3483FA; text-decoration: underline; font-size: 14px; cursor: pointer;">
+                        🤔 Tenho uma dúvida
+                    </button>
+                </div>
+            `;
+            
+            addMessage(finalHTML, false, 500);
+        }
+
+        function getRecommendation() {
+            // Logic based on user responses
+            if (userNeed === 'HAVE_MONEY' || userProfile.preference === 'PREDICTABLE') {
+                return {
+                    type: 'PL',
+                    name: 'Empréstimo Pessoal',
+                    icon: '💵',
+                    subtitle: 'Dinheiro na conta com parcelas fixas',
+                    reasons: [
+                        'Você quer ter uma quantia fixa disponível',
+                        'Parcelas previsíveis facilitam seu planejamento',
+                        'Taxa menor que usar cartão de crédito'
+                    ],
+                    explanation: 'Como você quer ter dinheiro disponível e prefere previsibilidade, o empréstimo é ideal. Você recebe o valor na conta e paga parcelas fixas.'
+                };
+            } else if (userNeed === 'BUY_SPECIFIC' || userProfile.frequency === 'FREQUENT' || userProfile.preference === 'FLEXIBLE') {
+                return {
+                    type: 'LC',
+                    name: 'Linha de Crédito',
+                    icon: '💳',
+                    subtitle: 'Crédito flexível para suas compras',
+                    reasons: [
+                        'Você pode usar quando e quanto quiser',
+                        'Paga apenas pelo que usar',
+                        'Perfeito para compras no Mercado Livre'
+                    ],
+                    explanation: 'Como você quer flexibilidade para compras, a Linha de Crédito é perfeita. Funciona como um limite que você usa conforme sua necessidade.'
+                };
+            } else {
+                return {
+                    type: 'PL',
+                    name: 'Empréstimo Pessoal',
+                    icon: '💵',
+                    subtitle: 'A opção mais versátil para começar',
+                    reasons: [
+                        'Ideal para primeira experiência com crédito',
+                        'Valor fixo na conta para usar como quiser',
+                        'Parcelas previsíveis todo mês'
+                    ],
+                    explanation: 'Para começar, o empréstimo é mais simples. Você recebe o dinheiro na conta e tem parcelas fixas para pagar.'
+                };
+            }
+        }
+
+        function proceedWithRecommendation(type) {
+            addMessage(`✅ Perfeito! Vou te direcionar para contratar seu ${type === 'PL' ? 'Empréstimo Pessoal' : 'Linha de Crédito'}.`, false);
+            
+            setTimeout(() => {
+                addMessage("Obrigado por usar nosso assistente! Foi um prazer te ajudar a encontrar o produto ideal! 🎉", false, 1000);
+            }, 1000);
+        }
+
+        function askQuestion() {
+            const question = prompt("Qual é sua dúvida? (Digite aqui)");
+            if (question) {
+                addMessage(question, true);
+                
+                showTyping(1500);
+                setTimeout(() => {
+                    addMessage("Excelente pergunta! Em um produto real, eu teria respostas para todas as suas dúvidas. Por enquanto, nossa equipe de especialistas pode te ajudar pelo WhatsApp. 😊", false);
+                }, 2000);
+            }
+        }
+
+        function showHelp() {
+            addMessage("❓ Como funciona?", true);
+            
+            showTyping(1500);
+            addMessage("É muito simples! 😊<br><br>Vou fazer algumas perguntas sobre o que você precisa, e baseado nas suas respostas, vou recomendar o produto de crédito ideal para você.<br><br>Não tem pegadinha, nem termos complicados. É como conversar com um amigo que entende de crédito!", false, 2000);
+            
+            setTimeout(() => {
+                updateQuickReplies([
+                    { text: "🚀 Entendi! Vamos começar", value: "start" }
+                ]);
+                document.querySelector('.quick-reply-button').onclick = () => startConversation();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
