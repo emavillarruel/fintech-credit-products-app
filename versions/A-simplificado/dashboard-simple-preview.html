@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Dashboard Simplificado - Crédito Ideal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: white;
+        }
+        
+        .mp-blue { color: #3483FA; }
+        .bg-mp-blue { background-color: #3483FA; }
+        .bg-mp-green { background-color: #00A650; }
+        .hover\:bg-mp-blue\/5:hover { background-color: rgba(52, 131, 250, 0.05); }
+        .hover\:border-mp-blue:hover { border-color: #3483FA; }
+        .hover\:bg-mp-green\/90:hover { background-color: rgba(0, 166, 80, 0.9); }
+        
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .dashboard-container { max-width: 448px; margin: 0 auto; min-height: 100vh; }
+    </style>
+</head>
+<body>
+    <!-- Step 1: Need Selection -->
+    <div id="needSelection" class="dashboard-container fade-in">
+        <!-- Simple Header -->
+        <header class="bg-mp-blue text-white text-center py-6">
+            <h1 class="text-2xl font-bold">🎯 Crédito Ideal</h1>
+            <p class="text-sm opacity-90 mt-1">Encontre o produto certo para você</p>
+        </header>
+
+        <!-- Main Question -->
+        <main class="px-6 py-8">
+            <div class="max-w-md mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">
+                    Para que você precisa de dinheiro?
+                </h2>
+                <p class="text-center text-gray-500 mb-8">
+                    Escolha a opção que mais combina com você
+                </p>
+
+                <!-- Need Options -->
+                <div class="space-y-4">
+                    <!-- Option 1: Buy Specific -->
+                    <button onclick="selectNeed('BUY_SPECIFIC')" 
+                            class="w-full p-6 border-2 border-gray-200 rounded-2xl text-left hover:border-mp-blue hover:bg-mp-blue/5 transition-all duration-200 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-4xl">🛒</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+                                    Comprar algo específico
+                                </h3>
+                                <p class="text-gray-500 mt-1">Produtos, serviços, investimentos</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Option 2: Have Money Available -->
+                    <button onclick="selectNeed('HAVE_MONEY')" 
+                            class="w-full p-6 border-2 border-gray-200 rounded-2xl text-left hover:border-mp-blue hover:bg-mp-blue/5 transition-all duration-200 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-4xl">💰</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+                                    Ter dinheiro disponível
+                                </h3>
+                                <p class="text-gray-500 mt-1">Quantia livre para usar como quiser</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Option 3: Business -->
+                    <button onclick="selectNeed('BUSINESS')" 
+                            class="w-full p-6 border-2 border-gray-200 rounded-2xl text-left hover:border-mp-blue hover:bg-mp-blue/5 transition-all duration-200 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-4xl">🏢</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+                                    Para meu negócio
+                                </h3>
+                                <p class="text-gray-500 mt-1">Capital, equipamentos, expansão</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Help Option -->
+                <div class="mt-8 text-center">
+                    <button class="text-blue-600 hover:text-blue-500 font-medium">
+                        🤔 Não sei qual escolher? Clique aqui para ajuda
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Step 2: Recommendation -->
+    <div id="recommendation" class="dashboard-container fade-in" style="display: none;">
+        <!-- Header with back -->
+        <header class="bg-mp-blue text-white px-6 py-4">
+            <div class="flex items-center space-x-4">
+                <button onclick="goBack()" class="text-white hover:text-white/80">
+                    ← Voltar
+                </button>
+                <h1 class="text-xl font-bold">Recomendação para você</h1>
+            </div>
+        </header>
+
+        <!-- Recommendation -->
+        <main class="px-6 py-8">
+            <div class="max-w-md mx-auto text-center">
+                
+                <!-- Sparkle Effect -->
+                <div class="text-6xl mb-4">✨</div>
+                
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                    PARA VOCÊ RECOMENDAMOS:
+                </h2>
+
+                <!-- Product Card -->
+                <div id="productCard" class="bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-2xl p-8 mb-8">
+                    <div id="productIcon" class="text-5xl mb-4">💵</div>
+                    <h3 id="productName" class="text-2xl font-bold mb-6">
+                        EMPRÉSTIMO PESSOAL
+                    </h3>
+                    
+                    <!-- Reasons -->
+                    <div id="productReasons" class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl">✅</span>
+                            <span class="text-lg">Você quer dinheiro livre</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl">✅</span>
+                            <span class="text-lg">Taxa menor que cartão</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl">✅</span>
+                            <span class="text-lg">Parcelas fixas = simples</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Not Other Button -->
+                <button onclick="showExplanation()" id="whyNotButton"
+                        class="w-full py-4 border-2 border-gray-300 rounded-xl text-gray-600 font-medium mb-6 hover:border-gray-400 transition-colors">
+                    🤔 Por que NÃO Linha de Crédito?
+                </button>
+
+                <!-- Main CTA -->
+                <button id="mainCTA" class="w-full bg-green-600 text-white text-xl font-bold py-6 rounded-xl hover:bg-green-700 transition-colors shadow-lg">
+                    ✅ CONTINUAR COM EMPRÉSTIMO PESSOAL
+                </button>
+
+                <!-- Secondary Option -->
+                <button onclick="goBack()" class="w-full mt-4 py-3 text-gray-500 hover:text-gray-700">
+                    🔄 Ver outras opções
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Step 3: Explanation -->
+    <div id="explanation" class="dashboard-container fade-in" style="display: none;">
+        <!-- Header -->
+        <header class="bg-mp-blue text-white px-6 py-4">
+            <div class="flex items-center space-x-4">
+                <button onclick="hideExplanation()" class="text-white hover:text-white/80">
+                    ← Voltar
+                </button>
+                <h1 class="text-xl font-bold">Entenda a diferença</h1>
+            </div>
+        </header>
+
+        <!-- Explanation -->
+        <main class="px-6 py-8">
+            <div class="max-w-md mx-auto">
+                
+                <div class="text-center mb-8">
+                    <div class="text-5xl mb-4">🤔</div>
+                    <h2 id="explanationTitle" class="text-2xl font-bold text-gray-800">
+                        Por que NÃO Linha de Crédito?
+                    </h2>
+                </div>
+
+                <!-- Explanation Points -->
+                <div id="explanationPoints" class="space-y-6 mb-8">
+                    <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <span class="text-2xl mt-1">💳</span>
+                        <div>
+                            <p class="text-lg text-gray-700">
+                                LC é para compras frequentes
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <span class="text-2xl mt-1">💰</span>
+                        <div>
+                            <p class="text-lg text-gray-700">
+                                Empréstimo é para quantia fixa
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <span class="text-2xl mt-1">📊</span>
+                        <div>
+                            <p class="text-lg text-gray-700">
+                                Para R$ 5.000, empréstimo é mais barato
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final CTA -->
+                <button id="finalCTA" class="w-full bg-green-600 text-white text-xl font-bold py-6 rounded-xl hover:bg-green-700 transition-colors shadow-lg">
+                    ✅ ENTENDI, QUERO EMPRÉSTIMO PESSOAL
+                </button>
+
+                <button onclick="goBack()" class="w-full mt-4 py-3 text-gray-500 hover:text-gray-700">
+                    🔄 Escolher outra necessidade
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let currentNeed = null;
+        
+        const recommendations = {
+            'HAVE_MONEY': {
+                product: 'EMPRÉSTIMO PESSOAL',
+                icon: '💵',
+                reasons: [
+                    'Você quer dinheiro livre',
+                    'Taxa menor que cartão',
+                    'Parcelas fixas = simples'
+                ],
+                whyNotTitle: 'Por que NÃO Linha de Crédito?',
+                whyNotReasons: [
+                    { icon: '💳', text: 'LC é para compras frequentes' },
+                    { icon: '💰', text: 'Empréstimo é para quantia fixa' },
+                    { icon: '📊', text: 'Para R$ 5.000, empréstimo é mais barato' }
+                ]
+            },
+            'BUY_SPECIFIC': {
+                product: 'LINHA DE CRÉDITO',
+                icon: '💳',
+                reasons: [
+                    'Para compras específicas',
+                    'Usa só o que precisar',
+                    'Disponível na hora'
+                ],
+                whyNotTitle: 'Por que NÃO Empréstimo?',
+                whyNotReasons: [
+                    { icon: '💵', text: 'Empréstimo é valor fixo' },
+                    { icon: '💳', text: 'LC é flexível para compras' },
+                    { icon: '⚡', text: 'LC libera crédito na hora' }
+                ]
+            },
+            'BUSINESS': {
+                product: 'CRÉDITO EMPRESARIAL',
+                icon: '🏢',
+                reasons: [
+                    'Feito para negócios',
+                    'Limites maiores',
+                    'Condições especiais'
+                ],
+                whyNotTitle: 'Por que NÃO produtos pessoais?',
+                whyNotReasons: [
+                    { icon: '🏢', text: 'Negócio precisa de mais limite' },
+                    { icon: '📈', text: 'Condições melhores para empresa' },
+                    { icon: '⚖️', text: 'Separar pessoa física de jurídica' }
+                ]
+            }
+        };
+
+        function selectNeed(need) {
+            currentNeed = need;
+            const rec = recommendations[need];
+            
+            // Update product card
+            document.getElementById('productIcon').textContent = rec.icon;
+            document.getElementById('productName').textContent = rec.product;
+            document.getElementById('whyNotButton').textContent = `🤔 ${rec.whyNotTitle}`;
+            document.getElementById('mainCTA').textContent = `✅ CONTINUAR COM ${rec.product}`;
+            
+            // Update reasons
+            const reasonsContainer = document.getElementById('productReasons');
+            reasonsContainer.innerHTML = '';
+            rec.reasons.forEach(reason => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-3';
+                div.innerHTML = `
+                    <span class="text-2xl">✅</span>
+                    <span class="text-lg">${reason}</span>
+                `;
+                reasonsContainer.appendChild(div);
+            });
+
+            // Update explanation
+            document.getElementById('explanationTitle').textContent = rec.whyNotTitle;
+            document.getElementById('finalCTA').textContent = `✅ ENTENDI, QUERO ${rec.product}`;
+            
+            const explanationContainer = document.getElementById('explanationPoints');
+            explanationContainer.innerHTML = '';
+            rec.whyNotReasons.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'flex items-start space-x-4 p-4 bg-gray-50 rounded-xl';
+                div.innerHTML = `
+                    <span class="text-2xl mt-1">${item.icon}</span>
+                    <div>
+                        <p class="text-lg text-gray-700">${item.text}</p>
+                    </div>
+                `;
+                explanationContainer.appendChild(div);
+            });
+            
+            // Show recommendation
+            document.getElementById('needSelection').style.display = 'none';
+            document.getElementById('recommendation').style.display = 'block';
+            document.getElementById('explanation').style.display = 'none';
+        }
+
+        function showExplanation() {
+            document.getElementById('recommendation').style.display = 'none';
+            document.getElementById('explanation').style.display = 'block';
+        }
+
+        function hideExplanation() {
+            document.getElementById('explanation').style.display = 'none';
+            document.getElementById('recommendation').style.display = 'block';
+        }
+
+        function goBack() {
+            currentNeed = null;
+            document.getElementById('needSelection').style.display = 'block';
+            document.getElementById('recommendation').style.display = 'none';
+            document.getElementById('explanation').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

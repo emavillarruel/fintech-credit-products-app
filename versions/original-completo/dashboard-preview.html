@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Crédito Ideal - Dashboard Principal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom MP Colors */
+        :root {
+            --mp-blue: #3483FA;
+            --mp-yellow: #FFE600;
+            --mp-green: #00A650;
+            --mp-orange: #FF6600;
+            --mp-light-blue: #4285F4;
+            --credito-success: #00A650;
+            --credito-warning: #FF6600;
+            --credito-info: #3483FA;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F7F7F7;
+        }
+        
+        .dashboard-container {
+            max-width: 448px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 0 1px #E6E6E6;
+        }
+        
+        .mp-blue { color: var(--mp-blue); }
+        .bg-mp-blue { background-color: var(--mp-blue); }
+        .border-mp-blue { border-color: var(--mp-blue); }
+        .bg-mp-blue-light { background-color: rgba(52, 131, 250, 0.1); }
+        
+        .credito-success { color: var(--credito-success); }
+        .bg-credito-success { background-color: var(--credito-success); }
+        .bg-credito-success-light { background-color: rgba(0, 166, 80, 0.1); }
+        .border-credito-success { border-color: rgba(0, 166, 80, 0.2); }
+        
+        .credito-warning { color: var(--credito-warning); }
+        .bg-credito-warning-light { background-color: rgba(255, 102, 0, 0.1); }
+        .border-credito-warning { border-color: rgba(255, 102, 0, 0.2); }
+        
+        .animate-slide-up {
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--mp-blue) 50%, #E6E6E6 50%);
+            height: 8px;
+            border-radius: 4px;
+        }
+        
+        .gradient-blue {
+            background: linear-gradient(135deg, var(--mp-blue), var(--mp-light-blue));
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Navigation Header -->
+        <header class="bg-white border-b border-gray-100 px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-bars text-gray-500"></i>
+                    <span class="text-lg font-semibold mp-blue">Mercado Pago</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <i class="fas fa-bell text-gray-500"></i>
+                        <div class="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full"></div>
+                    </div>
+                    <i class="fas fa-user text-gray-500"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="bg-white border-b border-gray-100">
+            <div class="flex items-center justify-between px-2 py-2">
+                <button class="flex flex-col items-center px-2 py-2 text-gray-400">
+                    <span class="text-sm mb-1">💳</span>
+                    <span class="text-xs">MP</span>
+                </button>
+                <button class="flex flex-col items-center px-2 py-2 text-gray-400">
+                    <span class="text-sm mb-1">💳</span>
+                    <span class="text-xs">Cartão</span>
+                </button>
+                <button class="flex flex-col items-center px-2 py-2 text-gray-400">
+                    <span class="text-sm mb-1">🏦</span>
+                    <span class="text-xs">Conta</span>
+                </button>
+                <button class="flex flex-col items-center px-2 py-2 bg-mp-blue-light mp-blue rounded-lg">
+                    <span class="text-sm mb-1">📊</span>
+                    <span class="text-xs font-medium text-center leading-tight">CRÉDITO<br/>IDEAL</span>
+                    <div class="w-full h-0.5 bg-mp-blue rounded-full mt-1"></div>
+                </button>
+                <button class="flex flex-col items-center px-2 py-2 text-gray-400">
+                    <span class="text-sm mb-1">🎁</span>
+                    <span class="text-xs">Prêmio</span>
+                </button>
+                <button class="flex flex-col items-center px-2 py-2 text-gray-400">
+                    <span class="text-sm mb-1">📈</span>
+                    <span class="text-xs">Inves.</span>
+                </button>
+                <button class="flex flex-col items-center px-2 py-2 text-gray-400">
+                    <span class="text-sm mb-1">⋯</span>
+                    <span class="text-xs">Mais</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Sub-navigation -->
+        <nav class="bg-white border-b border-gray-100 px-4 py-2">
+            <div class="text-xs text-gray-500 mb-2">Home > Crédito Ideal</div>
+            <div class="flex space-x-4">
+                <button class="text-xs px-3 py-1 rounded-full bg-mp-blue text-white">🏠 Principal</button>
+                <button class="text-xs px-3 py-1 rounded-full text-gray-500">📊 Comparar</button>
+                <button class="text-xs px-3 py-1 rounded-full text-gray-500">💰 Simular</button>
+                <button class="text-xs px-3 py-1 rounded-full text-gray-500">❓ Ajuda</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="bg-white min-h-screen">
+            <!-- Header Section -->
+            <div class="px-4 pt-6 pb-4">
+                <h1 class="text-xl font-semibold text-gray-700 mb-1">🎯 Encontre seu crédito ideal</h1>
+                <p class="text-sm text-gray-400">Recomendações personalizadas para você</p>
+            </div>
+
+            <!-- Status Section -->
+            <section class="px-4 mb-6">
+                <!-- Status Card -->
+                <div class="gradient-blue rounded-xl p-4 text-white mb-4">
+                    <h2 class="text-sm font-medium opacity-90 mb-3">📊 SEU STATUS ATUAL:</h2>
+                    <div class="space-y-3">
+                        <!-- Linha de Crédito -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-credit-card text-sm"></i>
+                                <span class="text-sm">Linha Crédito:</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm font-semibold">R$ 2.500 disponível</div>
+                                <div class="text-xs opacity-75">de R$ 5.000</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Empréstimo -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-dollar-sign text-sm"></i>
+                                <span class="text-sm">Empréstimo:</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm font-semibold">Pré-aprovado até R$ 8.000</div>
+                                <div class="text-xs opacity-75">Taxa personalizada 1,6%</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Score -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-chart-line text-sm"></i>
+                                <span class="text-sm">Score:</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm font-semibold">Muito Bom (750 pontos)</div>
+                                <div class="text-xs opacity-75">Cliente há 2 anos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usage Progress -->
+                <div class="bg-white border border-gray-100 rounded-lg p-3 mb-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-gray-600">Uso da Linha de Crédito</span>
+                        <span class="text-xs text-gray-500">50% usado</span>
+                    </div>
+                    <div class="progress-bar mb-2"></div>
+                    <div class="flex justify-between text-xs text-gray-500">
+                        <span>R$ 2.500 usado</span>
+                        <span>R$ 2.500 disponível</span>
+                    </div>
+                </div>
+
+                <!-- Profile Benefits -->
+                <div class="bg-credito-success-light border border-credito-success rounded-lg p-3">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="text-sm">✅</span>
+                        <span class="text-xs font-medium credito-success">Perfil Excelente</span>
+                    </div>
+                    <div class="text-xs text-gray-600 space-y-1">
+                        <div>• Pagamentos sempre em dia</div>
+                        <div>• Taxas personalizadas disponíveis</div>
+                        <div>• Aprovações mais rápidas</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Need Selection -->
+            <section class="px-4 mb-6">
+                <h2 class="text-lg font-medium text-gray-700 mb-4">❓ O que você precisa hoje?</h2>
+                
+                <div class="space-y-3">
+                    <!-- Option 1 -->
+                    <button class="w-full p-4 border border-gray-200 rounded-xl text-left hover:border-blue-300">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-gray-50 rounded-lg">
+                                <i class="fas fa-shopping-cart text-gray-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold text-gray-700 mb-1">🛒 COMPRAR ALGO ESPECÍFICO</h3>
+                                <p class="text-xs text-gray-500 mb-3">Produtos, serviços ou investimentos</p>
+                                <div class="text-xs text-blue-600">
+                                    <div class="font-medium">Melhor opção: Linha de Crédito</div>
+                                    <div class="mt-1 opacity-80">📊 Disponível agora: R$ 2.500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Option 2 - Selected -->
+                    <button class="w-full p-4 border-2 border-blue-500 bg-blue-50 rounded-xl text-left shadow-sm">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-blue-100 rounded-lg">
+                                <i class="fas fa-dollar-sign text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold mp-blue mb-1">💰 TER DINHEIRO DISPONÍVEL</h3>
+                                <p class="text-xs text-gray-500 mb-3">Quantia livre para usar como quiser</p>
+                                <div class="text-xs credito-success">
+                                    <div class="font-medium">Melhor opção: Empréstimo</div>
+                                    <div class="mt-1 opacity-80">📊 Até R$ 8.000 pré-aprovado</div>
+                                </div>
+                            </div>
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                        </div>
+                    </button>
+
+                    <!-- Option 3 -->
+                    <button class="w-full p-4 border border-gray-200 rounded-xl text-left hover:border-blue-300">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-gray-50 rounded-lg">
+                                <i class="fas fa-building text-gray-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold text-gray-700 mb-1">🏢 INVESTIR NO MEU NEGÓCIO</h3>
+                                <p class="text-xs text-gray-500 mb-3">Capital, equipamentos, expansão</p>
+                                <div class="text-xs mp-blue">
+                                    <div class="font-medium">Ver opções empresariais →</div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Help Options -->
+                <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center justify-center space-x-4 text-sm">
+                        <button class="flex items-center space-x-2 text-gray-600">
+                            <i class="fas fa-question-circle"></i>
+                            <span>🤔 Não sei qual escolher</span>
+                        </button>
+                        <div class="w-px h-4 bg-gray-300"></div>
+                        <button class="mp-blue">💬 Falar com especialista</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendation Card -->
+            <section class="px-4 mb-6">
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm">
+                    <!-- Header -->
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 border-b border-gray-100">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i class="fas fa-bullseye credito-success"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-700">🎯 Para você que quer ter dinheiro disponível</h3>
+                                <div class="flex items-center space-x-2 mt-1">
+                                    <span class="text-lg">💵</span>
+                                    <span class="text-lg font-bold text-gray-800">RECOMENDAMOS: EMPRÉSTIMO PESSOAL</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Match percentage -->
+                        <div class="flex items-center space-x-2">
+                            <div class="flex-1 bg-white/50 rounded-full h-2">
+                                <div class="h-2 bg-green-500 rounded-full" style="width: 92%"></div>
+                            </div>
+                            <span class="text-sm font-bold credito-success">⭐ 92% ideal para você</span>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-4">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+                            <i class="fas fa-check-circle credito-success mr-2"></i>
+                            POR QUE?
+                        </h4>
+                        
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-start space-x-2">
+                                <span class="credito-success mt-1">✅</span>
+                                <span class="text-xs text-gray-600">Seu histórico mostra pagamentos regulares e no prazo</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="credito-success mt-1">✅</span>
+                                <span class="text-xs text-gray-600">Para quantia específica, empréstimo tem taxa menor que linha de crédito</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="credito-success mt-1">✅</span>
+                                <span class="text-xs text-gray-600">Parcelas fixas facilitam seu planejamento financeiro</span>
+                            </div>
+                        </div>
+
+                        <!-- Benefits -->
+                        <div class="bg-credito-success-light border border-credito-success rounded-lg p-3 mb-4">
+                            <h5 class="text-xs font-semibold credito-success mb-2">💰 BENEFÍCIOS PARA VOCÊ:</h5>
+                            <div class="space-y-1">
+                                <div class="text-xs credito-success flex items-start space-x-2">
+                                    <span>💎</span>
+                                    <span>Economia de R$ 164/mês vs usar LC + cartão</span>
+                                </div>
+                                <div class="text-xs credito-success flex items-start space-x-2">
+                                    <span>💎</span>
+                                    <span>Taxa personalizada 1,6% (menor que padrão)</span>
+                                </div>
+                                <div class="text-xs credito-success flex items-start space-x-2">
+                                    <span>💎</span>
+                                    <span>Planejamento mais fácil com parcelas fixas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simulation -->
+                        <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                            <h5 class="text-xs font-semibold text-gray-700 mb-2 flex items-center">
+                                <i class="fas fa-calculator mr-2"></i>
+                                💰 PARA VOCÊ ESPECIFICAMENTE:
+                            </h5>
+                            <div class="grid grid-cols-2 gap-4 text-xs">
+                                <div>
+                                    <div class="text-gray-500">Valor disponível:</div>
+                                    <div class="font-semibold text-gray-700">R$ 5.000</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Taxa personalizada:</div>
+                                    <div class="font-semibold credito-success">1.6% a.m.</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Exemplo 12x:</div>
+                                    <div class="font-semibold text-gray-700">R$ 464/mês</div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Total:</div>
+                                    <div class="font-semibold text-gray-700">R$ 5.568</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="space-y-3">
+                            <button class="w-full bg-gray-100 mp-blue text-sm font-medium py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                                📊 VER COMPARAÇÃO COMPLETA
+                            </button>
+                            <div class="flex space-x-3">
+                                <button class="flex-1 bg-mp-blue text-white text-sm font-medium py-3 rounded-lg hover:opacity-90">
+                                    ✅ CONTINUAR COM EMPRÉSTIMO
+                                </button>
+                                <button class="px-4 py-3 border border-gray-300 text-gray-600 text-sm rounded-lg">
+                                    🔄 VER OUTRAS OPÇÕES
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="px-4 mb-6">
+                <h3 class="text-sm font-medium text-gray-600 mb-3">⚡ AÇÕES RÁPIDAS:</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="bg-credito-success text-white p-4 rounded-xl text-left shadow-sm hover:opacity-90">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i class="fas fa-dollar-sign text-sm"></i>
+                            <span class="text-xs font-semibold">💰 Pedir empréstimo</span>
+                        </div>
+                        <div class="text-xs opacity-90">Até R$ 8.000 pré-aprovado</div>
+                    </button>
+                    
+                    <button class="bg-blue-600 text-white p-4 rounded-xl text-left shadow-sm hover:opacity-90">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i class="fas fa-chart-line text-sm"></i>
+                            <span class="text-xs font-semibold">🔄 Aumentar limite LC</span>
+                        </div>
+                        <div class="text-xs opacity-90">Solicitar aumento</div>
+                    </button>
+                    
+                    <button class="bg-gray-600 text-white p-4 rounded-xl text-left shadow-sm hover:opacity-90">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i class="fas fa-calculator text-sm"></i>
+                            <span class="text-xs font-semibold">📊 Simular custos</span>
+                        </div>
+                        <div class="text-xs opacity-90">Compare produtos</div>
+                    </button>
+                    
+                    <button class="bg-blue-500 text-white p-4 rounded-xl text-left shadow-sm hover:opacity-90">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i class="fas fa-comments text-sm"></i>
+                            <span class="text-xs font-semibold">💬 Falar especialista</span>
+                        </div>
+                        <div class="text-xs opacity-90">Tire suas dúvidas</div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Educational Section -->
+            <div class="px-4 py-6 border-t border-gray-100">
+                <h3 class="text-sm font-medium text-gray-600 mb-3">📚 ENTENDA AS DIFERENÇAS:</h3>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="p-3 text-left border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                        <div class="text-xs font-medium mp-blue">🔍 LC vs Empréstimo</div>
+                        <div class="text-xs text-gray-500 mt-1">Compare lado a lado</div>
+                    </button>
+                    
+                    <button class="p-3 text-left border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                        <div class="text-xs font-medium mp-blue">📊 Simulador</div>
+                        <div class="text-xs text-gray-500 mt-1">Calcule custos</div>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3 mt-3">
+                    <button class="p-3 text-left border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                        <div class="text-xs font-medium mp-blue">📱 Guia completo</div>
+                        <div class="text-xs text-gray-500 mt-1">Aprenda mais</div>
+                    </button>
+                    
+                    <button class="p-3 text-left border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                        <div class="text-xs font-medium mp-blue">💭 Dúvidas</div>
+                        <div class="text-xs text-gray-500 mt-1">Perguntas frequentes</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer spacing -->
+            <div class="h-20"></div>
+        </main>
+
+        <!-- Proactive Widget -->
+        <div id="proactiveWidget" class="fixed bottom-0 left-0 right-0 z-50 max-w-md mx-auto animate-slide-up" style="display: none;">
+            <div class="bg-white border-2 border-green-500 rounded-t-xl shadow-2xl">
+                <!-- Header -->
+                <div class="bg-credito-success-light px-4 py-3 flex items-center justify-between border-b border-credito-success">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-green-200 rounded-lg">
+                            <i class="fas fa-chart-line credito-success"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold credito-success">🤖 Assistente de Crédito</h4>
+                            <span class="text-xs text-gray-500">Oportunidade detectada</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="minimizeWidget()" class="p-1 text-gray-400">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button onclick="closeWidget()" class="p-1 text-gray-400">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-4">
+                    <h3 class="text-sm font-semibold credito-success mb-2">Economia detectada</h3>
+                    <p class="text-sm text-gray-700 mb-3">Para sua compra de R$ 3.200, linha de crédito sai mais barato que parcelar no cartão</p>
+
+                    <!-- Savings highlight -->
+                    <div class="bg-credito-success-light border border-credito-success rounded-lg p-3 mb-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-lg">💰</span>
+                            <div>
+                                <div class="text-sm font-semibold credito-success">Economia: R$ 180</div>
+                                <div class="text-xs text-green-600">Em juros comparado ao método atual</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-credito-success text-white text-sm font-medium py-2 px-4 rounded-lg">
+                            Usar LC
+                        </button>
+                        <button onclick="closeWidget()" class="px-4 py-2 border border-gray-300 text-gray-600 text-sm rounded-lg">
+                            ❌ AGORA NÃO
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 text-gray-600 text-sm rounded-lg">
+                            🤔 EXPLICAR
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minimized Widget -->
+        <div id="minimizedWidget" class="fixed bottom-4 right-4 z-50" style="display: none;">
+            <button onclick="showWidget()" class="bg-credito-success text-white p-3 rounded-full shadow-lg">
+                <i class="fas fa-chart-line"></i>
+                <div class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                    R$ 180
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Show proactive widget after 3 seconds
+        setTimeout(() => {
+            document.getElementById('proactiveWidget').style.display = 'block';
+        }, 3000);
+
+        function closeWidget() {
+            document.getElementById('proactiveWidget').style.display = 'none';
+        }
+
+        function minimizeWidget() {
+            document.getElementById('proactiveWidget').style.display = 'none';
+            document.getElementById('minimizedWidget').style.display = 'block';
+        }
+
+        function showWidget() {
+            document.getElementById('minimizedWidget').style.display = 'none';
+            document.getElementById('proactiveWidget').style.display = 'block';
+        }
+
+        // Simulate need selection interaction
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('TER DINHEIRO DISPONÍVEL')) {
+                    // Already selected, do nothing special
+                } else if (this.textContent.includes('COMPRAR ALGO') || this.textContent.includes('INVESTIR NO MEU')) {
+                    // Remove current selection
+                    document.querySelectorAll('.border-blue-500').forEach(el => {
+                        el.classList.remove('border-blue-500', 'bg-blue-50', 'border-2');
+                        el.classList.add('border-gray-200');
+                    });
+                    
+                    // Add selection to clicked button
+                    this.classList.add('border-blue-500', 'bg-blue-50', 'border-2');
+                    this.classList.remove('border-gray-200');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
