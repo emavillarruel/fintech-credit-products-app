@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏦 Testing Lab - Productos Financieros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #3483FA 0%, #4285F4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loading-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="text-center max-w-2xl mx-auto p-8">
+        <div class="loading-animation mb-8">
+            <div class="text-6xl mb-4">🧪</div>
+            <h1 class="text-4xl font-bold mb-2">Testing Lab</h1>
+            <h2 class="text-2xl mb-4">Aplicación Productos Financieros</h2>
+        </div>
+        
+        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-8">
+            <p class="text-lg mb-4">
+                <strong>Objetivo:</strong> Reducir confusión del usuario del 35% al &lt;5%
+            </p>
+            <p class="text-sm opacity-90">
+                Experimenta con 3 versiones diferentes de nuestra aplicación
+            </p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl mb-2">📱</div>
+                    <div class="font-semibold">Versión A</div>
+                    <div class="text-sm opacity-80">Simplificada</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl mb-2">💬</div>
+                    <div class="font-semibold">Versión B</div>
+                    <div class="text-sm opacity-80">Conversacional</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl mb-2">📈</div>
+                    <div class="font-semibold">Original</div>
+                    <div class="text-sm opacity-80">Completa</div>
+                </div>
+            </div>
+            
+            <button onclick="enterLab()" 
+                    class="bg-white text-blue-600 font-bold py-4 px-8 rounded-xl text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                🚀 Ingresar al Testing Lab
+            </button>
+            
+            <div class="text-sm opacity-75 mt-4">
+                Tiempo estimado: 5-15 minutos
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function enterLab() {
+            window.location.href = 'version-selector.html';
+        }
+        
+        // Auto-redirect after 5 seconds if no interaction
+        setTimeout(() => {
+            if (!document.hidden) {
+                enterLab();
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

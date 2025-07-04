@@ -1,58 +1,97 @@
-# 🎯 Crédito Ideal - Dashboard Principal
+# 🏦 Testing Lab - Aplicación Productos Financieros
 
-## Visão Geral
-Dashboard principal da seção "Crédito Ideal" integrada no aplicativo Mercado Pago. Implementa a estratégia de entendimento e recomendação personalizada de produtos de crédito.
+## 🎯 Objetivo
+Reducir la confusión del usuario del 35% al <5% a través de una mejor comprensión de los productos de crédito.
 
-## Funcionalidades Implementadas
+## 🧪 Versiones Disponibles
 
-### 🏠 Dashboard Principal
-- **Status contextual**: Mostra produtos atuais (LC ativa, empréstimos pré-aprovados)
-- **Seletor de necessidades**: 3 opções principais + quiz para indecisos
-- **Recomendação personalizada**: IA sugere produto ideal com justificativas
-- **Ações rápidas**: Botões para tarefas comuns
-- **Widget proativo**: Detecta oportunidades de economia
+### 📱 [Versión A - Simplificada](dashboard-simple-preview.html)
+- **Concepto**: Ultra-simplificado: 1 pregunta → 1 respuesta → 1 acción
+- **Características**: Máximo 3 elementos por pantalla, sin términos técnicos
+- **Tiempo**: ~30 segundos
+- **Ideal para**: Usuarios que quieren decisiones rápidas
 
-### 📊 Componentes Principais
-- `CreditDashboard`: Componente principal orquestrando toda a experiência
-- `MPNavigation`: Navegação integrada do Mercado Pago
-- `StatusSection`: Status atual dos produtos do usuário
-- `NeedSelector`: Seleção de necessidade com recomendações visuais
-- `RecommendationCard`: Cartão de recomendação com justificativas
-- `QuickActions`: Ações rápidas contextuais
-- `ProactiveWidget`: Widget de insights proativos
+### 💬 [Versión B - Conversacional](versions/B-proximaversion/dashboard-conversacional-preview.html)
+- **Concepto**: Como conversar con un especialista en crédito personal
+- **Características**: Asistente IA, recomendaciones personalizadas, educativo
+- **Tiempo**: ~2-3 minutos
+- **Ideal para**: Usuarios que necesitan educación sobre productos
 
-### 🎨 Design System
-- Cores oficiais do Mercado Pago
-- Layout mobile-first (max-width: 448px)
-- Animações suaves e feedback visual
-- Acessibilidade com foco e contraste
+### 📈 [Versión Original - Dashboard Completo](dashboard-preview.html)
+- **Concepto**: Dashboard completo con todas las funcionalidades
+- **Características**: 7 secciones, múltiples acciones, datos técnicos
+- **Tiempo**: ~5+ minutos
+- **Ideal para**: Usuarios experimentados que quieren control total
 
-## Estrutura do Projeto
+## 🚀 Empezar
+
+### Opción 1: Selector de Versiones
+[**► Abrir Testing Lab**](https://tu-usuario.github.io/fintech-credit-products-app/version-selector.html)
+
+### Opción 2: Acceso Directo
+- [Versión A - Simplificada](https://tu-usuario.github.io/fintech-credit-products-app/dashboard-simple-preview.html)
+- [Versión B - Conversacional](https://tu-usuario.github.io/fintech-credit-products-app/versions/B-proximaversion/dashboard-conversacional-preview.html)
+- [Versión Original - Completa](https://tu-usuario.github.io/fintech-credit-products-app/dashboard-preview.html)
+
+## 📊 Comparación Rápida
+
+| Aspecto | Versión A | Versión B | Original |
+|---------|-----------|-----------|----------|
+| **Simplicidad** | 🟢 Máxima | 🟡 Moderada | 🔴 Compleja |
+| **Personalización** | 🟡 Básica | 🟢 Alta | 🟡 Moderada |
+| **Educación** | 🟡 Limitada | 🟢 Excelente | 🟡 Informativa |
+| **Tiempo** | 🟢 30s | 🟡 2-3min | 🔴 5min+ |
+| **Engagement** | 🟡 Rápido | 🟢 Alto | 🟡 Moderado |
+
+## 🛠️ Tecnologías
+- **Frontend**: HTML5, CSS3, JavaScript, Tailwind CSS
+- **Backend**: Next.js 14, TypeScript
+- **Diseño**: Mobile-first, Responsive
+- **Testing**: A/B Testing Framework
+
+## 📋 Estructura del Proyecto
+
 ```
-src/
-├── components/
-│   └── Dashboard/           # Componentes do dashboard
-├── types/                   # TypeScript types
-├── utils/                   # Utilitários e mock data
-└── app/                     # Next.js app directory
+fintech-app/
+├── version-selector.html          # Hub principal del testing lab
+├── dashboard-simple-preview.html  # Versión A - Simplificada
+├── dashboard-preview.html         # Versión Original - Completa
+├── versions/
+│   ├── A-simplificado/           # Código fuente Versión A
+│   ├── B-proximaversion/         # Código fuente Versión B
+│   └── original-completo/        # Código fuente Original
+├── src/                          # Componentes React/Next.js
+└── TESTING_LAB.md               # Documentación completa
+
 ```
 
-## Tecnologias
-- **Next.js 14** com App Router
-- **TypeScript** para type safety
-- **Tailwind CSS** para styling
-- **Lucide React** para ícones
-- **Framer Motion** para animações
+## 🎯 Para Evaluadores
 
-## Executar o Projeto
-```bash
-npm install
-npm run dev
-```
+### Testing Rápido (5 minutos)
+1. Abrir [Testing Lab](version-selector.html)
+2. Probar cada versión durante 1-2 minutos
+3. Comparar experiencias
 
-## Próximos Passos
-1. Integração com APIs reais
-2. Testes unitários
-3. Implementação do quiz de diagnóstico
-4. Comparador visual LC vs PL
-5. Simulador interativo
+### Testing Completo (15 minutos)
+1. Leer documentación en [TESTING_LAB.md](TESTING_LAB.md)
+2. Probar todas las versiones completamente
+3. Usar matriz de comparación
+4. Proporcionar feedback
+
+## 📝 Feedback
+¿Probaste las versiones? ¡Queremos tu opinión!
+- Crea un [Issue](../../issues/new) con tus comentarios
+- Usa el formulario de feedback en el Testing Lab
+- Contacta al equipo de desarrollo
+
+## 🚀 Próximos Pasos
+- [ ] Implementar métricas de uso real
+- [ ] Integrar con datos de usuarios reales
+- [ ] Expandir testing A/B con más variantes
+- [ ] Implementar IA conversacional real
+
+---
+
+**💡 Desarrollado por**: Equipo de Productos Financieros  
+**📅 Última actualización**: Julio 2024  
+**🔗 Estado**: Testing Lab Activo
