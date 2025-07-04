@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>�� Selector de Versiones - Dashboard Crédito Ideal</title>
+    <title>�� Testing Lab - Productos Financieros</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -24,7 +24,7 @@
         
         .badge-new { background: linear-gradient(45deg, #00A650, #00d66a); }
         .badge-original { background: linear-gradient(45deg, #FF6600, #ff8533); }
-        .badge-coming { background: linear-gradient(45deg, #666, #999); }
+        .badge-conversational { background: linear-gradient(45deg, #8b5cf6, #a855f7); }
         
         .stats-grid {
             display: grid;
@@ -33,189 +33,253 @@
         }
     </style>
 </head>
-<body>
-    <div class="min-h-screen py-8 px-4">
-        <div class="max-w-6xl mx-auto">
+<body class="text-gray-900">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-white mb-4">
+                🧪 Testing Lab - Productos Financieros
+            </h1>
+            <div class="text-lg text-blue-100 mb-6">
+                Experimenta diferentes versiones de la aplicación
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block">
+                <div class="text-white text-sm">
+                    <strong>Objetivo:</strong> Reducir confusión del usuario de 35% a <5% através de mejor comprensión de productos
+                </div>
+            </div>
+        </div>
+
+        <!-- Version Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             
-            <!-- Header -->
-            <header class="text-center text-white mb-12">
-                <h1 class="text-4xl font-bold mb-4">🧪 Dashboard Versions</h1>
-                <p class="text-xl opacity-90 mb-2">Teste e compare diferentes abordagens</p>
-                <p class="text-sm opacity-75">Selecione uma versão para testar a experiência</p>
-            </header>
-
-            <!-- Version Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            <!-- Version A: Simplificado -->
+            <div class="version-card bg-white rounded-2xl p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">📱 Versão A</h3>
+                    <span class="badge-new text-white text-xs px-3 py-1 rounded-full font-medium">ATUAL</span>
+                </div>
                 
-                <!-- Version A: Simplificado -->
-                <div class="version-card bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-gray-800">📱 Versão A</h3>
-                        <span class="badge-new text-white text-xs px-3 py-1 rounded-full font-medium">ATUAL</span>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold text-gray-700 mb-3">🎯 ULTRA-SIMPLIFICADO</h4>
-                    
-                    <div class="mb-6">
-                        <div class="stats-grid text-center mb-4">
-                            <div>
-                                <div class="text-2xl font-bold text-green-600">3</div>
-                                <div class="text-xs text-gray-500">Telas</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-blue-600">1</div>
-                                <div class="text-xs text-gray-500">Pergunta</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-purple-600">0</div>
-                                <div class="text-xs text-gray-500">Info Técnica</div>
-                            </div>
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">🎯 ULTRA-SIMPLIFICADO</h4>
+                
+                <div class="mb-6">
+                    <div class="stats-grid text-center mb-4">
+                        <div>
+                            <div class="text-2xl font-bold text-green-600">3</div>
+                            <div class="text-xs text-gray-500">Telas</div>
                         </div>
-                        
-                        <div class="text-sm text-gray-600 space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-green-500">✅</span>
-                                <span>1 Pergunta → 1 Resposta → 1 Ação</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-green-500">✅</span>
-                                <span>Linguagem 100% conversacional</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-green-500">✅</span>
-                                <span>Zero terminologia técnica</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-green-500">✅</span>
-                                <span>Fluxo linear e previsível</span>
-                            </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-600">1</div>
+                            <div class="text-xs text-gray-500">Pergunta</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">30s</div>
+                            <div class="text-xs text-gray-500">Tempo</div>
                         </div>
                     </div>
                     
-                    <div class="space-y-3">
-                        <button onclick="openVersion('A')" 
-                                class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                            💬 TESTAR VERSÃO A
-                        </button>
-                        <button onclick="viewDetails('A')" 
-                                class="w-full border border-gray-300 text-gray-600 font-medium py-2 rounded-lg hover:border-gray-400 transition-colors">
-                            📊 Ver Detalhes
-                        </button>
+                    <div class="text-sm text-gray-600 space-y-2">
+                        <div>• Filosofia: 1 pergunta → 1 resposta → 1 ação</div>
+                        <div>• Zero termos técnicos</div>
+                        <div>• Máximo 3 elementos por tela</div>
+                        <div>• Foco total na decisão</div>
                     </div>
                 </div>
-
-                <!-- Version B: Placeholder para próxima versão -->
-                <div class="version-card bg-white rounded-2xl p-6 shadow-lg opacity-75">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-gray-800">📊 Versão B</h3>
-                        <span class="badge-coming text-white text-xs px-3 py-1 rounded-full font-medium">EM BREVE</span>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold text-gray-700 mb-3">💡 [PRÓXIMA IDEIA]</h4>
-                    
-                    <div class="mb-6">
-                        <div class="text-sm text-gray-500 space-y-2">
-                            <div>• Aguardando definição</div>
-                            <div>• Nova abordagem</div>
-                            <div>• Diferentes metrics</div>
-                            <div>• Testing A/B ready</div>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <button disabled 
-                                class="w-full bg-gray-300 text-gray-500 font-semibold py-3 rounded-lg cursor-not-allowed">
-                            ⏳ EM DESENVOLVIMENTO
-                        </button>
-                        <button onclick="suggestVersionB()" 
-                                class="w-full border border-blue-300 text-blue-600 font-medium py-2 rounded-lg hover:border-blue-400 transition-colors">
-                            �� Sugerir Versão B
-                        </button>
+                
+                <div class="bg-green-50 p-4 rounded-lg mb-4">
+                    <div class="text-sm font-medium text-green-700 mb-2">💡 Insight Principal:</div>
+                    <div class="text-xs text-green-600">
+                        Menos informação = mais compreensão
                     </div>
                 </div>
-
-                <!-- Version Original: Dashboard Completo -->
-                <div class="version-card bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-gray-800">📈 Original</h3>
-                        <span class="badge-original text-white text-xs px-3 py-1 rounded-full font-medium">BASELINE</span>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold text-gray-700 mb-3">🔧 DASHBOARD COMPLETO</h4>
-                    
-                    <div class="mb-6">
-                        <div class="stats-grid text-center mb-4">
-                            <div>
-                                <div class="text-2xl font-bold text-orange-600">1</div>
-                                <div class="text-xs text-gray-500">Tela</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-red-600">7</div>
-                                <div class="text-xs text-gray-500">Seções</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-purple-600">∞</div>
-                                <div class="text-xs text-gray-500">Info Técnica</div>
-                            </div>
-                        </div>
-                        
-                        <div class="text-sm text-gray-600 space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-orange-500">📊</span>
-                                <span>Status, score, limites</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-orange-500">🤖</span>
-                                <span>Widget proativo automático</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-orange-500">⚡</span>
-                                <span>Múltiplas ações simultâneas</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-orange-500">📱</span>
-                                <span>Navegação MP integrada</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <button onclick="openVersion('Original')" 
-                                class="w-full bg-orange-600 text-white font-semibold py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                            📱 TESTAR ORIGINAL
-                        </button>
-                        <button onclick="viewDetails('Original')" 
-                                class="w-full border border-gray-300 text-gray-600 font-medium py-2 rounded-lg hover:border-gray-400 transition-colors">
-                            📊 Ver Detalhes
-                        </button>
-                    </div>
+                
+                <div class="flex gap-2">
+                    <button onclick="openVersion('A')" 
+                            class="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                        ✨ Testar Versão A
+                    </button>
                 </div>
             </div>
 
-            <!-- Comparison Tools -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white">
-                <h3 class="text-xl font-bold mb-4">🔬 Ferramentas de Comparação</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <button onclick="openComparison()" 
-                            class="bg-white/20 hover:bg-white/30 transition-colors px-4 py-3 rounded-lg font-medium">
-                        📊 Comparar Lado a Lado
+            <!-- Version B: Conversacional -->
+            <div class="version-card bg-white rounded-2xl p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">💬 Versão B</h3>
+                    <span class="badge-conversational text-white text-xs px-3 py-1 rounded-full font-medium">NOVO</span>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">🤖 CONVERSACIONAL</h4>
+                
+                <div class="mb-6">
+                    <div class="stats-grid text-center mb-4">
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">1</div>
+                            <div class="text-xs text-gray-500">Chat</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-indigo-600">3</div>
+                            <div class="text-xs text-gray-500">Perguntas</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-pink-600">100%</div>
+                            <div class="text-xs text-gray-500">Personalizado</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-sm text-gray-600 space-y-2">
+                        <div>• Assistente IA conversacional</div>
+                        <div>• Recomendações personalizadas</div>
+                        <div>• Educação sobre produtos</div>
+                        <div>• Interface tipo chat</div>
+                    </div>
+                </div>
+                
+                <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                    <div class="text-sm font-medium text-purple-700 mb-2">💬 Conceito:</div>
+                    <div class="text-xs text-purple-600">
+                        Como conversar com um especialista em crédito pessoal
+                    </div>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button onclick="openVersion('B')" 
+                            class="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors">
+                        💬 Testar Versão B
                     </button>
-                    <button onclick="openMetrics()" 
-                            class="bg-white/20 hover:bg-white/30 transition-colors px-4 py-3 rounded-lg font-medium">
+                </div>
+            </div>
+
+            <!-- Version Original: Dashboard Completo -->
+            <div class="version-card bg-white rounded-2xl p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">📈 Original</h3>
+                    <span class="badge-original text-white text-xs px-3 py-1 rounded-full font-medium">BASELINE</span>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">🔧 DASHBOARD COMPLETO</h4>
+                
+                <div class="mb-6">
+                    <div class="stats-grid text-center mb-4">
+                        <div>
+                            <div class="text-2xl font-bold text-orange-600">1</div>
+                            <div class="text-xs text-gray-500">Tela</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-red-600">7</div>
+                            <div class="text-xs text-gray-500">Seções</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-yellow-600">2m</div>
+                            <div class="text-xs text-gray-500">Tempo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-sm text-gray-600 space-y-2">
+                        <div>• Dashboard completo com todas as funcionalidades</div>
+                        <div>• Navegação integrada MP</div>
+                        <div>• Múltiplas ações simultâneas</div>
+                        <div>• Métricas e dados técnicos</div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 p-4 rounded-lg mb-4">
+                    <div class="text-sm font-medium text-orange-700 mb-2">📊 Problema Identificado:</div>
+                    <div class="text-xs text-orange-600">
+                        Demasiada informação puede abrumar al usuario
+                    </div>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button onclick="openVersion('Original')" 
+                            class="flex-1 bg-orange-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors">
+                        📈 Testar Original
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Matrix -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">📊 Matriz de Comparação</h2>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left p-3">Aspecto</th>
+                            <th class="text-center p-3">📱 Versão A</th>
+                            <th class="text-center p-3">💬 Versão B</th>
+                            <th class="text-center p-3">📈 Original</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr class="border-b">
+                            <td class="text-left p-3 font-medium">Simplicidade</td>
+                            <td class="p-3">🟢 Máxima</td>
+                            <td class="p-3">🟡 Moderada</td>
+                            <td class="p-3">🔴 Compleja</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="text-left p-3 font-medium">Personalização</td>
+                            <td class="p-3">🟡 Básica</td>
+                            <td class="p-3">🟢 Alta</td>
+                            <td class="p-3">🟡 Moderada</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="text-left p-3 font-medium">Educação</td>
+                            <td class="p-3">🟡 Limitada</td>
+                            <td class="p-3">🟢 Excelente</td>
+                            <td class="p-3">🟡 Informativa</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="text-left p-3 font-medium">Tiempo</td>
+                            <td class="p-3">🟢 30s</td>
+                            <td class="p-3">🟡 2-3min</td>
+                            <td class="p-3">🔴 5min+</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left p-3 font-medium">Engagement</td>
+                            <td class="p-3">🟡 Rápido</td>
+                            <td class="p-3">🟢 Alto</td>
+                            <td class="p-3">🟡 Moderado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Lab Controls -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">🔬 Controles del Lab</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-700 mb-2">📝 Feedback</h3>
+                    <p class="text-sm text-gray-600 mb-3">Comparte tu experiencia con cada versión</p>
+                    <button onclick="provideFeedback()" 
+                            class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                        💬 Dar Feedback
+                    </button>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-700 mb-2">📊 Métricas</h3>
+                    <p class="text-sm text-gray-600 mb-3">Ver análisis comparativo de performance</p>
+                    <button onclick="viewMetrics()" 
+                            class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
                         📈 Ver Métricas
                     </button>
-                    <button onclick="exportResults()" 
-                            class="bg-white/20 hover:bg-white/30 transition-colors px-4 py-3 rounded-lg font-medium">
-                        📤 Exportar Resultados
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-700 mb-2">🎯 Sugerir</h3>
+                    <p class="text-sm text-gray-600 mb-3">Proponer mejoras o nuevas versiones</p>
+                    <button onclick="suggestImprovement()" 
+                            class="w-full bg-green-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                        💡 Sugerir Mejora
                     </button>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <footer class="text-center text-white/75 text-sm mt-8">
-                <p>🧪 Testing Lab - Mercado Pago Credit Experience</p>
-                <p class="mt-1">Iteração rápida • Validação contínua • Data-driven decisions</p>
-            </footer>
         </div>
     </div>
 
@@ -226,81 +290,37 @@
             if (version === 'A') {
                 // Abrir versão simplificada
                 window.open('dashboard-simple-preview.html', '_blank');
+            } else if (version === 'B') {
+                // Abrir versão conversacional
+                window.open('versions/B-proximaversion/dashboard-conversacional-preview.html', '_blank');
             } else if (version === 'Original') {
                 // Abrir versão original
                 window.open('dashboard-preview.html', '_blank');
             }
         }
 
-        function viewDetails(version) {
-            alert(`📊 Detalhes da Versão ${version}:\n\n` +
-                  `• Arquivos de código\n` +
-                  `• Métricas de usabilidade\n` +
-                  `• Feedback dos usuários\n` +
-                  `• Performance analytics`);
-        }
-
-        function suggestVersionB() {
-            const suggestions = [
-                "💬 Dashboard Conversacional (ChatBot integrado)",
-                "🎯 Dashboard Gamificado (Progresso visual)",
-                "📊 Dashboard com Comparação Visual (LC vs PL lado a lado)",
-                "🎮 Dashboard Interativo (Quiz com perguntas dinâmicas)",
-                "📱 Dashboard Híbrido (Simplificado + Info opcional)",
-                "🤖 Dashboard AI-Powered (Recomendação em tempo real)"
-            ];
-            
-            const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
-            
-            if (confirm(`💡 Sugestão para Versão B:\n\n${randomSuggestion}\n\n¿Te gusta esta idea?`)) {
-                alert("💬 ¡Excelente! Podemos implementar esta versão como opção B.");
+        function provideFeedback() {
+            const feedback = prompt("💬 Comparte tu feedback sobre las versiones que probaste:");
+            if (feedback) {
+                alert("¡Gracias por tu feedback! 🙏\n\nTu opinión nos ayuda a mejorar la experiencia del usuario.");
             }
         }
 
-        function openComparison() {
-            alert("📊 Comparação Lado a Lado:\n\n" +
-                  "• Versão A vs Original\n" +
-                  "• Métricas de conversão\n" +
-                  "• Tempo de decisão\n" +
-                  "• Taxa de confusão\n" +
-                  "• Satisfação do usuário");
+        function viewMetrics() {
+            alert("📊 Métricas del Testing Lab:\n\n" +
+                  "• Tiempo promedio por versión\n" +
+                  "• Tasa de completitud\n" +
+                  "• Nivel de comprensión\n" +
+                  "• Preferencias de usuario\n\n" +
+                  "Funcionalidad próximamente disponible.");
         }
 
-        function openMetrics() {
-            alert("📈 Métricas Disponíveis:\n\n" +
-                  "• Taxa de conversão por versão\n" +
-                  "• Tempo médio de decisão\n" +
-                  "• Perguntas de confusão (%)\n" +
-                  "• Abandono no funil\n" +
-                  "• NPS por experiência");
+        function suggestImprovement() {
+            const suggestion = prompt("💡 ¿Qué mejora o nueva versión sugieres?");
+            if (suggestion) {
+                alert("¡Excelente sugerencia! 🎯\n\nLa consideraremos para futuras iteraciones del producto.");
+            }
         }
-
-        function exportResults() {
-            alert("📤 Exportar Resultados:\n\n" +
-                  "• Relatório de A/B Testing\n" +
-                  "• Dashboard de métricas\n" +
-                  "• Feedback qualitativo\n" +
-                  "• Recomendações de melhoria");
-        }
-
-        // Auto-suggestion de novas versões
-        setTimeout(() => {
-            const newVersionIdeas = document.createElement('div');
-            newVersionIdeas.className = 'fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg max-w-sm';
-            newVersionIdeas.innerHTML = `
-                <div class="flex items-center space-x-2 mb-2">
-                    <span class="text-lg">💡</span>
-                    <span class="font-semibold">Ideia para Versão B</span>
-                </div>
-                <p class="text-sm mb-3">Que tal um dashboard com comparação visual LC vs PL?</p>
-                <button onclick="this.parentElement.remove()" class="text-xs bg-white/20 px-2 py-1 rounded">
-                    ✨ Interessante!
-                </button>
-            `;
-            document.body.appendChild(newVersionIdeas);
-            
-            setTimeout(() => newVersionIdeas.remove(), 8000);
-        }, 3000);
     </script>
 </body>
 </html>
