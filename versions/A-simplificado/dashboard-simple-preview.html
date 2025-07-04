@@ -22,9 +22,39 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .dashboard-container { max-width: 448px; margin: 0 auto; min-height: 100vh; }
+        
+        /* Mobile navigation optimizations */
+        .mobile-nav-button {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="w-full px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center min-w-0">
+                    <h1 class="text-lg font-bold text-gray-900 truncate">
+                        🎯 Simplicidade Extrema
+                    </h1>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 px-2 py-2 rounded-md text-xs font-medium">
+                        ← Hub
+                    </a>
+                    <div class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                        Concepto A
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- Step 1: Need Selection -->
     <div id="needSelection" class="dashboard-container fade-in">
         <!-- Simple Header -->
@@ -152,7 +182,7 @@
                 </button>
 
                 <!-- Main CTA -->
-                <button id="mainCTA" class="w-full bg-green-600 text-white text-xl font-bold py-6 rounded-xl hover:bg-green-700 transition-colors shadow-lg">
+                <button onclick="showOffer()" id="mainCTA" class="w-full bg-green-600 text-white text-xl font-bold py-6 rounded-xl hover:bg-green-700 transition-colors shadow-lg">
                     ✅ CONTINUAR COM EMPRÉSTIMO PESSOAL
                 </button>
 
@@ -216,7 +246,7 @@
                 </div>
 
                 <!-- Final CTA -->
-                <button id="finalCTA" class="w-full bg-green-600 text-white text-xl font-bold py-6 rounded-xl hover:bg-green-700 transition-colors shadow-lg">
+                <button onclick="showOffer()" id="finalCTA" class="w-full bg-green-600 text-white text-xl font-bold py-6 rounded-xl hover:bg-green-700 transition-colors shadow-lg">
                     ✅ ENTENDI, QUERO EMPRÉSTIMO PESSOAL
                 </button>
 
@@ -227,8 +257,171 @@
         </main>
     </div>
 
+    <!-- Step 4: Credit Offer -->
+    <div id="creditOffer" class="dashboard-container fade-in" style="display: none;">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-green-600 to-green-500 text-white px-6 py-4">
+            <div class="flex items-center space-x-4">
+                <button onclick="hideOffer()" class="text-white hover:text-white/80">
+                    ← Voltar
+                </button>
+                <h1 class="text-xl font-bold">Sua Oferta de Crédito</h1>
+            </div>
+        </header>
+
+        <!-- Offer -->
+        <main class="px-6 py-8">
+            <div class="max-w-md mx-auto">
+                
+                <!-- Success Animation -->
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">
+                        OFERTA APROVADA!
+                    </h2>
+                    <p class="text-gray-600">
+                        Condições especiais para você
+                    </p>
+                </div>
+
+                <!-- Offer Card -->
+                <div class="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl p-8 mb-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div id="offerIcon" class="text-5xl mb-3">💵</div>
+                        <h3 id="offerProductName" class="text-2xl font-bold mb-2">
+                            EMPRÉSTIMO PESSOAL
+                        </h3>
+                        <div class="text-sm opacity-90">
+                            Aprovado para você
+                        </div>
+                    </div>
+                    
+                    <!-- Key Terms -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center bg-white/10 rounded-lg p-4">
+                            <span class="text-lg">💰 Valor disponível</span>
+                            <span id="offerAmount" class="text-2xl font-bold">R$ 15.000</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center bg-white/10 rounded-lg p-4">
+                            <span class="text-lg">📊 Taxa por mês</span>
+                            <span id="offerRate" class="text-2xl font-bold">2,9%</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center bg-white/10 rounded-lg p-4">
+                            <span class="text-lg">📅 Parcelas</span>
+                            <span id="offerInstallments" class="text-2xl font-bold">até 24x</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center bg-white/10 rounded-lg p-4">
+                            <span class="text-lg">⚡ Liberação</span>
+                            <span id="offerSpeed" class="text-2xl font-bold">24h</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+                    <h4 class="text-lg font-bold text-gray-800 mb-4 text-center">
+                        ✨ Vantagens Exclusivas
+                    </h4>
+                    <div id="offerBenefits" class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-green-600 text-xl">✅</span>
+                            <span class="text-gray-700">Sem consulta no SPC/Serasa</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-green-600 text-xl">✅</span>
+                            <span class="text-gray-700">Taxa fixa durante todo período</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-green-600 text-xl">✅</span>
+                            <span class="text-gray-700">Pode pagar antecipado sem multa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="space-y-4">
+                    <button onclick="acceptOffer()" class="w-full bg-gradient-to-r from-green-600 to-green-500 text-white text-xl font-bold py-6 rounded-xl hover:from-green-700 hover:to-green-600 transition-all duration-300 shadow-lg transform hover:scale-105">
+                        🚀 ACEITAR OFERTA
+                    </button>
+                    
+                    <button onclick="customizeOffer()" class="w-full border-2 border-green-600 text-green-600 text-lg font-semibold py-4 rounded-xl hover:bg-green-50 transition-colors">
+                        ⚙️ Personalizar valores
+                    </button>
+                    
+                    <button onclick="goBack()" class="w-full py-3 text-gray-500 hover:text-gray-700">
+                        🔄 Ver outras opções
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Navigation Footer -->
+    <footer class="bg-white border-t mt-8">
+        <div class="w-full px-4 py-4">
+            <div class="flex flex-col items-center space-y-3">
+                <div class="text-xs text-gray-600 text-center">
+                    🎯 Concepto A - Simplicidade Extrema
+                    <br>
+                    <span class="text-blue-600 font-medium">Menos informação = mais compreensão</span>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <span class="text-xs text-blue-600 font-medium bg-blue-100 py-2 px-3 rounded">A</span>
+                    <a href="versions/B-proximaversion/dashboard-conversacional-preview.html" class="text-xs text-gray-500 hover:text-gray-700 py-2 px-3 rounded touch-manipulation bg-gray-50">B</a>
+                    <a href="dashboard-preview.html" class="text-xs text-gray-500 hover:text-gray-700 py-2 px-3 rounded touch-manipulation bg-gray-50">C</a>
+                    <a href="dashboard-adaptive-preview.html" class="text-xs text-gray-500 hover:text-gray-700 py-2 px-3 rounded touch-manipulation bg-gray-50">D</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         let currentNeed = null;
+        
+        const offers = {
+            'HAVE_MONEY': {
+                product: 'EMPRÉSTIMO PESSOAL',
+                icon: '💵',
+                amount: 'R$ 15.000',
+                rate: '2,9%',
+                installments: 'até 24x',
+                speed: '24h',
+                benefits: [
+                    'Sem consulta no SPC/Serasa',
+                    'Taxa fixa durante todo período',
+                    'Pode pagar antecipado sem multa'
+                ]
+            },
+            'BUY_SPECIFIC': {
+                product: 'LINHA DE CRÉDITO',
+                icon: '💳',
+                amount: 'R$ 25.000',
+                rate: '3,2%',
+                installments: 'revolving',
+                speed: '15 min',
+                benefits: [
+                    'Use apenas o que precisar',
+                    'Crédito aprovado na hora',
+                    'Renovação automática'
+                ]
+            },
+            'BUSINESS': {
+                product: 'CRÉDITO EMPRESARIAL',
+                icon: '🏢',
+                amount: 'R$ 50.000',
+                rate: '2,1%',
+                installments: 'até 36x',
+                speed: '48h',
+                benefits: [
+                    'Condições especiais para empresas',
+                    'Limite maior que pessoa física',
+                    'Não compromete CPF pessoal'
+                ]
+            }
+        };
         
         const recommendations = {
             'HAVE_MONEY': {
@@ -340,6 +533,72 @@
             document.getElementById('needSelection').style.display = 'block';
             document.getElementById('recommendation').style.display = 'none';
             document.getElementById('explanation').style.display = 'none';
+            document.getElementById('creditOffer').style.display = 'none';
+        }
+
+        function showOffer() {
+            if (!currentNeed) return;
+            
+            const offer = offers[currentNeed];
+            
+            // Update offer details
+            document.getElementById('offerIcon').textContent = offer.icon;
+            document.getElementById('offerProductName').textContent = offer.product;
+            document.getElementById('offerAmount').textContent = offer.amount;
+            document.getElementById('offerRate').textContent = offer.rate;
+            document.getElementById('offerInstallments').textContent = offer.installments;
+            document.getElementById('offerSpeed').textContent = offer.speed;
+            
+            // Update benefits
+            const benefitsContainer = document.getElementById('offerBenefits');
+            benefitsContainer.innerHTML = '';
+            offer.benefits.forEach(benefit => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-3';
+                div.innerHTML = `
+                    <span class="text-green-600 text-xl">✅</span>
+                    <span class="text-gray-700">${benefit}</span>
+                `;
+                benefitsContainer.appendChild(div);
+            });
+            
+            // Show offer screen
+            document.getElementById('needSelection').style.display = 'none';
+            document.getElementById('recommendation').style.display = 'none';
+            document.getElementById('explanation').style.display = 'none';
+            document.getElementById('creditOffer').style.display = 'block';
+        }
+
+        function hideOffer() {
+            document.getElementById('creditOffer').style.display = 'none';
+            document.getElementById('recommendation').style.display = 'block';
+        }
+
+        function acceptOffer() {
+            if (!currentNeed) return;
+            
+            const offer = offers[currentNeed];
+            
+            // Simulate accepting offer
+            alert(`🎉 Parabéns! Você aceitou a oferta de ${offer.product}!\n\n` +
+                  `💰 Valor: ${offer.amount}\n` +
+                  `📊 Taxa: ${offer.rate} ao mês\n` +
+                  `⚡ Liberação: ${offer.speed}\n\n` +
+                  `Em um app real, você seria direcionado para o fluxo de contratação.`);
+        }
+
+        function customizeOffer() {
+            if (!currentNeed) return;
+            
+            const offer = offers[currentNeed];
+            
+            // Simulate customization
+            alert(`⚙️ Personalizar ${offer.product}\n\n` +
+                  `Em um app real, você poderia:\n` +
+                  `• Escolher o valor desejado\n` +
+                  `• Selecionar número de parcelas\n` +
+                  `• Ver simulação completa\n\n` +
+                  `Oferta atual: ${offer.amount} em ${offer.installments}`);
         }
     </script>
 </body>
