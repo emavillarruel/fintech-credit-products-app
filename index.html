@@ -16,6 +16,8 @@
             transition: all 0.3s ease;
             transform: translateY(0);
             border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
         
         .concept-card:hover {
@@ -56,6 +58,16 @@
             color: white;
             backdrop-filter: blur(10px);
         }
+        
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-button-container {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body class="text-gray-900">
@@ -77,197 +89,219 @@
         </div>
 
         <!-- Concept Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             
             <!-- Concept A: Inteligência Completa -->
             <div class="concept-card bg-white rounded-3xl p-8 shadow-xl">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-3xl font-bold text-gray-800">📊 Conceito A</h3>
-                    <span class="badge-ai-complete text-white text-xs px-3 py-1 rounded-full font-medium">IA-FULL</span>
-                </div>
-                
-                <h4 class="text-xl font-semibold text-gray-700 mb-4">INTELIGÊNCIA COMPLETA</h4>
-                
-                <div class="mb-6">
-                    <div class="concept-grid text-center mb-4">
-                        <div class="bg-orange-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-orange-600">7</div>
-                            <div class="text-xs text-gray-500">Módulos</div>
+                <div class="card-content">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-medium">Conceito A</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">📊 Inteligência Completa </h3>
                         </div>
-                        <div class="bg-red-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-red-600">∞</div>
-                            <div class="text-xs text-gray-500">Dados</div>
+                        <span class="badge-ai-complete text-white text-xs px-3 py-1 rounded-full font-medium">IA-FULL</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="concept-grid text-center mb-4">
+                            <div class="bg-orange-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-orange-600">7</div>
+                                <div class="text-xs text-gray-500">Módulos</div>
+                            </div>
+                            <div class="bg-red-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-red-600">∞</div>
+                                <div class="text-xs text-gray-500">Dados</div>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-600">360°</div>
+                                <div class="text-xs text-gray-500">Visão</div>
+                            </div>
                         </div>
-                        <div class="bg-yellow-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-yellow-600">360°</div>
-                            <div class="text-xs text-gray-500">Visão</div>
+                        
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div>• IA processa todos os dados disponíveis</div>
+                            <div>• Dashboard inteligente adaptativo</div>
+                            <div>• Múltiplas perspectivas simultâneas</div>
+                            <div>• Controle total para usuários avançados</div>
                         </div>
                     </div>
                     
-                    <div class="text-sm text-gray-600 space-y-2">
-                        <div>• IA processa todos os dados disponíveis</div>
-                        <div>• Dashboard inteligente adaptativo</div>
-                        <div>• Múltiplas perspectivas simultâneas</div>
-                        <div>• Controle total para usuários avançados</div>
+                    <div class="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-xl mb-6">
+                        <div class="text-sm font-medium text-orange-700 mb-2">🤖 Hipótese IA:</div>
+                        <div class="text-xs text-orange-600">
+                            "Máxima informação + IA organizacional = decisões mais informadas e confiantes."
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-xl mb-6">
-                    <div class="text-sm font-medium text-orange-700 mb-2">🤖 Hipótese IA:</div>
-                    <div class="text-xs text-orange-600">
-                        "Máxima informação + IA organizacional = decisões mais informadas e confiantes."
+                <div class="card-button-container">
+                    <div class="flex gap-2">
+                        <button onclick="exploreConceptA()" 
+                                class="flex-1 bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
+                            📊 Explorar Conceito A
+                        </button>
                     </div>
-                </div>
-                
-                <div class="flex gap-2">
-                    <button onclick="exploreConceptA()" 
-                            class="flex-1 bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
-                        📊 Explorar Conceito A
-                    </button>
                 </div>
             </div>
 
             <!-- Concept B: Simplicidade Extrema -->
             <div class="concept-card bg-white rounded-3xl p-8 shadow-xl">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-3xl font-bold text-gray-800">🎯 Conceito B</h3>
-                    <span class="badge-ai-simple text-white text-xs px-3 py-1 rounded-full font-medium">IA-SIMPLE</span>
-                </div>
-                
-                <h4 class="text-xl font-semibold text-gray-700 mb-4">SIMPLICIDADE EXTREMA</h4>
-                
-                <div class="mb-6">
-                    <div class="concept-grid text-center mb-4">
-                        <div class="bg-green-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-green-600">1</div>
-                            <div class="text-xs text-gray-500">Pergunta</div>
+                <div class="card-content">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-medium">Conceito B</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">🎯 Simplicidade Extrema                            </h3>
                         </div>
-                        <div class="bg-blue-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-blue-600">3</div>
-                            <div class="text-xs text-gray-500">Opções</div>
+                        <span class="badge-ai-simple text-white text-xs px-3 py-1 rounded-full font-medium">IA-SIMPLE</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="concept-grid text-center mb-4">
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-green-600">1</div>
+                                <div class="text-xs text-gray-500">Pergunta</div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-blue-600">3</div>
+                                <div class="text-xs text-gray-500">Opções</div>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-purple-600">30s</div>
+                                <div class="text-xs text-gray-500">Tempo</div>
+                            </div>
                         </div>
-                        <div class="bg-purple-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-purple-600">30s</div>
-                            <div class="text-xs text-gray-500">Tempo</div>
+                        
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div>• IA elimina 95% da informação desnecessária</div>
+                            <div>• Foco radical na decisão essencial</div>
+                            <div>• Zero termos técnicos ou jargão</div>
+                            <div>• Máximo 3 elementos visuais por tela</div>
                         </div>
                     </div>
                     
-                    <div class="text-sm text-gray-600 space-y-2">
-                        <div>• IA elimina 95% da informação desnecessária</div>
-                        <div>• Foco radical na decisão essencial</div>
-                        <div>• Zero termos técnicos ou jargão</div>
-                        <div>• Máximo 3 elementos visuais por tela</div>
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-xl mb-6">
+                        <div class="text-sm font-medium text-green-700 mb-2">🤖 Hipótese IA:</div>
+                        <div class="text-xs text-green-600">
+                            "Menos informação = mais compreensão. A IA identifica apenas o essencial para decidir."
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-xl mb-6">
-                    <div class="text-sm font-medium text-green-700 mb-2">🤖 Hipótese IA:</div>
-                    <div class="text-xs text-green-600">
-                        "Menos informação = mais compreensão. A IA identifica apenas o essencial para decidir."
+                <div class="card-button-container">
+                    <div class="flex gap-2">
+                        <button onclick="exploreConceptB()" 
+                                class="flex-1 bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
+                            🎯 Explorar Conceito B
+                        </button>
                     </div>
-                </div>
-                
-                <div class="flex gap-2">
-                    <button onclick="exploreConceptB()" 
-                            class="flex-1 bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
-                        🎯 Explorar Conceito B
-                    </button>
                 </div>
             </div>
 
             <!-- Concept C: Inteligência Conversacional -->
             <div class="concept-card bg-white rounded-3xl p-8 shadow-xl">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-3xl font-bold text-gray-800">🧠 Conceito C</h3>
-                    <span class="badge-ai-conversational text-white text-xs px-3 py-1 rounded-full font-medium">IA-NEURAL</span>
-                </div>
-                
-                <h4 class="text-xl font-semibold text-gray-700 mb-4">INTELIGÊNCIA CONVERSACIONAL</h4>
-                
-                <div class="mb-6">
-                    <div class="concept-grid text-center mb-4">
-                        <div class="bg-purple-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-purple-600">∞</div>
-                            <div class="text-xs text-gray-500">Adaptável</div>
+                <div class="card-content">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full font-medium">Conceito C</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">💬 Inteligência Conversacional
+                            </h3>
                         </div>
-                        <div class="bg-pink-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-pink-600">3</div>
-                            <div class="text-xs text-gray-500">Dimensões</div>
+                        <span class="badge-ai-conversational text-white text-xs px-3 py-1 rounded-full font-medium">IA-NEURAL</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="concept-grid text-center mb-4">
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-purple-600">∞</div>
+                                <div class="text-xs text-gray-500">Adaptável</div>
+                            </div>
+                            <div class="bg-pink-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-pink-600">3</div>
+                                <div class="text-xs text-gray-500">Dimensões</div>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-indigo-600">100%</div>
+                                <div class="text-xs text-gray-500">Pessoal</div>
+                            </div>
                         </div>
-                        <div class="bg-indigo-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-indigo-600">100%</div>
-                            <div class="text-xs text-gray-500">Pessoal</div>
+                        
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div>• IA simula especialista financeiro virtual</div>
+                            <div>• Conversação natural e empática</div>
+                            <div>• Aprendizado contextual durante interação</div>
+                            <div>• Educação personalizada em tempo real</div>
                         </div>
                     </div>
                     
-                    <div class="text-sm text-gray-600 space-y-2">
-                        <div>• IA simula especialista financeiro virtual</div>
-                        <div>• Conversação natural e empática</div>
-                        <div>• Aprendizado contextual durante interação</div>
-                        <div>• Educação personalizada em tempo real</div>
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl mb-6">
+                        <div class="text-sm font-medium text-purple-700 mb-2">🤖 Hipótese IA:</div>
+                        <div class="text-xs text-purple-600">
+                            "Conversação humana + IA = confiança e compreensão profunda do contexto pessoal."
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl mb-6">
-                    <div class="text-sm font-medium text-purple-700 mb-2">🤖 Hipótese IA:</div>
-                    <div class="text-xs text-purple-600">
-                        "Conversação humana + IA = confiança e compreensão profunda do contexto pessoal."
+                <div class="card-button-container">
+                    <div class="flex gap-2">
+                        <button onclick="exploreConceptC()" 
+                                class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
+                            🧠 Explorar Conceito C
+                        </button>
                     </div>
-                </div>
-                
-                <div class="flex gap-2">
-                    <button onclick="exploreConceptC()" 
-                            class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
-                        🧠 Explorar Conceito C
-                    </button>
                 </div>
             </div>
 
             <!-- Concept D: Inteligência Adaptativa -->
             <div class="concept-card bg-white rounded-3xl p-8 shadow-xl">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-3xl font-bold text-gray-800">🎮 Conceito D</h3>
-                    <span class="badge-ai-adaptive text-white text-xs px-3 py-1 rounded-full font-medium">IA-ADAPTIVE</span>
-                </div>
-                
-                <h4 class="text-xl font-semibold text-gray-700 mb-4">INTELIGÊNCIA ADAPTATIVA</h4>
-                
-                <div class="mb-6">
-                    <div class="concept-grid text-center mb-4">
-                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-blue-600">∞</div>
-                            <div class="text-xs text-gray-500">Evolução</div>
+                <div class="card-content">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full font-medium">Conceito D</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-2">🎮 Inteligência Adaptativa
+                            </h3>
                         </div>
-                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-purple-600">🧠</div>
-                            <div class="text-xs text-gray-500">Aprende</div>
+                        <span class="badge-ai-adaptive text-white text-xs px-3 py-1 rounded-full font-medium">IA-ADAPTIVE</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="concept-grid text-center mb-4">
+                            <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-blue-600">∞</div>
+                                <div class="text-xs text-gray-500">Evolução</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-purple-600">🧠</div>
+                                <div class="text-xs text-gray-500">Aprende</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-pink-50 to-orange-50 p-3 rounded-lg">
+                                <div class="text-2xl font-bold text-pink-600">⚡</div>
+                                <div class="text-xs text-gray-500">Tempo Real</div>
+                            </div>
                         </div>
-                        <div class="bg-gradient-to-br from-pink-50 to-orange-50 p-3 rounded-lg">
-                            <div class="text-2xl font-bold text-pink-600">⚡</div>
-                            <div class="text-xs text-gray-500">Tempo Real</div>
+                        
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div>• IA aprende comportamento em tempo real</div>
+                            <div>• Interface evolui com cada interação</div>
+                            <div>• Micro-feedback loops contínuos</div>
+                            <div>• Personalização progressiva e dinâmica</div>
                         </div>
                     </div>
                     
-                    <div class="text-sm text-gray-600 space-y-2">
-                        <div>• IA aprende comportamento em tempo real</div>
-                        <div>• Interface evolui com cada interação</div>
-                        <div>• Micro-feedback loops contínuos</div>
-                        <div>• Personalização progressiva e dinâmica</div>
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl mb-6">
+                        <div class="text-sm font-medium text-blue-700 mb-2">🤖 Hipótese IA:</div>
+                        <div class="text-xs text-blue-600">
+                            "IA que observa + adapta = experiência que evolui e melhora com cada uso."
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl mb-6">
-                    <div class="text-sm font-medium text-blue-700 mb-2">🤖 Hipótese IA:</div>
-                    <div class="text-xs text-blue-600">
-                        "IA que observa + adapta = experiência que evolui e melhora com cada uso."
+                <div class="card-button-container">
+                    <div class="flex gap-2">
+                        <button onclick="exploreConceptD()" 
+                                class="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
+                            🎮 Explorar Conceito D
+                        </button>
                     </div>
-                </div>
-                
-                <div class="flex gap-2">
-                    <button onclick="exploreConceptD()" 
-                            class="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
-                        🎮 Explorar Conceito D
-                    </button>
                 </div>
             </div>
         </div>
@@ -375,22 +409,22 @@
     <script>
         function exploreConceptA() {
             console.log('Exploring Concept A - Inteligência Completa');
-            window.open('dashboard-preview.html', '_blank');
+            window.location.href = 'dashboard-preview.html';
         }
 
         function exploreConceptB() {
             console.log('Exploring Concept B - Simplicidade Extrema');
-            window.open('dashboard-simple-preview.html', '_blank');
+            window.location.href = 'dashboard-simple-preview.html';
         }
 
         function exploreConceptC() {
             console.log('Exploring Concept C - Inteligência Conversacional');
-            window.open('versions/B-proximaversion/dashboard-conversacional-preview.html', '_blank');
+            window.location.href = 'versions/B-proximaversion/dashboard-conversacional-preview.html';
         }
 
         function exploreConceptD() {
             console.log('Exploring Concept D - Inteligência Adaptativa');
-            window.open('dashboard-adaptive-preview.html', '_blank');
+            window.location.href = 'dashboard-adaptive-preview.html';
         }
     </script>
 </body>
