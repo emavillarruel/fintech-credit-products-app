@@ -41,6 +41,14 @@ Este Concept Lab utiliza **Inteligencia Artificial** para generar y explorar dif
 - **Tiempo**: 5+ minutos
 - **Control**: Total
 
+### 🎮 [Concepto D - Inteligência Adaptativa](dashboard-adaptive-preview.html)
+**Hipótesis IA**: *"IA que observa + adapta = experiência evolutiva"*
+
+- **Enfoque**: IA aprende comportamiento en tiempo real
+- **Método**: Interface que evoluciona con cada interacción
+- **Tiempo**: Progressivo
+- **Personalización**: Dinâmica
+
 ## 🚀 Explorar Conceptos
 
 ### 🎯 Hub Principal
@@ -50,16 +58,17 @@ Este Concept Lab utiliza **Inteligencia Artificial** para generar y explorar dif
 - [Concepto A - Simplicidade Extrema](https://emavillarruel.github.io/fintech-credit-products-app/dashboard-simple-preview.html)
 - [Concepto B - Inteligência Conversacional](https://emavillarruel.github.io/fintech-credit-products-app/versions/B-proximaversion/dashboard-conversacional-preview.html)
 - [Concepto C - Inteligência Completa](https://emavillarruel.github.io/fintech-credit-products-app/dashboard-preview.html)
+- [Concepto D - Inteligência Adaptativa](https://emavillarruel.github.io/fintech-credit-products-app/dashboard-adaptive-preview.html)
 
 ## 🔬 Análisis Conceptual IA
 
-| Dimensión | Concepto A | Concepto B | Concepto C |
-|-----------|------------|------------|------------|
-| **Cognitive Load** | 🟢 Mínimo | 🟡 Moderado | 🔴 Alto |
-| **Personalización IA** | 🟡 Básica | 🟢 Avançada | 🟡 Moderada |
-| **Educação Contextual** | 🟡 Limitada | 🟢 Profunda | 🟡 Informativa |
-| **Tempo de Decisão** | 🟢 Imediato | 🟡 Gradual | 🔴 Demorado |
-| **Confianza Gerada** | 🟡 Rápida | 🟢 Profunda | 🟡 Racional |
+| Dimensión | Concepto A | Concepto B | Concepto C | Concepto D |
+|-----------|------------|------------|------------|------------|
+| **Cognitive Load** | 🟢 Mínimo | 🟡 Moderado | 🔴 Alto | 🟡 Adaptativo |
+| **Personalización IA** | 🟡 Básica | 🟢 Avançada | 🟡 Moderada | 🟢 Evolutiva |
+| **Educação Contextual** | 🟡 Limitada | 🟢 Profunda | 🟡 Informativa | 🟢 Comportamental |
+| **Tempo de Decisão** | 🟢 Imediato | 🟡 Gradual | 🔴 Demorado | 🟡 Progressivo |
+| **Confianza Gerada** | 🟡 Rápida | 🟢 Profunda | 🟡 Racional | 🟢 Dinâmica |
 
 ## 🎯 Para Evaluadores
 

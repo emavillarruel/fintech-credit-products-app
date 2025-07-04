@@ -199,35 +199,83 @@
         .final-cta:hover {
             background: #008f44;
         }
+        
+        /* Mobile navigation optimizations */
+        .mobile-nav-button {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <!-- Chat Header -->
-        <div class="chat-header">
-            <div class="text-2xl font-bold mb-2">💬 Assistente de Crédito</div>
-            <div class="text-sm opacity-90">Vou te ajudar a encontrar o produto ideal</div>
-        </div>
-
-        <!-- Chat Messages -->
-        <div class="chat-messages" id="chatMessages">
-            <!-- Initial bot message -->
-            <div class="message">
-                <div class="bot-message">
-                    <div class="bot-avatar">🤖</div>
-                    <div class="message-bubble bot-bubble">
-                        <div class="font-medium mb-1">Olá! 👋</div>
-                        <div>Sou seu assistente pessoal de crédito. Vou te ajudar a descobrir qual produto é perfeito para você, em uma conversa simples e rápida.</div>
-                        <div class="mt-2 text-sm text-gray-600">Sem termos complicados, sem pressa! 😊</div>
+    <!-- Navigation Header -->
+    <header class="nav-header shadow-sm border-b">
+        <div class="w-full px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center min-w-0">
+                    <h1 class="text-lg font-bold text-gray-900 truncate">
+                        💬 Inteligência Conversacional
+                    </h1>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <a href="../../index.html" class="text-gray-600 hover:text-gray-900 px-2 py-2 rounded-md text-xs font-medium">
+                        ← Hub
+                    </a>
+                    <div class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium">
+                        Concepto B
                     </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <!-- Quick Replies -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1 class="text-2xl font-bold mb-2">💬 Assistente de Crédito</h1>
+            <p class="text-sm opacity-90">Vou te ajudar a encontrar o produto ideal para você!</p>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="bot-avatar">🤖</div>
+                <div class="message-bubble bot-bubble">
+                    <div>Oi! Eu sou o assistente de crédito inteligente! 😊</div>
+                    <div class="mt-2">Estou aqui para te ajudar a encontrar o produto de crédito <strong>perfeito</strong> para sua necessidade.</div>
+                    <div class="mt-2">Vou fazer algumas perguntas simples e, em poucos minutos, você vai saber exatamente qual produto escolher!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+
         <div class="quick-replies" id="quickReplies">
             <button class="quick-reply-button" onclick="startConversation()">
-                🚀 Vamos começar!
+                🚀 Vamos começar! Quero encontrar meu produto ideal
             </button>
             <button class="quick-reply-button" onclick="showHelp()">
                 ❓ Como funciona?
@@ -235,61 +283,74 @@
         </div>
     </div>
 
+    <!-- Navigation Footer -->
+    <footer class="nav-footer border-t">
+        <div class="w-full px-4 py-4">
+            <div class="flex flex-col items-center space-y-3">
+                <div class="text-xs text-gray-600 text-center">
+                    💬 Concepto B - Inteligência Conversacional
+                    <br>
+                    <span class="text-purple-600 font-medium">Conversação humana + IA = confiança profunda</span>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <a href="../../dashboard-simple-preview.html" class="text-xs text-gray-500 hover:text-gray-700 py-2 px-3 rounded touch-manipulation bg-gray-50">A</a>
+                    <span class="text-xs text-purple-600 font-medium bg-purple-100 py-2 px-3 rounded">B</span>
+                    <a href="../../dashboard-preview.html" class="text-xs text-gray-500 hover:text-gray-700 py-2 px-3 rounded touch-manipulation bg-gray-50">C</a>
+                    <a href="../../dashboard-adaptive-preview.html" class="text-xs text-gray-500 hover:text-gray-700 py-2 px-3 rounded touch-manipulation bg-gray-50">D</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         let conversationStep = 0;
-        let userNeed = null;
-        let userProfile = {
-            hasCredit: false,
-            frequency: null,
-            amount: null,
-            urgency: null
-        };
-
+        let userNeed = '';
+        let userProfile = {};
+        
         const conversations = {
             step1: {
-                bot: "Perfeito! Primeira pergunta bem simples: <br><br><strong>Para que você precisa de dinheiro?</strong> 🤔",
+                bot: "Primeiro, me conta: <strong>para que você precisa de dinheiro?</strong> 🤔",
                 options: [
                     { text: "🛒 Comprar algo específico", value: "BUY_SPECIFIC" },
-                    { text: "💰 Ter uma quantia disponível", value: "HAVE_MONEY" },
-                    { text: "🏢 Investir no meu negócio", value: "BUSINESS" },
-                    { text: "🤷‍♂️ Ainda não sei bem", value: "UNSURE" }
+                    { text: "💰 Ter dinheiro disponível", value: "HAVE_MONEY" },
+                    { text: "🏢 Para meu negócio", value: "BUSINESS" }
                 ]
             },
             step2: {
-                bot: "Entendi! Agora me conta: <br><br><strong>Com que frequência você costuma precisar de crédito?</strong> ��",
+                bot: "Perfeito! Agora me diz: <strong>você costuma usar crédito com que frequência?</strong> 📊",
                 options: [
-                    { text: "🔄 Frequentemente (todo mês)", value: "FREQUENT" },
-                    { text: "⏱️ De vez em quando", value: "OCCASIONAL" },
-                    { text: "🆕 É minha primeira vez", value: "FIRST_TIME" }
+                    { text: "🔄 Frequentemente, quase todo mês", value: "FREQUENT" },
+                    { text: "🎯 Só quando preciso mesmo", value: "OCCASIONAL" },
+                    { text: "🆕 Seria minha primeira vez", value: "FIRST_TIME" }
                 ]
             },
             step3: {
-                bot: "Ótimo! Uma última pergunta: <br><br><strong>Você prefere...</strong> 🎯",
+                bot: "Última pergunta! <strong>O que é mais importante para você?</strong> ⚖️",
                 options: [
-                    { text: "📊 Saber exatamente quanto vou pagar", value: "PREDICTABLE" },
-                    { text: "🔄 Ter flexibilidade para usar quando quiser", value: "FLEXIBLE" },
-                    { text: "💰 A opção mais barata", value: "CHEAPEST" }
+                    { text: "🔄 Flexibilidade para usar quando quiser", value: "FLEXIBLE" },
+                    { text: "📊 Parcelas fixas e previsíveis", value: "PREDICTABLE" },
+                    { text: "💯 A menor taxa possível", value: "LOWEST_RATE" }
                 ]
             }
         };
 
-        function addMessage(content, isUser = false, delay = 0) {
+        function addMessage(text, isUser = false, delay = 0) {
             setTimeout(() => {
                 const messagesContainer = document.getElementById('chatMessages');
                 const messageDiv = document.createElement('div');
-                messageDiv.className = 'message';
+                messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
                 
                 if (isUser) {
                     messageDiv.innerHTML = `
-                        <div class="user-message">
-                            <div class="message-bubble user-bubble">${content}</div>
+                        <div class="message-bubble user-bubble">
+                            ${text}
                         </div>
                     `;
                 } else {
                     messageDiv.innerHTML = `
-                        <div class="bot-message">
-                            <div class="bot-avatar">🤖</div>
-                            <div class="message-bubble bot-bubble">${content}</div>
+                        <div class="bot-avatar">🤖</div>
+                        <div class="message-bubble bot-bubble">
+                            ${text}
                         </div>
                     `;
                 }
@@ -299,53 +360,38 @@
             }, delay);
         }
 
-        function showTyping(duration = 2000) {
-            const messagesContainer = document.getElementById('chatMessages');
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'message';
-            typingDiv.id = 'typing';
-            typingDiv.innerHTML = `
-                <div class="bot-message">
-                    <div class="bot-avatar">🤖</div>
-                    <div class="typing-indicator">
-                        <div class="typing-dot"></div>
-                        <div class="typing-dot"></div>
-                        <div class="typing-dot"></div>
-                    </div>
-                </div>
-            `;
-            
-            messagesContainer.appendChild(typingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        function showTyping(duration = 1500) {
+            const typingIndicator = document.getElementById('typingIndicator');
+            typingIndicator.style.display = 'flex';
             
             setTimeout(() => {
-                const typing = document.getElementById('typing');
-                if (typing) typing.remove();
+                typingIndicator.style.display = 'none';
             }, duration);
         }
 
         function updateQuickReplies(options) {
-            const repliesContainer = document.getElementById('quickReplies');
-            repliesContainer.innerHTML = '';
+            const quickReplies = document.getElementById('quickReplies');
+            quickReplies.innerHTML = '';
             
             options.forEach(option => {
                 const button = document.createElement('button');
                 button.className = 'quick-reply-button';
-                button.innerHTML = option.text;
+                button.textContent = option.text;
                 button.onclick = () => selectOption(option.text, option.value);
-                repliesContainer.appendChild(button);
+                quickReplies.appendChild(button);
             });
         }
 
         function startConversation() {
-            addMessage("🚀 Vamos começar!", true);
+            conversationStep = 1;
+            
+            addMessage("🚀 Perfeito! Vamos começar", true);
             
             showTyping(1500);
             addMessage(conversations.step1.bot, false, 2000);
             
             setTimeout(() => {
                 updateQuickReplies(conversations.step1.options);
-                conversationStep = 1;
             }, 2500);
         }
 

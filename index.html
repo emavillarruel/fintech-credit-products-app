@@ -27,6 +27,7 @@
         .badge-ai-simple { background: linear-gradient(45deg, #00A650, #00d66a); }
         .badge-ai-conversational { background: linear-gradient(45deg, #8b5cf6, #a855f7); }
         .badge-ai-complete { background: linear-gradient(45deg, #FF6600, #ff8533); }
+        .badge-ai-adaptive { background: linear-gradient(45deg, #3b82f6, #8b5cf6); }
         
         .concept-grid {
             display: grid;
@@ -76,7 +77,7 @@
         </div>
 
         <!-- Concept Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             
             <!-- Concept A: Inteligência Completa -->
             <div class="concept-card bg-white rounded-3xl p-8 shadow-xl">
@@ -221,6 +222,54 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Concept D: Inteligência Adaptativa -->
+            <div class="concept-card bg-white rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-3xl font-bold text-gray-800">🎮 Conceito D</h3>
+                    <span class="badge-ai-adaptive text-white text-xs px-3 py-1 rounded-full font-medium">IA-ADAPTIVE</span>
+                </div>
+                
+                <h4 class="text-xl font-semibold text-gray-700 mb-4">INTELIGÊNCIA ADAPTATIVA</h4>
+                
+                <div class="mb-6">
+                    <div class="concept-grid text-center mb-4">
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">∞</div>
+                            <div class="text-xs text-gray-500">Evolução</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">🧠</div>
+                            <div class="text-xs text-gray-500">Aprende</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-pink-50 to-orange-50 p-3 rounded-lg">
+                            <div class="text-2xl font-bold text-pink-600">⚡</div>
+                            <div class="text-xs text-gray-500">Tempo Real</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-sm text-gray-600 space-y-2">
+                        <div>• IA aprende comportamento em tempo real</div>
+                        <div>• Interface evolui com cada interação</div>
+                        <div>• Micro-feedback loops contínuos</div>
+                        <div>• Personalização progressiva e dinâmica</div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl mb-6">
+                    <div class="text-sm font-medium text-blue-700 mb-2">🤖 Hipótese IA:</div>
+                    <div class="text-xs text-blue-600">
+                        "IA que observa + adapta = experiência que evolui e melhora com cada uso."
+                    </div>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button onclick="exploreConceptD()" 
+                            class="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:shadow-lg transition-all">
+                        🎮 Explorar Conceito D
+                    </button>
+                </div>
+            </div>
         </div>
 
         <!-- AI Analysis Matrix -->
@@ -235,6 +284,7 @@
                             <th class="text-center p-4">📊 Conceito A</th>
                             <th class="text-center p-4">🎯 Conceito B</th>
                             <th class="text-center p-4">🧠 Conceito C</th>
+                            <th class="text-center p-4">🎮 Conceito D</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -243,30 +293,35 @@
                             <td class="p-4">🔴 Alto</td>
                             <td class="p-4">🟢 Mínimo</td>
                             <td class="p-4">🟡 Moderado</td>
+                            <td class="p-4">🟡 Adaptativo</td>
                         </tr>
                         <tr class="border-b border-white/10">
                             <td class="text-left p-4 font-medium">Personalização IA</td>
                             <td class="p-4">🟡 Moderada</td>
                             <td class="p-4">🟡 Básica</td>
                             <td class="p-4">🟢 Avançada</td>
+                            <td class="p-4">🟢 Evolutiva</td>
                         </tr>
                         <tr class="border-b border-white/10">
                             <td class="text-left p-4 font-medium">Educação Contextual</td>
                             <td class="p-4">🟡 Informativa</td>
                             <td class="p-4">🟡 Limitada</td>
                             <td class="p-4">🟢 Profunda</td>
+                            <td class="p-4">🟢 Comportamental</td>
                         </tr>
                         <tr class="border-b border-white/10">
                             <td class="text-left p-4 font-medium">Tempo de Decisão</td>
                             <td class="p-4">🔴 Demorado</td>
                             <td class="p-4">🟢 Imediato</td>
                             <td class="p-4">🟡 Gradual</td>
+                            <td class="p-4">🟡 Progressivo</td>
                         </tr>
                         <tr>
                             <td class="text-left p-4 font-medium">Confiança Gerada</td>
                             <td class="p-4">🟡 Racional</td>
                             <td class="p-4">🟡 Rápida</td>
                             <td class="p-4">🟢 Profunda</td>
+                            <td class="p-4">🟢 Dinâmica</td>
                         </tr>
                     </tbody>
                 </table>
@@ -331,6 +386,11 @@
         function exploreConceptC() {
             console.log('Exploring Concept C - Inteligência Conversacional');
             window.open('versions/B-proximaversion/dashboard-conversacional-preview.html', '_blank');
+        }
+
+        function exploreConceptD() {
+            console.log('Exploring Concept D - Inteligência Adaptativa');
+            window.open('dashboard-adaptive-preview.html', '_blank');
         }
     </script>
 </body>
