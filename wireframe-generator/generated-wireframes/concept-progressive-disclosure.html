@@ -144,17 +144,11 @@
                 <!-- Contenido del Simulador -->
                 <div class="simulator-content" style="padding: 20px; color: white;">
                     
-                    <!-- Header del Concepto -->
-                    <div style="text-align: center; margin-bottom: 24px; padding-top: 20px;">
-                        <h1 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 8px;">
-                            📊 Revelación Progresiva
-                        </h1>
-                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-bottom: 16px;">
-                            <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
-                        </p>
-                        <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">
-                            <strong>Enfoque:</strong> Dividir información compleja en pasos manejables
-                        </p>
+                    <!-- Botón de Información -->
+                    <div style="text-align: right; margin-bottom: 20px;">
+                        <button onclick="openInfoModal()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 8px 16px; color: white; font-size: 0.85rem; cursor: pointer;">
+                            ℹ️ Info del Concepto
+                        </button>
                     </div>
 
                     <!-- Hero Section -->
@@ -248,33 +242,7 @@
                         </div>
                     </div>
 
-                    <!-- Hipótesis -->
-                    <div style="background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.2); border-radius: 12px; padding: 16px; margin-top: 24px; text-align: center;">
-                        <h4 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #00d4aa;">
-                            💡 Hipótesis del Concepto
-                        </h4>
-                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; line-height: 1.4; margin: 0; font-style: italic;">
-                            "Dividir el proceso en pasos aumentará la confianza del usuario y mejorará las tasas de finalización al reducir la complejidad percibida."
-                        </p>
-                    </div>
 
-                    <!-- Métricas a medir -->
-                    <div style="margin-top: 24px;">
-                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
-                            📊 Métricas a Medir
-                        </h4>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                                Finalización de Pasos
-                            </span>
-                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                                Confianza del Usuario
-                            </span>
-                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                                Tasa de Abandono
-                            </span>
-                        </div>
-                    </div>
 
                     <!-- Espacio para scroll -->
                     <div style="height: 40px;"></div>
@@ -282,5 +250,105 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal de Información del Concepto -->
+    <div id="infoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; backdrop-filter: blur(5px);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; max-height: 90%; overflow-y: auto; background: #1a1a1a; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; padding: 24px; color: white;">
+            
+            <!-- Header del Modal -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin: 0; color: #00d4aa;">
+                    📊 Revelación Progresiva
+                </h2>
+                <button onclick="closeInfoModal()" style="background: none; border: none; color: rgba(255, 255, 255, 0.7); font-size: 1.5rem; cursor: pointer; padding: 4px;">
+                    ×
+                </button>
+            </div>
+
+            <!-- Problema y Enfoque -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                    🎯 Contexto del Concepto
+                </h3>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-bottom: 12px;">
+                    <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin: 0;">
+                    <strong>Enfoque:</strong> Dividir información compleja en pasos manejables
+                </p>
+            </div>
+
+            <!-- Por qué funciona -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: #00d4aa;">
+                    💡 ¿Por qué funciona?
+                </h3>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">
+                    <p style="margin-bottom: 12px;">
+                        ✓ <strong>Reduce la complejidad percibida:</strong> Dividir tareas complejas en pasos simples
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        ✓ <strong>Aumenta la confianza:</strong> Los usuarios se sienten más seguros al avanzar paso a paso
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        ✓ <strong>Mejora las tasas de finalización:</strong> Menos abandono al reducir la carga cognitiva inicial
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hipótesis -->
+            <div style="background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: #00d4aa;">
+                    🔬 Hipótesis del Concepto
+                </h3>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.4; margin: 0; font-style: italic;">
+                    "Dividir el proceso en pasos aumentará la confianza del usuario y mejorará las tasas de finalización al reducir la complejidad percibida."
+                </p>
+            </div>
+
+            <!-- Métricas a medir -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                    📊 Métricas a Medir
+                </h3>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                        Finalización de Pasos
+                    </span>
+                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                        Confianza del Usuario
+                    </span>
+                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                        Tasa de Abandono
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function openInfoModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer click fuera
+        document.getElementById('infoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInfoModal();
+            }
+        });
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeInfoModal();
+            }
+        });
+    </script>
 </body>
 </html>
