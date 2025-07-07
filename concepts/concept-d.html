@@ -3,261 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎮 Concepto D - Inteligência Adaptativa | Concept Lab</title>
+    <title>Exploración Concepto D - Inteligência Adaptativa | Wireframe Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @font-face {
-            font-family: 'Proxima Nova';
-            src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2') format('woff2');
-            font-weight: 300;
-            font-style: normal;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Proxima Nova';
-            src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2') format('woff2');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Proxima Nova';
-            src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2') format('woff2');
-            font-weight: 600;
-            font-style: normal;
-            font-display: swap;
-        }
-        
-        * {
-            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        body {
-            background: #2a2a2a;
-            color: #e5e5e5;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        
-        .nav-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            min-height: 64px;
-        }
-        
+    <link rel="stylesheet" href="../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/wireframe-components.css">
 
-        
-        .glass-panel {
-            background: #404040;
-            border: 1px solid #666666;
-            border-radius: 1rem;
-        }
-        
-        .concept-card {
-            background: #404040;
-            border: 1px solid #666666;
-            border-radius: 1rem;
-        }
-        
-        .concept-card:hover {
-            background: #4a4a4a;
-            border-color: #777777;
-        }
-        
-        .adaptive-element {
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .learning-pulse {
-            animation: learningPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes learningPulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-        
-        .evolving-ui {
-            animation: evolvingUI 3s ease-in-out;
-        }
-        
-        @keyframes evolvingUI {
-            0% { transform: translateY(20px); opacity: 0; }
-            50% { transform: translateY(-5px); opacity: 0.7; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        
-        .behavior-tracker {
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            background: rgba(59, 130, 246, 0.9);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            max-width: 200px;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-        
-        .adaptation-glow {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-            animation: adaptationGlow 1.5s ease-in-out;
-        }
-        
-        @keyframes adaptationGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
-        }
-        
-        .product-card {
-            background: #404040;
-            border: 1px solid #666666;
-            border-radius: 1rem;
-            min-height: 80px;
-        }
-        
-        .product-card:hover {
-            background: #4a4a4a;
-            border-color: #777777;
-        }
-        
-        .product-card:active {
-            transform: scale(0.98);
-            transition: transform 0.1s ease;
-        }
-        
-        .btn-adaptive {
-            background: #666666;
-            border: 1px solid #888888;
-            border-radius: 1rem;
-        }
-        
-        .btn-adaptive:hover {
-            background: #777777;
-        }
-        
-        .concept-title {
-            color: #e5e5e5;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-        
-        .badge-concept { 
-            background: #555555; 
-            color: #e5e5e5;
-            border: 1px solid #777777;
-            display: inline-block;
-            width: auto;
-            font-size: 11px;
-            padding: 4px 12px;
-            border-radius: 1rem;
-            font-weight: 600;
-        }
-        
-        .profile-basic {
-            display: block;
-        }
-        
-        .profile-detailed {
-            display: none;
-        }
-        
-        .product-simple {
-            display: block;
-        }
-        
-        .product-detailed {
-            display: none;
-        }
-        
-        /* Mobile-First Optimizations */
-        .touch-manipulation {
-            touch-action: manipulation;
-        }
-        
-        .product-card {
-            min-height: 80px;
-        }
-        
-        .product-card:active {
-            transform: scale(0.98);
-            transition: transform 0.1s ease;
-        }
-        
-        .adaptive-element {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .evolving-ui {
-            animation: evolvingUI 2s ease-in-out;
-        }
-        
-        /* Better scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        /* Mobile navigation optimizations */
-        .mobile-nav-button {
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Mobile Device Simulator */
-        .mobile-simulator {
-            background-color: #2a2a2a;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .mobile-device {
-            width: 375px;
-            height: 812px;
-            background-color: #555555;
-            border: 2px solid #777777;
-            border-radius: 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        
-        .mobile-screen {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow-y: auto;
-            overflow-x: hidden;
-            background-color: #2a2a2a;
-        }
-        
-        .mobile-screen::-webkit-scrollbar {
-            width: 0px;
-            background: transparent;
-        }
-    </style>
 </head>
 <body>
     <!-- Mobile Device Simulator -->
     <div class="mobile-simulator">
+        <!-- Navigation Header -->
+        <nav class="nav-header">
+            <div class="nav-container">
+                <div>
+                    <a href="../index.html" class="nav-back">←</a>
+                </div>
+                <div>
+                    <div id="adaptationLevel" class="nav-badge concept-d">Iniciante</div>
+                </div>
+            </div>
+        </nav>
         <div class="mobile-device">
             <div class="mobile-screen">
                 <!-- Behavior Tracker -->
@@ -265,24 +30,11 @@
                     🧠 IA Aprendendo: <span id="learningStatus">Inicializando...</span>
                 </div>
 
-                <!-- Navigation Header -->
-                <nav class="nav-header">
-                    <div class="max-w-7xl mx-auto px-6 py-4">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <a href="index.html" class="text-gray-300 hover:text-gray-400 transition-colors text-2xl font-regular p-2">←</a>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <div id="adaptationLevel" class="badge-concept">Iniciante</div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+                
 
                 <!-- Main Content -->
-                <div class="pt-24 pb-16 min-h-screen">
-                    <div class="max-w-md mx-auto px-6">
+                <div class="main-content">
+                    <div class="content-container">
                         
 
 
@@ -290,7 +42,7 @@
             <div class="space-y-6">
                 <!-- Profile Panel -->
                 <div class="concept-card p-6 adaptive-element">
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="flex-between mb-4">
                         <h3 class="concept-title">Teu Perfil</h3>
                         <div id="profileAdapter" class="text-xs text-blue-400 opacity-0">
                             Adaptando...
@@ -320,7 +72,7 @@
 
                 <!-- Products Panel -->
                 <div class="concept-card p-6">
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="flex-between mb-4">
                         <h3 class="concept-title">Produtos Recomendados</h3>
                         <div id="adaptationStatus" class="text-xs text-purple-400 learning-pulse">
                             IA analisando...
@@ -331,7 +83,7 @@
                         <div class="product-card adaptive-element p-4 cursor-pointer" 
                              data-product="credit-line" onclick="selectProduct('credit-line')">
                             <div class="product-simple">
-                                <div class="flex items-center justify-between">
+                                <div class="flex-between">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="font-semibold text-white text-sm">💳 Linha de Crédito</h4>
                                         <p class="text-xs text-white/60">Flexível e rápido</p>
@@ -364,7 +116,7 @@
                         <div class="product-card adaptive-element p-4 cursor-pointer" 
                              data-product="personal-loan" onclick="selectProduct('personal-loan')">
                             <div class="product-simple">
-                                <div class="flex items-center justify-between">
+                                <div class="flex-between">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="font-semibold text-white text-sm">💰 Empréstimo Pessoal</h4>
                                         <p class="text-xs text-white/60">Parcelas fixas</p>
@@ -397,7 +149,7 @@
                         <div class="product-card adaptive-element p-4 cursor-pointer" 
                              data-product="business-credit" onclick="selectProduct('business-credit')">
                             <div class="product-simple">
-                                <div class="flex items-center justify-between">
+                                <div class="flex-between">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="font-semibold text-white text-sm">🏢 Crédito Empresarial</h4>
                                         <p class="text-xs text-white/60">Para seu negócio</p>
@@ -431,14 +183,14 @@
 
                 <!-- AI Insights Panel -->
                 <div class="concept-card p-6 evolving-ui">
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="flex-between mb-4">
                         <h3 class="concept-title">Insights da IA</h3>
                         <div class="text-xs text-blue-400">Evoluindo...</div>
                     </div>
                     
                     <div id="aiInsights" class="space-y-3">
                         <div class="glass-panel p-3">
-                            <div class="flex items-center space-x-2 mb-2">
+                            <div class="flex-center space-x-2 mb-2">
                                 <span class="text-sm">🧠</span>
                                 <span class="text-xs font-medium text-blue-400">Padrão identificado</span>
                             </div>
@@ -448,7 +200,7 @@
                         </div>
                         
                         <div class="glass-panel p-3">
-                            <div class="flex items-center space-x-2 mb-2">
+                            <div class="flex-center space-x-2 mb-2">
                                 <span class="text-sm">📊</span>
                                 <span class="text-xs font-medium text-green-400">Recomendação</span>
                             </div>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploración Concepto C - Inteligência Conversacional | Wireframe Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/wireframe-components.css">
+    
+</head>
+<body>
+    <!-- Mobile Device Simulator -->
+    <div class="mobile-simulator">
+        <!-- Navigation Header -->
+        <nav class="nav-header">
+            <div class="nav-container">
+                <div>
+                    <a href="../index.html" class="nav-back">←</a>
+                </div>
+                <div>
+                    <div class="nav-badge concept-c">Conceito C</div>
+                </div>
+            </div>
+        </nav>
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                
+
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+    <!-- Chat Interface -->
+    <div class="chat-container-c">
+        <!-- Chat Header -->
+        <div class="chat-header-c">
+            <h1 class="text-xl font-bold"> <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-6 h-6" style="margin: auto;"> Assistente de Crédito</h1>
+            <p class="text-sm opacity-90 mt-1">Vou te ajudar a encontrar o melhor produto</p>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages-c" id="chatMessages">
+            <!-- Initial bot message -->
+            <div class="message-c bot-message-c">
+                <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                <div class="message-bubble-c bot-bubble-c">
+                    <div class="text-sm">
+                        Olá! 👋 Sou seu assistente de crédito. Vou te fazer algumas perguntas simples para encontrar o produto perfeito para você.
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-c bot-message-c">
+                <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                <div class="message-bubble-c bot-bubble-c">
+                    <div class="text-sm">
+                        Para começar, me conta: <strong>para que você precisa de dinheiro?</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Replies -->
+        <div class="quick-replies-c" id="quickReplies">
+            <button class="quick-reply-button-c" onclick="selectOption('comprar')">
+                🛒 Comprar algo específico
+            </button>
+            <button class="quick-reply-button-c" onclick="selectOption('dinheiro')">
+                💰 Ter dinheiro disponível
+            </button>
+            <button class="quick-reply-button-c" onclick="selectOption('negocio')">
+                🏢 Para meu negócio
+            </button>
+            <button class="quick-reply-button-c" onclick="selectOption('refinanciar')">
+                🔄 Refinanciar dívidas
+            </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        
+        let conversationStep = 0;
+        let userChoices = {};
+        let isTyping = false;
+
+        function selectOption(option) {
+            if (isTyping) return;
+            
+            // Mark button as selected
+            document.querySelectorAll('.quick-reply-button-c').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            
+            // Add user message
+            addUserMessage(event.target.textContent);
+            
+            // Store user choice
+            userChoices.need = option;
+            
+            // Show typing indicator and respond
+            setTimeout(() => {
+                showTypingIndicator();
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    respondToNeed(option);
+                }, 1500);
+            }, 500);
+        }
+
+        function addUserMessage(text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-c user-message-c';
+            messageDiv.innerHTML = `
+                <div class="message-bubble-c user-bubble-c">
+                    <div class="text-sm">${text}</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addBotMessage(text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-c bot-message-c';
+            messageDiv.innerHTML = `
+                <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                <div class="message-bubble-c bot-bubble-c">
+                    <div class="text-sm">${text}</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message-c bot-message-c';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                <div class="typing-indicator-c">
+                    <div class="typing-dot-c"></div>
+                    <div class="typing-dot-c"></div>
+                    <div class="typing-dot-c"></div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            isTyping = true;
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+            isTyping = false;
+        }
+
+        function respondToNeed(need) {
+            let response = '';
+            let followUp = '';
+            
+            switch(need) {
+                case 'comprar':
+                    response = 'Entendi! Você quer comprar algo específico. 🛒';
+                    followUp = 'Para compras, a <strong>Linha de Crédito</strong> é ideal porque você só usa o que precisa e tem aprovação imediata.';
+                    break;
+                case 'dinheiro':
+                    response = 'Perfeito! Você quer ter dinheiro livre para usar. 💰';
+                    followUp = 'Para ter dinheiro disponível, o <strong>Empréstimo Pessoal</strong> é melhor porque tem parcelas fixas e taxa menor.';
+                    break;
+                case 'negocio':
+                    response = 'Ótimo! É para seu negócio. 🏢';
+                    followUp = 'Para negócios, recomendo o <strong>Crédito Empresarial</strong> com condições especiais e limite maior.';
+                    break;
+                case 'refinanciar':
+                    response = 'Entendi! Você quer refinanciar dívidas. 🔄';
+                    followUp = 'Para refinanciar, o <strong>Empréstimo Pessoal</strong> com taxa menor vai reduzir seus custos mensais.';
+                    break;
+            }
+            
+            addBotMessage(response);
+            
+            setTimeout(() => {
+                addBotMessage(followUp);
+                showRecommendation(need);
+            }, 1000);
+        }
+
+        function showRecommendation(need) {
+            const recommendations = {
+                'comprar': {
+                    product: 'Linha de Crédito',
+                    icon: '💳',
+                    amount: 'R$ 8.000',
+                    rate: '0,8% a.m.',
+                    benefit: 'Aprovação imediata'
+                },
+                'dinheiro': {
+                    product: 'Empréstimo Pessoal',
+                    icon: '💰',
+                    amount: 'R$ 15.000',
+                    rate: '1,6% a.m.',
+                    benefit: 'Parcelas fixas'
+                },
+                'negocio': {
+                    product: 'Crédito Empresarial',
+                    icon: '🏢',
+                    amount: 'R$ 50.000',
+                    rate: '1,2% a.m.',
+                    benefit: 'Condições especiais'
+                },
+                'refinanciar': {
+                    product: 'Empréstimo Pessoal',
+                    icon: '💰',
+                    amount: 'R$ 25.000',
+                    rate: '1,6% a.m.',
+                    benefit: 'Reduz custos'
+                }
+            };
+
+            const rec = recommendations[need];
+            
+            setTimeout(() => {
+                const chatMessages = document.getElementById('chatMessages');
+                const recDiv = document.createElement('div');
+                recDiv.className = 'message-c bot-message-c';
+                recDiv.innerHTML = `
+                    <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                    <div class="message-bubble-c bot-bubble-c">
+                        <div class="recommendation-card-c">
+                            <div class="text-4xl mb-2">${rec.icon}</div>
+                            <div class="text-lg font-bold mb-2">${rec.product}</div>
+                            <div class="text-sm space-y-1">
+                                <div><strong>Até ${rec.amount}</strong> disponível</div>
+                                <div>Taxa: <strong>${rec.rate}</strong></div>
+                                <div>✅ ${rec.benefit}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                chatMessages.appendChild(recDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+
+            setTimeout(() => {
+                addBotMessage('Quer que eu detalhe mais sobre este produto ou prefere ver uma comparação com outras opções?');
+                showFinalOptions();
+            }, 2000);
+        }
+
+        function showFinalOptions() {
+            const quickReplies = document.getElementById('quickReplies');
+            quickReplies.innerHTML = `
+                <button class="quick-reply-button-c" onclick="showDetails()">
+                    📊 Quero mais detalhes
+                </button>
+                <button class="quick-reply-button-c" onclick="showComparison()">
+                    🔍 Ver comparação
+                </button>
+                <button class="quick-reply-button-c" onclick="acceptRecommendation()">
+                    ✅ Aceitar recomendação
+                </button>
+                <button class="quick-reply-button-c" onclick="restart()">
+                    🔄 Recomeçar conversa
+                </button>
+            `;
+        }
+
+        function showDetails() {
+            addUserMessage('📊 Quero mais detalhes');
+            showTypingIndicator();
+            setTimeout(() => {
+                hideTypingIndicator();
+                addBotMessage('Perfeito! Vou te mostrar todos os detalhes do produto recomendado, incluindo simulações e condições especiais para o seu perfil.');
+                
+                setTimeout(() => {
+                    addBotMessage('Em uma aplicação real, você seria direcionado para uma página detalhada com simulador, termos e condições completas.');
+                }, 1500);
+            }, 1000);
+        }
+
+        function showComparison() {
+            addUserMessage('🔍 Ver comparação');
+            showTypingIndicator();
+            setTimeout(() => {
+                hideTypingIndicator();
+                addBotMessage('Ótima escolha! Vou mostrar uma comparação lado a lado entre os produtos disponíveis, destacando prós e contras de cada um.');
+                
+                setTimeout(() => {
+                    const chatMessages = document.getElementById('chatMessages');
+                    const compDiv = document.createElement('div');
+                    compDiv.className = 'message-c bot-message-c';
+                    compDiv.innerHTML = `
+                        <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                        <div class="message-bubble-c bot-bubble-c">
+                            <div class="comparison-grid-c">
+                                <div class="comparison-item-c recommended">
+                                    <div class="text-lg font-bold mb-1">💳 Linha de Crédito</div>
+                                    <div class="text-xs">• Flexível</div>
+                                    <div class="text-xs">• Aprovação rápida</div>
+                                    <div class="text-xs text-green-400">✅ Recomendado</div>
+                                </div>
+                                <div class="comparison-item-c">
+                                    <div class="text-lg font-bold mb-1">💰 Empréstimo</div>
+                                    <div class="text-xs">• Parcelas fixas</div>
+                                    <div class="text-xs">• Taxa menor</div>
+                                    <div class="text-xs text-white/60">Alternativa</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    chatMessages.appendChild(compDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }, 1000);
+        }
+
+        function acceptRecommendation() {
+            addUserMessage('✅ Aceitar recomendação');
+            showTypingIndicator();
+            setTimeout(() => {
+                hideTypingIndicator();
+                addBotMessage('Excelente escolha! 🎉 Você será direcionado para finalizar sua solicitação.');
+                
+                setTimeout(() => {
+                    const chatMessages = document.getElementById('chatMessages');
+                    const ctaDiv = document.createElement('div');
+                    ctaDiv.className = 'message-c bot-message-c';
+                    ctaDiv.innerHTML = `
+                        <div class="bot-avatar-c"><img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi" class="w-4 h-4"></div>
+                        <div class="message-bubble-c bot-bubble-c">
+                            <div class="final-cta-c" onclick="alert('Em uma aplicação real, você seria direcionado para o processo de contratação!')">
+                                🚀 FINALIZAR SOLICITAÇÃO
+                            </div>
+                        </div>
+                    `;
+                    chatMessages.appendChild(ctaDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1500);
+            }, 1000);
+        }
+
+        function restart() {
+            addUserMessage('🔄 Recomeçar conversa');
+            showTypingIndicator();
+            setTimeout(() => {
+                hideTypingIndicator();
+                addBotMessage('Sem problemas! Vou recomeçar nossa conversa. Para que você precisa de dinheiro?');
+                
+                // Reset conversation
+                userChoices = {};
+                conversationStep = 0;
+                
+                // Reset quick replies
+                const quickReplies = document.getElementById('quickReplies');
+                quickReplies.innerHTML = `
+                    <button class="quick-reply-button-c" onclick="selectOption('comprar')">
+                        🛒 Comprar algo específico
+                    </button>
+                    <button class="quick-reply-button-c" onclick="selectOption('dinheiro')">
+                        💰 Ter dinheiro disponível
+                    </button>
+                    <button class="quick-reply-button-c" onclick="selectOption('negocio')">
+                        🏢 Para meu negócio
+                    </button>
+                    <button class="quick-reply-button-c" onclick="selectOption('refinanciar')">
+                        🔄 Refinanciar dívidas
+                    </button>
+                `;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

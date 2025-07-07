@@ -1,53 +1,53 @@
-# 🧠 Concept Lab - Alternativas Conceptuales IA
+# 🧪 Concept Lab - Alternativas Conceptuales IA
 
 ## 🎯 Desafío PDR
 **"Ser o produto onde cada pessoa encontra o crédito certo, no momento certo, do jeito mais simples"**
 
 Ajudar a entender qual produto de crédito é o melhor para mim
 
-## 🤖 Metodología IA
+## 🔬 Metodología Científica
 
-Este Concept Lab utiliza **Inteligencia Artificial** para generar y explorar diferentes enfoques conceptuales hacia el mismo objetivo del PDR. Cada concepto representa una **hipótesis IA** sobre cómo resolver el problema de comprensión de productos financieros.
+Este Concept Lab utiliza **metodología científica rigurosa** basada en Design Science Research, Human-Centered Design y Behavioral Economics para generar y validar soluciones fundamentadas en principios cognitivos.
 
-### 🔬 Proceso de Generación
-1. **Análisis del PDR** → IA identifica patrones y oportunidades
-2. **Exploración de Arquetipos** → IA genera diferentes enfoques conceptuales
-3. **Optimización por Objetivos** → Cada concepto maximiza diferentes métricas
-4. **Validación Conceptual** → Testing empírico de las hipótesis IA
+### 🧪 Proceso de Investigación
+1. **[Research Context](RESEARCH_CONTEXT.md)** → Contexto puro del problema sin contaminar con soluciones
+2. **[Hypothesis Framework](HYPOTHESIS_FRAMEWORK.md)** → Principios teóricos y hipótesis madre
+3. **[Concept Validation](CONCEPT_VALIDATION.md)** → 4 experimentos derivados del framework
+4. **[Experimentation Results](EXPERIMENTATION_RESULTS.md)** → Validación empírica y learnings
 
-## 🧪 Conceptos Generados
+## 🧪 Experimentos Conceptuales
 
-### 🎯 [Concepto A - Simplicidade Extrema](dashboard-simple-preview.html)
-**Hipótesis IA**: *"Menos informação = mais compreensão"*
+### ⚡ [Concepto A - Simplicidade Extrema](dashboard-simple-preview.html)
+**Hipótesis Científica**: *"Usuarios impulsivos toman mejores decisiones cuando se elimina la complejidad"*
 
-- **Enfoque**: IA elimina 95% de la información innecesaria
-- **Método**: Decisión esencial en máximo 3 elementos visuales
-- **Tiempo**: 30 segundos
-- **Cognitive Load**: Mínimo
+- **Principio**: Cognitive Load Theory - Reducción máxima de carga cognitiva
+- **Target**: Usuarios impulsivos (28% de la base)
+- **Método**: Una decisión por vez, recomendación directa
+- **Métrica**: Tiempo decisión <5 min, completación >75%
 
-### 🧠 [Concepto B - Inteligência Conversacional](versions/B-proximaversion/dashboard-conversacional-preview.html)
-**Hipótesis IA**: *"Conversação humana + IA = confiança profunda"*
+### 💬 [Concepto B - Conversación Natural](versions/B-proximaversion/dashboard-conversacional-preview.html)
+**Hipótesis Científica**: *"Interfaz conversacional reduce barrera cognitiva en usuarios novatos"*
 
-- **Enfoque**: IA simula especialista financiero virtual
-- **Método**: Conversación natural con aprendizaje contextual
-- **Tiempo**: 2-3 minutos
-- **Personalización**: Máxima
+- **Principio**: Analogía y Mapeo Mental - Simulación de asesor humano
+- **Target**: Usuarios novatos (25% de la base)
+- **Método**: Chat natural con explicaciones personalizadas
+- **Métrica**: Confianza >75%, comprensión >60%
 
-### 📊 [Concepto C - Inteligência Completa](dashboard-preview.html)
-**Hipótesis IA**: *"Máxima informação + IA organizacional = decisões confiantes"*
+### 🧠 [Concepto C - Inteligencia Completa](dashboard-preview.html)
+**Hipótesis Científica**: *"Usuarios planejadores prefieren acceso completo a información procesable"*
 
-- **Enfoque**: IA procesa todos los datos disponibles
-- **Método**: Dashboard inteligente adaptativo
-- **Tiempo**: 5+ minutos
-- **Control**: Total
+- **Principio**: Progressive Disclosure - Revelación gradual de información
+- **Target**: Usuarios planejadores (32% de la base)
+- **Método**: Dashboard con múltiples herramientas y comparaciones
+- **Métrica**: Confianza >80%, comprensión >70%
 
-### 🎮 [Concepto D - Inteligência Adaptativa](dashboard-adaptive-preview.html)
-**Hipótesis IA**: *"IA que observa + adapta = experiência evolutiva"*
+### 🔄 [Concepto D - Inteligencia Adaptativa](dashboard-adaptive-preview.html)
+**Hipótesis Científica**: *"Interfaz adaptativa optimiza experiencia sin configuración manual"*
 
-- **Enfoque**: IA aprende comportamiento en tiempo real
-- **Método**: Interface que evoluciona con cada interacción
-- **Tiempo**: Progressivo
-- **Personalización**: Dinâmica
+- **Principio**: Adaptación Contextual - Machine Learning en tiempo real
+- **Target**: Usuarios expertos (15% de la base)
+- **Método**: Dashboard que evoluciona según comportamiento
+- **Métrica**: Matching >85%, personalización >4/5
 
 ## 🚀 Explorar Conceptos
 
@@ -60,15 +60,16 @@ Este Concept Lab utiliza **Inteligencia Artificial** para generar y explorar dif
 - [Concepto C - Inteligência Completa](https://emavillarruel.github.io/fintech-credit-products-app/dashboard-preview.html)
 - [Concepto D - Inteligência Adaptativa](https://emavillarruel.github.io/fintech-credit-products-app/dashboard-adaptive-preview.html)
 
-## 🔬 Análisis Conceptual IA
+## 🔬 Análisis Científico Comparativo
 
 | Dimensión | Concepto A | Concepto B | Concepto C | Concepto D |
 |-----------|------------|------------|------------|------------|
-| **Cognitive Load** | 🟢 Mínimo | 🟡 Moderado | 🔴 Alto | 🟡 Adaptativo |
-| **Personalización IA** | 🟡 Básica | 🟢 Avançada | 🟡 Moderada | 🟢 Evolutiva |
-| **Educação Contextual** | 🟡 Limitada | 🟢 Profunda | 🟡 Informativa | 🟢 Comportamental |
-| **Tempo de Decisão** | 🟢 Imediato | 🟡 Gradual | 🔴 Demorado | 🟡 Progressivo |
-| **Confianza Gerada** | 🟡 Rápida | 🟢 Profunda | 🟡 Racional | 🟢 Dinâmica |
+| **Principio Cognitivo** | Cognitive Load | Mapeo Mental | Progressive Disclosure | Adaptación Contextual |
+| **Target User** | Impulsivos (28%) | Novatos (25%) | Planejadores (32%) | Expertos (15%) |
+| **Complejidad** | 🟢 Mínima | 🟡 Media | 🔴 Alta | 🟡 Variable |
+| **Personalización** | 🟡 Baja | 🟢 Alta | 🟡 Moderada | 🟢 Máxima |
+| **Velocidad** | 🟢 Rápida | 🟡 Media | 🔴 Lenta | 🟡 Optimizada |
+| **Confianza** | Simplicidad | Conversación | Transparencia | Personalización |
 
 ## 🎯 Para Evaluadores
 
@@ -100,6 +101,36 @@ Este Concept Lab utiliza **Inteligencia Artificial** para generar y explorar dif
 - **Personalización adaptativa** por usuario
 - **Optimización continua** de experiencias
 
+## 🎨 Wireframe Concept Generator
+
+### 🚀 Herramienta Práctica
+**Genera automáticamente 4 wireframes conceptuales** basados en principios cognitivos científicos en menos de 2 minutos.
+
+```bash
+# Ejemplo: Problema de productos de crédito
+cd wireframe-generator
+node generator.js \
+  --problem "Users confused between credit products" \
+  --domain "Fintech" \
+  --users "novice,expert,impulsive" \
+  --metrics "comprehension,confidence,conversion"
+```
+
+### 📂 Output Generado
+```
+generated-wireframes/
+├── concept-cognitive-load.html        # Simplicidad extrema
+├── concept-progressive-disclosure.html # Revelación gradual
+├── concept-social-proof.html          # Validación social
+├── concept-personalization.html       # Personalización
+└── analysis-summary.md                # Análisis científico
+```
+
+### 🔗 Documentación Completa
+- **[Wireframe Generator](WIREFRAME_GENERATOR.md)**: Guía completa de la herramienta
+- **[Quick Start](wireframe-generator/QUICK_START.md)**: Uso en 2 minutos
+- **[GitHub Pages](https://emavillarruel.github.io/fintech-credit-products-app/)**: Demos interactivos
+
 ## 📊 Estructura del Proyecto
 
 ```
@@ -126,10 +157,10 @@ fintech-app/
 - Proponer nuevas **hipótesis IA** para explorar
 
 ### 🔬 Metodología Científica
-- **Hipótesis**: Cada concepto tiene una teoría IA específica
-- **Experimento**: Usuarios reales interactúan con cada concepto
-- **Métricas**: Comprensión, confianza, tiempo, preferencia
-- **Conclusión**: Datos empíricos validan las hipótesis IA
+- **Hipótesis**: Cada concepto deriva de principios cognitivos específicos
+- **Experimento**: Usuarios reales por perfil interactúan con cada concepto
+- **Métricas**: Cuantitativas (conversión, tiempo) + Cualitativas (confianza, comprensión)
+- **Conclusión**: Validación estadística determina concepto ganador + elementos híbridos
 
 ## 🚀 Próximos Pasos
 
