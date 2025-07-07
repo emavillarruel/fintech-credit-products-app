@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Wireframe Concept Hub</title>
+    <link rel="stylesheet" href="styles/wireframe-components.css">
+    <style>
+        :root {
+            --hub-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --hub-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --hub-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --hub-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--wf-bg-primary);
+        }
+        
+        .hub-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--hub-gradient);
+            border-radius: var(--wf-border-radius);
+            color: white;
+            box-shadow: var(--hub-card-shadow);
+        }
+        
+        .hub-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hub-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .hub-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .hub-stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: var(--wf-border-radius);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hub-stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .hub-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: var(--wf-border-radius);
+            padding: 2rem;
+            box-shadow: var(--hub-card-shadow);
+            transition: var(--hub-transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hub-hover-shadow);
+            border-color: var(--wf-accent-primary);
+        }
+        
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--hub-gradient);
+        }
+        
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .concept-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--wf-text-primary);
+        }
+        
+        .concept-description {
+            color: var(--wf-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .concept-metrics {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .metric-tag {
+            background: var(--wf-accent-light);
+            color: var(--wf-accent-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .concept-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--wf-accent-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--wf-border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--hub-transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background: var(--wf-accent-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--wf-accent-primary);
+            border: 2px solid var(--wf-accent-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--wf-border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--hub-transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--wf-accent-primary);
+            color: white;
+        }
+        
+        .analysis-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--wf-border-radius);
+            box-shadow: var(--hub-card-shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .analysis-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--wf-text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .problem-summary {
+            background: var(--wf-bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--wf-border-radius);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--wf-accent-primary);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--wf-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .timestamp {
+            color: var(--wf-text-muted);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        /* Hub Actions */
+        .hub-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: var(--wf-border-radius);
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--wf-border-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--hub-gradient);
+            color: white;
+            border-radius: var(--wf-border-radius) var(--wf-border-radius) 0 0;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .close:hover {
+            opacity: 1;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--wf-text-primary);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--wf-border-primary);
+            border-radius: var(--wf-border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--wf-accent-primary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .modal-note {
+            background: var(--wf-bg-secondary);
+            padding: 1rem;
+            border-radius: var(--wf-border-radius);
+            border-left: 4px solid var(--wf-accent-primary);
+            margin-top: 1rem;
+        }
+        
+        .modal-note code {
+            background: var(--wf-accent-light);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .modal-footer {
+            padding: 2rem;
+            border-top: 1px solid var(--wf-border-primary);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 768px) {
+            .hub-container {
+                padding: 1rem;
+            }
+            
+            .hub-title {
+                font-size: 2rem;
+            }
+            
+            .concepts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .concept-actions {
+                flex-direction: column;
+            }
+            
+            .hub-actions {
+                flex-direction: column;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .modal-header,
+            .modal-body,
+            .modal-footer {
+                padding: 1rem;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hub-container">
+        <!-- Header -->
+        <div class="hub-header">
+            <h1 class="hub-title">🧠 Wireframe Concept Hub</h1>
+            <p class="hub-subtitle">Explora conceptos generados basados en principios cognitivos</p>
+            <div class="hub-stats">
+                <div class="hub-stat">
+                    <span class="hub-stat-number">4</span>
+                    <span class="hub-stat-label">Conceptos</span>
+                </div>
+                <div class="hub-stat">
+                    <span class="hub-stat-number">Fintech</span>
+                    <span class="hub-stat-label">Dominio</span>
+                </div>
+                <div class="hub-stat">
+                    <span class="hub-stat-number">3</span>
+                    <span class="hub-stat-label">Métricas Clave</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem Analysis -->
+        <div class="analysis-section">
+            <h2 class="analysis-title">
+                🎯 Análisis del Problema
+            </h2>
+            <div class="problem-summary">
+                <h3>Problema:</h3>
+                <p><strong>Los usuarios necesitan ayuda para entender las opciones de crédito</strong></p>
+                <p><strong>Dominio:</strong> Fintech</p>
+                <p><strong>Métricas Clave:</strong> tasa de conversión, satisfacción del usuario, finalización de tareas</p>
+            </div>
+        </div>
+
+        <!-- Concepts Grid -->
+        <div class="concepts-grid">
+            <!-- Cognitive Load Reduction -->
+            <div class="concept-card" onclick="openConcept('concept-cognitive-load.html')">
+                <span class="concept-icon">🧠</span>
+                <h3 class="concept-title">Reducción de Carga Cognitiva</h3>
+                <p class="concept-description">
+                    Simplifica la interfaz eliminando decisiones innecesarias y enfocándose en una opción recomendada.
+                </p>
+                <div class="concept-metrics">
+                    <span class="metric-tag">Conversión</span>
+                    <span class="metric-tag">Satisfacción</span>
+                    <span class="metric-tag">Finalización</span>
+                </div>
+                <div class="concept-actions">
+                    <a href="generated-wireframes/concept-cognitive-load.html" class="btn-primary" target="_blank">Ver Wireframe</a>
+                </div>
+            </div>
+
+            <!-- Progressive Disclosure -->
+            <div class="concept-card" onclick="openConcept('concept-progressive-disclosure.html')">
+                <span class="concept-icon">📊</span>
+                <h3 class="concept-title">Revelación Progresiva</h3>
+                <p class="concept-description">
+                    Revela información gradualmente a través de pasos guiados para mejorar la comprensión.
+                </p>
+                <div class="concept-metrics">
+                    <span class="metric-tag">Retención</span>
+                    <span class="metric-tag">Confianza</span>
+                    <span class="metric-tag">Abandono</span>
+                </div>
+                <div class="concept-actions">
+                    <a href="generated-wireframes/concept-progressive-disclosure.html" class="btn-primary" target="_blank">Ver Wireframe</a>
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="concept-card" onclick="openConcept('concept-social-proof.html')">
+                <span class="concept-icon">👥</span>
+                <h3 class="concept-title">Prueba Social</h3>
+                <p class="concept-description">
+                    Muestra validación social y patrones de uso de otros usuarios para generar confianza.
+                </p>
+                <div class="concept-metrics">
+                    <span class="metric-tag">Confianza</span>
+                    <span class="metric-tag">Compromiso</span>
+                    <span class="metric-tag">Referencias</span>
+                </div>
+                <div class="concept-actions">
+                    <a href="generated-wireframes/concept-social-proof.html" class="btn-primary" target="_blank">Ver Wireframe</a>
+                </div>
+            </div>
+
+            <!-- Personalization -->
+            <div class="concept-card" onclick="openConcept('concept-personalization.html')">
+                <span class="concept-icon">🎨</span>
+                <h3 class="concept-title">Personalización Adaptativa</h3>
+                <p class="concept-description">
+                    Adapta la experiencia al contexto individual del usuario con recomendaciones relevantes.
+                </p>
+                <div class="concept-metrics">
+                    <span class="metric-tag">Relevancia</span>
+                    <span class="metric-tag">Tiempo</span>
+                    <span class="metric-tag">Adopción</span>
+                </div>
+                <div class="concept-actions">
+                    <a href="generated-wireframes/concept-personalization.html" class="btn-primary" target="_blank">Ver Wireframe</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Summary -->
+        <div class="analysis-section">
+            <h2 class="analysis-title">
+                📈 Recomendaciones de Implementación
+            </h2>
+            <div class="wf-grid-2">
+                <div class="wf-card">
+                    <h3>🔬 Pruebas A/B</h3>
+                    <p>Testa cada wireframe con usuarios reales para validar hipótesis</p>
+                </div>
+                <div class="wf-card">
+                    <h3>📊 Métricas Clave</h3>
+                    <p>Rastrea métricas primarias y secundarias para cada concepto</p>
+                </div>
+                <div class="wf-card">
+                    <h3>🔄 Iteración</h3>
+                    <p>Usa resultados para informar decisiones de diseño</p>
+                </div>
+                <div class="wf-card">
+                    <h3>🤝 Enfoques Híbridos</h3>
+                    <p>Combina elementos exitosos de diferentes conceptos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="analysis-section">
+            <h2 class="analysis-title">
+                🛠️ Acciones del Hub
+            </h2>
+            <div class="hub-actions">
+                <button class="btn-primary" onclick="regenerateWireframes()">
+                    🔄 Regenerar Wireframes
+                </button>
+                <button class="btn-secondary refresh-btn" onclick="refreshContent()" style="transition: transform 0.3s ease;">
+                    🔄 Refrescar Contenido
+                </button>
+                <a href="SISTEMA_MODULAR.md" class="btn-secondary" target="_blank">
+                    📖 Documentación
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🎨 Generado por Wireframe Generator - Sistema Modular</p>
+            <p class="timestamp">Última actualización: 2025-07-05</p>
+        </div>
+    </div>
+
+    <!-- Modal para regenerar wireframes -->
+    <div id="regenerateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🔄 Regenerar Wireframes</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Configura los parámetros para generar nuevos wireframes:</p>
+                
+                <div class="form-group">
+                    <label for="presets">Usar Preset:</label>
+                    <select id="presets" onchange="applyPreset(this.value)">
+                        <option value="">Seleccionar preset...</option>
+                        <option value="Fintech Credit">Fintech Credit</option>
+                        <option value="E-commerce Checkout">E-commerce Checkout</option>
+                        <option value="SaaS Onboarding">SaaS Onboarding</option>
+                        <option value="Healthcare Appointments">Healthcare Appointments</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="domain">Dominio:</label>
+                    <select id="domain">
+                        <option value="Fintech">Fintech</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="SaaS">SaaS</option>
+                        <option value="Healthcare">Healthcare</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="problem">Descripción del Problema:</label>
+                    <textarea id="problem" rows="3" placeholder="Describe el problema que quieres resolver...">Users need help understanding credit options</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="metrics">Métricas (separadas por comas):</label>
+                    <input type="text" id="metrics" placeholder="conversion_rate,user_satisfaction,task_completion" value="conversion_rate,user_satisfaction,task_completion">
+                </div>
+
+                <div class="modal-note">
+                    <strong>📝 Nota:</strong> Esta función muestra el comando a ejecutar. Para regenerar realmente, usa el script <code>./regenerate-wireframes.sh</code> en la terminal.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+                <button class="btn-primary" id="generateBtn" onclick="generateWireframes()">Generar Wireframes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración del hub
+        let hubConfig = null;
+
+        // Cargar configuración
+        async function loadConfig() {
+            try {
+                const response = await fetch('hub-config.json');
+                hubConfig = await response.json();
+                updateHubWithConfig();
+            } catch (error) {
+                console.log('Usando configuración por defecto:', error);
+            }
+        }
+
+        // Actualizar hub con configuración
+        function updateHubWithConfig() {
+            if (!hubConfig) return;
+
+            // Actualizar colores del tema
+            const root = document.documentElement;
+            if (hubConfig.theme) {
+                root.style.setProperty('--hub-primary', hubConfig.theme.primary_color);
+                root.style.setProperty('--hub-secondary', hubConfig.theme.secondary_color);
+                root.style.setProperty('--wf-accent-primary', hubConfig.theme.accent_color);
+            }
+        }
+
+        function openConcept(filename) {
+            window.open(`generated-wireframes/${filename}`, '_blank');
+        }
+
+        // Función para regenerar wireframes
+        function regenerateWireframes() {
+            const modal = document.getElementById('regenerateModal');
+            modal.style.display = 'block';
+        }
+
+        // Función para cerrar modal
+        function closeModal() {
+            const modal = document.getElementById('regenerateModal');
+            modal.style.display = 'none';
+        }
+
+        // Función para aplicar preset
+        function applyPreset(preset) {
+            if (!hubConfig) return;
+            
+            const selectedPreset = hubConfig.generation_presets.find(p => p.name === preset);
+            if (selectedPreset) {
+                document.getElementById('domain').value = selectedPreset.domain;
+                document.getElementById('problem').value = selectedPreset.problem;
+                document.getElementById('metrics').value = selectedPreset.metrics;
+            }
+        }
+
+        // Función para generar wireframes (simulada)
+        function generateWireframes() {
+            const domain = document.getElementById('domain').value;
+            const problem = document.getElementById('problem').value;
+            const metrics = document.getElementById('metrics').value;
+            
+            // Mostrar loading
+            const generateBtn = document.getElementById('generateBtn');
+            const originalText = generateBtn.textContent;
+            generateBtn.textContent = 'Generando...';
+            generateBtn.disabled = true;
+            
+            // Simular generación
+            setTimeout(() => {
+                alert(`¡Wireframes generados para ${domain}!\n\nPara regenerar realmente, usa:\n./regenerate-wireframes.sh --domain "${domain}" --problem "${problem}" --metrics "${metrics}"`);
+                
+                generateBtn.textContent = originalText;
+                generateBtn.disabled = false;
+                closeModal();
+                
+                // Recargar página después de 2 segundos
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            }, 2000);
+        }
+
+        // Función para refrescar contenido
+        function refreshContent() {
+            const refreshBtn = document.querySelector('.refresh-btn');
+            refreshBtn.style.transform = 'rotate(360deg)';
+            
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        }
+
+        // Agregar animaciones al hacer scroll
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.concept-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Inicializar animaciones
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cargar configuración
+            loadConfig();
+
+            // Animaciones de cards
+            const cards = document.querySelectorAll('.concept-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Cerrar modal al hacer click fuera
+            window.onclick = function(event) {
+                const modal = document.getElementById('regenerateModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            };
+        });
+    </script>
+</body>
+</html> 

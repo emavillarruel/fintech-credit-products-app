@@ -1,0 +1,111 @@
+{
+  "title": "🧠 Wireframe Concept Hub",
+  "subtitle": "Explora conceptos generados basados en principios cognitivos",
+  "domain": "Fintech",
+  "problem": "Los usuarios necesitan ayuda para entender las opciones de crédito",
+  "metrics": ["tasa de conversión", "satisfacción del usuario", "finalización de tareas"],
+  "concepts": [
+    {
+      "id": "cognitive-load",
+      "title": "Reducción de Carga Cognitiva",
+      "icon": "🧠",
+      "description": "Simplifica la interfaz eliminando decisiones innecesarias y enfocándose en una opción recomendada.",
+      "metrics": ["Conversión", "Satisfacción", "Finalización"],
+      "file": "concept-cognitive-load.html",
+      "target_users": ["usuarios abrumados", "usuarios con fatiga de decisión"],
+      "hypothesis": "Reducir la carga cognitiva mejorará la conversión al eliminar la parálisis de decisión"
+    },
+    {
+      "id": "progressive-disclosure",
+      "title": "Revelación Progresiva",
+      "icon": "📊",
+      "description": "Revela información gradualmente a través de pasos guiados para mejorar la comprensión.",
+      "metrics": ["Retención", "Confianza", "Abandono"],
+      "file": "concept-progressive-disclosure.html",
+      "target_users": ["usuarios novatos", "usuarios orientados a procesos"],
+      "hypothesis": "Revelar información gradualmente aumentará la confianza y finalización"
+    },
+    {
+      "id": "social-proof",
+      "title": "Prueba Social",
+      "icon": "👥",
+      "description": "Muestra validación social y patrones de uso de otros usuarios para generar confianza.",
+      "metrics": ["Confianza", "Compromiso", "Referencias"],
+      "file": "concept-social-proof.html",
+      "target_users": ["usuarios escépticos", "usuarios que buscan confianza"],
+      "hypothesis": "La validación social reducirá la incertidumbre y aumentará la confianza"
+    },
+    {
+      "id": "personalization",
+      "title": "Personalización Adaptativa",
+      "icon": "🎨",
+      "description": "Adapta la experiencia al contexto individual del usuario con recomendaciones relevantes.",
+      "metrics": ["Relevancia", "Tiempo", "Adopción"],
+      "file": "concept-personalization.html",
+      "target_users": ["usuarios recurrentes", "usuarios con contexto específico"],
+      "hypothesis": "La personalización mejorará la relevancia y satisfacción del usuario"
+    }
+  ],
+  "recommendations": [
+    {
+      "icon": "🔬",
+      "title": "Pruebas A/B",
+      "description": "Testa cada wireframe con usuarios reales para validar hipótesis"
+    },
+    {
+      "icon": "📊",
+      "title": "Métricas Clave",
+      "description": "Rastrea métricas primarias y secundarias para cada concepto"
+    },
+    {
+      "icon": "🔄",
+      "title": "Iteración",
+      "description": "Usa resultados para informar decisiones de diseño"
+    },
+    {
+      "icon": "🤝",
+      "title": "Enfoques Híbridos",
+      "description": "Combina elementos exitosos de diferentes conceptos"
+    }
+  ],
+  "generation_presets": [
+    {
+      "name": "Fintech Credit",
+      "domain": "Fintech",
+      "problem": "Users need help understanding credit options",
+      "metrics": "conversion_rate,user_satisfaction,task_completion"
+    },
+    {
+      "name": "E-commerce Checkout",
+      "domain": "E-commerce",
+      "problem": "Users abandon cart during checkout",
+      "metrics": "conversion_rate,cart_abandonment,checkout_completion"
+    },
+    {
+      "name": "SaaS Onboarding",
+      "domain": "SaaS",
+      "problem": "Users struggle with initial setup",
+      "metrics": "feature_adoption,time_to_value,user_activation"
+    },
+    {
+      "name": "Healthcare Appointments",
+      "domain": "Healthcare",
+      "problem": "Patients have difficulty booking appointments",
+      "metrics": "booking_success,user_satisfaction,accessibility_score"
+    }
+  ],
+  "theme": {
+    "primary_color": "#667eea",
+    "secondary_color": "#764ba2",
+    "accent_color": "#4f46e5",
+    "text_color": "#1f2937",
+    "background_color": "#f9fafb"
+  },
+  "settings": {
+    "auto_refresh": true,
+    "show_timestamps": true,
+    "enable_animations": true,
+    "dark_mode": false,
+    "language": "es"
+  }
+} 
