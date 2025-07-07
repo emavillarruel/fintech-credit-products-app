@@ -1,77 +1,404 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adaptive Personalization - Users need help understanding credit options</title>
-    <link rel="stylesheet" href="./styles/wireframe-components.css">
+    <title>Concepto D: Personalización Adaptativa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/wireframe-components.css">
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <style>
+        /* Estilos específicos para el concepto */
+        .concept-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        
+        .concept-accent {
+            color: #3b82f6;
+        }
+        
+        .concept-badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .profile-score {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .ai-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .recommendation-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            position: relative;
+        }
+
+        .recommendation-card.highlighted {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .recommendation-badge {
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .recommendation-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-reason {
+            font-size: 0.85rem;
+            color: #3b82f6;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .recommendation-content {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+        }
+
+        .recommendation-details {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .select-button {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .select-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .select-button.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .insights-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+
+        .insights-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .insight-icon {
+            color: #3b82f6;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .performance-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .performance-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 4px;
+        }
+
+        .performance-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="wf-container">
-      
-        <div class="wf-concept-header">
-            <h1>🧠 Adaptive Personalization</h1>
-            <p><strong>Problem:</strong> Users need help understanding credit options</p>
-            <p><strong>Domain:</strong> Fintech</p>
-            <p><strong>Approach:</strong> Customize content and recommendations using user data</p>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Header de Navegación -->
+                <header class="nav-header">
+                    <div class="nav-container">
+                        <a href="../concept-hub.html" class="nav-back">←</a>
+                        <div class="nav-badge concept-d">Concepto D</div>
+                        <div style="width: 32px;"></div>
+                    </div>
+                </header>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content" style="padding: 20px; color: white;">
+                    
+                    <!-- Header del Concepto -->
+                    <div style="text-align: center; margin-bottom: 24px; padding-top: 20px;">
+                        <h1 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 8px;">
+                            🎯 Personalización Adaptativa
+                        </h1>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-bottom: 16px;">
+                            <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
+                        </p>
+                        <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">
+                            <strong>Enfoque:</strong> Personalizar contenido y recomendaciones usando datos del usuario
+                        </p>
+                    </div>
+
+                    <!-- Perfil del Usuario -->
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">MS</div>
+                            <div class="profile-info">
+                                <div class="profile-name">¡Hola, María!</div>
+                                <div class="profile-score">
+                                    Score: 740 • Ingreso: $75,000
+                                </div>
+                            </div>
+                            <div class="ai-tag">🤖 AI</div>
+                        </div>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem;">
+                            Basado en tu perfil financiero y comportamiento, hemos personalizado estas opciones especialmente para ti.
+                        </div>
+                    </div>
+
+                    <!-- Hero Section -->
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <h2 style="font-size: 1.6rem; font-weight: 300; margin-bottom: 8px; color: white;">
+                            Tus Recomendaciones Personalizadas
+                        </h2>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">
+                            Analizamos tu perfil para encontrar las mejores opciones
+                        </p>
+                    </div>
+
+                    <!-- Recomendación Principal -->
+                    <div class="recommendation-card highlighted">
+                        <div class="recommendation-badge">🎯 IDEAL PARA TI</div>
+                        <div class="recommendation-title">Crédito Personal Inteligente</div>
+                        <div class="recommendation-reason">
+                            ✨ Perfecta para tu perfil y objetivos financieros
+                        </div>
+                        <div class="recommendation-content">
+                            <strong>11.5% TEA</strong> • Hasta $60,000
+                        </div>
+                        <div class="recommendation-details">
+                            <div class="detail-item">✓ Sin garantías</div>
+                            <div class="detail-item">✓ 48 cuotas</div>
+                            <div class="detail-item">✓ Precalificado</div>
+                        </div>
+                        <button class="select-button">
+                            Solicitar Ahora
+                        </button>
+                    </div>
+
+                    <!-- Opción Alternativa -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">Línea de Crédito Flex</div>
+                        <div class="recommendation-reason">
+                            💳 Ideal para gastos variables
+                        </div>
+                        <div class="recommendation-content">
+                            <strong>8.5% TEA</strong> • Línea hasta $40,000
+                        </div>
+                        <div class="recommendation-details">
+                            <div class="detail-item">✓ Pago flexible</div>
+                            <div class="detail-item">✓ Solo usas lo que necesitas</div>
+                        </div>
+                        <button class="select-button secondary">
+                            Ver Detalles
+                        </button>
+                    </div>
+
+                    <!-- Insights Personalizados -->
+                    <div class="insights-card">
+                        <div class="insights-title">
+                            <span>🧠</span>
+                            <span>Insights Personalizados</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-icon">📊</span>
+                            <span>Tu perfil crediticio es excelente (98% percentil)</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-icon">💰</span>
+                            <span>Calificas para tasas preferenciales</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-icon">⚡</span>
+                            <span>Aprobación inmediata disponible</span>
+                        </div>
+                    </div>
+
+                    <!-- Rendimiento del Sistema -->
+                    <div style="margin-top: 24px;">
+                        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                            📈 Rendimiento de la Personalización
+                        </h3>
+                        <div class="performance-grid">
+                            <div class="performance-item">
+                                <div class="performance-value">95%</div>
+                                <div class="performance-label">Precisión</div>
+                            </div>
+                            <div class="performance-item">
+                                <div class="performance-value">3.2x</div>
+                                <div class="performance-label">Mejor Conversión</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Por qué funciona -->
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; margin: 20px 0;">
+                        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: #3b82f6;">
+                            ¿Por qué funciona la personalización?
+                        </h3>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">
+                            <p style="margin-bottom: 12px;">
+                                ✓ <strong>Relevancia máxima:</strong> Cada recomendación está adaptada a tu perfil específico
+                            </p>
+                            <p style="margin-bottom: 12px;">
+                                ✓ <strong>Menos ruido:</strong> Solo ves opciones que realmente te convienen
+                            </p>
+                            <p style="margin-bottom: 0;">
+                                ✓ <strong>Confianza aumentada:</strong> Sientes que el sistema te entiende
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hipótesis -->
+                    <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 12px; padding: 16px; margin-top: 24px; text-align: center;">
+                        <h4 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #3b82f6;">
+                            💡 Hipótesis del Concepto
+                        </h4>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; line-height: 1.4; margin: 0; font-style: italic;">
+                            "La personalización basada en datos del usuario aumentará la conversión al mostrar opciones más relevantes y reducir el tiempo de decisión."
+                        </p>
+                    </div>
+
+                    <!-- Métricas a medir -->
+                    <div style="margin-top: 24px;">
+                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                            📊 Métricas a Medir
+                        </h4>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Relevancia
+                            </span>
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Engagement
+                            </span>
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Satisfacción
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Espacio para scroll -->
+                    <div style="height: 40px;"></div>
+                </div>
+            </div>
         </div>
-        
-        
-    <header class="wf-header">
-      <div class="wf-logo">Fintech Personal</div>
-      
-        <nav class="wf-nav">
-          <span class="wf-nav-item">Dashboard</span><span class="wf-nav-item">Profile</span><span class="wf-nav-item">Settings</span>
-        </nav>
-      
-    </header>
-  
-        
-    <section class="wf-hero wf-hero--simple">
-      <h1 class="wf-title">Welcome back, Maria!</h1>
-      <p class="wf-subtitle">Your personalized recommendations are ready</p>
-      <button class="wf-button wf-button--primary wf-button--large">View Recommendations</button>
-    </section>
-  
-        
-    <section class="wf-content wf-personalized">
-      
-    <div class="wf-user-profile">
-      <div class="wf-avatar"></div>
-      <div class="wf-user-info">
-        <h4>Hi Maria!</h4>
-        <p>Based on your credit score (740) and income</p>
-      </div>
     </div>
-  
-      <div class="wf-recommendations">
-        
-          <div class="wf-recommendation wf-recommendation--highlighted">
-            <h3 class="wf-recommendation__title">Recommended for You</h3>
-            <div class="wf-recommendation__reason">Perfect for your profile</div>
-            <div class="wf-recommendation__content">Personal Loan - 12% APR</div>
-          </div>
-        
-          <div class="wf-recommendation ">
-            <h3 class="wf-recommendation__title">Alternative Option</h3>
-            <div class="wf-recommendation__reason">Flexible payment</div>
-            <div class="wf-recommendation__content">Credit Line - 8% APR</div>
-          </div>
-        
-      </div>
-    </section>
-  
-        
-    <section class="wf-content wf-content--center">
-      <h2 class="wf-heading">Personalized Experience</h2>
-      <div class="wf-text">By adapting to individual user contexts and preferences, we can provide more relevant and effective solutions.</div>
-    </section>
-  
-    
-    
-    </div>
-  
 </body>
 </html>

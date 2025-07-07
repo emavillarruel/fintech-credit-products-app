@@ -1,63 +1,213 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognitive Load Reduction - Users need help understanding credit options</title>
-    <link rel="stylesheet" href="./styles/wireframe-components.css">
+    <title>Concepto A: Reducción de Carga Cognitiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/wireframe-components.css">
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <style>
+        /* Estilos específicos para el concepto */
+        .concept-gradient {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        }
+        
+        .concept-accent {
+            color: #ff6b35;
+        }
+        
+        .concept-badge {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff8335;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .recommendation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .price-highlight {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ff8335;
+            margin: 16px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff8335;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .why-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="wf-container">
-      
-        <div class="wf-concept-header">
-            <h1>🧠 Cognitive Load Reduction</h1>
-            <p><strong>Problem:</strong> Users need help understanding credit options</p>
-            <p><strong>Domain:</strong> Fintech</p>
-            <p><strong>Approach:</strong> Simplify choices and present single recommended option</p>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Header de Navegación -->
+                <header class="nav-header">
+                    <div class="nav-container">
+                        <a href="../concept-hub.html" class="nav-back">←</a>
+                        <div class="nav-badge concept-a">Concepto A</div>
+                        <div style="width: 32px;"></div>
+                    </div>
+                </header>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content" style="padding: 20px; color: white;">
+                    
+                    <!-- Header del Concepto -->
+                    <div style="text-align: center; margin-bottom: 24px; padding-top: 20px;">
+                        <h1 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 8px;">
+                            🧠 Reducción de Carga Cognitiva
+                        </h1>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-bottom: 16px;">
+                            <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
+                        </p>
+                        <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">
+                            <strong>Enfoque:</strong> Simplificar decisiones y presentar una sola opción recomendada
+                        </p>
+                    </div>
+
+                    <!-- Hero Section -->
+                    <div style="text-align: center; margin-bottom: 32px;">
+                        <h2 style="font-size: 1.8rem; font-weight: 300; margin-bottom: 12px; color: white;">
+                            Tu Solución Perfecta
+                        </h2>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 1rem; line-height: 1.5;">
+                            Hemos encontrado la opción ideal para ti.<br>
+                            Sin confusiones, sin decisiones complejas.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta de Recomendación -->
+                    <div class="recommendation-card">
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <span style="background: rgba(255, 131, 53, 0.2); color: #ff8335; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
+                                ⭐ RECOMENDADO PARA TI
+                            </span>
+                        </div>
+                        
+                        <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; color: white;">
+                            Crédito Personal Plus
+                        </h3>
+                        
+                        <div class="price-highlight">
+                            12.5% TEA
+                        </div>
+                        
+                        <ul class="features-list">
+                            <li>Aprobación en 5 minutos</li>
+                            <li>Sin garantías ni avales</li>
+                            <li>Hasta $50,000 disponibles</li>
+                            <li>36 cuotas fijas</li>
+                        </ul>
+                        
+                        <button class="cta-button">
+                            ✓ Solicitar Ahora
+                        </button>
+                    </div>
+
+                    <!-- Por qué funciona -->
+                    <div class="why-section">
+                        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: #ff8335;">
+                            ¿Por qué esta recomendación?
+                        </h3>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">
+                            <p style="margin-bottom: 12px;">
+                                ✓ <strong>Elimina la parálisis de decisión:</strong> Una sola opción optimizada basada en tu perfil
+                            </p>
+                            <p style="margin-bottom: 12px;">
+                                ✓ <strong>Reduce la carga cognitiva:</strong> No necesitas comparar múltiples alternativas
+                            </p>
+                            <p style="margin-bottom: 0;">
+                                ✓ <strong>Decisión más rápida:</strong> Menos tiempo evaluando, más tiempo disfrutando
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hipótesis -->
+                    <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.2); border-radius: 12px; padding: 16px; margin-top: 24px; text-align: center;">
+                        <h4 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #ff8335;">
+                            💡 Hipótesis del Concepto
+                        </h4>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; line-height: 1.4; margin: 0; font-style: italic;">
+                            "Presentar una sola opción recomendada aumentará la conversión al eliminar la sobrecarga de información y la parálisis de decisión."
+                        </p>
+                    </div>
+
+                    <!-- Métricas a medir -->
+                    <div style="margin-top: 24px;">
+                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                            📊 Métricas a Medir
+                        </h4>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Tasa de Conversión
+                            </span>
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Satisfacción
+                            </span>
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Tiempo de Decisión
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Espacio para scroll -->
+                    <div style="height: 40px;"></div>
+                </div>
+            </div>
         </div>
-        
-        
-    <header class="wf-header wf-header--minimal">
-      <div class="wf-logo">Fintech App</div>
-      <div class="wf-nav--simple">Menu</div>
-    </header>
-  
-        
-    <section class="wf-hero wf-hero--simple">
-      <h1 class="wf-title">Simple Solution</h1>
-      <p class="wf-subtitle">We recommend the perfect option for you - no overwhelming choices</p>
-      <button class="wf-button wf-button--primary wf-button--large">Get Started</button>
-    </section>
-  
-        
-    <section class="wf-content wf-content--center">
-      <div class="wf-flex-center">
-        <div class="wf-card wf-card--recommended">
-          <div class="wf-card__header">
-            <h3 class="wf-heading">Recommended Credit Product</h3>
-          </div>
-          <div class="wf-card__body">
-            <div class="wf-price">Best Rate Available</div>
-            <div class="wf-features">Tailored for your profile</div>
-          </div>
-          <div class="wf-card__footer">
-            <button class="wf-button wf-button--primary wf-button--full">Choose This Option</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-        
-    <section class="wf-content wf-content--center">
-      <h2 class="wf-heading">Why This Works</h2>
-      <div class="wf-text">By removing choice paralysis and presenting a single optimized recommendation, users can make decisions faster and with more confidence.</div>
-    </section>
-  
-    
-    
     </div>
-  
 </body>
 </html>

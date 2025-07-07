@@ -1,83 +1,286 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progressive Disclosure - Users need help understanding credit options</title>
-    <link rel="stylesheet" href="./styles/wireframe-components.css">
+    <title>Concepto B: Revelación Progresiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/wireframe-components.css">
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <style>
+        /* Estilos específicos para el concepto */
+        .concept-gradient {
+            background: linear-gradient(135deg, #00d4aa 0%, #00b09b 100%);
+        }
+        
+        .concept-accent {
+            color: #00d4aa;
+        }
+        
+        .concept-badge {
+            background: rgba(0, 212, 170, 0.2);
+            color: #00d4aa;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #00d4aa, #00b09b);
+            height: 100%;
+            width: 33%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #00d4aa 0%, #00b09b 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #00d4aa 0%, #00b09b 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
+        }
+
+        .info-disclosure {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .question-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .question-option:hover {
+            border-color: rgba(0, 212, 170, 0.5);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="wf-container">
-      
-        <div class="wf-concept-header">
-            <h1>🧠 Progressive Disclosure</h1>
-            <p><strong>Problem:</strong> Users need help understanding credit options</p>
-            <p><strong>Domain:</strong> Fintech</p>
-            <p><strong>Approach:</strong> Break complex processes into guided steps</p>
-        </div>
-        
-        
-    <header class="wf-header wf-header--full">
-      <div class="wf-logo">Fintech Wizard</div>
-      <nav class="wf-nav">
-        <span class="wf-nav-item">Home</span><span class="wf-nav-item">Help</span><span class="wf-nav-item">Support</span>
-      </nav>
-    </header>
-  
-        
-    <section class="wf-hero wf-hero--detailed">
-      <h1 class="wf-title">Find Your Perfect Solution</h1>
-      <p class="wf-subtitle">Answer a few questions to get personalized recommendations</p>
-      
-        <div class="wf-benefits">
-          <div class="wf-benefit">Step by step</div><div class="wf-benefit">Personalized</div><div class="wf-benefit">No pressure</div>
-        </div>
-      
-      <button class="wf-button wf-button--primary wf-button--large">Start Process</button>
-    </section>
-  
-        
-    <section class="wf-content">
-      <div class="wf-wizard">
-        <div class="wf-steps">
-          
-            <div class="wf-step wf-step--active ">
-              Your Needs
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Header de Navegación -->
+                <header class="nav-header">
+                    <div class="nav-container">
+                        <a href="../concept-hub.html" class="nav-back">←</a>
+                        <div class="nav-badge concept-b">Concepto B</div>
+                        <div style="width: 32px;"></div>
+                    </div>
+                </header>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content" style="padding: 20px; color: white;">
+                    
+                    <!-- Header del Concepto -->
+                    <div style="text-align: center; margin-bottom: 24px; padding-top: 20px;">
+                        <h1 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 8px;">
+                            📊 Revelación Progresiva
+                        </h1>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-bottom: 16px;">
+                            <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
+                        </p>
+                        <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">
+                            <strong>Enfoque:</strong> Dividir información compleja en pasos manejables
+                        </p>
+                    </div>
+
+                    <!-- Hero Section -->
+                    <div style="text-align: center; margin-bottom: 32px;">
+                        <h2 style="font-size: 1.8rem; font-weight: 300; margin-bottom: 12px; color: white;">
+                            Tu Camino Paso a Paso
+                        </h2>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 1rem; line-height: 1.5;">
+                            Te guiamos en cada etapa para encontrar<br>
+                            la mejor solución financiera para ti.
+                        </p>
+                    </div>
+
+                    <!-- Beneficios -->
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div style="font-size: 1.2rem; margin-bottom: 4px;">🎯</div>
+                            <div style="color: #00d4aa; font-weight: 600;">Paso a paso</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div style="font-size: 1.2rem; margin-bottom: 4px;">👤</div>
+                            <div style="color: #00d4aa; font-weight: 600;">Personalizado</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div style="font-size: 1.2rem; margin-bottom: 4px;">😌</div>
+                            <div style="color: #00d4aa; font-weight: 600;">Sin presión</div>
+                        </div>
+                    </div>
+
+                    <!-- Progreso -->
+                    <div class="progress-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: white; margin: 0;">
+                                Paso 1 de 3
+                            </h3>
+                            <span style="color: #00d4aa; font-size: 0.9rem; font-weight: 500;">
+                                33% completado
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Paso Actual -->
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: white;">
+                            ¿Cuál es tu necesidad principal?
+                        </h3>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-bottom: 16px;">
+                            Esto nos ayuda a entender qué solución funcionaría mejor para ti.
+                        </p>
+
+                        <div class="question-option">
+                            <div style="font-weight: 500;">💰 Necesito dinero para una emergencia</div>
+                            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">Acceso rápido a fondos</div>
+                        </div>
+
+                        <div class="question-option">
+                            <div style="font-weight: 500;">🏠 Quiero hacer mejoras en mi hogar</div>
+                            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">Proyecto específico</div>
+                        </div>
+
+                        <div class="question-option">
+                            <div style="font-weight: 500;">💳 Consolidar mis deudas</div>
+                            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">Simplificar pagos</div>
+                        </div>
+
+                        <div class="info-disclosure">
+                            <strong>🔒 Tu privacidad es importante:</strong> Esta información es confidencial y solo se usa para personalizar tu experiencia.
+                        </div>
+
+                        <button class="next-button">
+                            Continuar al Paso 2 →
+                        </button>
+                    </div>
+
+                    <!-- Siguientes pasos preview -->
+                    <div style="margin-top: 24px;">
+                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                            👀 Lo que viene después:
+                        </h4>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.5;">
+                            <p style="margin-bottom: 8px;">
+                                <strong>Paso 2:</strong> Te mostraremos opciones específicas para tu situación
+                            </p>
+                            <p style="margin-bottom: 0;">
+                                <strong>Paso 3:</strong> Recibirás una recomendación personalizada
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hipótesis -->
+                    <div style="background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.2); border-radius: 12px; padding: 16px; margin-top: 24px; text-align: center;">
+                        <h4 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #00d4aa;">
+                            💡 Hipótesis del Concepto
+                        </h4>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; line-height: 1.4; margin: 0; font-style: italic;">
+                            "Dividir el proceso en pasos aumentará la confianza del usuario y mejorará las tasas de finalización al reducir la complejidad percibida."
+                        </p>
+                    </div>
+
+                    <!-- Métricas a medir -->
+                    <div style="margin-top: 24px;">
+                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
+                            📊 Métricas a Medir
+                        </h4>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Finalización de Pasos
+                            </span>
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Confianza del Usuario
+                            </span>
+                            <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                Tasa de Abandono
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Espacio para scroll -->
+                    <div style="height: 40px;"></div>
+                </div>
             </div>
-          
-            <div class="wf-step  ">
-              Options
-            </div>
-          
-            <div class="wf-step  ">
-              Recommendation
-            </div>
-          
         </div>
-      </div>
-    </section>
-  
-        
-    <div class="wf-wizard-content">
-      <h3 class="wf-heading">Step 1: Tell us about your needs</h3>
-      <p class="wf-text">This helps us understand what solution would work best for you. Your information is private and secure.</p>
-      <div class="wf-wizard-actions">
-        <button class="wf-button wf-button--secondary">Back to Home</button>
-        <button class="wf-button wf-button--primary">Next Step</button>
-      </div>
     </div>
-  
-        
-    <section class="wf-content wf-content--center">
-      <h2 class="wf-heading">Progressive Approach</h2>
-      <div class="wf-text">By breaking down complex decisions into manageable steps, users feel more in control and make better-informed choices.</div>
-    </section>
-  
-    
-    
-    </div>
-  
 </body>
 </html>
