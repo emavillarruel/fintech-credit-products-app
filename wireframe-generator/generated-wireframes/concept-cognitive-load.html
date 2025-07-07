@@ -95,22 +95,23 @@
             <div class="mobile-screen">
                 <!-- Header de Navegación -->
                 <header class="nav-header">
-                    <div class="nav-container">
-                        <a href="../concept-hub.html" class="nav-back">←</a>
-                        <div class="nav-badge concept-a">Concepto A</div>
-                        <div style="width: 32px;"></div>
+                    <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px;">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <a href="../concept-hub.html" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                ←
+                            </a>
+                            <h1 style="margin: 0; font-size: 1.2rem; font-weight: 600; color: white;">
+                                🧠 Concepto A
+                            </h1>
+                        </div>
+                        <button onclick="openInfoModal()" style="background: rgba(255, 107, 53, 0.2); border: 1px solid rgba(255, 107, 53, 0.4); border-radius: 20px; padding: 8px 16px; color: #ff8335; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255, 107, 53, 0.3)'" onmouseout="this.style.background='rgba(255, 107, 53, 0.2)'">
+                            ℹ️ Info
+                        </button>
                     </div>
                 </header>
 
                 <!-- Contenido del Simulador -->
                 <div class="simulator-content" style="padding: 20px; color: white;">
-                    
-                    <!-- Botón de Información -->
-                    <div style="text-align: right; margin-bottom: 20px;">
-                        <button onclick="openInfoModal()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 8px 16px; color: white; font-size: 0.85rem; cursor: pointer;">
-                            ℹ️ Info del Concepto
-                        </button>
-                    </div>
 
                     <!-- Hero Section -->
                     <div style="text-align: center; margin-bottom: 32px;">
