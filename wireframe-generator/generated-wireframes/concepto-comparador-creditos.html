@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Créditos - Fintech</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Comparador Inteligente</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">🔍 Compara y Elige</h1>
+                        <p class="hero-subtitle">Solo te mostramos lo que realmente importa<br>
+                        Sin letra chica, sin sorpresas</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">💡 Filtros que funcionan</h2>
+                        <p class="step-description">Dinos qué necesitas: rapidez, sin garantía, menor costo. Te ordenamos las opciones de mejor a peor para ti.</p>
+                        <div class="recommendation-badge">💡 Tip: "Sin garantía" significa que no necesitas avales</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">COMPARACIÓN INTELIGENTE</div>
+                        <h2 class="recommendation-title">Tus 3 Mejores Opciones</h2>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h3 style="color: white; margin: 0;">1. Crédito Express</h3>
+                                    <p style="color: rgba(255,255,255,0.8); margin: 5px 0;">$687,500/mes x 8 meses</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #10b981; font-weight: bold;">✅ Sin garantía</div>
+                                    <div style="color: #10b981; font-weight: bold;">⚡ 10 minutos</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h3 style="color: white; margin: 0;">2. Crédito Tradicional</h3>
+                                    <p style="color: rgba(255,255,255,0.8); margin: 5px 0;">$625,000/mes x 10 meses</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #f59e0b; font-weight: bold;">⚠️ Con garantía</div>
+                                    <div style="color: #10b981; font-weight: bold;">💰 Más barato</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h3 style="color: white; margin: 0;">3. Crédito Flexible</h3>
+                                    <p style="color: rgba(255,255,255,0.8); margin: 5px 0;">$550,000/mes x 12 meses</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #10b981; font-weight: bold;">🔄 Cuotas flexibles</div>
+                                    <div style="color: #f59e0b; font-weight: bold;">⏳ 3 días</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="cta-button" style="margin-top: 20px;">Ver comparación completa</button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Mejores opciones</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Sin sorpresas</div>
+                            <div class="stat-label">Todo claro</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Ordenado</div>
+                            <div class="stat-label">Por beneficio</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Tips</div>
+                            <div class="stat-label">En tiempo real</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Comparador Inteligente</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Funcionalidad:</strong> Comparar créditos fácilmente con filtros inteligentes y educación contextual</p>
+                
+                <h3>¿Cómo funciona?</h3>
+                <ul>
+                    <li><strong>Filtros inteligentes:</strong> Sin garantía, aprobación inmediata, menor costo</li>
+                    <li><strong>Ordenación automática:</strong> Por beneficio más relevante para el usuario</li>
+                    <li><strong>Educación contextual:</strong> Tips y explicaciones en tiempo real</li>
+                    <li><strong>Comparación visual:</strong> Ventajas y desventajas destacadas</li>
+                </ul>
+                
+                <h3>Principios aplicados</h3>
+                <ul>
+                    <li>Eliminación de jerga financiera</li>
+                    <li>Transparencia total en condiciones</li>
+                    <li>Personalización según preferencias</li>
+                    <li>Educación financiera contextualizada</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

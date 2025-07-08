@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Créditos Inteligente - Fintech</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Plataforma de Créditos</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">🎯 Encuentra Tu Crédito Ideal</h1>
+                        <p class="hero-subtitle">Sin letra chica, sin complicaciones<br>
+                        Todo claro desde el primer clic</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">💡 Filtros inteligentes</h2>
+                        <p class="step-description">Dinos qué es importante para ti y te mostramos solo los créditos que realmente te convienen. Sin garantía, aprobación inmediata, menor costo - tú decides.</p>
+                        <div class="recommendation-badge">🔍 Buscar por: Sin garantía • Aprobación rápida • Menor costo</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">TU MEJOR OPCIÓN</div>
+                        <h2 class="recommendation-title">Crédito Express</h2>
+                        <div class="price-highlight">$5,000,000</div>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                            <strong>$687,500 cada mes por 8 meses</strong><br>
+                            💡 Tip: Pagas menos que con tarjeta de crédito
+                        </p>
+                        
+                        <h3 style="color: white; margin: 20px 0 12px 0;">Lo que más te conviene:</h3>
+                        <ul class="features-list">
+                            <li>✅ Sin garantía necesaria</li>
+                            <li>⚡ Aprobación en 10 minutos</li>
+                            <li>💰 Costo total: $5,500,000</li>
+                            <li>📱 Gestión 100% digital</li>
+                        </ul>
+                        
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <button class="cta-button" style="flex: 1;">Contratar ahora</button>
+                            <button class="cta-button" style="flex: 1; background: rgba(255,255,255,0.1);">Guardar propuesta</button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">10 min</div>
+                            <div class="stat-label">Aprobación</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Sin garantía</div>
+                            <div class="stat-label">Requisitos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$500,000</div>
+                            <div class="stat-label">Ahorro vs tarjeta</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3 pasos</div>
+                            <div class="stat-label">Proceso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Plataforma de Créditos Inteligente</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Concepto:</strong> Un lugar donde contratar y gestionar crédito es fácil, claro y confiable — desde el primer clic hasta la última cuota.</p>
+                
+                <h3>¿Por qué funciona?</h3>
+                <ul>
+                    <li><strong>Claridad:</strong> Sin jerga financiera ni letra pequeña</li>
+                    <li><strong>Transparencia:</strong> Comparativos y ventajas destacadas</li>
+                    <li><strong>Autonomía:</strong> Proceso exprés con datos prellenados</li>
+                    <li><strong>Educación:</strong> Tips y ayuda en tiempo real</li>
+                    <li><strong>Personalización:</strong> Filtros inteligentes según beneficio</li>
+                </ul>
+                
+                <h3>Hipótesis</h3>
+                <p>Si el proceso de contratación es claro desde el inicio, el usuario confía más, toma mejores decisiones y concluye más operaciones en menor tiempo.</p>
+                
+                <h3>Funcionalidades Clave</h3>
+                <ul>
+                    <li>Filtros inteligentes (sin garantía, aprobación inmediata, menor costo)</li>
+                    <li>Posibilidad de "guardar propuesta" para continuar después</li>
+                    <li>Ordenación inteligente por relevancia, agilidad, menor costo</li>
+                    <li>Proceso exprés con datos prellenados</li>
+                    <li>Educación financiera contextualizada</li>
+                    <li>Resumen comparativo con pros y contras</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

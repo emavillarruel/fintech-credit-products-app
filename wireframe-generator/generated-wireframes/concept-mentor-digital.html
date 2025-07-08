@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Digital - Fintech para Emprendedores</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Mentor Digital</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">🎯 Análisis Completo</h1>
+                        <p class="hero-subtitle">Vimos tu negocio con lupa<br>
+                        Tenemos ideas para que crezcas</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">🚀 Oportunidades</h2>
+                        <p class="step-description">Tus clientes te aman (lealtad: 85%). Podrías crecer 45% con pequeños cambios: ampliar horarios, delivery, productos especiales.</p>
+                        <div class="recommendation-badge">Expansión gradual = éxito seguro</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">PLAN INTELIGENTE</div>
+                        <h2 class="recommendation-title">Crédito Estratégico</h2>
+                        <div class="price-highlight">$6,500,000</div>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                            Plan a 12 meses<br>
+                            <strong>$595,000 cada mes</strong>
+                        </p>
+                        
+                        <h3 style="color: white; margin: 20px 0 12px 0;">Plan de 4 pasos:</h3>
+                        <ul class="features-list">
+                            <li>Mes 1-3: Mejorar el local</li>
+                            <li>Mes 4-6: Contratar ayuda</li>
+                            <li>Mes 7-9: Ampliar productos</li>
+                            <li>Mes 10-12: Expandir horarios</li>
+                        </ul>
+                        
+                        <button class="cta-button">Seguir el plan</button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">Lealtad clientes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">+45%</div>
+                            <div class="stat-label">Crecimiento posible</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Pasos simples</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Meses de plan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Mentor Digital</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Principio Cognitivo:</strong> Transformar la experiencia financiera en consultoría estratégica de negocio</p>
+                
+                <h3>¿Por qué funciona?</h3>
+                <ul>
+                    <li><strong>Valor Agregado:</strong> Más allá del dinero, ofrece conocimiento</li>
+                    <li><strong>Análisis Profundo:</strong> Comprensión integral del negocio</li>
+                    <li><strong>Plan Estratégico:</strong> Roadmap claro para el crecimiento</li>
+                    <li><strong>Acompañamiento Continuo:</strong> Seguimiento y ajustes</li>
+                </ul>
+                
+                <h3>Hipótesis</h3>
+                <p>Los emprendedores valoran más un crédito que incluye mentoría estratégica que uno que solo ofrece dinero.</p>
+                
+                <h3>Métricas Clave</h3>
+                <ul>
+                    <li>Adopción del plan de mentoría</li>
+                    <li>Crecimiento real vs. proyectado</li>
+                    <li>Satisfacción con el acompañamiento</li>
+                    <li>Retención y productos adicionales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

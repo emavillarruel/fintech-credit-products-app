@@ -1,0 +1,119 @@
+{
+  "title": "Fintech para Emprendedores - Conceptos Avanzados",
+  "subtitle": "Explora 6 conceptos innovadores para créditos destinados a pequeños negocios",
+  "domain": "Fintech - Emprendedores",
+  "problem": "Los emprendedores necesitan productos financieros que se adapten a sus desafíos específicos",
+  "hypothesis": "Un banco que sabe quién soy (no solo mis datos, sino mis desafíos y oportunidades), y se anticipa de forma contextual y empática, genera más confianza, retención y uso de productos de crédito.",
+  "metrics": ["confianza", "retención", "uso de productos", "satisfacción"],
+  "concepts": [
+    {
+      "id": "personalizacion-contextual",
+      "title": "Personalización Contextual",
+      "description": "Interfaz que se adapta a contexto regional, cultural y comportamental del emprendedor.",
+      "metrics": ["Conversión", "Relevancia", "Decisión"],
+      "file": "concept-personalizacion-contextual.html",
+      "target_users": ["emprendedores regionales", "negocios con contexto específico"],
+      "hypothesis": "Un banco que conoce profundamente el contexto del emprendedor puede ofrecer productos más relevantes",
+      "principle": "Personalización avanzada basada en datos regionales, culturales y comportamentales"
+    },
+    {
+      "id": "banca-proactiva",
+      "title": "Banca Proactiva",
+      "description": "Sistema que anticipa problemas y oportunidades según contexto y datos del negocio.",
+      "metrics": ["Recuperación", "Respuesta", "Lealtad"],
+      "file": "concept-banca-proactiva.html",
+      "target_users": ["negocios en crisis", "emprendedores con volatilidad"],
+      "hypothesis": "Un sistema que anticipa problemas genera mayor confianza y lealtad",
+      "principle": "Proactividad - anticipar problemas y oportunidades según contexto"
+    },
+    {
+      "id": "relevancia-temporal",
+      "title": "Relevancia Temporal",
+      "description": "Ofrece productos solo cuando tienen sentido según el momento específico del usuario.",
+      "metrics": ["Timing", "Conversión", "Satisfacción"],
+      "file": "concept-relevancia-temporal.html",
+      "target_users": ["emprendedores con ciclos específicos", "negocios estacionales"],
+      "hypothesis": "Ofrecer productos en el momento perfecto aumenta conversión y satisfacción",
+      "principle": "Relevancia contextual - ofrecer solo lo que tiene sentido según el momento"
+    },
+    {
+      "id": "acompanamiento-empatico",
+      "title": "Acompañamiento Empático",
+      "description": "Sensación de banco humano y aliado que conoce los desafíos del emprendedor.",
+      "metrics": ["Lealtad", "Confianza", "Recomendación"],
+      "file": "concept-acompanamiento-empatico.html",
+      "target_users": ["emprendedores que buscan apoyo", "negocios con relación personal"],
+      "hypothesis": "Un acompañamiento empático genuino genera mayor lealtad que servicios transaccionales",
+      "principle": "Empatía, reciprocidad y acompañamiento - sensación de banco humano"
+    },
+    {
+      "id": "contratacion-express",
+      "title": "Contratación Express",
+      "description": "Proceso ultra-simplificado con datos pre-cargados y diagnóstico rápido tipo chatbot.",
+      "metrics": ["Velocidad", "Simplicidad", "Frecuencia"],
+      "file": "concept-contratacion-express.html",
+      "target_users": ["emprendedores con urgencias", "usuarios que valoran velocidad"],
+      "hypothesis": "Un proceso express que reduzca tiempo de contratación genera mayor satisfacción",
+      "principle": "Facilidad y agilidad - contrataciones express con flows simples"
+    },
+    {
+      "id": "mentor-digital",
+      "title": "Mentor Digital Inteligente",
+      "description": "Sistema experto que guía al emprendedor con análisis inteligente y recomendaciones personalizadas.",
+      "metrics": ["Crecimiento", "Educación", "Adopción"],
+      "file": "concept-mentor-digital.html",
+      "target_users": ["emprendedores que buscan crecimiento", "negocios que necesitan asesoría"],
+      "hypothesis": "Un mentor digital que analiza el negocio y ofrece recomendaciones personalizadas aumenta probabilidad de éxito",
+      "principle": "Asesoría inteligente personalizada - guía experta para crecimiento del negocio"
+    }
+  ],
+  "features": [
+    {
+      "title": "Mensajes Personalizados",
+      "description": "Basados en datos regionales, culturales y comportamentales",
+      "example": "\"Sabemos que en tu región se vende más en Carnaval, ¿quieres adelantar ingresos?\""
+    },
+    {
+      "title": "Propuestas Proactivas",
+      "description": "Ofrecer renegocio si caen ventas, crédito si falta stock, ajustar calendario",
+      "example": "Detectar caída en ventas y ofrecer crédito de capital de trabajo inmediato"
+    },
+    {
+      "title": "Contratación Express",
+      "description": "Con datos ya conocidos y pre-cargados",
+      "example": "De solicitud a desembolso en 5 minutos usando datos bancarios existentes"
+    },
+    {
+      "title": "Diagnóstico Rápido",
+      "description": "Chatbot con opciones rápidas para identificar necesidades",
+      "example": "\"¿Para qué necesitas el crédito?\" con opciones específicas por sector"
+    },
+    {
+      "title": "Mentor Digital",
+      "description": "Análisis inteligente del negocio y recomendaciones de crecimiento",
+      "example": "IA analiza métricas del negocio y sugiere optimizaciones específicas"
+    }
+  ],
+  "generation_presets": [
+    {
+      "name": "Fintech Emprendedores",
+      "domain": "Fintech - Pequeños Negocios",
+      "problem": "Productos financieros desconectados de la realidad emprendedora",
+      "metrics": "confianza,retención,uso_productos,satisfacción"
+    }
+  ],
+  "theme": {
+    "primary_color": "#3b82f6",
+    "secondary_color": "#10b981",
+    "accent_color": "#8b5cf6",
+    "text_color": "#1f2937",
+    "background_color": "#000000"
+  },
+  "settings": {
+    "auto_refresh": true,
+    "show_timestamps": true,
+    "enable_animations": true,
+    "dark_mode": true,
+    "language": "es"
+  }
+} 

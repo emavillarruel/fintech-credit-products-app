@@ -7,419 +7,214 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../styles/wireframe-components.css">
     <link rel="stylesheet" href="../../styles/mobile-simulator.css">
-    <style>
-        /* Estilos específicos para el concepto */
-        .concept-gradient {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-        }
-        
-        .concept-accent {
-            color: #3b82f6;
-        }
-        
-        .concept-badge {
-            background: rgba(59, 130, 246, 0.2);
-            color: #3b82f6;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .profile-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 16px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .profile-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.5rem;
-        }
-
-        .profile-info {
-            flex: 1;
-        }
-
-        .profile-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .profile-score {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .ai-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .recommendation-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 16px 0;
-            position: relative;
-        }
-
-        .recommendation-card.highlighted {
-            border-color: rgba(59, 130, 246, 0.5);
-            background: rgba(59, 130, 246, 0.05);
-        }
-
-        .recommendation-badge {
-            position: absolute;
-            top: -10px;
-            right: 16px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .recommendation-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .recommendation-reason {
-            font-size: 0.85rem;
-            color: #3b82f6;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .recommendation-content {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 16px;
-        }
-
-        .recommendation-details {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .detail-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .select-button {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 500;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .select-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        .select-button.secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .insights-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 16px;
-            margin: 16px 0;
-        }
-
-        .insights-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .insight-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 0;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
-        }
-
-        .insight-icon {
-            color: #3b82f6;
-        }
-
-        .performance-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 16px 0;
-        }
-
-        .performance-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .performance-value {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #3b82f6;
-            margin-bottom: 4px;
-        }
-
-        .performance-label {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/concept-pages.css">
 </head>
 <body>
     <div class="mobile-simulator">
+        <!-- Header de Navegación -->
+        <header class="nav-header">
+            <div class="nav-back">
+                <a href="../concept-hub.html" class="nav-back-button">
+                    ←
+                </a>
+                <h1 class="nav-title">
+                    Concepto D
+                </h1>
+            </div>
+            <button onclick="openInfoModal()" class="nav-info-button">
+                Info
+            </button>
+        </header>
         <div class="mobile-device">
             <div class="mobile-screen">
-                <!-- Header de Navegación -->
-                <header class="nav-header">
-                    <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px;">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <a href="../concept-hub.html" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                                ←
-                            </a>
-                            <h1 style="margin: 0; font-size: 1.2rem; font-weight: 600; color: white;">
-                                🎯 Concepto D
-                            </h1>
-                        </div>
-                        <button onclick="openInfoModal()" style="background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 20px; padding: 8px 16px; color: #3b82f6; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.3)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.2)'">
-                            ℹ️ Info
-                        </button>
-                    </div>
-                </header>
+                
 
                 <!-- Contenido del Simulador -->
-                <div class="simulator-content" style="padding: 20px; color: white;">
-                    
+                <div class="simulator-content">
+
                     <!-- Perfil del Usuario -->
                     <div class="profile-card">
                         <div class="profile-header">
-                            <div class="profile-avatar">MS</div>
+                            <div class="profile-avatar">JS</div>
                             <div class="profile-info">
-                                <div class="profile-name">¡Hola, María!</div>
-                                <div class="profile-score">
-                                    Score: 740 • Ingreso: $75,000
-                                </div>
+                                <div class="profile-name">Juan Silva</div>
+                                <div class="profile-score">Score crediticio: 750</div>
                             </div>
-                            <div class="ai-tag">🤖 AI</div>
+                            <div class="ai-tag">IA</div>
                         </div>
-                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem;">
-                            Basado en tu perfil financiero y comportamiento, hemos personalizado estas opciones especialmente para ti.
+                        
+                        <div class="insights-card">
+                            <div class="insights-title">
+                                Análisis Personalizado
+                            </div>
+                            <div class="insight-item">
+                                <span>• Historial crediticio excelente</span>
+                            </div>
+                            <div class="insight-item">
+                                <span>• Ingresos estables los últimos 2 años</span>
+                            </div>
+                            <div class="insight-item">
+                                <span>• Patrón de gastos conservador</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Hero Section -->
-                    <div style="text-align: center; margin-bottom: 24px;">
-                        <h2 style="font-size: 1.6rem; font-weight: 300; margin-bottom: 8px; color: white;">
-                            Tus Recomendaciones Personalizadas
-                        </h2>
-                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">
-                            Analizamos tu perfil para encontrar las mejores opciones
-                        </p>
-                    </div>
-
-                    <!-- Recomendación Principal -->
+                    <!-- Recomendación Personalizada -->
                     <div class="recommendation-card highlighted">
-                        <div class="recommendation-badge">🎯 IDEAL PARA TI</div>
-                        <div class="recommendation-title">Crédito Personal Inteligente</div>
+                        <div class="recommendation-badge">PARA TI</div>
+                        
+                        <div class="recommendation-title">
+                            Crédito Personal Optimizado
+                        </div>
+                        
                         <div class="recommendation-reason">
-                            ✨ Perfecta para tu perfil y objetivos financieros
+                            Configurado según tu perfil y objetivos
                         </div>
+                        
                         <div class="recommendation-content">
-                            <strong>11.5% TEA</strong> • Hasta $60,000
+                            <strong>11.2% TEA</strong> - Tasa personalizada
                         </div>
+                        
                         <div class="recommendation-details">
-                            <div class="detail-item">✓ Sin garantías</div>
-                            <div class="detail-item">✓ 48 cuotas</div>
-                            <div class="detail-item">✓ Precalificado</div>
+                            <div class="detail-item">36 meses</div>
+                            <div class="detail-item">$45,000</div>
+                            <div class="detail-item">$1,680/mes</div>
                         </div>
+                        
                         <button class="select-button">
-                            Solicitar Ahora
+                            Aceptar Recomendación
                         </button>
                     </div>
 
-                    <!-- Opción Alternativa -->
+                    <!-- Métricas de Rendimiento -->
+                    <div class="insights-card">
+                        <div class="insights-title">
+                            Tu Perfil de Riesgo
+                        </div>
+                        
+                        <div class="performance-grid">
+                            <div class="performance-item">
+                                <div class="performance-value">Bajo</div>
+                                <div class="performance-label">Riesgo</div>
+                            </div>
+                            <div class="performance-item">
+                                <div class="performance-value">95%</div>
+                                <div class="performance-label">Aprobación</div>
+                            </div>
+                            <div class="performance-item">
+                                <div class="performance-value">24h</div>
+                                <div class="performance-label">Aprobación</div>
+                            </div>
+                            <div class="performance-item">
+                                <div class="performance-value">7.5%</div>
+                                <div class="performance-label">Ahorro vs mercado</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Opciones Alternativas -->
                     <div class="recommendation-card">
-                        <div class="recommendation-title">Línea de Crédito Flex</div>
+                        <div class="recommendation-title">
+                            Alternativa Disponible
+                        </div>
+                        
                         <div class="recommendation-reason">
-                            💳 Ideal para gastos variables
+                            Mayor flexibilidad en plazos
                         </div>
+                        
                         <div class="recommendation-content">
-                            <strong>8.5% TEA</strong> • Línea hasta $40,000
+                            <strong>12.8% TEA</strong> - Hasta 48 meses
                         </div>
+                        
                         <div class="recommendation-details">
-                            <div class="detail-item">✓ Pago flexible</div>
-                            <div class="detail-item">✓ Solo usas lo que necesitas</div>
+                            <div class="detail-item">48 meses</div>
+                            <div class="detail-item">$45,000</div>
+                            <div class="detail-item">$1,425/mes</div>
                         </div>
+                        
                         <button class="select-button secondary">
                             Ver Detalles
                         </button>
                     </div>
 
-                    <!-- Insights Personalizados -->
-                    <div class="insights-card">
-                        <div class="insights-title">
-                            <span>🧠</span>
-                            <span>Insights Personalizados</span>
-                        </div>
-                        <div class="insight-item">
-                            <span class="insight-icon">📊</span>
-                            <span>Tu perfil crediticio es excelente (98% percentil)</span>
-                        </div>
-                        <div class="insight-item">
-                            <span class="insight-icon">💰</span>
-                            <span>Calificas para tasas preferenciales</span>
-                        </div>
-                        <div class="insight-item">
-                            <span class="insight-icon">⚡</span>
-                            <span>Aprobación inmediata disponible</span>
-                        </div>
-                    </div>
-
-                    <!-- Rendimiento del Sistema -->
-                    <div style="margin-top: 24px;">
-                        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: white;">
-                            📈 Rendimiento de la Personalización
-                        </h3>
-                        <div class="performance-grid">
-                            <div class="performance-item">
-                                <div class="performance-value">95%</div>
-                                <div class="performance-label">Precisión</div>
-                            </div>
-                            <div class="performance-item">
-                                <div class="performance-value">3.2x</div>
-                                <div class="performance-label">Mejor Conversión</div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Espacio para scroll -->
-                    <div style="height: 40px;"></div>
+                    <div class="spacer"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal de Información del Concepto -->
-    <div id="infoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; backdrop-filter: blur(5px);">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; max-height: 90%; overflow-y: auto; background: #1a1a1a; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; padding: 24px; color: white;">
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
             
             <!-- Header del Modal -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-                <h2 style="font-size: 1.5rem; font-weight: 600; margin: 0; color: #3b82f6;">
-                    🎯 Personalización Adaptativa
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    Personalización Adaptativa
                 </h2>
-                <button onclick="closeInfoModal()" style="background: none; border: none; color: rgba(255, 255, 255, 0.7); font-size: 1.5rem; cursor: pointer; padding: 4px;">
+                <button onclick="closeInfoModal()" class="modal-close">
                     ×
                 </button>
             </div>
 
             <!-- Problema y Enfoque -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
-                    🎯 Contexto del Concepto
-                </h3>
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-bottom: 12px;">
-                    <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
+            <div class="modal-section">
+                <h3>Contexto del Concepto</h3>
+                <p>
+                    <strong>Problema:</strong> Las soluciones genéricas no se adaptan a las necesidades individuales
                 </p>
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin: 0;">
-                    <strong>Enfoque:</strong> Personalizar contenido y recomendaciones usando datos del usuario
+                <p>
+                    <strong>Enfoque:</strong> IA que analiza el perfil individual y adapta las recomendaciones en tiempo real
                 </p>
             </div>
 
             <!-- Por qué funciona -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: #3b82f6;">
-                    💡 ¿Por qué funciona?
-                </h3>
-                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">
-                    <p style="margin-bottom: 12px;">
-                        ✓ <strong>Relevancia máxima:</strong> Cada recomendación está adaptada a tu perfil específico
-                    </p>
-                    <p style="margin-bottom: 12px;">
-                        ✓ <strong>Menos ruido:</strong> Solo ves opciones que realmente te convienen
-                    </p>
-                    <p style="margin-bottom: 0;">
-                        ✓ <strong>Confianza aumentada:</strong> Sientes que el sistema te entiende
-                    </p>
-                </div>
-            </div>
-
-            <!-- Hipótesis -->
-            <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: #3b82f6;">
-                    🔬 Hipótesis del Concepto
-                </h3>
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.4; margin: 0; font-style: italic;">
-                    "La personalización basada en datos del usuario aumentará la conversión al mostrar opciones más relevantes y reducir el tiempo de decisión."
+            <div class="modal-section">
+                <h3>¿Por qué funciona?</h3>
+                <p>
+                    <strong>Relevancia personal:</strong> Cada recomendación está adaptada al contexto específico del usuario
+                </p>
+                <p>
+                    <strong>Optimización continua:</strong> Aprende y mejora con cada interacción
+                </p>
+                <p>
+                    <strong>Reduce esfuerzo:</strong> El usuario no necesita evaluar múltiples opciones
+                </p>
+                <p>
+                    <strong>Aumenta satisfacción:</strong> Soluciones que realmente encajan con sus necesidades
                 </p>
             </div>
 
-            <!-- Métricas a medir -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
-                    📊 Métricas a Medir
-                </h3>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                        Relevancia
-                    </span>
-                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                        Engagement
-                    </span>
-                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                        Satisfacción
-                    </span>
-                </div>
+            <!-- Hipótesis -->
+            <div class="modal-section">
+                <h3>Hipótesis del Concepto</h3>
+                <p>
+                    <strong>Si</strong> usamos IA para personalizar las recomendaciones según el perfil individual
+                </p>
+                <p>
+                    <strong>Entonces</strong> los usuarios tendrán mayor satisfacción y tasas de adopción
+                </p>
+                <p>
+                    <strong>Porque</strong> las soluciones personalizadas son más relevantes y valiosas para cada usuario
+                </p>
+            </div>
+
+            <!-- Métricas -->
+            <div class="modal-section">
+                <h3>Métricas Clave</h3>
+                <p>
+                    <strong>Relevancia:</strong> Qué tan bien las recomendaciones encajan con las necesidades del usuario
+                </p>
+                <p>
+                    <strong>Tiempo:</strong> Reducción en tiempo para encontrar la solución adecuada
+                </p>
+                <p>
+                    <strong>Adopción:</strong> Tasa de adopción de las recomendaciones personalizadas
+                </p>
+                <p>
+                    <strong>Satisfacción:</strong> NPS y satisfacción post-implementación
+                </p>
             </div>
 
         </div>
@@ -435,18 +230,27 @@
         }
 
         // Cerrar modal al hacer click fuera
-        document.getElementById('infoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeInfoModal();
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
                 closeInfoModal();
             }
         });
 
-        // Cerrar modal con tecla Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeInfoModal();
+        // Simulación de personalización en tiempo real
+        setTimeout(() => {
+            const badge = document.querySelector('.recommendation-badge');
+            if (badge) {
+                badge.style.animation = 'pulse 2s infinite';
             }
-        });
+        }, 2000);
     </script>
 </body>
 </html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech para Emprendedores - Conceptos Avanzados</title>
+    <link rel="stylesheet" href="./styles/hub.css">
+    <style>
+        body {
+            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header de Navegación */
+        .nav-header {
+            background-color: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+        }
+
+        .max-w-7xl {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-x-8 > * + * { margin-left: 2rem; }
+
+        .h-16 { height: 4rem; }
+
+        .meli-logo {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .fallback-logo {
+            display: none;
+            background: #3b82f6;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+        }
+
+        .text-white { color: #ffffff; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-xl { font-size: 1.25rem; }
+        .text-lg { font-size: 1.125rem; }
+        .font-regular { font-weight: 400; }
+
+        .hover\:text-white:hover { color: #ffffff; }
+
+        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+        .hidden { display: none; }
+        .md\:flex { display: flex; }
+
+        .nav-header a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-header a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1em;
+            margin: 8px 0;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            min-width: 60px;
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: 600;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hypothesis {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .hypothesis h2 {
+            color: #3b82f6;
+            margin-bottom: 12px;
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+
+        .hypothesis p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 320px;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .concept-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .concept-card p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #e5e7eb;
+        }
+
+        .concept-principle {
+            font-size: 0.9em;
+            color: #9ca3af;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .concept-metrics {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .metric-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .concept-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #000000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .concept-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+
+        .actions {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .regenerate-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background: #1f2937;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            color: white;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        .preset-option {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .preset-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .md\:flex { display: none !important; }
+            .sm\:px-6 { padding-left: 1rem; padding-right: 1rem; }
+            .lg\:px-8 { padding-left: 1rem; padding-right: 1rem; }
+            .text-lg { font-size: 1rem; }
+            .space-x-4 > * + * { margin-left: 0.5rem; }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .concepts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header de Navegación -->
+    <header class="nav-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" alt="MercadoLibre" class="meli-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="text-white font-regular text-xl fallback-logo">ML</div>
+                    <div class="text-white font-regular text-lg">Alternativas Conceptuales IA</div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#concepts" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Conceptos</a>
+                    <a href="#actions" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Acciones</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Fintech para Emprendedores</h1>
+                <p>Conceptos Avanzados para Créditos de Pequeños Negocios</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Conceptos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Fintech</span>
+                        <span class="stat-label">Dominio</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Enfoques</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hypothesis">
+            <h2>Hipótesis Principal</h2>
+            <p>Un banco que sabe quién soy y se anticipa de forma contextual y empática, genera más confianza, retención y uso de productos de crédito.</p>
+        </div>
+
+        <section id="concepts">
+            <h2 style="text-align: center; margin: 35px 0 25px 0; font-size: 2em; font-weight: 300;">Conceptos Cognitivos</h2>
+            
+            <div class="concepts-grid">
+                <div class="concept-card">
+                    <h3>Mi Región, Mi Negocio</h3>
+                    <p class="concept-principle">Créditos diseñados para tu zona y tipo de negocio</p>
+                    <p>El banco sabe que tu panadería en Medellín es diferente a una en Cartagena. Te ofrece créditos pensados específicamente para tu región y negocio.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Más Relevante</span>
+                        <span class="metric-badge">Mejor Decisión</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-personalizacion-contextual.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Tu Banco Te Avisa</h3>
+                    <p class="concept-principle">El banco se adelanta y te ofrece lo que necesitas</p>
+                    <p>"Vemos que tus ventas subieron 15%. ¿Quieres un crédito para crecer?" El banco detecta oportunidades y te las ofrece antes de que las pidas.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Te Cuida</span>
+                        <span class="metric-badge">Más Confianza</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-banca-proactiva.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>En el Momento Justo</h3>
+                    <p class="concept-principle">Ofertas que llegan cuando las necesitas</p>
+                    <p>Te ofrece crédito navideño en noviembre, no en febrero. Todo llega en el momento perfecto para tu negocio.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Mejor Timing</span>
+                        <span class="metric-badge">Más Satisfacción</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-relevancia-temporal.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Te Acompañamos</h3>
+                    <p class="concept-principle">Un banco humano que entiende tus miedos</p>
+                    <p>"Sabemos que pedir un crédito da nervios. Estamos aquí para explicarte todo y acompañarte." Banco que comprende y apoya emocionalmente.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Más Confianza</span>
+                        <span class="metric-badge">Te Recomienda</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-acompanamiento-empatico.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Crédito en 3 Minutos</h3>
+                    <p class="concept-principle">Súper rápido, súper fácil</p>
+                    <p>Completas 3 preguntas, el banco ya tiene tus datos, y en 3 minutos tienes tu crédito aprobado. Sin papeles, sin esperas.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Súper Rápido</span>
+                        <span class="metric-badge">Más Fácil</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-contratacion-express.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Tu Asesor Digital</h3>
+                    <p class="concept-principle">Un experto que analiza tu negocio y te aconseja</p>
+                    <p>"Tu panadería puede crecer 40% si inviertes en un horno. Te explico cómo." Un asesor inteligente que te ayuda a tomar mejores decisiones.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Creces Más</span>
+                        <span class="metric-badge">Aprendes</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-mentor-digital.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="platform-concepts">
+            <h2 style="text-align: center; margin: 35px 0 25px 0; font-size: 2em; font-weight: 300;">Plataforma de Créditos</h2>
+            
+            <div class="concepts-grid">
+                <div class="concept-card">
+                    <h3>Encuentra Tu Crédito Ideal</h3>
+                    <p class="concept-principle">Sin letra chica, sin complicaciones</p>
+                    <p>Filtros inteligentes que te muestran solo los créditos que realmente te convienen. Sin garantía, aprobación inmediata, menor costo - tú decides.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Filtros Inteligentes</span>
+                        <span class="metric-badge">Sin Sorpresas</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-plataforma-creditos.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Compara y Elige</h3>
+                    <p class="concept-principle">Solo lo que realmente importa</p>
+                    <p>Te ordenamos las opciones de mejor a peor para ti. Con tips educativos para que entiendas cada decisión que tomas.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Comparación Clara</span>
+                        <span class="metric-badge">Tips Educativos</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concepto-comparador-creditos.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Contratación Express</h3>
+                    <p class="concept-principle">Datos prellenados, sin fricción</p>
+                    <p>La mayoría de información ya está validada. Puedes guardar tu progreso y continuar después. Todo en 3 pasos simples.</p>
+                    <div class="concept-metrics">
+                        <span class="metric-badge">Datos Prellenados</span>
+                        <span class="metric-badge">Guardar Progreso</span>
+                    </div>
+                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concepto-proceso-express.html'">
+                        Ver Ejemplo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="actions">
+            <h2 style="margin: 35px 0 25px 0; font-size: 1.5em; font-weight: 300;">Acciones</h2>
+            
+            <button class="action-button" onclick="openRegenerateModal()">
+                Regenerar Conceptos
+            </button>
+            
+            <button class="action-button" onclick="window.location.href='./HUB_README.md'">
+                Ver Documentación
+            </button>
+        </section>
+    </div>
+
+    <!-- Modal de Regeneración -->
+    <div id="regenerateModal" class="regenerate-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegenerateModal()">&times;</span>
+            <h2>Regenerar Conceptos</h2>
+            <p>Selecciona un preset para generar nuevos conceptos:</p>
+            
+            <div class="preset-option" onclick="regenerateWithPreset('fintech-emprendedores')">
+                <h4>Fintech Emprendedores</h4>
+                <p>Productos financieros para pequeños negocios</p>
+            </div>
+            
+            <div class="preset-option" onclick="regenerateWithPreset('custom')">
+                <h4>Personalizado</h4>
+                <p>Definir dominio y problema específico</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openRegenerateModal() {
+            document.getElementById('regenerateModal').style.display = 'block';
+        }
+
+        function closeRegenerateModal() {
+            document.getElementById('regenerateModal').style.display = 'none';
+        }
+
+        function regenerateWithPreset(preset) {
+            if (preset === 'fintech-emprendedores') {
+                alert('Regenerando conceptos para Fintech Emprendedores...');
+                // Aquí iría la lógica de regeneración
+            } else if (preset === 'custom') {
+                const domain = prompt('Ingresa el dominio:');
+                const problem = prompt('Ingresa el problema a resolver:');
+                if (domain && problem) {
+                    alert(`Generando conceptos para ${domain}: ${problem}`);
+                }
+            }
+            closeRegenerateModal();
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('regenerateModal');
+            if (event.target === modal) {
+                closeRegenerateModal();
+            }
+        }
+
+        // Animaciones de scroll
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.concept-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight * 0.8) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Inicializar animaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.concept-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevancia Temporal - Fintech para Emprendedores</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Relevancia Temporal</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">⏰ ¡Momento Crítico!</h1>
+                        <p class="hero-subtitle">Octubre es TU mes<br>
+                        Es hora de prepararte para navidad</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">📅 El momento justo</h2>
+                        <p class="step-description">Quedan 47 días para navidad. Tiempo perfecto para prepararte, pero no demasiado para perder el impulso.</p>
+                        <div class="recommendation-badge">Actuar ahora = ganar $2,000,000 más</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">OFERTA LIMITADA</div>
+                        <h2 class="recommendation-title">Crédito Navideño</h2>
+                        <div class="price-highlight">$7,200,000</div>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                            Pagas después de navidad<br>
+                            <strong>$650,000 cada mes</strong>
+                        </p>
+                        
+                        <h3 style="color: white; margin: 20px 0 12px 0;">Para que compres ahora:</h3>
+                        <ul class="features-list">
+                            <li>Inventario para temporada alta</li>
+                            <li>Decoraciones navideñas</li>
+                            <li>Productos especiales</li>
+                            <li>Dinero para gastos extra</li>
+                        </ul>
+                        
+                        <button class="cta-button">Actuar ahora</button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">47</div>
+                            <div class="stat-label">Días para navidad</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3x</div>
+                            <div class="stat-label">Más ventas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">43</div>
+                            <div class="stat-label">Créditos disponibles</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15 nov</div>
+                            <div class="stat-label">Fecha límite</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Relevancia Temporal</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Principio Cognitivo:</strong> Aprovechar la urgencia temporal y el timing perfecto para crear motivación de acción</p>
+                
+                <h3>¿Por qué funciona?</h3>
+                <ul>
+                    <li><strong>Timing Perfecto:</strong> Momentos específicos donde actuar es más beneficioso</li>
+                    <li><strong>Escasez Temporal:</strong> Ofertas limitadas en el tiempo</li>
+                    <li><strong>Consecuencias de Esperar:</strong> Mostrar qué se pierde al no actuar</li>
+                    <li><strong>Proof de Timing:</strong> Testimonios de quienes actuaron en el momento correcto</li>
+                </ul>
+                
+                <h3>Hipótesis</h3>
+                <p>Los emprendedores responden mejor a ofertas financieras cuando comprenden que existe un momento óptimo para actuar.</p>
+                
+                <h3>Métricas Clave</h3>
+                <ul>
+                    <li>Tiempo desde visualización hasta aplicación</li>
+                    <li>Tasa de conversión vs. ofertas sin urgencia</li>
+                    <li>Engagement con elementos de countdown</li>
+                    <li>Satisfacción posterior con el timing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Animación de pulso para el botón
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html> 

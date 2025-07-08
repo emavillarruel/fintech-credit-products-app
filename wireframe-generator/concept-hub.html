@@ -3,758 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧠 Wireframe Concept Hub</title>
+    <title>Wireframe Concept Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles/wireframe-components.css">
-    <style>
-        /* Fuentes Proxima Nova */
-        @font-face {
-            font-family: 'Proxima Nova';
-            src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2') format('woff2');
-            font-weight: 300;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Proxima Nova';
-            src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2') format('woff2');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Proxima Nova';
-            src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2') format('woff2');
-            font-weight: 600;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        /* Base */
-        * {
-            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        .font-light { font-weight: 300; }
-        .font-regular { font-weight: 400; }
-        .font-semibold { font-weight: 600; }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        body {
-            background: #000000;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Layout Principal */
-        .gradient-bg {
-            background: #000000;
-            position: relative;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        .hub-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Header de Navegación */
-        .nav-header {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            min-height: 64px;
-        }
-
-        .meli-logo {
-            height: 32px;
-            width: auto;
-            filter: brightness(0) invert(1);
-        }
-
-        /* Hero Section */
-        .hub-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hub-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #ff6b35, #f7931e, #00d4aa, #8b5cf6, #3b82f6);
-            opacity: 0.8;
-        }
-
-        .hub-title {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #e5e7eb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-        }
-
-        .hub-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-
-        .hub-stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .hub-stat {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .hub-stat-number {
-            font-size: 2rem;
-            font-weight: 400;
-            display: block;
-        }
-
-        .hub-stat-label {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
-
-        /* Grid de Conceptos */
-        .concepts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .concept-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .concept-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-color);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .concept-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .concept-card:hover::before {
-            opacity: 1;
-        }
-
-        .concept-card.concept-cognitive-load {
-            --accent-color: linear-gradient(90deg, #ff6b35, #f7931e);
-        }
-
-        .concept-card.concept-progressive-disclosure {
-            --accent-color: linear-gradient(90deg, #00d4aa, #00b09b);
-        }
-
-        .concept-card.concept-social-proof {
-            --accent-color: linear-gradient(90deg, #8b5cf6, #a855f7);
-        }
-
-        .concept-card.concept-personalization {
-            --accent-color: linear-gradient(90deg, #3b82f6, #6366f1);
-        }
-
-        .concept-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .concept-title {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .concept-description {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-            line-height: 1.5;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-        }
-
-        .concept-metrics {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .metric-tag {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 400;
-        }
-
-        .concept-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            font-weight: 400;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            font-weight: 400;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Secciones de Análisis */
-        .analysis-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            padding: 2rem;
-            border-radius: 24px;
-            margin-bottom: 3rem;
-        }
-
-        .analysis-title {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .problem-summary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .problem-summary h3 {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .problem-summary p {
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Acciones del Hub */
-        .hub-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.875rem;
-            font-weight: 300;
-        }
-
-        .timestamp {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .modal-content {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            margin: 5% auto;
-            padding: 0;
-            border-radius: 24px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            padding: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
-
-        .close {
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-            padding: 0.5rem;
-        }
-
-        .close:hover {
-            opacity: 1;
-        }
-
-        .modal-body {
-            padding: 2rem;
-            color: white;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            font-size: 1rem;
-            color: white;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .modal-note {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #3b82f6;
-            margin-top: 1rem;
-        }
-
-        .modal-note code {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-        }
-
-        .modal-footer {
-            padding: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hub-container {
-                padding: 1rem;
-            }
-            
-            .hub-title {
-                font-size: 2rem;
-            }
-            
-            .concepts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .concept-actions {
-                flex-direction: column;
-            }
-            
-            .hub-actions {
-                flex-direction: column;
-            }
-            
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-            }
-            
-            .modal-header,
-            .modal-body,
-            .modal-footer {
-                padding: 1rem;
-            }
-            
-            .modal-footer {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/hub.css">
 </head>
-<body class="gradient-bg min-h-screen">
-    <!-- Navigation Header -->
-    <nav class="nav-header">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" 
-                         alt="MercadoLibre" 
-                         class="meli-logo" 
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="text-white font-regular text-xl" style="display: none;">ML</div>
-                    <div class="text-white font-regular text-lg">Wireframe Concept Hub</div>
+<body>
+    <div class="gradient-bg">
+        <!-- Header de Navegación -->
+        <header class="nav-header">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" alt="MercadoLibre" class="meli-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="text-white font-regular text-xl fallback-logo">ML</div>
+                        <div class="text-white font-regular text-lg">Alternativas Conceptuales IA</div>
+                    </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#concepts" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Conceptos</a>
+                        <a href="#actions" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Acciones</a>
+                    </nav>
                 </div>
-                
-                <div class="flex items-center space-x-4">
-                    <div class="hidden md:flex items-center space-x-6">
-                        <a href="#concepts" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Conceptos</a>
-                        <a href="#analysis" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Análisis</a>
-                        <a href="#actions" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Acciones</a>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <div class="hub-container hub-container-spacing">
+            
+
+            <!-- Problem Summary -->
+            <div class="">
+                <div class="problem-summary">
+                    <p><strong>Problema: Los usuarios necesitan ayuda para entender las opciones de crédito</strong></p>
+                    <p><strong>Dominio:</strong> Créditos</p>
+                    <p><strong>Métricas Clave:</strong> tasa de conversión, satisfacción del usuario, finalización de tareas</p>
+                </div>
+            </div>
+
+            <!-- Concepts Grid -->
+            <div id="concepts" class="concepts-grid">
+                <!-- Cognitive Load Reduction -->
+                <div class="concept-card" onclick="openConcept('concept-cognitive-load.html')">
+                    <div class="mb-6">
+                        <div class="concep-tag mb-1">Concepto A</div>
+                        <h3 class="concept-title">Reducción de Carga Cognitiva</h3>
+                    </div>
+                    
+                    <div class="concept-description mb-6 space-y-2">
+                        <div>• IA elimina decisiones innecesarias</div>
+                        <div>• Presenta una sola opción recomendada</div>
+                        <div>• Interface minimalista y clara</div>
+                        <div>• Reduce parálisis de decisión</div>
+                    </div>
+                    
+                    <div class="concept-metrics mb-6">
+                        <span class="metric-tag">Conversión</span>
+                        <span class="metric-tag">Satisfacción</span>
+                        <span class="metric-tag">Finalización</span>
+                    </div>
+                    
+                    <div class="concept-actions">
+                        <a href="generated-wireframes/concept-cognitive-load.html" class="btn-primary">Ver Wireframe</a>
+                    </div>
+                </div>
+
+                <!-- Progressive Disclosure -->
+                <div class="concept-card" onclick="openConcept('concept-progressive-disclosure.html')">
+                    <div class="mb-6">
+                        <div class="concep-tag mb-1">Concepto B</div>
+                        <h3 class="concept-title">Revelación Progresiva</h3>
+                    </div>
+                    
+                    <div class="concept-description mb-6 space-y-2">
+                        <div>• Información dividida en pasos</div>
+                        <div>• Guía paso a paso contextual</div>
+                        <div>• Navegación asistida por IA</div>
+                        <div>• Reduce complejidad percibida</div>
+                    </div>
+                    
+                    <div class="concept-metrics mb-6">
+                        <span class="metric-tag">Retención</span>
+                        <span class="metric-tag">Confianza</span>
+                        <span class="metric-tag">Abandono</span>
+                    </div>
+                    
+                    <div class="concept-actions">
+                        <a href="generated-wireframes/concept-progressive-disclosure.html" class="btn-primary">Ver Wireframe</a>
+                    </div>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="concept-card" onclick="openConcept('concept-social-proof.html')">
+                    <div class="mb-6">
+                        <div class="concep-tag mb-1">Concepto C</div>
+                        <h3 class="concept-title">Prueba Social</h3>
+                    </div>
+                    
+                    <div class="concept-description mb-6 space-y-2">
+                        <div>• Testimonios de usuarios reales</div>
+                        <div>• Estadísticas de éxito</div>
+                        <div>• Validación social contextual</div>
+                        <div>• Genera confianza y credibilidad</div>
+                    </div>
+                    
+                    <div class="concept-metrics mb-6">
+                        <span class="metric-tag">Confianza</span>
+                        <span class="metric-tag">Compromiso</span>
+                        <span class="metric-tag">Referencias</span>
+                    </div>
+                    
+                    <div class="concept-actions">
+                        <a href="generated-wireframes/concept-social-proof.html" class="btn-primary">Ver Wireframe</a>
+                    </div>
+                </div>
+
+                <!-- Personalization -->
+                <div class="concept-card" onclick="openConcept('concept-personalization.html')">
+                    <div class="mb-6">
+                        <div class="concep-tag mb-1">Concepto D</div>
+                        <h3 class="concept-title">Personalización Adaptativa</h3>
+                    </div>
+                    
+                    <div class="concept-description mb-6 space-y-2">
+                        <div>• IA adapta a contexto individual</div>
+                        <div>• Recomendaciones personalizadas</div>
+                        <div>• Contenido relevante dinámico</div>
+                        <div>• Optimización en tiempo real</div>
+                    </div>
+                    
+                    <div class="concept-metrics mb-6">
+                        <span class="metric-tag">Relevancia</span>
+                        <span class="metric-tag">Tiempo</span>
+                        <span class="metric-tag">Adopción</span>
+                    </div>
+                    
+                    <div class="concept-actions">
+                        <a href="generated-wireframes/concept-personalization.html" class="btn-primary">Ver Wireframe</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="pt-24 pb-16 min-h-screen">
-        <div class="hub-container">
-            <!-- Header -->
-            <div class="hub-header">
-                <h1 class="hub-title">🧠 Wireframe Concept Hub</h1>
-                <p class="hub-subtitle">Explora conceptos generados basados en principios cognitivos</p>
-                <div class="hub-stats">
-                    <div class="hub-stat">
-                        <span class="hub-stat-number">4</span>
-                        <span class="hub-stat-label">Conceptos</span>
-                    </div>
-                    <div class="hub-stat">
-                        <span class="hub-stat-number">Fintech</span>
-                        <span class="hub-stat-label">Dominio</span>
-                    </div>
-                    <div class="hub-stat">
-                        <span class="hub-stat-number">3</span>
-                        <span class="hub-stat-label">Métricas Clave</span>
-                    </div>
+            <!-- Actions Section -->
+            <div id="actions" class="analysis-section">
+                <div class="hub-actions">
+                    <button class="btn-secondary" onclick="regenerateWireframes()">
+                        Regenerar Wireframes
+                    </button>
+                    <button class="btn-secondary" onclick="refreshContent()">
+                        Refrescar Contenido
+                    </button>
+                    <a href="SISTEMA_MODULAR.md" class="btn-secondary" target="_blank">
+                        Documentación
+                    </a>
                 </div>
             </div>
 
-        <!-- Problem Analysis -->
-        <div id="analysis" class="analysis-section">
-            <h2 class="analysis-title">
-                🎯 Análisis del Problema
-            </h2>
-            <div class="problem-summary">
-                <h3>Problema:</h3>
-                <p><strong>Los usuarios necesitan ayuda para entender las opciones de crédito</strong></p>
-                <p><strong>Dominio:</strong> Fintech</p>
-                <p><strong>Métricas Clave:</strong> tasa de conversión, satisfacción del usuario, finalización de tareas</p>
+            <!-- Footer -->
+            <div class="footer">
+                <p>Generado por Wireframe Generator - Sistema Modular</p>
+                <p class="timestamp">Última actualización: 2025-07-05</p>
             </div>
-        </div>
-
-        <!-- Concepts Grid -->
-        <div id="concepts" class="concepts-grid">
-            <!-- Cognitive Load Reduction -->
-            <div class="concept-card concept-cognitive-load" onclick="openConcept('concept-cognitive-load.html')">
-                <div class="mb-6">
-                    <div class="metric-tag mb-3">Concepto A</div>
-                    <h3 class="concept-title">Reducción de Carga Cognitiva</h3>
-                </div>
-                
-                <div class="concept-description mb-6 space-y-2">
-                    <div>• IA elimina decisiones innecesarias</div>
-                    <div>• Presenta una sola opción recomendada</div>
-                    <div>• Interface minimalista y clara</div>
-                    <div>• Reduce parálisis de decisión</div>
-                </div>
-                
-                <div class="concept-metrics mb-6">
-                    <span class="metric-tag">Conversión</span>
-                    <span class="metric-tag">Satisfacción</span>
-                    <span class="metric-tag">Finalización</span>
-                </div>
-                
-                <div class="concept-actions">
-                    <a href="generated-wireframes/concept-cognitive-load.html" class="btn-primary" target="_blank">Ver Wireframe</a>
-                </div>
-            </div>
-
-            <!-- Progressive Disclosure -->
-            <div class="concept-card concept-progressive-disclosure" onclick="openConcept('concept-progressive-disclosure.html')">
-                <div class="mb-6">
-                    <div class="metric-tag mb-3">Concepto B</div>
-                    <h3 class="concept-title">Revelación Progresiva</h3>
-                </div>
-                
-                <div class="concept-description mb-6 space-y-2">
-                    <div>• Información dividida en pasos</div>
-                    <div>• Guía paso a paso contextual</div>
-                    <div>• Navegación asistida por IA</div>
-                    <div>• Reduce complejidad percibida</div>
-                </div>
-                
-                <div class="concept-metrics mb-6">
-                    <span class="metric-tag">Retención</span>
-                    <span class="metric-tag">Confianza</span>
-                    <span class="metric-tag">Abandono</span>
-                </div>
-                
-                <div class="concept-actions">
-                    <a href="generated-wireframes/concept-progressive-disclosure.html" class="btn-primary" target="_blank">Ver Wireframe</a>
-                </div>
-            </div>
-
-            <!-- Social Proof -->
-            <div class="concept-card concept-social-proof" onclick="openConcept('concept-social-proof.html')">
-                <div class="mb-6">
-                    <div class="metric-tag mb-3">Concepto C</div>
-                    <h3 class="concept-title">Prueba Social</h3>
-                </div>
-                
-                <div class="concept-description mb-6 space-y-2">
-                    <div>• Testimonios de usuarios reales</div>
-                    <div>• Estadísticas de éxito</div>
-                    <div>• Validación social contextual</div>
-                    <div>• Genera confianza y credibilidad</div>
-                </div>
-                
-                <div class="concept-metrics mb-6">
-                    <span class="metric-tag">Confianza</span>
-                    <span class="metric-tag">Compromiso</span>
-                    <span class="metric-tag">Referencias</span>
-                </div>
-                
-                <div class="concept-actions">
-                    <a href="generated-wireframes/concept-social-proof.html" class="btn-primary" target="_blank">Ver Wireframe</a>
-                </div>
-            </div>
-
-            <!-- Personalization -->
-            <div class="concept-card concept-personalization" onclick="openConcept('concept-personalization.html')">
-                <div class="mb-6">
-                    <div class="metric-tag mb-3">Concepto D</div>
-                    <h3 class="concept-title">Personalización Adaptativa</h3>
-                </div>
-                
-                <div class="concept-description mb-6 space-y-2">
-                    <div>• IA adapta a contexto individual</div>
-                    <div>• Recomendaciones personalizadas</div>
-                    <div>• Contenido relevante dinámico</div>
-                    <div>• Optimización en tiempo real</div>
-                </div>
-                
-                <div class="concept-metrics mb-6">
-                    <span class="metric-tag">Relevancia</span>
-                    <span class="metric-tag">Tiempo</span>
-                    <span class="metric-tag">Adopción</span>
-                </div>
-                
-                <div class="concept-actions">
-                    <a href="generated-wireframes/concept-personalization.html" class="btn-primary" target="_blank">Ver Wireframe</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Analysis Summary -->
-        <div class="analysis-section">
-            <h2 class="analysis-title">
-                📈 Recomendaciones de Implementación
-            </h2>
-            <div class="wf-grid-2">
-                <div class="wf-card">
-                    <h3>🔬 Pruebas A/B</h3>
-                    <p>Testa cada wireframe con usuarios reales para validar hipótesis</p>
-                </div>
-                <div class="wf-card">
-                    <h3>📊 Métricas Clave</h3>
-                    <p>Rastrea métricas primarias y secundarias para cada concepto</p>
-                </div>
-                <div class="wf-card">
-                    <h3>🔄 Iteración</h3>
-                    <p>Usa resultados para informar decisiones de diseño</p>
-                </div>
-                <div class="wf-card">
-                    <h3>🤝 Enfoques Híbridos</h3>
-                    <p>Combina elementos exitosos de diferentes conceptos</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Actions Section -->
-        <div id="actions" class="analysis-section">
-            <h2 class="analysis-title">
-                🛠️ Acciones del Hub
-            </h2>
-            <div class="hub-actions">
-                <button class="btn-primary" onclick="regenerateWireframes()">
-                    🔄 Regenerar Wireframes
-                </button>
-                <button class="btn-secondary refresh-btn" onclick="refreshContent()" style="transition: transform 0.3s ease;">
-                    🔄 Refrescar Contenido
-                </button>
-                <a href="SISTEMA_MODULAR.md" class="btn-secondary" target="_blank">
-                    📖 Documentación
-                </a>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>🎨 Generado por Wireframe Generator - Sistema Modular</p>
-            <p class="timestamp">Última actualización: 2025-07-05</p>
-        </div>
         </div>
     </div>
 
@@ -762,7 +170,7 @@
     <div id="regenerateModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>🔄 Regenerar Wireframes</h2>
+                <h2>Regenerar Wireframes</h2>
                 <span class="close" onclick="closeModal()">&times;</span>
             </div>
             <div class="modal-body">
@@ -799,149 +207,109 @@
                     <input type="text" id="metrics" placeholder="conversion_rate,user_satisfaction,task_completion" value="conversion_rate,user_satisfaction,task_completion">
                 </div>
 
-                <div class="modal-note">
-                    <strong>📝 Nota:</strong> Esta función muestra el comando a ejecutar. Para regenerar realmente, usa el script <code>./regenerate-wireframes.sh</code> en la terminal.
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+                    <button class="btn-primary" onclick="executeRegeneration()">Generar</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
-                <button class="btn-primary" id="generateBtn" onclick="generateWireframes()">Generar Wireframes</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Configuración del hub
-        let hubConfig = null;
-
-        // Cargar configuración
-        async function loadConfig() {
-            try {
-                const response = await fetch('hub-config.json');
-                hubConfig = await response.json();
-                updateHubWithConfig();
-            } catch (error) {
-                console.log('Usando configuración por defecto:', error);
-            }
-        }
-
-        // Actualizar hub con configuración
-        function updateHubWithConfig() {
-            if (!hubConfig) return;
-
-            // Actualizar colores del tema
-            const root = document.documentElement;
-            if (hubConfig.theme) {
-                root.style.setProperty('--hub-primary', hubConfig.theme.primary_color);
-                root.style.setProperty('--hub-secondary', hubConfig.theme.secondary_color);
-                root.style.setProperty('--wf-accent-primary', hubConfig.theme.accent_color);
-            }
-        }
-
-        function openConcept(filename) {
-            window.open(`generated-wireframes/${filename}`, '_blank');
-        }
-
-        // Función para regenerar wireframes
+        // Funciones del Modal
         function regenerateWireframes() {
-            const modal = document.getElementById('regenerateModal');
-            modal.style.display = 'block';
+            document.getElementById('regenerateModal').style.display = 'block';
         }
 
-        // Función para cerrar modal
         function closeModal() {
-            const modal = document.getElementById('regenerateModal');
-            modal.style.display = 'none';
+            document.getElementById('regenerateModal').style.display = 'none';
         }
 
-        // Función para aplicar preset
-        function applyPreset(preset) {
-            if (!hubConfig) return;
-            
-            const selectedPreset = hubConfig.generation_presets.find(p => p.name === preset);
-            if (selectedPreset) {
-                document.getElementById('domain').value = selectedPreset.domain;
-                document.getElementById('problem').value = selectedPreset.problem;
-                document.getElementById('metrics').value = selectedPreset.metrics;
-            }
+        function openConcept(conceptFile) {
+            window.location.href = 'generated-wireframes/' + conceptFile;
         }
 
-        // Función para generar wireframes (simulada)
-        function generateWireframes() {
-            const domain = document.getElementById('domain').value;
-            const problem = document.getElementById('problem').value;
-            const metrics = document.getElementById('metrics').value;
-            
-            // Mostrar loading
-            const generateBtn = document.getElementById('generateBtn');
-            const originalText = generateBtn.textContent;
-            generateBtn.textContent = 'Generando...';
-            generateBtn.disabled = true;
-            
-            // Simular generación
-            setTimeout(() => {
-                alert(`¡Wireframes generados para ${domain}!\n\nPara regenerar realmente, usa:\n./regenerate-wireframes.sh --domain "${domain}" --problem "${problem}" --metrics "${metrics}"`);
-                
-                generateBtn.textContent = originalText;
-                generateBtn.disabled = false;
-                closeModal();
-                
-                // Recargar página después de 2 segundos
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
-            }, 2000);
-        }
-
-        // Función para refrescar contenido
         function refreshContent() {
             const refreshBtn = document.querySelector('.refresh-btn');
             refreshBtn.style.transform = 'rotate(360deg)';
-            
             setTimeout(() => {
+                refreshBtn.style.transform = 'rotate(0deg)';
                 window.location.reload();
-            }, 500);
+            }, 600);
         }
 
-        // Agregar animaciones al hacer scroll
-        window.addEventListener('scroll', () => {
-            const cards = document.querySelectorAll('.concept-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                
-                if (isVisible) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+        function applyPreset(preset) {
+            const presets = {
+                'Fintech Credit': {
+                    domain: 'Fintech',
+                    problem: 'Users need help understanding credit options',
+                    metrics: 'conversion_rate,user_satisfaction,task_completion'
+                },
+                'E-commerce Checkout': {
+                    domain: 'E-commerce',
+                    problem: 'Users abandon cart during checkout process',
+                    metrics: 'cart_abandonment,checkout_completion,user_satisfaction'
+                },
+                'SaaS Onboarding': {
+                    domain: 'SaaS',
+                    problem: 'New users struggle with product onboarding',
+                    metrics: 'onboarding_completion,time_to_value,user_activation'
+                },
+                'Healthcare Appointments': {
+                    domain: 'Healthcare',
+                    problem: 'Patients find appointment booking confusing',
+                    metrics: 'booking_success,user_satisfaction,appointment_completion'
                 }
-            });
-        });
+            };
 
-        // Inicializar animaciones
-        document.addEventListener('DOMContentLoaded', () => {
-            // Cargar configuración
-            loadConfig();
+            if (presets[preset]) {
+                document.getElementById('domain').value = presets[preset].domain;
+                document.getElementById('problem').value = presets[preset].problem;
+                document.getElementById('metrics').value = presets[preset].metrics;
+            }
+        }
 
-            // Animaciones de cards
-            const cards = document.querySelectorAll('.concept-card');
-            cards.forEach((card, index) => {
+        function executeRegeneration() {
+            const domain = document.getElementById('domain').value;
+            const problem = document.getElementById('problem').value;
+            const metrics = document.getElementById('metrics').value;
+
+            // Aquí iría la lógica real de regeneración
+            console.log('Regenerating with:', { domain, problem, metrics });
+            
+            // Simulación de carga
+            const btn = document.querySelector('.modal-footer .btn-primary');
+            btn.textContent = 'Generando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = 'Completado';
+                setTimeout(() => {
+                    closeModal();
+                    refreshContent();
+                }, 1000);
+            }, 2000);
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('regenerateModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Animaciones de entrada
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.concept-card').forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
                 setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, index * 150);
             });
-
-            // Cerrar modal al hacer click fuera
-            window.onclick = function(event) {
-                const modal = document.getElementById('regenerateModal');
-                if (event.target === modal) {
-                    closeModal();
-                }
-            };
         });
     </script>
 </body>

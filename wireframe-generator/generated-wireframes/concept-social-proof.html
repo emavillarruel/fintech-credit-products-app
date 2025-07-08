@@ -7,375 +7,249 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../styles/wireframe-components.css">
     <link rel="stylesheet" href="../../styles/mobile-simulator.css">
-    <style>
-        /* Estilos específicos para el concepto */
-        .concept-gradient {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-        }
-        
-        .concept-accent {
-            color: #8b5cf6;
-        }
-        
-        .concept-badge {
-            background: rgba(139, 92, 246, 0.2);
-            color: #8b5cf6;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin: 24px 0;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #8b5cf6;
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 16px 0;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 3rem;
-            color: #8b5cf6;
-            opacity: 0.3;
-        }
-
-        .testimonial-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 12px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .author-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-
-        .author-info {
-            flex: 1;
-        }
-
-        .author-name {
-            font-weight: 600;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .author-detail {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .rating-stars {
-            color: #fbbf24;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .trust-badge {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 20px;
-            padding: 8px 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: #8b5cf6;
-            font-weight: 500;
-        }
-
-        .live-activity {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 8px;
-            padding: 12px;
-            margin: 16px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .live-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #22c55e;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .join-button {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .join-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/concept-pages.css">
 </head>
 <body>
     <div class="mobile-simulator">
+        <!-- Header de Navegación -->
+        <header class="nav-header">
+            <div class="nav-back">
+                <a href="../concept-hub.html" class="nav-back-button">
+                    ←
+                </a>
+                <h1 class="nav-title">
+                    Concepto C
+                </h1>
+            </div>
+            <button onclick="openInfoModal()" class="nav-info-button">
+                Info
+            </button>
+        </header>
         <div class="mobile-device">
             <div class="mobile-screen">
-                <!-- Header de Navegación -->
-                <header class="nav-header">
-                    <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px;">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <a href="../concept-hub.html" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                                ←
-                            </a>
-                            <h1 style="margin: 0; font-size: 1.2rem; font-weight: 600; color: white;">
-                                🏆 Concepto C
-                            </h1>
-                        </div>
-                        <button onclick="openInfoModal()" style="background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 20px; padding: 8px 16px; color: #8b5cf6; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(139, 92, 246, 0.3)'" onmouseout="this.style.background='rgba(139, 92, 246, 0.2)'">
-                            ℹ️ Info
-                        </button>
-                    </div>
-                </header>
+                
 
                 <!-- Contenido del Simulador -->
-                <div class="simulator-content" style="padding: 20px; color: white;">
-
+                <div class="simulator-content">
+                    
                     <!-- Hero Section -->
-                    <div style="text-align: center; margin-bottom: 32px;">
-                        <h2 style="font-size: 1.8rem; font-weight: 300; margin-bottom: 12px; color: white;">
-                            Únete a Miles de Usuarios Satisfechos
-                        </h2>
-                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 1rem; line-height: 1.5;">
-                            Descubre por qué confían en nosotros<br>
-                            para sus decisiones financieras
-                        </p>
+                    <div class="hero-section">
+                        <h2 class="hero-title">Miles confían en nosotros</h2>
+                        <p class="hero-subtitle">Únete a la comunidad que ya encontró su solución financiera</p>
                     </div>
 
-                    <!-- Badges de Confianza -->
-                    <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
-                        <div class="trust-badge">
-                            <span>✓</span>
-                            <span>Confiable</span>
+                    <!-- Trust Stats -->
+                    <div class="trust-stats">
+                        <div class="trust-stat">
+                            <span class="trust-stat-number">50K+</span>
+                            <span class="trust-stat-label">Usuarios</span>
                         </div>
-                        <div class="trust-badge">
-                            <span>⭐</span>
-                            <span>Verificado</span>
+                        <div class="trust-stat">
+                            <span class="trust-stat-number">4.8</span>
+                            <span class="trust-stat-label">Rating</span>
                         </div>
-                        <div class="trust-badge">
-                            <span>🔒</span>
-                            <span>Seguro</span>
+                        <div class="trust-stat">
+                            <span class="trust-stat-number">95%</span>
+                            <span class="trust-stat-label">Satisfacción</span>
                         </div>
                     </div>
 
-                    <!-- Estadísticas -->
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">50,000+</div>
-                            <div class="stat-label">Clientes Satisfechos</div>
+                    <!-- Testimonial Carousel -->
+                    <div class="testimonial-carousel">
+                        <div class="testimonial-content" id="testimonialContent">
+                            <div class="testimonial-text">
+                                "Increíble lo rápido que fue todo el proceso. En 10 minutos ya tenía mi crédito aprobado y el dinero en mi cuenta."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">MR</div>
+                                <div>
+                                    <div class="testimonial-name">María R.</div>
+                                    <div class="testimonial-details">Profesional, 32 años</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">99.8%</div>
-                            <div class="stat-label">Tasa de Aprobación</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">2 min</div>
-                            <div class="stat-label">Tiempo Promedio</div>
-                        </div>
-                    </div>
-
-                    <!-- Actividad en Vivo -->
-                    <div class="live-activity">
-                        <div class="live-indicator"></div>
-                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">
-                            <strong>María Elena</strong> acaba de obtener su crédito aprobado
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" onclick="showTestimonial(0)"></div>
+                            <div class="carousel-dot" onclick="showTestimonial(1)"></div>
+                            <div class="carousel-dot" onclick="showTestimonial(2)"></div>
                         </div>
                     </div>
 
-                    <!-- Testimonios -->
-                    <div style="margin: 24px 0;">
-                        <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 16px; color: white;">
-                            💬 Lo que dicen nuestros clientes
-                        </h3>
+                    <!-- Product Card -->
+                    <div class="product-card">
+                        <div class="product-header">
+                            <h3 class="product-title">Crédito Personal</h3>
+                            <span class="product-badge">MÁS POPULAR</span>
+                        </div>
                         
-                        <div class="testimonial-card">
-                            <div class="rating-stars">★★★★★</div>
-                            <div class="testimonial-text">
-                                "Me aprobaron en 5 minutos y la tasa fue exactamente lo que necesitaba. Proceso super transparente."
+                        <div class="product-rate">12.5% TEA</div>
+                        <div class="product-subtext">Tasa fija garantizada</div>
+                        
+                        <div class="social-proof-section">
+                            <div class="social-proof-item">
+                                <span class="social-proof-number">89%</span>
+                                <span class="social-proof-label">Aprobación</span>
                             </div>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">MS</div>
-                                <div class="author-info">
-                                    <div class="author-name">María S.</div>
-                                    <div class="author-detail">Cliente desde 2023</div>
-                                </div>
+                            <div class="social-proof-item">
+                                <span class="social-proof-number">2.3M</span>
+                                <span class="social-proof-label">Prestados</span>
+                            </div>
+                            <div class="social-proof-item">
+                                <span class="social-proof-number">5min</span>
+                                <span class="social-proof-label">Aprobación</span>
                             </div>
                         </div>
 
-                        <div class="testimonial-card">
-                            <div class="rating-stars">★★★★★</div>
-                            <div class="testimonial-text">
-                                "Las mejores tasas del mercado y un proceso súper transparente. Lo recomiendo totalmente."
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">CM</div>
-                                <div class="author-info">
-                                    <div class="author-name">Carlos M.</div>
-                                    <div class="author-detail">Cliente desde 2022</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div style="text-align: center; margin: 32px 0;">
-                        <button class="join-button">
-                            🚀 Únete Ahora
+                        <button class="cta-button">
+                            Únete a miles de usuarios
                         </button>
-                        <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; margin-top: 12px;">
-                            Se han unido <strong>127 personas</strong> esta semana
-                        </p>
+
+                        <div class="security-note">
+                            <div class="security-note-text">
+                                Más de 10,000 personas eligieron esta opción este mes
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Espacio para scroll -->
-                    <div style="height: 40px;"></div>
+                    <div class="spacer"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal de Información del Concepto -->
-    <div id="infoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; backdrop-filter: blur(5px);">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; max-height: 90%; overflow-y: auto; background: #1a1a1a; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; padding: 24px; color: white;">
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
             
             <!-- Header del Modal -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-                <h2 style="font-size: 1.5rem; font-weight: 600; margin: 0; color: #8b5cf6;">
-                    🏆 Prueba Social
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    Prueba Social
                 </h2>
-                <button onclick="closeInfoModal()" style="background: none; border: none; color: rgba(255, 255, 255, 0.7); font-size: 1.5rem; cursor: pointer; padding: 4px;">
+                <button onclick="closeInfoModal()" class="modal-close">
                     ×
                 </button>
             </div>
 
             <!-- Problema y Enfoque -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
-                    🎯 Contexto del Concepto
-                </h3>
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-bottom: 12px;">
-                    <strong>Problema:</strong> Los usuarios necesitan ayuda para entender opciones de crédito
+            <div class="modal-section">
+                <h3>Contexto del Concepto</h3>
+                <p>
+                    <strong>Problema:</strong> Los usuarios dudan sobre la confiabilidad y calidad del servicio
                 </p>
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin: 0;">
-                    <strong>Enfoque:</strong> Mostrar testimonios, estadísticas y validación de pares
+                <p>
+                    <strong>Enfoque:</strong> Mostrar evidencia de que otras personas similares han tenido éxito
                 </p>
             </div>
 
             <!-- Por qué funciona -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: #8b5cf6;">
-                    💡 ¿Por qué funciona?
-                </h3>
-                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">
-                    <p style="margin-bottom: 12px;">
-                        ✓ <strong>Reduce la incertidumbre:</strong> Ver que otros tuvieron éxito genera confianza
-                    </p>
-                    <p style="margin-bottom: 12px;">
-                        ✓ <strong>Validación de pares:</strong> Los testimonios reales son más persuasivos
-                    </p>
-                    <p style="margin-bottom: 0;">
-                        ✓ <strong>Evidencia tangible:</strong> Estadísticas y números concretos crean credibilidad
-                    </p>
-                </div>
-            </div>
-
-            <!-- Hipótesis -->
-            <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: #8b5cf6;">
-                    🔬 Hipótesis del Concepto
-                </h3>
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.4; margin: 0; font-style: italic;">
-                    "Mostrar evidencia de que otros usuarios han tenido éxito aumentará la confianza y las conversiones al reducir la percepción de riesgo."
+            <div class="modal-section">
+                <h3>¿Por qué funciona?</h3>
+                <p>
+                    <strong>Valida decisiones:</strong> Ver que otros similares han elegido esto reduce la incertidumbre
+                </p>
+                <p>
+                    <strong>Reduce el riesgo percibido:</strong> Testimonios reales generan confianza
+                </p>
+                <p>
+                    <strong>Acelera decisiones:</strong> La evidencia social reduce el tiempo de evaluación
+                </p>
+                <p>
+                    <strong>Crea FOMO:</strong> La popularidad genera urgencia positiva
                 </p>
             </div>
 
-            <!-- Métricas a medir -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px;">
-                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; color: white;">
-                    📊 Métricas a Medir
-                </h3>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                        Nivel de Confianza
-                    </span>
-                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                        Tasa de Conversión
-                    </span>
-                    <span style="background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">
-                        Credibilidad Percibida
-                    </span>
-                </div>
+            <!-- Hipótesis -->
+            <div class="modal-section">
+                <h3>Hipótesis del Concepto</h3>
+                <p>
+                    <strong>Si</strong> mostramos evidencia de que otros usuarios similares han tenido éxito
+                </p>
+                <p>
+                    <strong>Entonces</strong> los usuarios tendrán más confianza y convertirán más
+                </p>
+                <p>
+                    <strong>Porque</strong> las personas confían más en las recomendaciones de sus pares que en la publicidad
+                </p>
+            </div>
+
+            <!-- Métricas -->
+            <div class="modal-section">
+                <h3>Métricas Clave</h3>
+                <p>
+                    <strong>Confianza:</strong> Nivel de confianza antes y después de ver testimonios
+                </p>
+                <p>
+                    <strong>Compromiso:</strong> Tiempo en la página y interacción con testimonios
+                </p>
+                <p>
+                    <strong>Referencias:</strong> Usuarios que llegan por recomendación
+                </p>
+                <p>
+                    <strong>Conversión:</strong> Tasa de conversión comparada con versiones sin prueba social
+                </p>
             </div>
 
         </div>
     </div>
 
     <script>
+        const testimonials = [
+            {
+                text: "Increíble lo rápido que fue todo el proceso. En 10 minutos ya tenía mi crédito aprobado y el dinero en mi cuenta.",
+                author: "María R.",
+                details: "Profesional, 32 años",
+                avatar: "MR"
+            },
+            {
+                text: "La mejor decisión que tomé fue solicitar mi crédito aquí. Tasas justas y sin complicaciones burocráticas.",
+                author: "Carlos M.",
+                details: "Empresario, 45 años",
+                avatar: "CM"
+            },
+            {
+                text: "Después de comparar varias opciones, esta fue la más transparente. Todo claro desde el principio.",
+                author: "Ana S.",
+                details: "Docente, 28 años",
+                avatar: "AS"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            const content = document.getElementById('testimonialContent');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            // Actualizar contenido
+            content.innerHTML = `
+                <div class="testimonial-text">
+                    "${testimonials[index].text}"
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">${testimonials[index].avatar}</div>
+                    <div>
+                        <div class="testimonial-name">${testimonials[index].author}</div>
+                        <div class="testimonial-details">${testimonials[index].details}</div>
+                    </div>
+                </div>
+            `;
+
+            // Actualizar dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            currentTestimonial = index;
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
         function openInfoModal() {
             document.getElementById('infoModal').style.display = 'block';
         }
@@ -385,15 +259,16 @@
         }
 
         // Cerrar modal al hacer click fuera
-        document.getElementById('infoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
                 closeInfoModal();
             }
-        });
+        }
 
         // Cerrar modal con tecla Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
                 closeInfoModal();
             }
         });
