@@ -1,242 +1,110 @@
-# 🎨 Wireframe Generator - Sistema Modular
+# 🎯 Wireframe Generator - Conceptos Fintech
 
-Un sistema escalable y modular para generar wireframes conceptuales basados en principios cognitivos.
+## 📋 Descripción
+Generador de wireframes y conceptos para aplicaciones fintech, enfocado en crear interfaces simples, directas y basadas en principios cognitivos validados.
 
-## ✨ Características Principales
-
-- **🧠 4 Principios Cognitivos**: Carga cognitiva, revelación progresiva, prueba social, personalización
-- **🏗️ Componentes Modulares**: Sistema de componentes reutilizables y extensibles
-- **🎨 CSS Separado**: Estilos mantenibles con variables CSS
-- **🌍 Multi-dominio**: Soporte para Fintech, E-commerce, SaaS, Healthcare
-- **📱 Responsive**: Diseño adaptable a diferentes dispositivos
-- **⚡ Extensible**: Fácil agregar nuevos componentes y dominios
-
-## 🚀 Inicio Rápido
-
-### Instalación
-```bash
-cd wireframe-generator
-npm install
-```
-
-### Uso Básico
-```bash
-# Generar wireframes con valores por defecto
-node generator-v2.js
-
-# Especificar dominio y problema
-node generator-v2.js --domain "Fintech" --problem "Users struggle with credit options"
-
-# Con métricas específicas
-node generator-v2.js --domain "E-commerce" --metrics "conversion,satisfaction,completion"
-```
-
-### Generar Ejemplos
-```bash
-# Ejecutar script de ejemplos para múltiples dominios
-./generate-example.sh
-```
-
-## 📁 Estructura del Sistema
+## 🏗️ Estructura del Proyecto
 
 ```
 wireframe-generator/
-├── generator-v2.js                 # 🔧 Generador principal modular
-├── components/
-│   └── wireframe-components.js     # 🧩 Biblioteca de componentes
-├── styles/
-│   └── wireframe-components.css    # 🎨 Estilos CSS modulares
-├── generated-wireframes/           # 📄 Salida de wireframes
-├── examples/                       # 📋 Ejemplos por dominio
-├── generate-example.sh             # 🚀 Script de ejemplos
-├── SISTEMA_MODULAR.md             # 📖 Documentación técnica
-└── README.md                      # 📚 Esta documentación
+├── concept-hub-emprendedores.html    # Hub principal con todos los conceptos
+├── generated-wireframes/             # Conceptos finales optimizados
+│   ├── concept-acompanamiento-empatico.html
+│   ├── concept-banca-proactiva.html
+│   ├── concept-contratacion-express.html
+│   ├── concept-mentor-digital.html
+│   ├── concept-personalizacion-contextual.html
+│   ├── concept-relevancia-temporal.html
+│   ├── concept-plataforma-creditos.html
+│   ├── concepto-comparador-creditos.html
+│   └── concepto-proceso-express.html
+├── styles/                           # Estilos optimizados
+│   ├── concept-pages.css            # Estilos para páginas de conceptos
+│   ├── hub.css                      # Estilos del hub principal
+│   └── wireframe-components.css     # Componentes reutilizables
+├── generate-emprendedores.sh         # Script de generación activo
+├── hub-config-emprendedores.json     # Configuración del hub
+├── README_EMPRENDEDORES.md           # Documentación específica
+├── HUB_README.md                     # Documentación del hub
+└── package.json                     # Dependencias del proyecto
 ```
 
-## 🧩 Componentes Disponibles
+## 🎯 Conceptos Implementados
 
-### Layout
-- `container()` - Contenedor principal
-- `grid()` - Sistema de grillas responsivo
-- `flex()` - Contenedores flexibles
+### 📊 Conceptos Cognitivos (6)
+1. **Mi Región, Mi Negocio** - Personalización contextual
+2. **Tu Banco Te Avisa** - Banca proactiva
+3. **En el Momento Justo** - Relevancia temporal  
+4. **Te Acompañamos** - Acompañamiento empático
+5. **Crédito en 3 Minutos** - Contratación express
+6. **Tu Asesor Digital** - Mentor digital inteligente
 
-### Headers
-- `minimal()` - Header minimalista
-- `full()` - Header completo con navegación
-- `branded()` - Header con marca
+### 🔧 Plataforma de Créditos (3)
+1. **Encuentra Tu Crédito Ideal** - Filtros inteligentes
+2. **Compara y Elige** - Comparador con educación
+3. **Contratación Express** - Proceso sin fricción
 
-### Heroes
-- `simple()` - Hero básico
-- `detailed()` - Hero con beneficios
-- `withImage()` - Hero con imagen
+## ✨ Principios de Diseño
 
-### Content
-- `singleOption()` - Opción única recomendada
-- `multipleOptions()` - Múltiples opciones
-- `textContent()` - Contenido de texto
+### 🎯 Estructura Ultra-Simplificada
+Cada concepto tiene exactamente 4 secciones:
+1. **Hero** - Título y subtítulo directo
+2. **Explicación Simple** - Una sola sección que explica el concepto  
+3. **Propuesta Principal** - Crédito con detalles básicos
+4. **Stats Básicas** - Solo 4 métricas clave
 
-### Especializados
-- `Table.comparison()` - Tablas comparativas
-- `Wizard.steps()` - Wizards paso a paso
-- `SocialProof.stats()` - Estadísticas sociales
-- `Personalization.userProfile()` - Perfiles de usuario
-- `Form.simple()` - Formularios
-- `Alert.*()` - Alertas y notificaciones
+### 💬 Lenguaje y Estilo
+- **Ultra-directo** - Sin tecnicismos financieros
+- **Conversacional** - Como hablar con un amigo
+- **Ejemplos concretos** - Casos reales y específicos
+- **Emocional** - Conecta con sentimientos reales
+- **Actionable** - Botones claros y directos
 
-### Industria-Específicos
-- `Industry.fintech.*` - Componentes fintech
-- `Industry.ecommerce.*` - Componentes e-commerce
-- `Industry.healthcare.*` - Componentes salud
+### ⏱️ Objetivos de UX
+- **30 segundos** - Tiempo máximo para entender cada concepto
+- **Fácil comparación** - Estructura idéntica entre conceptos
+- **Sin fricción** - Eliminación de elementos innecesarios
 
-## 🧠 Principios Cognitivos
+## 🚀 Uso Rápido
 
-### 1. Cognitive Load Reduction
-**Objetivo**: Simplificar decisiones eliminando opciones innecesarias
-- Presenta una sola opción recomendada
-- Interface minimalista
-- Mensajes claros y directos
-
-### 2. Progressive Disclosure
-**Objetivo**: Revelar información gradualmente
-- Procesos divididos en pasos
-- Información contextual
-- Navegación guiada
-
-### 3. Social Proof
-**Objetivo**: Generar confianza a través de validación social
-- Testimonios de usuarios
-- Estadísticas de uso
-- Ratings y reviews
-
-### 4. Personalization
-**Objetivo**: Adaptar experiencia al contexto individual
-- Recomendaciones personalizadas
-- Contenido relevante
-- Historial de usuario
-
-## 🎯 Dominios Soportados
-
-### 🏦 Fintech
-- Productos de crédito
-- Calculadoras financieras
-- Indicadores de riesgo
-- Procesos de aplicación
-
-### 🛒 E-commerce
-- Proceso de checkout
-- Tarjetas de producto
-- Opciones de envío
-- Carrito de compras
-
-### 💼 SaaS
-- Planes de suscripción
-- Comparadores de features
-- Onboarding de usuarios
-- Dashboards
-
-### 🏥 Healthcare
-- Reserva de citas
-- Herramientas de accesibilidad
-- Perfiles médicos
-- Teleconsultas
-
-## 🛠️ Extensión del Sistema
-
-### Agregar Nuevos Componentes
-
-1. **Crear componente en `components/wireframe-components.js`**:
-```javascript
-const NewComponents = {
-  customCard: (title, content) => `
-    <div class="wf-custom-card">
-      <h3>${title}</h3>
-      <p>${content}</p>
-    </div>
-  `
-};
+### Ver los conceptos
+```bash
+# Abrir el hub principal
+open concept-hub-emprendedores.html
 ```
 
-2. **Agregar estilos en `styles/wireframe-components.css`**:
-```css
-.wf-custom-card {
-  border: var(--wf-border-width) solid var(--wf-border-primary);
-  padding: var(--wf-spacing-lg);
-}
+### Generar nuevos conceptos
+```bash
+# Usar el script de generación
+./generate-emprendedores.sh
 ```
 
-3. **Usar en generador**:
-```javascript
-WireframeComponents.New.customCard('Title', 'Content')
-```
+## 📱 Tecnologías
 
-### Agregar Nuevos Dominios
+- **HTML5** - Estructura semántica
+- **CSS3** - Estilos responsivos optimizados
+- **JavaScript** - Interacciones mínimas y efectivas
+- **Mobile-first** - Diseño optimizado para dispositivos móviles
 
-Editar `ContentGenerators.generateDomainContent()` en `generator-v2.js`:
-```javascript
-'NewDomain': {
-  singleOption: { title: 'Option', price: '$X', features: 'Features' },
-  stats: [{ number: '1000+', label: 'Users' }],
-  testimonials: [{ quote: 'Great!', author: 'User' }]
-}
-```
+## 🎨 Sistema de Estilos
 
-## 📊 Archivos de Salida
+- **concept-pages.css** - Estilos específicos para conceptos
+- **hub.css** - Estilos del hub principal  
+- **wireframe-components.css** - Componentes base reutilizables
 
-Cada ejecución genera:
-- `concept-cognitive-load.html` - Wireframe de carga cognitiva
-- `concept-progressive-disclosure.html` - Wireframe de revelación progresiva
-- `concept-social-proof.html` - Wireframe de prueba social
-- `concept-personalization.html` - Wireframe de personalización
-- `analysis-summary.md` - Resumen con hipótesis y métricas
+## 📈 Métricas de Éxito
 
-## 🎨 Personalización de Estilos
+- **Comprensión** - 30 segundos para entender concepto
+- **Simplicidad** - 4 secciones máximo por concepto
+- **Consistencia** - Estructura idéntica entre conceptos
+- **Efectividad** - Lenguaje directo sin tecnicismos
 
-Modificar variables en `styles/wireframe-components.css`:
-```css
-:root {
-  --wf-border-primary: #your-color;
-  --wf-bg-primary: #your-background;
-  --wf-font-family: 'Your Font', sans-serif;
-}
-```
+## 🔄 Versionado
 
-## 📖 Documentación Adicional
-
-- **[SISTEMA_MODULAR.md](SISTEMA_MODULAR.md)** - Documentación técnica completa
-- **[QUICK_START.md](QUICK_START.md)** - Guía de inicio rápido
-- **Archivos de ejemplo en `examples/`** - Casos de uso por dominio
-
-## 🤝 Contribuciones
-
-Para contribuir:
-1. Agregar componentes siguiendo la estructura existente
-2. Documentar nuevos componentes
-3. Probar con diferentes dominios
-4. Actualizar documentación
-
-## 📈 Próximos Pasos
-
-- [ ] Integración con herramientas de prototipado
-- [ ] Framework de testing A/B
-- [ ] Componentes interactivos con JavaScript
-- [ ] Temas visuales alternativos
-- [ ] Métricas avanzadas de usabilidad
-
-## 🔧 Troubleshooting
-
-### Error: "principleKey is not defined"
-- Verificar que todas las funciones reciban `principleKey` como parámetro
-
-### CSS no se carga
-- Verificar que `styles/wireframe-components.css` existe
-- Comprobar la ruta relativa en el HTML generado
-
-### Componentes no aparecen
-- Verificar import de `wireframe-components.js`
-- Comprobar que el componente esté exportado correctamente
+- **Rama actual**: `nuevas-propuestas-conceptuales`
+- **Última limpieza**: Julio 2024
+- **Estado**: Optimizado y listo para nuevos conceptos
 
 ---
 
-**Versión**: 2.0 - Sistema Modular  
-**Mantenido por**: Equipo de UX Research  
-**Licencia**: MIT 
+### 💡 Listo para crear nuevas propuestas conceptuales siguiendo estos principios validados. 
