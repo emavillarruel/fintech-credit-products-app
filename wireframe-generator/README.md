@@ -1,32 +1,22 @@
-# 🎯 Wireframe Generator - Conceptos Fintech
+# Wireframe Generator - Conceptos de Crédito
 
 ## 📋 Descripción
-Generador de wireframes y conceptos para aplicaciones fintech, enfocado en crear interfaces simples, directas y basadas en principios cognitivos validados.
+Generador de wireframes y conceptos para aplicaciones fintech de crédito, enfocado en crear interfaces simples, directas y basadas en principios cognitivos validados.
 
 ## 🏗️ Estructura del Proyecto
 
 ```
 wireframe-generator/
-├── concept-hub-emprendedores.html    # Hub principal con todos los conceptos
-├── generated-wireframes/             # Conceptos finales optimizados
-│   ├── concept-acompanamiento-empatico.html
-│   ├── concept-banca-proactiva.html
-│   ├── concept-contratacion-express.html
-│   ├── concept-mentor-digital.html
-│   ├── concept-personalizacion-contextual.html
-│   ├── concept-relevancia-temporal.html
-│   ├── concept-plataforma-creditos.html
-│   ├── concepto-comparador-creditos.html
-│   └── concepto-proceso-express.html
-├── styles/                           # Estilos optimizados
-│   ├── concept-pages.css            # Estilos para páginas de conceptos
-│   ├── hub.css                      # Estilos del hub principal
-│   └── wireframe-components.css     # Componentes reutilizables
-├── generate-emprendedores.sh         # Script de generación activo
-├── hub-config-emprendedores.json     # Configuración del hub
-├── README_EMPRENDEDORES.md           # Documentación específica
-├── HUB_README.md                     # Documentación del hub
-└── package.json                     # Dependencias del proyecto
+├── 🌟 concept-hub-emprendedores.html     # Hub principal
+├── 📁 generated-wireframes/              # 9 conceptos optimizados
+│   ├── 🧠 6 conceptos
+├── 🎨 styles/ (3 archivos CSS optimizados)
+├── 📋 generate-emprendedores.sh          # Script activo
+├── ⚙️ hub-config-emprendedores.json      # Config actual
+├── 📖 README.md (actualizado)
+├── 📚 README_EMPRENDEDORES.md
+├── 📘 HUB_README.md
+└── 📦 package.json
 ```
 
 ## 🎯 Conceptos Implementados
@@ -65,6 +55,29 @@ Cada concepto tiene exactamente 4 secciones:
 - **Fácil comparación** - Estructura idéntica entre conceptos
 - **Sin fricción** - Eliminación de elementos innecesarios
 
+## 📋 Sistema de Contexto para Propuestas
+
+**NUEVO**: Framework estructurado para definir contexto antes de generar conceptos:
+
+### **📄 Archivos Clave**
+- **`CONTEXTO_PROPUESTAS.md`** - Template para definir contexto completo
+- **`EJEMPLO_CONTEXTO.md`** - Ejemplo real de uso (E-commerce para adultos mayores)
+- **`GUIA_CONTEXTO.md`** - Guía completa de uso del sistema
+
+### **🔄 Proceso Simplificado**
+1. **Completa contexto** - Usa el template con información específica
+2. **Valida información** - Verifica audiencia, hipótesis y principios
+3. **Genera conceptos** - Aplica principios validados y estructura ultra-simplificada
+4. **Itera basado en resultados** - Ajusta contexto según feedback
+
+### **🎯 Beneficios**
+- **Precisión**: Conceptos ultra-específicos para tu audiencia
+- **Eficiencia**: Información estructurada, no dispersa
+- **Consistencia**: Metodología repetible para cualquier proyecto
+- **Escalabilidad**: Reutiliza contextos para proyectos similares
+
+---
+
 ## 🚀 Uso Rápido
 
 ### Ver los conceptos
@@ -77,6 +90,18 @@ open concept-hub-emprendedores.html
 ```bash
 # Usar el script de generación
 ./generate-emprendedores.sh
+```
+
+### Usar sistema de contexto
+```bash
+# 1. Completa el contexto
+open CONTEXTO_PROPUESTAS.md
+
+# 2. Revisa el ejemplo
+open EJEMPLO_CONTEXTO.md
+
+# 3. Lee la guía
+open GUIA_CONTEXTO.md
 ```
 
 ## 📱 Tecnologías
