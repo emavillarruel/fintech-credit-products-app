@@ -4,665 +4,415 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fintech Específicos - Soluciones Basadas en Datos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./styles/hub.css">
-    <style>
-        body {
-            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
-            min-height: 100vh;
-        }
-
-        /* Header de Navegación */
-        .nav-header {
-            background-color: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(15px);
-        }
-
-        .max-w-7xl {
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
-        .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
-
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .space-x-4 > * + * { margin-left: 1rem; }
-        .space-x-8 > * + * { margin-left: 2rem; }
-
-        .h-16 { height: 4rem; }
-
-        .meli-logo {
-            height: 32px;
-            width: auto;
-            filter: brightness(0) invert(1);
-        }
-
-        .fallback-logo {
-            display: none;
-            background: #10b981;
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            text-align: center;
-            line-height: 32px;
-            font-weight: 600;
-        }
-
-        .text-white { color: #ffffff; }
-        .text-gray-300 { color: #d1d5db; }
-        .text-emerald-300 { color: #6ee7b7; }
-        .text-xl { font-size: 1.25rem; }
-        .text-lg { font-size: 1.125rem; }
-        .font-regular { font-weight: 400; }
-
-        .hover\:text-white:hover { color: #ffffff; }
-        .hover\:text-emerald-200:hover { color: #a7f3d0; }
-
-        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-
-        .hidden { display: none; }
-        .md\:flex { display: flex; }
-
-        .nav-header a {
-            text-decoration: none;
-            transition: color 0.3s ease;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-header a:hover {
-            background-color: rgba(16, 185, 129, 0.1);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-            padding: 40px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.2;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.1em;
-            margin: 12px 0;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-
-        .problem-highlight {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 15px 25px;
-            border-radius: 12px;
-            margin: 25px auto;
-            max-width: 800px;
-            backdrop-filter: blur(10px);
-        }
-
-        .problem-highlight h3 {
-            margin: 0 0 10px 0;
-            color: #ffffff;
-            font-size: 1.2em;
-        }
-
-        .problem-highlight p {
-            margin: 0;
-            font-size: 0.95em;
-            line-height: 1.4;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 15px 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            min-width: 80px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stat-number {
-            font-size: 1.6em;
-            font-weight: 600;
-            display: block;
-            color: #ffffff;
-        }
-
-        .stat-label {
-            font-size: 0.85em;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .context-summary {
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .context-summary h2 {
-            color: #10b981;
-            margin-bottom: 15px;
-            font-weight: 400;
-            font-size: 1.4em;
-        }
-
-        .context-summary p {
-            font-size: 1em;
-            line-height: 1.6;
-            margin: 0;
-            color: #e5e7eb;
-        }
-
-        .concepts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 35px;
-            margin: 40px 0;
-        }
-
-        .concept-card {
-            background: rgba(16, 185, 129, 0.08);
-            border-radius: 20px;
-            padding: 35px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-left: 5px solid #10b981;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            min-height: 380px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .concept-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .concept-card:hover::before {
-            opacity: 1;
-        }
-
-        .concept-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
-            border-color: rgba(16, 185, 129, 0.5);
-        }
-
-        .concept-card h3 {
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            color: #10b981;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-
-        .concept-principle {
-            font-size: 0.95em;
-            color: #6ee7b7;
-            font-style: italic;
-            margin-bottom: 18px;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-        }
-
-        .concept-card p {
-            flex-grow: 1;
-            margin-bottom: 25px;
-            line-height: 1.7;
-            color: #f3f4f6;
-            font-size: 0.95em;
-            position: relative;
-            z-index: 1;
-        }
-
-        .concept-metrics {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .metric-badge {
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            color: #10b981;
-            padding: 6px 14px;
-            border-radius: 25px;
-            font-size: 0.8em;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-        }
-
-        .concept-button {
-            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: auto;
-            font-size: 0.95em;
-            position: relative;
-            z-index: 1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .concept-button:hover {
-            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-        }
-
-        .impact-section {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .impact-section h2 {
-            color: #10b981;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 300;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .impact-item {
-            background: rgba(16, 185, 129, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .impact-number {
-            font-size: 2.2em;
-            font-weight: 700;
-            color: #10b981;
-            margin-bottom: 8px;
-        }
-
-        .impact-label {
-            font-size: 0.9em;
-            color: #d1d5db;
-            line-height: 1.3;
-        }
-
-        .actions {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .action-button {
-            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            margin: 0 15px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .action-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
-        }
-
-        .back-link {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(16, 185, 129, 0.9);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-
-        .back-link:hover {
-            background: rgba(16, 185, 129, 1);
-            transform: translateY(-2px);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .md\:flex { display: none !important; }
-            .sm\:px-6 { padding-left: 1rem; padding-right: 1rem; }
-            .lg\:px-8 { padding-left: 1rem; padding-right: 1rem; }
-            .text-lg { font-size: 1rem; }
-            .space-x-4 > * + * { margin-left: 0.5rem; }
-            
-            .stats {
-                gap: 20px;
-            }
-            
-            .concepts-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .back-link {
-                position: static;
-                display: inline-block;
-                margin: 20px;
-            }
-        }
-    </style>
 </head>
-<body>
-    <a href="./concept-hub-emprendedores.html" class="back-link">← Hub General</a>
-
-    <!-- Header de Navegación -->
-    <header class="nav-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+<body class="gradient-bg min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" alt="MercadoLibre" class="meli-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="text-white font-regular text-xl fallback-logo">ML</div>
-                    <div class="text-emerald-300 font-regular text-lg">Fintech Específicos</div>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#concepts" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Conceptos</a>
-                    <a href="#impact" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Impacto</a>
-                    <a href="#actions" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Acciones</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <div class="header">
-        <div class="container">
-            <div class="header-content">
-                <h1>Fintech Específicos</h1>
-                <p>Soluciones Basadas en Datos Reales para Problemas Cuantificados</p>
-                
-                <div class="problem-highlight">
-                    <h3>🎯 Problemas Específicos Resueltos</h3>
-                    <p>35% consultas CX por confusión entre productos • R$ 85k costo mensual por falta de claridad • Expectativas no cumplidas de "express" • Necesidad de personalización real en asistentes IA</p>
+                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" 
+                         alt="MercadoLibre" 
+                         class="meli-logo" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="text-white font-regular text-xl" style="display: none;">ML</div>
+                    <div class="text-white font-regular text-lg">Fintech Específicos</div>
                 </div>
                 
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">Conceptos<br>Específicos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Basados en<br>Datos Reales</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Brasil</span>
-                        <span class="stat-label">Mercado<br>Objetivo</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">R$ 85k</span>
-                        <span class="stat-label">Ahorrados<br>Mensual</span>
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="#concepts" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Conceptos</a>
+                        <a href="#analysis" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Impacto</a>
+                        <a href="#methodology" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Metodología</a>
+                        <a href="./concept-hub-emprendedores.html" class="text-white/70 hover:text-white transition-colors text-sm font-regular">← Hub General</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="container">
-        <div class="context-summary">
-            <h2>Contexto Ultra-Específico</h2>
-            <p>Estos conceptos fueron generados basándose en datos reales de usuarios brasileños de mediana edad, problemas cuantificados (35% consultas CX, R$ 85k costo mensual), expectativas específicas de productos como Verdichat, y la necesidad de simplicidad cognitiva, transparencia, personalización inteligente y reducción de fricción en la experiencia fintech.</p>
+    <!-- Main Content -->
+    <div class="pt-24 pb-16 min-h-screen">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Hero Section -->
+            <div class="text-center mb-12">
+                <div class="glass-panel rounded-xl p-6 w-full">
+                    <div class="text-base mb-2 text-white/90 font-regular">
+                        <span class="font-regular">Desafío:</span> "Soluciones ultra-específicas basadas en datos reales de usuarios brasileños"
+                    </div>
+                    <div class="text-white/50 text-xs font-light">
+                        Cada concepto fue generado a partir de <span class="font-regular">problemas cuantificados reales</span>: 35% consultas CX por confusión, R$ 85k costo mensual, expectativas no cumplidas
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Concepts Grid -->
+            <div id="concepts" class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Concepto 1: Encuentra Tu Crédito Perfecto -->
+                    <div class="concept-card concept-a rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Problema: 35% Consultas CX</div>
+                            <h3 class="concept-title">Encuentra Tu Crédito Perfecto</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">85%</div>
+                                <div class="text-xs text-white/60">Menos Consultas</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">R$ 85k</div>
+                                <div class="text-xs text-white/60">Ahorrados</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">30s</div>
+                                <div class="text-xs text-white/60">Comprensión</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Termina la confusión entre LC y PL</div>
+                            <div>• 3 preguntas simples para elegir</div>
+                            <div>• Datos prellenados automáticamente</div>
+                            <div>• Recomendación basada en perfil real</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text">
+                                "Si elimino la confusión entre productos desde el inicio, el usuario confía más y no necesita llamar a soporte."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='./generated-wireframes/concept-encuentra-credito-perfecto.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Concepto
+                        </button>
+                    </div>
+
+                    <!-- Concepto 2: Transparencia Total -->
+                    <div class="concept-card concept-b rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Problema: Cálculos Confusos</div>
+                            <h3 class="concept-title">Transparencia Total</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">0%</div>
+                                <div class="text-xs text-white/60">Costos Ocultos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">95%</div>
+                                <div class="text-xs text-white/60">Comprensión</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">100%</div>
+                                <div class="text-xs text-white/60">Visible</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Sin jerga financiera compleja</div>
+                            <div>• Desglose completo de costos</div>
+                            <div>• Comparación honesta y clara</div>
+                            <div>• Explicación como a un amigo</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text">
+                                "Si muestro exactamente qué paga y por qué, sin letra pequeña, el usuario confía más en la decisión."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='./generated-wireframes/concept-transparencia-total.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Concepto
+                        </button>
+                    </div>
+
+                    <!-- Concepto 3: Crédito Express Real -->
+                    <div class="concept-card concept-c rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Problema: Falsos Express</div>
+                            <h3 class="concept-title">Crédito Express Real</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">3min</div>
+                                <div class="text-xs text-white/60">Garantizados</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">95%</div>
+                                <div class="text-xs text-white/60">Primer Intento</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">24/7</div>
+                                <div class="text-xs text-white/60">Disponible</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• 3 minutos reales, no promesas falsas</div>
+                            <div>• Datos prellenados con IA</div>
+                            <div>• Pix directo tras aprobación</div>
+                            <div>• Garantía R$ 50 si toma más tiempo</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text">
+                                "Si garantizo tiempo real y cumplo, genero más confianza que promises falsas de velocidad."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='./generated-wireframes/concept-credito-express-real.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Concepto
+                        </button>
+                    </div>
+
+                    <!-- Concepto 4: Tu Asesor Personal -->
+                    <div class="concept-card concept-d rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Problema: IA Genérica</div>
+                            <h3 class="concept-title">Tu Asesor Personal</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">95%</div>
+                                <div class="text-xs text-white/60">Personalizado</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">80%</div>
+                                <div class="text-xs text-white/60">Adopción</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">70%</div>
+                                <div class="text-xs text-white/60">Menos Consultas</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• IA que conoce tu negocio específico</div>
+                            <div>• Recomendaciones contextualizadas</div>
+                            <div>• Análisis de patrones de venta</div>
+                            <div>• Predicción de necesidades futuras</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text">
+                                "Si el asistente conoce mi panadería y mis ventas, sus recomendaciones serán más útiles que consejos genéricos."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='./generated-wireframes/concept-asesor-personal.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Concepto
+                        </button>
+                    </div>
+
+                    <!-- Concepto 5: Gestión Unificada -->
+                    <div class="concept-card concept-a rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Problema: Administradores Separados</div>
+                            <h3 class="concept-title">Gestión Unificada</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">80%</div>
+                                <div class="text-xs text-white/60">Menos Tiempo</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">100%</div>
+                                <div class="text-xs text-white/60">Visibilidad</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">1</div>
+                                <div class="text-xs text-white/60">Dashboard</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Un solo lugar para todo</div>
+                            <div>• Créditos personales + comerciales</div>
+                            <div>• Vista consolidada inteligente</div>
+                            <div>• Acciones rápidas contextuales</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text">
+                                "Si tengo todo en un solo dashboard, ahorro tiempo y tengo mejor control de mis finanzas mixtas."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='./generated-wireframes/concept-gestion-unificada.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Concepto
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Analysis -->
+            <div id="analysis" class="mb-16">
+                <h2 class="section-title text-center mb-12">Impacto Proyectado</h2>
+                
+                <div class="analysis-table rounded-2xl p-8 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="text-left p-4 text-white/90">Métrica de Impacto</th>
+                                <th class="text-center p-4 text-white/90">Encuentra Crédito</th>
+                                <th class="text-center p-4 text-white/90">Transparencia</th>
+                                <th class="text-center p-4 text-white/90">Express Real</th>
+                                <th class="text-center p-4 text-white/90">Asesor Personal</th>
+                                <th class="text-center p-4 text-white/90">Gestión Unificada</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center text-white/70">
+                            <tr class="border-b border-white/5">
+                                <td class="text-left p-4 font-medium text-white/80">Reducción Consultas CX</td>
+                                <td class="p-4">🟢 85%</td>
+                                <td class="p-4">🟡 45%</td>
+                                <td class="p-4">🟡 30%</td>
+                                <td class="p-4">🟢 70%</td>
+                                <td class="p-4">🟡 40%</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="text-left p-4 font-medium text-white/80">Ahorro Mensual (R$)</td>
+                                <td class="p-4">🟢 85k</td>
+                                <td class="p-4">🟡 45k</td>
+                                <td class="p-4">🟡 30k</td>
+                                <td class="p-4">🟢 70k</td>
+                                <td class="p-4">🟡 40k</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="text-left p-4 font-medium text-white/80">Tiempo de Decisión</td>
+                                <td class="p-4">🟢 30 seg</td>
+                                <td class="p-4">🟡 2 min</td>
+                                <td class="p-4">🟢 3 min</td>
+                                <td class="p-4">🟡 5 min</td>
+                                <td class="p-4">🟡 1 min</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="text-left p-4 font-medium text-white/80">Adopción Estimada</td>
+                                <td class="p-4">🟢 90%</td>
+                                <td class="p-4">🟢 95%</td>
+                                <td class="p-4">🟢 85%</td>
+                                <td class="p-4">🟢 80%</td>
+                                <td class="p-4">🟡 75%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left p-4 font-medium text-white/80">Confianza Generada</td>
+                                <td class="p-4">🟢 Alta</td>
+                                <td class="p-4">🟢 Muy Alta</td>
+                                <td class="p-4">🟢 Alta</td>
+                                <td class="p-4">🟢 Alta</td>
+                                <td class="p-4">🟡 Moderada</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Methodology -->
+            <div id="methodology" class="mb-16">
+                <h2 class="section-title text-center mb-12">Metodología Basada en Datos</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="concept-card p-8 rounded-2xl">
+                        <h3 class="concept-title mb-4">Datos Reales</h3>
+                        <div class="concept-description space-y-3">
+                            <div>• 35% consultas CX por confusión productos</div>
+                            <div>• R$ 85k costo mensual en soporte</div>
+                            <div>• Usuarios brasileños mediana edad</div>
+                            <div>• Expectativas específicas de Verdichat</div>
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card p-8 rounded-2xl">
+                        <h3 class="concept-title mb-4">Principios UX</h3>
+                        <div class="concept-description space-y-3">
+                            <div>• Simplicidad cognitiva</div>
+                            <div>• Transparencia total</div>
+                            <div>• Personalización inteligente</div>
+                            <div>• Reducción de fricción</div>
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card p-8 rounded-2xl">
+                        <h3 class="concept-title mb-4">Estructura Ultra-Simplificada</h3>
+                        <div class="concept-description space-y-3">
+                            <div>• Hero: título y subtítulo directo</div>
+                            <div>• Explicación simple del concepto</div>
+                            <div>• Propuesta principal con detalles</div>
+                            <div>• 4 métricas clave únicamente</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-2xl text-center">
+                    <h4 class="font-regular text-white/90 mb-4 text-lg">🚀 Próximos Pasos</h4>
+                    <div class="text-white/60 mb-6">
+                        Conceptos listos para validación con usuarios reales basándose en problemas cuantificados específicos.
+                    </div>
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="window.location.href='./CONTEXTO_PROPUESTAS.md'" 
+                                class="btn-primary px-6 py-3 text-sm">
+                            Ver Contexto Completo
+                        </button>
+                        <button onclick="window.location.href='./GUIA_CONTEXTO.md'" 
+                                class="btn-primary px-6 py-3 text-sm">
+                            Metodología
+                        </button>
+                        <button onclick="window.location.href='./concept-hub-emprendedores.html'" 
+                                class="btn-primary px-6 py-3 text-sm">
+                            Todos los Conceptos
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Section -->
+            <div class="mt-16 pt-8 border-t border-white/10">
+                <div class="text-center text-white/60">
+                    <p class="mb-4">Desarrollado por IA + Datos Reales de Usuarios Brasileños</p>
+                    <p class="text-sm">Última actualización: Enero 2024 | Estado: Conceptos Específicos Listos</p>
+                    <p class="text-sm mt-2">Objetivo: Solucionar problemas cuantificados reales con impacto medible</p>
+                </div>
+            </div>
         </div>
-
-        <section id="concepts">
-            <h2 style="text-align: center; margin: 45px 0 35px 0; font-size: 2.2em; font-weight: 300; color: #10b981;">Soluciones Específicas</h2>
-            
-            <div class="concepts-grid">
-                <div class="concept-card">
-                    <h3>Encuentra Tu Crédito Perfecto</h3>
-                    <p class="concept-principle">Termina la confusión entre productos con 3 preguntas simples</p>
-                    <p>El 35% de consultas son por confusión entre Línea de Crédito y Préstamo Personal. Te ayudamos a elegir el exacto que necesitas sin llamar a soporte. Con datos prellenados y recomendación personalizada basada en tu perfil real.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge">85% Menos Consultas</span>
-                        <span class="metric-badge">R$ 85k Ahorrados</span>
-                        <span class="metric-badge">30 seg Comprensión</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-encuentra-credito-perfecto.html'">
-                        Ver Concepto
-                    </button>
-                </div>
-
-                <div class="concept-card">
-                    <h3>Transparencia Total</h3>
-                    <p class="concept-principle">Sin letra pequeña, sin jerga financiera, todo claro</p>
-                    <p>Los usuarios dicen que los cálculos de intereses no son claros. Te mostramos exactamente qué pagas y por qué, como si fueras nuestro mejor amigo. Desglose completo, comparación honesta, sin sorpresas.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge">0% Costos Ocultos</span>
-                        <span class="metric-badge">95% Comprensión</span>
-                        <span class="metric-badge">100% Visible</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-transparencia-total.html'">
-                        Ver Concepto
-                    </button>
-                </div>
-
-                <div class="concept-card">
-                    <h3>Crédito Express Real</h3>
-                    <p class="concept-principle">3 minutos reales garantizados, no falsos express</p>
-                    <p>Dinero Extra promete "express" pero toma lo mismo que Préstamo Personal. Nosotros garantizamos 3 minutos reales o te regalamos R$ 50. Datos prellenados, IA instantánea, Pix directo.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge">3 min Garantizados</span>
-                        <span class="metric-badge">95% Primer Intento</span>
-                        <span class="metric-badge">24/7 Disponible</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-credito-express-real.html'">
-                        Ver Concepto
-                    </button>
-                </div>
-
-                <div class="concept-card">
-                    <h3>Tu Asesor Personal</h3>
-                    <p class="concept-principle">IA que conoce tu historial y recomienda específicamente</p>
-                    <p>Usuarios esperan que Verdichat sea personalizado a su cuenta. Nuestro asesor conoce tu panadería, tus ventas y te recomienda el crédito exacto para Navidad. Análisis de negocio, alertas inteligentes, predicción de necesidades.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge">95% Personalizado</span>
-                        <span class="metric-badge">80% Adopción</span>
-                        <span class="metric-badge">70% Menos Consultas</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-asesor-personal.html'">
-                        Ver Concepto
-                    </button>
-                </div>
-
-                <div class="concept-card">
-                    <h3>Gestión Unificada</h3>
-                    <p class="concept-principle">Un dashboard para usuarios mixtos (personal + negocio)</p>
-                    <p>Usuarios mixtos se frustran usando administradores separados. Un solo lugar para ver todos tus créditos: personales y del negocio. Vista completa, insights inteligentes, acciones rápidas.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge">80% Menos Tiempo</span>
-                        <span class="metric-badge">100% Visibilidad</span>
-                        <span class="metric-badge">1 Dashboard vs 2+</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-gestion-unificada.html'">
-                        Ver Concepto
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section id="impact" class="impact-section">
-            <h2>Impacto Proyectado</h2>
-            <p style="color: #d1d5db; margin-bottom: 30px; font-size: 1.1em;">Basado en datos reales y problemas cuantificados específicos</p>
-            
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <div class="impact-number">85%</div>
-                    <div class="impact-label">Reducción consultas<br>por confusión productos</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-number">R$ 85k</div>
-                    <div class="impact-label">Ahorrados mensual<br>en soporte CX</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-number">3 min</div>
-                    <div class="impact-label">Tiempo real garantizado<br>vs 48 min actual</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-number">95%</div>
-                    <div class="impact-label">Usuarios entienden<br>todo el proceso</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-number">80%</div>
-                    <div class="impact-label">Adopción recomendaciones<br>IA personalizada</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-number">100%</div>
-                    <div class="impact-label">Visibilidad total<br>usuarios mixtos</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="actions" id="actions">
-            <h2 style="margin: 35px 0 25px 0; font-size: 1.8em; font-weight: 300; color: #10b981;">Siguientes Pasos</h2>
-            
-            <button class="action-button" onclick="window.location.href='./CONTEXTO_PROPUESTAS.md'">
-                Ver Contexto Completo
-            </button>
-            
-            <button class="action-button" onclick="window.location.href='./GUIA_CONTEXTO.md'">
-                Metodología Aplicada
-            </button>
-
-            <button class="action-button" onclick="window.location.href='./concept-hub-emprendedores.html'">
-                Todos los Conceptos
-            </button>
-        </section>
     </div>
 
     <script>
-        // Animaciones de entrada
+        // Smooth scrolling for navigation
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.concept-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 150);
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
-        });
 
-        // Animaciones de scroll
-        window.addEventListener('scroll', function() {
-            const impactItems = document.querySelectorAll('.impact-item');
-            impactItems.forEach(item => {
-                const itemTop = item.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (itemTop < windowHeight * 0.8) {
-                    item.style.transform = 'scale(1)';
-                    item.style.opacity = '1';
-                }
-            });
-        });
-
-        // Inicializar animaciones de impacto
-        document.addEventListener('DOMContentLoaded', function() {
-            const impactItems = document.querySelectorAll('.impact-item');
-            impactItems.forEach(item => {
-                item.style.transform = 'scale(0.8)';
-                item.style.opacity = '0';
-                item.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+            // Add loading animation on button clicks
+            document.querySelectorAll('button[onclick]').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.onclick && this.onclick.toString().includes('window.location.href')) {
+                        this.innerHTML = '<div class="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-black"></div> Cargando...';
+                        this.disabled = true;
+                    }
+                });
             });
         });
     </script>
