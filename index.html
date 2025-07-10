@@ -1,335 +1,798 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concept Lab - Alternativas Conceptuales IA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles/hub.css">
+    <title>Fintech Lab - Conceptos Inteligentes de Crédito</title>
+    <link rel="stylesheet" href="wireframe-generator/styles/hub.css">
+    <link rel="stylesheet" href="wireframe-generator/styles/wireframe-components.css">
+    <style>
+        body {
+            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header de Navegación */
+        .nav-header {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(15px);
+        }
+
+        .max-w-7xl {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-x-6 > * + * { margin-left: 1.5rem; }
+        .space-x-8 > * + * { margin-left: 2rem; }
+
+        .h-16 { height: 4rem; }
+
+        .meli-logo {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .fallback-logo {
+            display: none;
+            background: #10b981;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+        }
+
+        .text-white { color: #ffffff; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-emerald-300 { color: #6ee7b7; }
+        .text-xl { font-size: 1.25rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-sm { font-size: 0.875rem; }
+        .font-regular { font-weight: 400; }
+
+        .hover\:text-white:hover { color: #ffffff; }
+        .hover\:text-emerald-200:hover { color: #a7f3d0; }
+
+        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+        .hidden { display: none; }
+        .md\:flex { display: flex; }
+
+        .nav-header a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-header a:hover {
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            margin: 15px 0;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .challenge-highlight {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 900px;
+            backdrop-filter: blur(10px);
+        }
+
+        .challenge-highlight h3 {
+            margin: 0 0 15px 0;
+            color: #ffffff;
+            font-size: 1.3em;
+        }
+
+        .challenge-highlight p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hubs-section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .hub-card {
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-left: 5px solid #10b981;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hub-card:hover::before {
+            opacity: 1;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+
+        .hub-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #10b981;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hub-card p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #f3f4f6;
+            font-size: 1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hub-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hub-stat {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10b981;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+
+        .hub-button {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+
+        .hub-button:hover {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .concepts-section {
+            padding: 60px 0;
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .concept-card {
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+
+        .concept-badge {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .concept-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .concept-stats {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .concept-stat {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10b981;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .concept-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #f3f4f6;
+        }
+
+        .concept-description ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .concept-description li {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .concept-hypothesis {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 3px solid #10b981;
+        }
+
+        .concept-hypothesis p {
+            margin: 0;
+            font-style: italic;
+            color: #6ee7b7;
+            font-size: 0.9em;
+        }
+
+        .concept-button {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            width: 100%;
+        }
+
+        .concept-button:hover {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #10b981;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .analysis-section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .analysis-table {
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            overflow-x: auto;
+        }
+
+        .analysis-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .analysis-table th,
+        .analysis-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .analysis-table th {
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        .analysis-table td {
+            color: #f3f4f6;
+        }
+
+        .methodology-section {
+            padding: 60px 0;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .methodology-card {
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .methodology-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .methodology-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .methodology-card li {
+            margin-bottom: 10px;
+            color: #f3f4f6;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: #9ca3af;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .md\:flex { display: none !important; }
+            .sm\:px-6 { padding-left: 1rem; padding-right: 1rem; }
+            .lg\:px-8 { padding-left: 1rem; padding-right: 1rem; }
+            .text-lg { font-size: 1rem; }
+            .space-x-4 > * + * { margin-left: 0.5rem; }
+            
+            .hero-section h1 {
+                font-size: 2.2em;
+            }
+            
+            .hubs-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .concepts-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
-<body class="gradient-bg min-h-screen">
-    <!-- Navigation Header -->
-    <nav class="nav-header">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
+<body>
+    <!-- Header de Navegación -->
+    <header class="nav-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-4">
-                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" 
-                         alt="MercadoLibre" 
-                         class="meli-logo" 
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="text-white font-regular text-xl" style="display: none;">ML</div>
-                    <div class="text-white font-regular text-lg">Alternativas Conceptuales IA</div>
+                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" alt="MercadoLibre" class="meli-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="text-white font-regular text-xl fallback-logo">ML</div>
+                    <div class="text-emerald-300 font-regular text-lg">Fintech Lab</div>
                 </div>
-                
-                <div class="flex items-center space-x-4">
-                    <div class="hidden md:flex items-center space-x-6">
-                        <a href="#concepts" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Conceptos</a>
-                        <a href="#analysis" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Análisis</a>
-                        <a href="#methodology" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Metodología</a>
-                    </div>
-                    
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#hubs" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Hubs</a>
+                    <a href="#concepts" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Conceptos</a>
+                    <a href="#analysis" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Análisis</a>
+                    <a href="#methodology" class="text-gray-300 hover:text-emerald-200 px-3 py-2 font-regular">Metodología</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fintech Lab</h1>
+                <p>Conceptos Inteligentes de Crédito Basados en IA</p>
+                
+                <div class="challenge-highlight">
+                    <h3>🎯 Desafío Principal</h3>
+                    <p>"Ser el producto donde cada persona encuentra el crédito correcto, en el momento correcto, de la manera más simple"</p>
                 </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Main Content -->
-    <div class="pt-24 pb-16 min-h-screen">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Hero Section -->
-            <div class="text-center mb-12">
-                <div class="glass-panel rounded-xl p-6 w-full">
-                    <div class="text-base mb-2 text-white/90 font-regular">
-                        <span class="font-regular">Desafío:</span> "Ser o produto onde cada pessoa encontra o crédito certo, no momento certo, do jeito mais simples"
-                    </div>
-                    <div class="text-white/50 text-xs font-light">
-                        Cada conceito foi gerado pela IA explorando diferentes abordagens para <span class="font-regular">Ajudar a entender qual produto de crédito é o melhor para mim</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Hubs Section -->
+    <section id="hubs" class="hubs-section">
+        <div class="container">
+            <h2 class="section-title">Hubs de Conceptos</h2>
+            <p class="section-subtitle">Accede a nuestros hubs especializados con conceptos validados y basados en datos reales</p>
             
-            <!-- Concepts Grid -->
-            <div id="concepts" class="mb-16">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Concept A: Inteligência Completa -->
-                    <div class="concept-card concept-a rounded-2xl p-8">
-                        <div class="mb-6">
-                            <div class="badge-concept mb-3">Conceito A</div>
-                            <h3 class="concept-title">Inteligência Completa</h3>
-                        </div>
-                        
-                        <div class="stats-grid mb-6">
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">7</div>
-                                <div class="text-xs text-white/60">Módulos</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">100</div>
-                                <div class="text-xs text-white/60">Dados</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">360</div>
-                                <div class="text-xs text-white/60">Visão</div>
-                            </div>
-                        </div>
-                        
-                        <div class="concept-description mb-6 space-y-2">
-                            <div>• IA processa todos os dados disponíveis</div>
-                            <div>• Dashboard inteligente adaptativo</div>
-                            <div>• Múltiplas perspectivas simultâneas</div>
-                            <div>• Controle total para usuários avançados</div>
-                        </div>
-                        
-                        <div class="glass-panel p-4 rounded-xl mb-6">
-                            <div class="hypothesis-text">
-                                "Máxima informação + IA organizacional = decisões mais informadas e confiantes."
-                            </div>
-                        </div>
-                        
-                        <button onclick="exploreConceptA()" 
-                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
-                            Explorar Conceito A
-                        </button>
+            <div class="hubs-grid">
+                <div class="hub-card">
+                    <h3>🎯 Fintech Específicos</h3>
+                    <p>5 conceptos ultra-específicos para usuarios brasileños de mediana edad, basados en problemas cuantificados reales como 35% de consultas CX por confusión entre productos.</p>
+                    <div class="hub-stats">
+                        <span class="hub-stat">5 Conceptos</span>
+                        <span class="hub-stat">Datos Reales</span>
+                        <span class="hub-stat">R$ 85k Ahorrados</span>
+                        <span class="hub-stat">Brasil</span>
                     </div>
+                    <button class="hub-button" onclick="window.location.href='./wireframe-generator/hub-fintech-especificos.html'">
+                        Explorar Conceptos Específicos
+                    </button>
+                </div>
 
-                    <!-- Concept B: Simplicidade Extrema -->
-                    <div class="concept-card concept-b rounded-2xl p-8">
-                        <div class="mb-6">
-                            <div class="badge-concept mb-3">Conceito B</div>
-                            <h3 class="concept-title">Simplicidade Extrema</h3>
-                        </div>
-                        
-                        <div class="stats-grid mb-6">
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">1</div>
-                                <div class="text-xs text-white/60">Pergunta</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">3</div>
-                                <div class="text-xs text-white/60">Opções</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">30s</div>
-                                <div class="text-xs text-white/60">Tempo</div>
-                            </div>
-                        </div>
-                        
-                        <div class="concept-description mb-6 space-y-2">
-                            <div>• IA elimina 95% da informação desnecessária</div>
-                            <div>• Foco radical na decisão essencial</div>
-                            <div>• Zero termos técnicos ou jargão</div>
-                            <div>• Máximo 3 elementos visuais por tela</div>
-                        </div>
-                        
-                        <div class="glass-panel p-4 rounded-xl mb-6">
-                            <div class="hypothesis-text">
-                                "Menos informação = mais compreensão. A IA identifica apenas o essencial para decidir."
-                            </div>
-                        </div>
-                        
-                        <button onclick="exploreConceptB()" 
-                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
-                            Explorar Conceito B
-                        </button>
+                <div class="hub-card">
+                    <h3>🚀 Hub General</h3>
+                    <p>14 conceptos diversos que exploran diferentes enfoques cognitivos y de plataforma para la experiencia fintech, desde personalización contextual hasta banca proactiva.</p>
+                    <div class="hub-stats">
+                        <span class="hub-stat">14 Conceptos</span>
+                        <span class="hub-stat">Cognitivos</span>
+                        <span class="hub-stat">Plataforma</span>
+                        <span class="hub-stat">Emprendedores</span>
                     </div>
-
-                    <!-- Concept C: Inteligência Conversacional -->
-                    <div class="concept-card concept-c rounded-2xl p-8">
-                        <div class="mb-6">
-                            <div class="badge-concept mb-3">Conceito C</div>
-                            <h3 class="concept-title">Inteligência Conversacional</h3>
-                        </div>
-                        
-                        <div class="stats-grid mb-6">
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">100</div>
-                                <div class="text-xs text-white/60">Adaptável</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">3</div>
-                                <div class="text-xs text-white/60">Dimensões</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">100%</div>
-                                <div class="text-xs text-white/60">Pessoal</div>
-                            </div>
-                        </div>
-                        
-                        <div class="concept-description mb-6 space-y-2">
-                            <div>• IA simula especialista financeiro virtual</div>
-                            <div>• Conversação natural e empática</div>
-                            <div>• Aprendizado contextual durante interação</div>
-                            <div>• Educação personalizada em tempo real</div>
-                        </div>
-                        
-                        <div class="glass-panel p-4 rounded-xl mb-6">
-                            <div class="hypothesis-text">
-                                "Conversação humana + IA = confiança e compreensão profunda do contexto pessoal."
-                            </div>
-                        </div>
-                        
-                        <button onclick="exploreConceptC()" 
-                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
-                            Explorar Conceito C
-            </button>
-                    </div>
-
-                    <!-- Concept D: Inteligência Adaptativa -->
-                    <div class="concept-card concept-d rounded-2xl p-8">
-                        <div class="mb-6">
-                            <div class="badge-concept mb-3">Conceito D</div>
-                            <h3 class="concept-title">Inteligência Adaptativa</h3>
-                        </div>
-                        
-                        <div class="stats-grid mb-6">
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">100</div>
-                                <div class="text-xs text-white/60">Evolução</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">AI</div>
-                                <div class="text-xs text-white/60">Aprende</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="text-2xl font-regular text-white">RT</div>
-                                <div class="text-xs text-white/60">Tempo Real</div>
+                    <button class="hub-button" onclick="window.location.href='./wireframe-generator/concept-hub-emprendedores.html'">
+                        Explorar Todos los Conceptos
+                    </button>
+                </div>
             </div>
         </div>
-        
-                        <div class="concept-description mb-6 space-y-2">
-                            <div>• IA aprende comportamento em tempo real</div>
-                            <div>• Interface evolui com cada interação</div>
-                            <div>• Micro-feedback loops contínuos</div>
-                            <div>• Personalização progressiva e dinâmica</div>
-                        </div>
-                        
-                        <div class="glass-panel p-4 rounded-xl mb-6">
-                            <div class="hypothesis-text">
-                                "IA que observa + adapta = experiência que evolui e melhora com cada uso."
-                            </div>
-                        </div>
-                        
-                        <button onclick="exploreConceptD()" 
-                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
-                            Explorar Conceito D
-                        </button>
-                    </div>
-                </div>
-            </div>
+    </section>
 
-            <!-- AI Analysis Matrix -->
-            <div id="analysis" class="mb-16">
-                <h2 class="section-title text-center mb-12">Análise Conceitual IA</h2>
-                
-                <div class="analysis-table rounded-2xl p-8 overflow-x-auto">
-                    <table class="w-full text-sm">
-                        <thead>
-                            <tr class="border-b border-white/10">
-                                <th class="text-left p-4 text-white/90">Dimensão de Análise</th>
-                                <th class="text-center p-4 text-white/90">Conceito A</th>
-                                <th class="text-center p-4 text-white/90">Conceito B</th>
-                                <th class="text-center p-4 text-white/90">Conceito C</th>
-                                <th class="text-center p-4 text-white/90">Conceito D</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center text-white/70">
-                            <tr class="border-b border-white/5">
-                                <td class="text-left p-4 font-medium text-white/80">Cognitive Load</td>
-                                <td class="p-4">🔴 Alto</td>
-                                <td class="p-4">🟢 Mínimo</td>
-                                <td class="p-4">🟡 Moderado</td>
-                                <td class="p-4">🟡 Adaptativo</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="text-left p-4 font-medium text-white/80">Personalização IA</td>
-                                <td class="p-4">🟡 Moderada</td>
-                                <td class="p-4">🟡 Básica</td>
-                                <td class="p-4">🟢 Avançada</td>
-                                <td class="p-4">🟢 Evolutiva</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="text-left p-4 font-medium text-white/80">Educação Contextual</td>
-                                <td class="p-4">🟡 Informativa</td>
-                                <td class="p-4">🟡 Limitada</td>
-                                <td class="p-4">🟢 Profunda</td>
-                                <td class="p-4">🟢 Comportamental</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="text-left p-4 font-medium text-white/80">Tempo de Decisão</td>
-                                <td class="p-4">🔴 Demorado</td>
-                                <td class="p-4">🟢 Imediato</td>
-                                <td class="p-4">🟡 Gradual</td>
-                                <td class="p-4">🟡 Progressivo</td>
-                            </tr>
-                            <tr>
-                                <td class="text-left p-4 font-medium text-white/80">Confiança Gerada</td>
-                                <td class="p-4">🟡 Racional</td>
-                                <td class="p-4">🟡 Rápida</td>
-                                <td class="p-4">🟢 Profunda</td>
-                                <td class="p-4">🟢 Dinâmica</td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <!-- Concepts Section -->
+    <section id="concepts" class="concepts-section">
+        <div class="container">
+            <h2 class="section-title">Conceptos Originales</h2>
+            <p class="section-subtitle">Cada concepto fue generado por IA explorando diferentes enfoques para "Ayudar a entender qué producto de crédito es el mejor para mí"</p>
+            
+            <div class="concepts-grid">
+                <!-- Concept A -->
+                <div class="concept-card">
+                    <div class="concept-badge">Concepto A</div>
+                    <h3>Inteligencia Completa</h3>
+                    <div class="concept-stats">
+                        <span class="concept-stat">7 Módulos</span>
+                        <span class="concept-stat">100 Datos</span>
+                        <span class="concept-stat">360° Visión</span>
+                    </div>
+                    <div class="concept-description">
+                        <ul>
+                            <li>IA procesa todos los datos disponibles</li>
+                            <li>Dashboard inteligente adaptativo</li>
+                            <li>Múltiples perspectivas simultáneas</li>
+                            <li>Control total para usuarios avanzados</li>
+                        </ul>
+                    </div>
+                    <div class="concept-hypothesis">
+                        <p>"Máxima información + IA organizacional = decisiones más informadas y confiantes."</p>
+                    </div>
+                    <button class="concept-button" onclick="exploreConceptA()">
+                        Explorar Concepto A
+                    </button>
                 </div>
-            </div>
 
-            <!-- AI Methodology -->
-            <div id="methodology" class="mb-16">
-                <h2 class="section-title text-center mb-12">Metodologia IA</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <div class="concept-card p-8 rounded-2xl">
-                        <h3 class="concept-title mb-4">Geração de Conceitos</h3>
-                        <div class="concept-description space-y-3">
-                            <div>• Análise do PDR com IA</div>
-                            <div>• Exploração de arquétipos UX</div>
-                            <div>• Otimização por objetivos</div>
-                            <div>• Validação conceitual</div>
-                        </div>
+                <!-- Concept B -->
+                <div class="concept-card">
+                    <div class="concept-badge">Concepto B</div>
+                    <h3>Simplicidad Extrema</h3>
+                    <div class="concept-stats">
+                        <span class="concept-stat">1 Pregunta</span>
+                        <span class="concept-stat">3 Opciones</span>
+                        <span class="concept-stat">30s Tiempo</span>
                     </div>
-                    
-                    <div class="concept-card p-8 rounded-2xl">
-                        <h3 class="concept-title mb-4">Personalização Adaptativa</h3>
-                        <div class="concept-description space-y-3">
-                            <div>• Modelos de usuário dinâmicos</div>
-                            <div>• Contexto financeiro pessoal</div>
-                            <div>• Aprendizado em tempo real</div>
-                            <div>• Recomendações evolutivas</div>
-                        </div>
+                    <div class="concept-description">
+                        <ul>
+                            <li>IA elimina 95% de información innecesaria</li>
+                            <li>Foco radical en la decisión esencial</li>
+                            <li>Cero términos técnicos o jerga</li>
+                            <li>Máximo 3 elementos visuales por pantalla</li>
+                        </ul>
                     </div>
-                    
-                    <div class="concept-card p-8 rounded-2xl">
-                        <h3 class="concept-title mb-4">Análise Comportamental</h3>
-                        <div class="concept-description space-y-3">
-                            <div>• Padrões de decisão</div>
-                            <div>• Pontos de abandono</div>
-                            <div>• Métricas de compreensão</div>
-                            <div>• Otimização contínua</div>
-                        </div>
+                    <div class="concept-hypothesis">
+                        <p>"Menos información = más comprensión. La IA identifica solo lo esencial para decidir."</p>
                     </div>
+                    <button class="concept-button" onclick="exploreConceptB()">
+                        Explorar Concepto B
+                    </button>
                 </div>
-                
-                <div class="glass-panel p-8 rounded-2xl text-center">
-                    <h4 class="font-regular text-white/90 mb-4 text-lg">🚀 Próximos Passos</h4>
-                    <div class="text-white/60">
-                        Precisamos avaliar cada conceito e identificar a melhor maneira de continuar trabalhando.
+
+                <!-- Concept C -->
+                <div class="concept-card">
+                    <div class="concept-badge">Concepto C</div>
+                    <h3>Inteligencia Conversacional</h3>
+                    <div class="concept-stats">
+                        <span class="concept-stat">100% Adaptable</span>
+                        <span class="concept-stat">3 Dimensiones</span>
+                        <span class="concept-stat">100% Personal</span>
                     </div>
+                    <div class="concept-description">
+                        <ul>
+                            <li>IA simula especialista financiero virtual</li>
+                            <li>Conversación natural y empática</li>
+                            <li>Aprendizaje contextual durante interacción</li>
+                            <li>Educación personalizada en tiempo real</li>
+                        </ul>
+                    </div>
+                    <div class="concept-hypothesis">
+                        <p>"Conversación humana + IA = confianza y comprensión profunda del contexto personal."</p>
+                    </div>
+                    <button class="concept-button" onclick="exploreConceptC()">
+                        Explorar Concepto C
+                    </button>
+                </div>
+
+                <!-- Concept D -->
+                <div class="concept-card">
+                    <div class="concept-badge">Concepto D</div>
+                    <h3>Inteligencia Adaptativa</h3>
+                    <div class="concept-stats">
+                        <span class="concept-stat">100% Evolución</span>
+                        <span class="concept-stat">IA Aprende</span>
+                        <span class="concept-stat">Tiempo Real</span>
+                    </div>
+                    <div class="concept-description">
+                        <ul>
+                            <li>IA aprende comportamiento en tiempo real</li>
+                            <li>Interfaz evoluciona con cada interacción</li>
+                            <li>Micro-feedback loops continuos</li>
+                            <li>Personalización progresiva y dinámica</li>
+                        </ul>
+                    </div>
+                    <div class="concept-hypothesis">
+                        <p>"IA que observa + adapta = experiencia que evoluciona y mejora con cada uso."</p>
+                    </div>
+                    <button class="concept-button" onclick="exploreConceptD()">
+                        Explorar Concepto D
+                    </button>
                 </div>
             </div>
-            
-            <!-- Footer Section -->
-            <div class="mt-16 pt-8 border-t border-white/10">
-                <div class="text-center text-white/60">
-                    <p class="mb-4">Desarrollado por IA + Equipo de Productos Financieros</p>
-                    <p class="text-sm">Última actualización: Julio 2024 | Estado: Concept Lab Activo</p>
-                    <p class="text-sm mt-2">Objetivo: Reducir confusión del usuario con alternativas conceptuales IA</p>
-                </div>
-            </div>
-            
-            
         </div>
-    </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="analysis-section">
+        <div class="container">
+            <h2 class="section-title">Análisis Conceptual IA</h2>
+            
+            <div class="analysis-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimensión de Análisis</th>
+                            <th>Concepto A</th>
+                            <th>Concepto B</th>
+                            <th>Concepto C</th>
+                            <th>Concepto D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cognitive Load</strong></td>
+                            <td>🔴 Alto</td>
+                            <td>🟢 Mínimo</td>
+                            <td>🟡 Moderado</td>
+                            <td>🟡 Adaptativo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Personalización IA</strong></td>
+                            <td>🟡 Moderada</td>
+                            <td>🟡 Básica</td>
+                            <td>🟢 Avanzada</td>
+                            <td>🟢 Evolutiva</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Educación Contextual</strong></td>
+                            <td>🟡 Informativa</td>
+                            <td>🟡 Limitada</td>
+                            <td>🟢 Profunda</td>
+                            <td>🟢 Comportamental</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tiempo de Decisión</strong></td>
+                            <td>🔴 Demorado</td>
+                            <td>🟢 Inmediato</td>
+                            <td>🟡 Gradual</td>
+                            <td>🟡 Progresivo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Confianza Generada</strong></td>
+                            <td>🟡 Racional</td>
+                            <td>🟡 Rápida</td>
+                            <td>🟢 Profunda</td>
+                            <td>🟢 Dinámica</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="methodology-section">
+        <div class="container">
+            <h2 class="section-title">Metodología IA</h2>
+            
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <h3>Generación de Conceptos</h3>
+                    <ul>
+                        <li>Análisis del PDR con IA</li>
+                        <li>Exploración de arquetipos UX</li>
+                        <li>Optimización por objetivos</li>
+                        <li>Validación conceptual</li>
+                    </ul>
+                </div>
+                
+                <div class="methodology-card">
+                    <h3>Personalización Adaptativa</h3>
+                    <ul>
+                        <li>Modelos de usuario dinámicos</li>
+                        <li>Contexto financiero personal</li>
+                        <li>Aprendizaje en tiempo real</li>
+                        <li>Recomendaciones evolutivas</li>
+                    </ul>
+                </div>
+                
+                <div class="methodology-card">
+                    <h3>Análisis Comportamental</h3>
+                    <ul>
+                        <li>Patrones de decisión</li>
+                        <li>Puntos de abandono</li>
+                        <li>Métricas de comprensión</li>
+                        <li>Optimización continua</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Desarrollado por IA + Equipo de Productos Financieros</p>
+            <p>Última actualización: Enero 2025 | Estado: Fintech Lab Activo</p>
+            <p>Objetivo: Reducir confusión del usuario con alternativas conceptuales IA</p>
+        </div>
+    </footer>
 
     <script>
         // Smooth scrolling for navigation
@@ -350,14 +813,27 @@
             // Add loading animation on button clicks
             document.querySelectorAll('button[onclick^="exploreConcept"]').forEach(button => {
                 button.addEventListener('click', function() {
-                    this.innerHTML = '<div class="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div> Carregando...';
+                    this.innerHTML = '<div style="display: inline-block; width: 16px; height: 16px; border: 2px solid #ffffff; border-radius: 50%; border-top-color: transparent; animation: spin 1s linear infinite;"></div> Cargando...';
                     this.disabled = true;
                 });
+            });
+
+            // Animaciones de entrada
+            const cards = document.querySelectorAll('.concept-card, .hub-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
             });
         });
 
         // Concept exploration functions
-                function exploreConceptA() {
+        function exploreConceptA() {
             window.location.href = 'concepts/concept-a.html';
         }
         
@@ -372,6 +848,16 @@
         function exploreConceptD() {
             window.location.href = 'concepts/concept-d.html';
         }
+
+        // Animación de spin
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
