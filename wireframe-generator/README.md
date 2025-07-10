@@ -8,18 +8,29 @@ Generador de wireframes y conceptos para aplicaciones fintech de crédito, enfoc
 ```
 wireframe-generator/
 ├── 🌟 concept-hub-emprendedores.html     # Hub principal
-├── 📁 generated-wireframes/              # 9 conceptos optimizados
-│   ├── 🧠 6 conceptos
+├── 🎯 hub-fintech-especificos.html       # Hub fintech específicos
+├── 📁 generated-wireframes/              # 14 conceptos optimizados
 ├── 🎨 styles/ (3 archivos CSS optimizados)
 ├── 📋 generate-emprendedores.sh          # Script activo
-├── ⚙️ hub-config-emprendedores.json      # Config actual
+├── ⚙️ hub-config-emprendedores.json      # Config hub general
+├── ⚙️ hub-config-fintech.json           # Config hub fintech
 ├── 📖 README.md (actualizado)
 ├── 📚 README_EMPRENDEDORES.md
+├── 📚 README_FINTECH_ESPECIFICOS.md
 ├── 📘 HUB_README.md
 └── 📦 package.json
 ```
 
 ## 🎯 Conceptos Implementados
+
+### 🎯 Hub Fintech Específicos (5 conceptos basados en datos reales)
+**NUEVO**: Conceptos ultra-específicos para Brasil basados en problemas cuantificados:
+
+1. **Encuentra Tu Crédito Perfecto** - Soluciona 35% consultas CX (R$ 85k ahorrados)
+2. **Transparencia Total** - Sin letra pequeña ni jerga financiera
+3. **Crédito Express Real** - 3 minutos reales garantizados (no falsos express)
+4. **Tu Asesor Personal** - IA contextualizada para comerciantes
+5. **Gestión Unificada** - Dashboard único para usuarios mixtos (personal + negocio)
 
 ### 📊 Conceptos Cognitivos (6)
 1. **Mi Región, Mi Negocio** - Personalización contextual
@@ -82,8 +93,11 @@ Cada concepto tiene exactamente 4 secciones:
 
 ### Ver los conceptos
 ```bash
-# Abrir el hub principal
+# Abrir el hub principal (14 conceptos)
 open concept-hub-emprendedores.html
+
+# Abrir el hub fintech específicos (5 conceptos basados en datos reales)
+open hub-fintech-especificos.html
 ```
 
 ### Generar nuevos conceptos
@@ -102,6 +116,9 @@ open EJEMPLO_CONTEXTO.md
 
 # 3. Lee la guía
 open GUIA_CONTEXTO.md
+
+# 4. Ver caso fintech específico
+open README_FINTECH_ESPECIFICOS.md
 ```
 
 ## 📱 Tecnologías
