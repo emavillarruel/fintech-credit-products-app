@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompañamiento Empático - Fintech para Emprendedores</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Acompañamiento Empático</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">😌 Te Entendemos</h1>
+                        <p class="hero-subtitle">Sabemos que pedir dinero prestado da nervios<br>
+                        Estamos aquí para ayudarte</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">🤝 Otros emprendedores</h2>
+                        <p class="step-description">Es normal sentir nervios o dudas. 12,000 emprendedores nos han confiado y 96% están satisfechos con nuestro acompañamiento.</p>
+                        <div class="recommendation-badge">Todos empezaron con las mismas dudas</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">SIN PRESIÓN</div>
+                        <h2 class="recommendation-title">Crédito con Acompañamiento</h2>
+                        <div class="price-highlight">$4,500,000</div>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                            Pagas cuando puedas<br>
+                            <strong>$562,500 cada mes</strong>
+                        </p>
+                        
+                        <h3 style="color: white; margin: 20px 0 12px 0;">Te damos:</h3>
+                        <ul class="features-list">
+                            <li>Explicación clara de todo</li>
+                            <li>Apoyo personalizado</li>
+                            <li>Flexibilidad en pagos</li>
+                            <li>Contacto directo con tu asesor</li>
+                        </ul>
+                        
+                        <button class="cta-button">Hablar con mi asesor</button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">96%</div>
+                            <div class="stat-label">Satisfacción</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12,000</div>
+                            <div class="stat-label">Emprendedores</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Apoyo</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Normal</div>
+                            <div class="stat-label">Tener dudas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Acompañamiento Empático</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Principio Cognitivo:</strong> Reducir ansiedad y aumentar confianza mediante comprensión emocional y apoyo humano</p>
+                
+                <h3>¿Por qué funciona?</h3>
+                <ul>
+                    <li><strong>Validación Emocional:</strong> Reconocer y normalizar los sentimientos</li>
+                    <li><strong>Apoyo Humano:</strong> Conexión personal reduce aislamiento</li>
+                    <li><strong>Sin Presión:</strong> Respeta el ritmo individual de decisión</li>
+                    <li><strong>Seguridad Psicológica:</strong> Ambiente libre de juicio</li>
+                </ul>
+                
+                <h3>Hipótesis</h3>
+                <p>Los emprendedores que reciben apoyo emocional personalizado tienen mayor satisfacción y menor abandono en procesos financieros.</p>
+                
+                <h3>Métricas Clave</h3>
+                <ul>
+                    <li>Nivel de ansiedad reportado (antes/después)</li>
+                    <li>Tasa de abandono del proceso</li>
+                    <li>Satisfacción con el acompañamiento</li>
+                    <li>Retención y recomendaciones</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

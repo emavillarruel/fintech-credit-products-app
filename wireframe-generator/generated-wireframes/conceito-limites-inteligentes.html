@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito D - Limites Inteligentes</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        .hero-badge {
+            background: #535353;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .limit-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .limit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .limit-item:last-child {
+            border-bottom: none;
+        }
+        
+        .limit-icon {
+            font-size: 20px;
+            width: 32px;
+            text-align: center;
+        }
+        
+        .limit-progress {
+            flex: 1;
+            margin-left: 8px;
+        }
+        
+        .limit-name {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .limit-amount {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+        
+        .progress-fill {
+            background: rgba(255, 255, 255, 0.8);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .explanation-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .explanation-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .step-text {
+            color: white;
+            font-size: 14px;
+        }
+        
+        .step-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        
+        .calc-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .calc-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 8px 0;
+            width: 100%;
+        }
+        
+        .calc-result {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            text-align: center;
+        }
+        
+        .calc-value {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .calc-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation Header -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Limites Inteligentes</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <div class="hero-badge">Conceito D</div>
+                        <h1 class="hero-title">Seus limites, 100% transparentes</h1>
+                        <p class="hero-subtitle">Entenda como funciona, por que muda e quando renova</p>
+                    </div>
+
+                    <!-- Explicação Simples -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">EXPLICAÇÃO SIMPLES</div>
+                        <h2 class="recommendation-title">Por que ofertas "somem"?</h2>
+                        
+                        <div class="explanation-flow">
+                            <div class="explanation-step">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <div class="step-text">Você tem R$ 4.000 disponível</div>
+                                    <div class="step-desc">Seu limite total em Linha de Crédito</div>
+                                </div>
+                            </div>
+                            
+                            <div class="explanation-step">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <div class="step-text">Você contrata R$ 1.600</div>
+                                    <div class="step-desc">Para uma compra no MercadoLibre</div>
+                                </div>
+                            </div>
+                            
+                            <div class="explanation-step">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <div class="step-text">Sobram R$ 2.400</div>
+                                    <div class="step-desc">Por isso outras ofertas "somem"</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-highlight">Limite compartido <br> = <br> menos confusão</div>
+                    </div>
+
+                    <!-- Seus Limites Agora -->
+                    <div class="limit-section">
+                        <h3 style="color: white; margin-bottom: 16px; font-size: 18px;">Seus Limites Agora</h3>
+                        
+                        <div class="limit-item">
+                            <div class="limit-icon">💳</div>
+                            <div class="limit-progress">
+                                <div class="limit-name">Linha de Crédito</div>
+                                <div class="limit-amount">R$ 2.400 disponível de R$ 4.000</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="limit-item">
+                            <div class="limit-icon">🏦</div>
+                            <div class="limit-progress">
+                                <div class="limit-name">Empréstimo Pessoal</div>
+                                <div class="limit-amount">R$ 12.000 disponível de R$ 15.000</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 20%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora -->
+                    <div class="calc-section">
+                        <h3 style="color: white; margin-bottom: 16px; font-size: 18px;">Como calculamos seu limite?</h3>
+                        
+                        <div class="calc-label">Renda mensal:</div>
+                        <input type="number" class="calc-input" style="width: -webkit-fill-available;" placeholder="R$ 3.000" onchange="calculateLimit()">
+                        
+                        <div class="calc-label">Tempo como cliente:</div>
+                        <select class="calc-input" onchange="calculateLimit()">
+                            <option value="6">6 meses</option>
+                            <option value="12">1 ano</option>
+                            <option value="24" selected>2 anos</option>
+                            <option value="36">3+ anos</option>
+                        </select>
+                        
+                        <div class="calc-result">
+                            <div class="calc-label">Limite estimado:</div>
+                            <div class="calc-value" id="calculatedLimit">R$ 4.000</div>
+                            <div class="calc-label">Baseado em: renda (40%), histórico (30%), comportamento (30%)</div>
+                        </div>
+                    </div>
+
+                    <!-- Proposta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">PROPOSTA PRINCIPAL</div>
+                        <h2 class="recommendation-title">Transparência total, zero surpresas</h2>
+                        <p class="hero-subtitle">Você sempre saberá exatamente como seus limites funcionam</p>
+                        
+                        <ul class="features-list">
+                            <li>Renovação automática explicada</li>
+                            <li>Fatores de cálculo transparentes</li>
+                            <li>Limites compartidos claros</li>
+                            <li>Recálculo de limite explicado</li>
+                        </ul>
+                        
+                        <button class="cta-button" onclick="showSuccess()">
+                            Quero essa transparência
+                        </button>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Transparente</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Auto</div>
+                            <div class="stat-label">Renovação</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0</div>
+                            <div class="stat-label">Surpresas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-label">- Contatos</div>
+                        </div>
+                    </div>
+
+                    <div class="spacer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito D - Limites Inteligentes</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Conceito</h3>
+                <p>Sistema que torna 100% transparente como funcionam os limites de crédito, por que ofertas "somem" ao contratar uma, como funciona a renovação automática e como são calculados os novos limites.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Problema que resolve</h3>
+                <p>Eliminação da frustração quando ofertas "desaparecem" após contratar crédito. Usuários não entendem que limites são compartidos e ficam confusos quando outras opções ficam indisponíveis.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Princípios Cognitivos</h3>
+                <ul>
+                    <li><strong>Transparência Radical:</strong> Mostrar exatamente como tudo funciona</li>
+                    <li><strong>Antecipação:</strong> Explicar antes que a confusão aconteça</li>
+                    <li><strong>Controle Percebido:</strong> Usuário entende e "controla" seus limites</li>
+                    <li><strong>Feedback Contínuo:</strong> Sempre mostrar status atual</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Hipótese</h3>
+                <p>"Limites transparentes eliminam frustração e geram confiança. Quando o usuário entende como funciona, ele toma melhores decisões e confia mais no sistema."</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Métricas de Sucesso</h3>
+                <ul>
+                    <li>0% de surpresas em limites</li>
+                    <li>100% de transparência no cálculo</li>
+                    <li>Renovação automática sem confusão</li>
+                    <li>Redução de 50% em contatos sobre limites</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        function calculateLimit() {
+            const income = parseFloat(document.querySelector('.calc-input').value) || 3000;
+            const months = parseInt(document.querySelector('select.calc-input').value);
+            
+            let baseLimit = income * 1.5; // 150% da renda
+            let timeMultiplier = 1 + (months / 36) * 0.5; // Até 50% extra por tempo
+            
+            const estimatedLimit = Math.round(baseLimit * timeMultiplier);
+            document.getElementById('calculatedLimit').textContent = `R$ ${estimatedLimit.toLocaleString('pt-BR')}`;
+        }
+
+        function showSuccess() {
+            alert('Conceito D implementado! Limites 100% transparentes ativados. 🎯');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 

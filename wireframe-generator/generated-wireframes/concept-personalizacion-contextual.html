@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalización Contextual - Fintech para Emprendedores</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Personalización Contextual</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">¡Hola, María! 👋</h1>
+                        <p class="hero-subtitle">Tu panadería en Medellín<br>
+                        Tenemos una propuesta especial para ti</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">💡 Sabemos de tu zona</h2>
+                        <p class="step-description">Las panaderías en Medellín venden muchísimo más en navidad. Septiembre es ideal para prepararte.</p>
+                        <div class="recommendation-badge">Hemos visto esto en 2,300 panaderías</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">HECHO PARA TI</div>
+                        <h2 class="recommendation-title">Crédito para tu Panadería</h2>
+                        <div class="price-highlight">$8,000,000</div>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                            Pagas en 12 meses<br>
+                            <strong>$723,000 cada mes</strong>
+                        </p>
+                        
+                        <h3 style="color: white; margin: 20px 0 12px 0;">Para que compres:</h3>
+                        <ul class="features-list">
+                            <li>Un horno más grande</li>
+                            <li>Ingredientes para navidad</li>
+                            <li>Dinero para gastos diarios</li>
+                            <li>Decoraciones y empaques bonitos</li>
+                        </ul>
+                        
+                        <button class="cta-button">Quiero este crédito</button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">Medellín</div>
+                            <div class="stat-label">Tu ciudad</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Panadería</div>
+                            <div class="stat-label">Tu negocio</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">60%</div>
+                            <div class="stat-label">Puedes crecer</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Navidad</div>
+                            <div class="stat-label">Mejor época</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Personalización Contextual</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Principio Cognitivo:</strong> Personalización avanzada basada en contexto regional, cultural y comportamental</p>
+                
+                <h3>¿Por qué funciona?</h3>
+                <ul>
+                    <li><strong>Contexto Regional:</strong> Datos específicos de la zona geográfica</li>
+                    <li><strong>Patrones Culturales:</strong> Comportamientos típicos del sector y región</li>
+                    <li><strong>Momento Temporal:</strong> Timing perfecto según ciclos de negocio</li>
+                    <li><strong>Predicciones Comportamentales:</strong> Basadas en usuarios similares</li>
+                </ul>
+                
+                <h3>Hipótesis</h3>
+                <p>Un banco que conoce profundamente el contexto del emprendedor puede ofrecer productos más relevantes y generar mayor confianza.</p>
+                
+                <h3>Métricas Clave</h3>
+                <ul>
+                    <li>Tasa de conversión de ofertas personalizadas</li>
+                    <li>Tiempo de decisión del usuario</li>
+                    <li>Satisfacción con la relevancia de la oferta</li>
+                    <li>Retención y productos adicionales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

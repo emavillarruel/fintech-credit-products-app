@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito F: Contratação Express - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        /* Process Steps Styles */
+        .process-container {
+            margin: 20px 0;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding: 0 8px;
+            height: 80px;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+        
+        .step.active:not(:last-child)::after {
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step.active .step-number {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+        
+        .step.completed .step-number {
+            background: #4ade80;
+            color: white;
+        }
+        
+        .step-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            text-align: center;
+            max-width: 80px;
+        }
+        
+        .step.active .step-label {
+            color: white;
+            font-weight: 500;
+        }
+        
+        /* Content Styles */
+        .step-content {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 160px;
+            display: none;
+        }
+        
+        .step-content.active {
+            display: block;
+        }
+        
+        .step-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .step-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-option {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .radio-input {
+            display: none;
+        }
+        
+        .radio-label {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .radio-input:checked + .radio-label {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-color: rgba(255, 255, 255, 1);
+        }
+        
+        /* Button Styles */
+        .btn-next {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #000;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        
+        .btn-next:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+        
+        .btn-next:disabled {
+            background: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.6);
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Success Styles */
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #4ade80;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+            color: white;
+        }
+        
+        .success-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .success-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .approval-details {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .approval-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .approval-row:last-child {
+            margin-bottom: 0;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+        }
+        
+        .approval-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        .approval-value {
+            color: white;
+            font-size: 14px;
+        }
+        
+        /* Timer Styles */
+        .timer {
+            text-align: center;
+            margin: 16px 0;
+        }
+        
+        .timer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .timer-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        /* Loading Styles */
+        .loading-spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .processing-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Contratação Express</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+                
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2 class="hero-title">Seu crédito em 60 segundos</h2>
+                        <p class="hero-description">Sem documentos, sem espera, sem complicação</p>
+                    </div>
+
+                    <!-- Timer -->
+                    <div class="timer" id="timer">
+                        <div class="timer-text">Tempo restante</div>
+                        <div class="timer-value" id="timerValue">01:00</div>
+                    </div>
+
+                    <!-- Process Container -->
+                    <div class="process-container">
+                        <!-- Step Indicator -->
+                        <div class="step-indicator">
+                            <div class="step active" id="step1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Valor</div>
+                            </div>
+                            <div class="step" id="step2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Confirmar</div>
+                            </div>
+                            <div class="step" id="step3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Aprovado</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 1: Choose Amount -->
+                        <div class="step-content active" id="content1">
+                            <div class="step-title">Quanto você precisa?</div>
+                            <div class="step-description">Escolha o valor e como quer pagar. Já analisamos seu perfil.</div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Valor desejado</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" name="amount" value="5000" id="amount1" class="radio-input">
+                                        <label for="amount1" class="radio-label">R$ 5.000</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="amount" value="10000" id="amount2" class="radio-input">
+                                        <label for="amount2" class="radio-label">R$ 10.000</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="amount" value="15000" id="amount3" class="radio-input">
+                                        <label for="amount3" class="radio-label">R$ 15.000</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Forma de pagamento</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" name="payment" value="lc" id="payment1" class="radio-input">
+                                        <label for="payment1" class="radio-label">Linha de Crédito</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="payment" value="pl" id="payment2" class="radio-input">
+                                        <label for="payment2" class="radio-label">12x Fixas</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-next" id="btnNext1" onclick="nextStep(2)" disabled>Continuar</button>
+                        </div>
+
+                        <!-- Step 2: Confirm Details -->
+                        <div class="step-content" id="content2">
+                            <div class="step-title">Confirme os dados</div>
+                            <div class="step-description">Verificamos suas informações. Só confirme se está tudo certo.</div>
+                            
+                            <div class="approval-details">
+                                <div class="approval-row">
+                                    <span class="approval-label">Valor aprovado</span>
+                                    <span class="approval-value" id="approvedAmount">R$ 5.000</span>
+                                </div>
+                                <div class="approval-row">
+                                    <span class="approval-label">Taxa de juros</span>
+                                    <span class="approval-value">2,99% a.m.</span>
+                                </div>
+                                <div class="approval-row">
+                                    <span class="approval-label">Primeira parcela</span>
+                                    <span class="approval-value" id="firstPayment">Quando usar</span>
+                                </div>
+                                <div class="approval-row">
+                                    <span class="approval-label">Disponível em</span>
+                                    <span class="approval-value">5 segundos</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="checkbox" id="terms" style="margin-right: 8px;">
+                                <label for="terms" style="color: rgba(255, 255, 255, 0.8); font-size: 14px;">
+                                    Aceito os termos e quero contratar
+                                </label>
+                            </div>
+                            
+                            <button class="btn-next" id="btnNext2" onclick="nextStep(3)" disabled>Confirmar Contratação</button>
+                        </div>
+
+                        <!-- Step 3: Success -->
+                        <div class="step-content" id="content3">
+                            <div id="loadingState">
+                                <div class="loading-spinner"></div>
+                                <div class="processing-text">Processando aprovação...</div>
+                            </div>
+                            
+                            <div id="successState" style="display: none;">
+                                <div class="success-icon">✓</div>
+                                <div class="success-title">Aprovado!</div>
+                                <div class="success-description">Seu crédito já está disponível na sua conta MercadoPago</div>
+                                
+                                <div class="approval-details">
+                                    <div class="approval-row">
+                                        <span class="approval-label">Valor disponível</span>
+                                        <span class="approval-value" id="finalAmount">R$ 5.000</span>
+                                    </div>
+                                    <div class="approval-row">
+                                        <span class="approval-label">Tempo total</span>
+                                        <span class="approval-value" id="totalTime">45 segundos</span>
+                                    </div>
+                                    <div class="approval-row">
+                                        <span class="approval-label">Próximo passo</span>
+                                        <span class="approval-value">Usar quando precisar</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn-next" onclick="window.location.href='#usar-credito'">
+                                    Ir para MercadoPago
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">60s</div>
+                            <div class="stat-label">Tempo médio</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Aprovação</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">0</div>
+                            <div class="stat-label">Documentos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Disponível</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito F: Contratação Express</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Eliminar fricção maximiza conversão e satisfação</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Processo Simplificado:</strong> 3 passos, 60 segundos total</li>
+                    <li><strong>Zero Documentos:</strong> Aprovação baseada em dados existentes</li>
+                    <li><strong>Progresso Visual:</strong> Usuario ve cada paso del proceso</li>
+                    <li><strong>Transparência Total:</strong> Condições claras antes de confirmar</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Se eliminarmos toda fricção desnecessária, conversão aumenta 40% e satisfação 35%.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 65% de abandono no processo</li>
+                    <li>Tempo médio atual: 15-20 minutos</li>
+                    <li>Meta: 95% de conclusão em 60 segundos</li>
+                    <li>Impacto esperado: +40% conversão, +35% satisfação</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Tempo para completar: 60 segundos</li>
+                    <li>Taxa de aprovação: 95%</li>
+                    <li>Documentos necessários: 0</li>
+                    <li>Satisfação com rapidez: 98%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        let startTime = Date.now();
+        let timerInterval;
+
+        // Initialize timer
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const remaining = Math.max(60 - elapsed, 0);
+                const minutes = Math.floor(remaining / 60);
+                const seconds = remaining % 60;
+                document.getElementById('timerValue').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (remaining === 0) {
+                    clearInterval(timerInterval);
+                }
+            }, 1000);
+        }
+
+        // Initialize form validation
+        function initFormValidation() {
+            // Step 1 validation
+            const amountInputs = document.querySelectorAll('input[name="amount"]');
+            const paymentInputs = document.querySelectorAll('input[name="payment"]');
+            const btnNext1 = document.getElementById('btnNext1');
+            
+            function validateStep1() {
+                const amountSelected = document.querySelector('input[name="amount"]:checked');
+                const paymentSelected = document.querySelector('input[name="payment"]:checked');
+                btnNext1.disabled = !(amountSelected && paymentSelected);
+            }
+            
+            amountInputs.forEach(input => input.addEventListener('change', validateStep1));
+            paymentInputs.forEach(input => input.addEventListener('change', validateStep1));
+            
+            // Step 2 validation
+            const termsCheckbox = document.getElementById('terms');
+            const btnNext2 = document.getElementById('btnNext2');
+            
+            termsCheckbox.addEventListener('change', () => {
+                btnNext2.disabled = !termsCheckbox.checked;
+            });
+        }
+
+        function nextStep(step) {
+            // Update step indicator
+            document.querySelectorAll('.step').forEach((el, index) => {
+                el.classList.remove('active');
+                if (index < step - 1) {
+                    el.classList.add('completed');
+                }
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.step-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(`content${step}`).classList.add('active');
+            
+            // Handle specific steps
+            if (step === 2) {
+                updateStep2Data();
+            } else if (step === 3) {
+                processApproval();
+            }
+            
+            currentStep = step;
+        }
+
+        function updateStep2Data() {
+            const selectedAmount = document.querySelector('input[name="amount"]:checked');
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            
+            if (selectedAmount) {
+                const amount = parseInt(selectedAmount.value);
+                document.getElementById('approvedAmount').textContent = 
+                    `R$ ${amount.toLocaleString('pt-BR')}`;
+                document.getElementById('finalAmount').textContent = 
+                    `R$ ${amount.toLocaleString('pt-BR')}`;
+            }
+            
+            if (selectedPayment) {
+                const paymentType = selectedPayment.value;
+                document.getElementById('firstPayment').textContent = 
+                    paymentType === 'lc' ? 'Quando usar' : 'Próximo mês';
+            }
+        }
+
+        function processApproval() {
+            // Show loading for 3 seconds
+            setTimeout(() => {
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('successState').style.display = 'block';
+                
+                // Update final time
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                document.getElementById('totalTime').textContent = `${elapsed} segundos`;
+                
+                // Complete step indicator
+                document.querySelectorAll('.step').forEach(el => {
+                    el.classList.add('completed');
+                });
+                
+                clearInterval(timerInterval);
+            }, 3000);
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            startTimer();
+            initFormValidation();
+        });
+    </script>
+</body>
+</html> 

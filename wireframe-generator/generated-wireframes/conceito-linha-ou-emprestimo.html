@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito A: Linha ou Empréstimo? - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        /* Comparison Section Styles */
+        .comparison-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 0px;
+            scroll-behavior: smooth;
+            margin: 16px 0;
+        }
+        
+        .comparison-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .comparison-card {
+            flex: 0 0 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .card-header h3 {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .card-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .detail-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .detail-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .detail-value {
+            color: white;
+            font-size: 14px;
+        }
+
+        /* Card Offer Styles */
+        .card-offer {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .offer-amount {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .offer-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .offer-terms {
+            margin: 12px 0;
+        }
+
+        .term-item {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .term-item:before {
+            content: "•";
+            color: rgba(255, 255, 255, 0.6);
+            margin-right: 8px;
+        }
+
+        .card-cta {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #000;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+        }
+
+        .card-cta:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+
+        .card-cta:active {
+            transform: translateY(0);
+        }
+
+        /* Floating Help Button Styles */
+        .help-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #000 0%, #000 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            z-index: 500;
+            overflow: hidden;
+        }
+
+        .help-button img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .help-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .help-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Chat Bottom Sheet Styles */
+        .chat-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(0); }
+            to { transform: translateY(100%); }
+        }
+
+        .chat-modal {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            border-radius: 16px 16px 0 0;
+            overflow: hidden;
+            max-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.4s ease;
+        }
+
+        .chat-modal.closing {
+            animation: slideDown 0.3s ease;
+        }
+
+        .chat-handle {
+            width: 36px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            margin: 12px auto 8px;
+            cursor: pointer;
+        }
+
+        .chat-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .chat-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Chat Interface Styles */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .verdi-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .verdi-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .verdi-name {
+            color: #f0f0f0;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .verdi-status {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+        }
+        
+        .chat-messages {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 200px;
+            max-height: 300px;
+        }
+        
+        .message-bot {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .message-user {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            flex-direction: row-reverse;
+        }
+        
+        .message-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .message-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .message-content {
+            max-width: 75%;
+        }
+        
+        .message-text {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .message-user .message-text {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .message-time {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            padding-left: 12px;
+        }
+        
+        .message-user .message-time {
+            text-align: right;
+            padding-left: 0;
+            padding-right: 12px;
+        }
+        
+        .chat-options {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .chat-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e0e0e0;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .chat-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .chat-option.selected {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #fff;
+        }
+        
+        .chat-input-area {
+            padding: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e0e0e0;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .chat-input input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .chat-send {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .typing-dots span {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { opacity: 0.3; }
+            30% { opacity: 1; }
+        }
+
+        /* Recommendation Result Styles */
+        .recommendation-result {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .result-header h3 {
+            color: #f0f0f0;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .result-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .offer-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .offer-amount {
+            margin-bottom: 8px;
+        }
+
+        .offer-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .offer-value {
+            color: #f0f0f0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .offer-terms {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .result-reasons {
+            margin: 16px 0;
+        }
+
+        .result-reasons h4 {
+            color: #f0f0f0;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .result-reasons ul {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .result-reasons li {
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .result-reasons li:before {
+            content: "•";
+            color: #e0e0e0;
+            font-weight: bold;
+            padding-right: 8px;
+            left: 0;
+        }
+
+        .result-actions {
+            gap: 8px;
+            margin-top: 16px;
+            display: block;
+        }
+
+        .result-cta {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 4px;
+        }
+
+        .result-cta.primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .result-cta.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .result-cta:hover {
+            transform: translateY(-1px);
+        }
+
+        .result-cta.primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .result-cta.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device" style="position: relative;">
+            <div class="mobile-screen">
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Linha ou Empréstimo?</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+                
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2 class="hero-title">Qual é a melhor opção para você?</h2>
+                        <p class="hero-description">Compare as duas opções de crédito</p>
+                    </div>
+
+                    <!-- Comparison Section -->
+                    <div class="comparison-scroll">
+                        <div class="comparison-card lc-card">
+                            <div class="card-header">
+                                <h3>Linha de Crédito</h3>
+                                <span class="card-tag">Flexível</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Para que serve</span>
+                                    <span class="detail-value">Emergências, gastos do dia a dia</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Como funciona</span>
+                                    <span class="detail-value">Você usa quando precisar</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Juros</span>
+                                    <span class="detail-value">Só sobre valor usado</span>
+                                </div>
+                            </div>
+                            <div class="card-offer">
+                                <div class="offer-amount">R$ 8.000</div>
+                                <div class="offer-label">Limite disponível</div>
+                                <div class="offer-terms">
+                                    <div class="term-item">Sem parcelas fixas</div>
+                                    <div class="term-item">Paga só quando usar</div>
+                                    <div class="term-item">Renovação automática</div>
+                                </div>
+                                <button class="card-cta" onclick="window.location.href='#solicitar-lc'">
+                                    Solicitar Linha de Crédito
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-card pl-card">
+                            <div class="card-header">
+                                <h3>Empréstimo Pessoal</h3>
+                                <span class="card-tag">Fixo</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Para que serve</span>
+                                    <span class="detail-value">Projetos grandes, reforma, negócio</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Como funciona</span>
+                                    <span class="detail-value">Valor fixo, parcelas fixas</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Juros</span>
+                                    <span class="detail-value">Taxa fixa no valor total</span>
+                                </div>
+                            </div>
+                            <div class="card-offer">
+                                <div class="offer-amount">R$ 12.000</div>
+                                <div class="offer-label">Valor total disponível</div>
+                                <div class="offer-terms">
+                                    <div class="term-item">6x de R$ 2.000</div>
+                                    <div class="term-item">12x de R$ 1.000</div>
+                                    <div class="term-item">24x de R$ 500</div>
+                                </div>
+                                <button class="card-cta" onclick="window.location.href='#solicitar-pl'">
+                                    Solicitar Empréstimo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Floating Help Button -->
+                <button class="help-button" onclick="openChatOverlay()" title="Conversar com Verdi">
+                    <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                </button>
+            </div>
+            
+            <!-- Chat Overlay -->
+            <div id="chatOverlay" class="chat-overlay">
+        <div class="chat-modal" id="chatModal">
+            <button class="chat-close" onclick="closeChatOverlay()">&times;</button>
+            
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-header">
+                    <div class="verdi-avatar">
+                        <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                    </div>
+                    <div class="verdi-info">
+                        <div class="verdi-name">Verdi</div>
+                        <div class="verdi-status">Assistente ML • Online</div>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message-bot">
+                        <div class="message-avatar">
+                            <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-text">Oi! Sou Verdi, sua assistente do MercadoLibre. Vou te ajudar a escolher entre Linha de Crédito ou Empréstimo Pessoal.</div>
+                            <div class="message-time">agora</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-bot">
+                        <div class="message-avatar">
+                            <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-text">Para que você precisa do dinheiro?</div>
+                            <div class="message-time">agora</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-options" id="chatOptions">
+                    <button class="chat-option" data-question="1" data-value="emergency">💸 Imprevisto</button>
+                    <button class="chat-option" data-question="1" data-value="project">📋 Projeto específico</button>
+                </div>
+                
+                <div class="chat-input-area" id="chatInputArea" style="display: none;">
+                    <div class="chat-input">
+                        <input type="text" placeholder="Digite sua mensagem..." readonly>
+                        <button class="chat-send">→</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Result Section (Initially Hidden) -->
+            <div class="recommendation-result" id="recommendationResult" style="display: none;">
+                <div class="result-header">
+                    <h3 id="resultTitle">Sua Recomendação</h3>
+                    <p id="resultDescription">Perfeito para sua situação!</p>
+                </div>
+                
+                <div class="offer-section">
+                    <div class="offer-amount">
+                        <span class="offer-label">Valor disponível</span>
+                        <span class="offer-value" id="offerAmount">R$ 5.000</span>
+                    </div>
+                    <div class="offer-terms">
+                        <span class="offer-detail" id="offerTerms">Em até 12x de R$ 416,67</span>
+                    </div>
+                </div>
+                
+                <div class="result-reasons">
+                    <h4>Por que recomendamos:</h4>
+                    <ul id="resultReasons"></ul>
+                </div>
+                
+                <div class="result-actions">
+                    <button class="result-cta primary">Solicitar Agora</button>
+                    <button class="result-cta secondary" onclick="resetRecommendation()">Tentar Novamente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito A: Linha ou Empréstimo?</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Comparação completa con información de cuotas y CTAs integrados</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Comparação Completa:</strong> Montos + opciones de cuotas visibles</li>
+                    <li><strong>Transparencia Total:</strong> Todas las opciones de pago claras</li>
+                    <li><strong>CTAs Contextuales:</strong> Solicitar dentro de cada opción</li>
+                    <li><strong>Verdi On-Demand:</strong> Asistencia flotante siempre disponible</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Si el usuario ve comparación completa + opciones de cuotas + CTAs integrados, convierte más rápido y con mayor confianza.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 35% de confusão entre LC e PL</li>
+                    <li>Custo atual: R$ 85k/mês em suporte</li>
+                    <li>Meta: Reduzir confusão para 3% + 25% conversão</li>
+                    <li>Economia esperada: R$ 70k/mês + R$ 350k revenue</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Tempo para decidir: 20 segundos</li>
+                    <li>Clareza de opciones de pago: 99%</li>
+                    <li>Click-through rate: 45%</li>
+                    <li>Satisfação com clareza: 98%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chat conversation state
+        let chatState = {
+            currentStep: 1,
+            answers: {},
+            conversationComplete: false
+        };
+
+        // Conversation flow
+        const chatFlow = {
+            1: {
+                question: "Para que você precisa do dinheiro?",
+                options: [
+                    { text: "💸 Imprevisto", value: "emergency", emoji: "💸" },
+                    { text: "📋 Projeto específico", value: "project", emoji: "📋" }
+                ]
+            },
+            2: {
+                question: "Quando você vai usar?",
+                options: [
+                    { text: "⏰ Não sei ainda", value: "later", emoji: "⏰" },
+                    { text: "🚀 Agora mesmo", value: "now", emoji: "🚀" }
+                ]
+            },
+            3: {
+                question: "Prefere flexibilidade ou parcelas fixas?",
+                options: [
+                    { text: "🔄 Flexibilidade", value: "flexible", emoji: "🔄" },
+                    { text: "📊 Parcelas fixas", value: "fixed", emoji: "📊" }
+                ]
+            }
+        };
+
+        // Initialize chat system
+        document.addEventListener('DOMContentLoaded', function() {
+            setupChatOptions();
+        });
+
+        // Chat overlay functions
+        function openChatOverlay() {
+            document.getElementById('chatOverlay').style.display = 'block';
+        }
+
+        function closeChatOverlay() {
+            const chatModal = document.getElementById('chatModal');
+            const chatOverlay = document.getElementById('chatOverlay');
+            
+            chatModal.classList.add('closing');
+            
+            setTimeout(() => {
+                chatOverlay.style.display = 'none';
+                chatModal.classList.remove('closing');
+            }, 300);
+        }
+
+        function setupChatOptions() {
+            const chatOptions = document.getElementById('chatOptions');
+            const options = chatFlow[chatState.currentStep].options;
+            
+            chatOptions.innerHTML = '';
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'chat-option';
+                button.setAttribute('data-question', chatState.currentStep);
+                button.setAttribute('data-value', option.value);
+                button.textContent = option.text;
+                button.addEventListener('click', handleChatOptionClick);
+                chatOptions.appendChild(button);
+            });
+        }
+
+        function handleChatOptionClick(event) {
+            const button = event.target;
+            const question = button.getAttribute('data-question');
+            const value = button.getAttribute('data-value');
+            
+            // Mark as selected
+            document.querySelectorAll('.chat-option').forEach(opt => opt.classList.remove('selected'));
+            button.classList.add('selected');
+            
+            // Store answer
+            chatState.answers[question] = value;
+            
+            // Add user message
+            const userText = button.textContent;
+            addUserMessage(userText);
+            
+            // Hide options temporarily
+            document.getElementById('chatOptions').style.display = 'none';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Process next step after delay
+            setTimeout(() => {
+                hideTypingIndicator();
+                processNextStep();
+            }, 1500);
+        }
+
+        function addUserMessage(text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-user';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">👤</div>
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+                    <div class="message-time">agora</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addBotMessage(text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-bot';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+                    <div class="message-time">agora</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message-bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">
+                    <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                </div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <span>Verdi está digitando</span>
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function processNextStep() {
+            chatState.currentStep++;
+            
+            if (chatState.currentStep <= 3) {
+                // Ask next question
+                const nextQuestion = chatFlow[chatState.currentStep].question;
+                addBotMessage(nextQuestion);
+                
+                // Update options
+                setupChatOptions();
+                document.getElementById('chatOptions').style.display = 'flex';
+            } else {
+                // Generate recommendation
+                generateChatRecommendation();
+            }
+        }
+
+        function generateChatRecommendation() {
+            const purpose = chatState.answers['1']; // emergency or project
+            const timing = chatState.answers['2'];  // later or now
+            const preference = chatState.answers['3']; // flexible or fixed
+            
+            // Logic: LC for emergency/later/flexible, PL for project/now/fixed
+            let lcScore = 0;
+            let plScore = 0;
+            
+            if (purpose === 'emergency') lcScore += 2;
+            if (purpose === 'project') plScore += 2;
+            
+            if (timing === 'later') lcScore += 1;
+            if (timing === 'now') plScore += 1;
+            
+            if (preference === 'flexible') lcScore += 2;
+            if (preference === 'fixed') plScore += 2;
+            
+            // Generate offer amounts
+            const offers = generateOffers(purpose, timing);
+            
+            let recommendation;
+            if (lcScore > plScore) {
+                recommendation = {
+                    product: 'lc',
+                    title: 'Linha de Crédito',
+                    description: 'Perfeito para sua situação! Flexibilidade para usar quando precisar.',
+                    amount: offers.lc.amount,
+                    terms: offers.lc.terms,
+                    reasons: [
+                        'Flexibilidade para emergências',
+                        'Paga juros só sobre o que usar',
+                        'Disponível sempre que precisar',
+                        'Ideal para gastos variáveis'
+                    ]
+                };
+                addBotMessage("Perfeito! Com base no que você me contou, recomendo a **Linha de Crédito**. É ideal para imprevistos e oferece máxima flexibilidade! 🎯");
+            } else {
+                recommendation = {
+                    product: 'pl',
+                    title: 'Empréstimo Pessoal',
+                    description: 'Ideal para seu projeto! Parcelas fixas e planejamento certeiro.',
+                    amount: offers.pl.amount,
+                    terms: offers.pl.terms,
+                    reasons: [
+                        'Parcelas fixas para planejar',
+                        'Valor total disponível de uma vez',
+                        'Taxa fixa durante todo período',
+                        'Ideal para projetos específicos'
+                    ]
+                };
+                addBotMessage("Excelente! Para seu caso, recomendo o **Empréstimo Pessoal**. Parcelas fixas e planejamento certeiro para seu projeto! 📋");
+            }
+            
+            // Hide chat interface and show recommendation
+            setTimeout(() => {
+                document.getElementById('chatContainer').style.display = 'none';
+                showRecommendation(recommendation);
+            }, 2000);
+        }
+
+        function generateOffers(purpose, timing) {
+            // Different amounts based on purpose and timing
+            let baseAmount = 5000;
+            
+            if (purpose === 'project') baseAmount = 8000;
+            if (timing === 'now') baseAmount *= 1.2;
+            
+            const lcAmount = Math.round(baseAmount * 0.8); // LC typically lower
+            const plAmount = Math.round(baseAmount);
+            
+            return {
+                lc: {
+                    amount: `R$ ${lcAmount.toLocaleString('pt-BR')}`,
+                    terms: `Disponível para usar quando precisar`
+                },
+                pl: {
+                    amount: `R$ ${plAmount.toLocaleString('pt-BR')}`,
+                    terms: `Em até 12x de R$ ${Math.round(plAmount / 12).toLocaleString('pt-BR')}`
+                }
+            };
+        }
+
+        function showRecommendation(recommendation) {
+            // Show result
+            const resultDiv = document.getElementById('recommendationResult');
+            
+            document.getElementById('resultTitle').textContent = recommendation.title;
+            document.getElementById('resultDescription').textContent = recommendation.description;
+            document.getElementById('offerAmount').textContent = recommendation.amount;
+            document.getElementById('offerTerms').textContent = recommendation.terms;
+            
+            const reasonsList = document.getElementById('resultReasons');
+            reasonsList.innerHTML = '';
+            recommendation.reasons.forEach(reason => {
+                const li = document.createElement('li');
+                li.textContent = reason;
+                reasonsList.appendChild(li);
+            });
+            
+            resultDiv.style.display = 'block';
+        }
+
+        function resetRecommendation() {
+            // Reset chat state
+            chatState = {
+                currentStep: 1,
+                answers: {},
+                conversationComplete: false
+            };
+            
+            // Reset chat interface
+            document.getElementById('chatContainer').style.display = 'block';
+            document.getElementById('recommendationResult').style.display = 'none';
+            
+            // Clear chat messages (keep initial ones)
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = `
+                <div class="message-bot">
+                    <div class="message-avatar">
+                        <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">Oi! Sou Verdi, sua assistente do MercadoLibre. Vou te ajudar a escolher entre Linha de Crédito ou Empréstimo Pessoal.</div>
+                        <div class="message-time">agora</div>
+                    </div>
+                </div>
+                
+                <div class="message-bot">
+                    <div class="message-avatar">
+                        <img src="https://http2.mlstatic.com/frontend-assets/verdi-ide/bb810303859dff86e166.gif" alt="Verdi">
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">Para que você precisa do dinheiro?</div>
+                        <div class="message-time">agora</div>
+                    </div>
+                </div>
+            `;
+            
+            // Reset options
+            setupChatOptions();
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            const chatOverlay = document.getElementById('chatOverlay');
+            
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+            
+            if (event.target === chatOverlay) {
+                closeChatOverlay();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeChatOverlay();
+            }
+        });
+    </script>
+</body>
+</html> 

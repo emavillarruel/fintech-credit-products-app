@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratación Express - Fintech para Emprendedores</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Contratación Express</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">⚡ Súper Rápido</h1>
+                        <p class="hero-subtitle">Tu crédito en 3 minutos<br>
+                        Ya tenemos casi todo listo</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">📋 Casi terminas</h2>
+                        <p class="step-description">Ya completaste 2 de 3 preguntas. Tus datos se validaron automáticamente. Tu score: 750 puntos - Excelente.</p>
+                        <div class="recommendation-badge">Proceso tradicional: 5 días vs Express: 3 minutos</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">APROBADO EN TIEMPO REAL</div>
+                        <h2 class="recommendation-title">Tu Crédito Express</h2>
+                        <div class="price-highlight">$5,000,000</div>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                            Pagas en 8 meses<br>
+                            <strong>$687,500 cada mes</strong>
+                        </p>
+                        
+                        <h3 style="color: white; margin: 20px 0 12px 0;">En 3 minutos:</h3>
+                        <ul class="features-list">
+                            <li>Sin papeles que firmar</li>
+                            <li>Sin hacer filas</li>
+                            <li>Sin esperar días</li>
+                            <li>Dinero directo a tu cuenta</li>
+                        </ul>
+                        
+                        <button class="cta-button">Confirmar en 1 minuto</button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Minutos total</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0</div>
+                            <div class="stat-label">Documentos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">750</div>
+                            <div class="stat-label">Tu score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">✅</div>
+                            <div class="stat-label">Aprobado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Contratación Express</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Principio Cognitivo:</strong> Reducción de fricción mediante procesos ultrarrápidos y validación instantánea</p>
+                
+                <h3>¿Por qué funciona?</h3>
+                <ul>
+                    <li><strong>Reducción de Fricción:</strong> Minimiza pasos y documentos requeridos</li>
+                    <li><strong>Validación Instantánea:</strong> Feedback inmediato reduce ansiedad</li>
+                    <li><strong>Progreso Visible:</strong> Barras de progreso aumentan sensación de control</li>
+                    <li><strong>Comparación Temporal:</strong> Contraste con procesos tradicionales</li>
+                </ul>
+                
+                <h3>Hipótesis</h3>
+                <p>Los emprendedores abandonan procesos financieros lentos y complejos. La velocidad genera confianza y reduce la ansiedad de decisión.</p>
+                
+                <h3>Métricas Clave</h3>
+                <ul>
+                    <li>Tiempo promedio de completación del proceso</li>
+                    <li>Tasa de abandono en cada paso</li>
+                    <li>Satisfacción con la velocidad del proceso</li>
+                    <li>Conversión vs. procesos tradicionales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

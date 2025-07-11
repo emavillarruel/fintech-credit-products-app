@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso Express - Fintech</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../concept-hub-emprendedores.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Proceso Express</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">⚡ Contratación Express</h1>
+                        <p class="hero-subtitle">Datos prellenados, sin fricción<br>
+                        Termina en 3 minutos</p>
+                    </div>
+
+                    <!-- Explicación Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">📋 Paso 2 de 3</h2>
+                        <p class="step-description">Ya validamos tu identidad y ingresos. Solo confirma estos datos y listo. También puedes guardar tu progreso y continuar después.</p>
+                        <div class="recommendation-badge">💡 Tip: Puedes cambiar el plazo para ajustar la cuota</div>
+                    </div>
+
+                    <!-- Propuesta Principal -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">DATOS PRELLENADOS</div>
+                        <h2 class="recommendation-title">Confirma tu Crédito</h2>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <span style="color: rgba(255,255,255,0.8);">Monto:</span>
+                                <span style="color: white; font-weight: bold;">$5,000,000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <span style="color: rgba(255,255,255,0.8);">Plazo:</span>
+                                <span style="color: white; font-weight: bold;">8 meses</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <span style="color: rgba(255,255,255,0.8);">Cuota mensual:</span>
+                                <span style="color: white; font-weight: bold;">$687,500</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: rgba(255,255,255,0.8);">Costo total:</span>
+                                <span style="color: white; font-weight: bold;">$5,500,000</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(16, 185, 129, 0.2); padding: 10px; border-radius: 8px; margin-bottom: 15px;">
+                            <p style="color: #10b981; margin: 0; font-size: 0.9rem;">
+                                💡 Educación: Estás ahorrando $500,000 comparado con tarjeta de crédito
+                            </p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <button class="cta-button" style="flex: 1;">Contratar</button>
+                            <button class="cta-button" style="flex: 1; background: rgba(255,255,255,0.1);">Guardar progreso</button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">2 de 3</div>
+                            <div class="stat-label">Pasos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">✅ Validado</div>
+                            <div class="stat-label">Datos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1 min</div>
+                            <div class="stat-label">Para terminar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">💾 Guardado</div>
+                            <div class="stat-label">Progreso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Proceso Express</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Funcionalidad:</strong> Proceso de contratación express con datos prellenados y sin fricción</p>
+                
+                <h3>¿Cómo funciona?</h3>
+                <ul>
+                    <li><strong>Datos prellenados:</strong> La mayoría de información ya está validada</li>
+                    <li><strong>Sin fricción:</strong> Proceso dividido en 3 pasos simples</li>
+                    <li><strong>Guardar progreso:</strong> Puedes continuar después</li>
+                    <li><strong>Educación contextual:</strong> Tips relevantes en cada paso</li>
+                </ul>
+                
+                <h3>Principios aplicados</h3>
+                <ul>
+                    <li>Autonomía y agilidad en la contratación</li>
+                    <li>Transparencia total en costos</li>
+                    <li>Educación financiera contextualizada</li>
+                    <li>Proceso sin fricción optimizado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

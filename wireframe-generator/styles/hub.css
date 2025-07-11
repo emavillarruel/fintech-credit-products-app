@@ -1,0 +1,373 @@
+/* ===========================================
+   HUB DE PRESENTACIÓN - ESTILOS
+   =========================================== */
+
+/* Fuentes Proxima Nova */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Base del Hub */
+* {
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    background: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.gradient-bg {
+    background: #000000;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    min-height: 100vh;
+}
+
+/* Header del Hub */
+.nav-header {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    min-height: 64px;
+}
+
+.meli-logo {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 300;
+    background: linear-gradient(45deg, #ffffff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+}
+
+/* Cards de Conceptos */
+.concept-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.concept-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+}
+
+.concept-card:hover::before {
+    opacity: 1;
+}
+
+.concept-card.concept-a {
+    --accent-color: linear-gradient(90deg, #ff6b35, #f7931e);
+}
+
+.concept-card.concept-b {
+    --accent-color: linear-gradient(90deg, #00d4aa, #00b09b);
+}
+
+.concept-card.concept-c {
+    --accent-color: linear-gradient(90deg, #8b5cf6, #a855f7);
+}
+
+.concept-card.concept-d {
+    --accent-color: linear-gradient(90deg, #3b82f6, #6366f1);
+}
+
+.concept-card.concept-e {
+    --accent-color: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.concept-card.concept-f {
+    --accent-color: linear-gradient(90deg, #10b981, #059669);
+}
+
+.concept-card.concept-g {
+    --accent-color: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.concept-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.concept-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 300;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Badges de Conceptos */
+.badge-concept {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    width: auto;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 400;
+}
+
+/* Estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+/* Botones */
+.btn-primary {
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: block;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Paneles de Vidrio */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+}
+
+/* Matriz de Análisis */
+.analysis-table {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+}
+
+.analysis-matrix {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+}
+
+.matrix-header {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.matrix-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.matrix-cell {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 0;
+}
+
+.matrix-cell.header {
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+}
+
+.matrix-cell.data {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+/* Títulos de Sección */
+.section-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Texto de Hipótesis */
+.hypothesis-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: 300;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Utilidades */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .concept-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .matrix-grid {
+        grid-template-columns: 1fr;
+    }
+} 
