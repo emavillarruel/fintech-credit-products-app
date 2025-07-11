@@ -178,28 +178,6 @@
             margin: 0;
         }
 
-        /* Nueva sección para conceptos basados en datos */
-        .data-driven-section {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            border-left: 4px solid #10b981;
-        }
-
-        .data-driven-section h2 {
-            color: #10b981;
-            margin-bottom: 12px;
-            font-weight: 400;
-            font-size: 1.3em;
-        }
-
-        .data-driven-section p {
-            font-size: 0.95em;
-            line-height: 1.5;
-            margin: 0;
-        }
-
         .concepts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -222,16 +200,6 @@
         .concept-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Estilo especial para conceptos basados en datos */
-        .concept-card.data-driven {
-            border-left: 4px solid #10b981;
-            background: rgba(16, 185, 129, 0.05);
-        }
-
-        .concept-card.data-driven:hover {
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
         }
 
         .concept-card h3 {
@@ -268,12 +236,6 @@
             border-radius: 20px;
             font-size: 0.8em;
             border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .metric-badge.data-metric {
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            color: #10b981;
         }
 
         .concept-button {
@@ -396,7 +358,6 @@
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="#concepts" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Conceptos</a>
-                    <a href="#data-driven" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Basados en Datos</a>
                     <a href="#actions" class="text-gray-300 hover:text-white px-3 py-2 font-regular">Acciones</a>
                 </nav>
             </div>
@@ -410,7 +371,7 @@
                 
                 <div class="stats">
                     <div class="stat-item">
-                        <span class="stat-number">14</span>
+                        <span class="stat-number">9</span>
                         <span class="stat-label">Conceptos</span>
                     </div>
                     <div class="stat-item">
@@ -418,12 +379,8 @@
                         <span class="stat-label">Dominio</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">3</span>
+                        <span class="stat-number">2</span>
                         <span class="stat-label">Enfoques</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">R$ 85k</span>
-                        <span class="stat-label">Ahorrados/mes</span>
                     </div>
                 </div>
             </div>
@@ -435,83 +392,6 @@
             <h2>Hipótesis Principal</h2>
             <p>Un banco que sabe quién soy y se anticipa de forma contextual y empática, genera más confianza, retención y uso de productos de crédito.</p>
         </div>
-
-        <!-- Nueva sección para conceptos basados en datos -->
-        <div class="data-driven-section">
-            <h2>Soluciones Basadas en Datos Reales</h2>
-            <p>Conceptos específicos que resuelven problemas cuantificados: 35% consultas CX por confusión entre productos, R$ 85k costo mensual por falta de claridad, expectativas no cumplidas de "express" y necesidad de personalización real en asistentes IA.</p>
-        </div>
-
-        <section id="data-driven">
-            <h2 style="text-align: center; margin: 35px 0 25px 0; font-size: 2em; font-weight: 300;">Conceptos Específicos Fintech</h2>
-            
-            <div class="concepts-grid">
-                <div class="concept-card data-driven">
-                    <h3>Encuentra Tu Crédito Perfecto</h3>
-                    <p class="concept-principle">Termina la confusión entre productos con 3 preguntas simples</p>
-                    <p>El 35% de consultas son por confusión entre Línea de Crédito y Préstamo Personal. Te ayudamos a elegir el exacto que necesitas sin llamar a soporte.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge data-metric">85% Menos Consultas</span>
-                        <span class="metric-badge data-metric">R$ 85k Ahorrados</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-encuentra-credito-perfecto.html'">
-                        Ver Ejemplo
-                    </button>
-                </div>
-
-                <div class="concept-card data-driven">
-                    <h3>Transparencia Total</h3>
-                    <p class="concept-principle">Sin letra pequeña, sin jerga financiera, todo claro</p>
-                    <p>Los usuarios dicen que los cálculos de intereses no son claros. Te mostramos exactamente qué pagas y por qué, como si fueras nuestro mejor amigo.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge data-metric">0% Costos Ocultos</span>
-                        <span class="metric-badge data-metric">95% Comprensión</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-transparencia-total.html'">
-                        Ver Ejemplo
-                    </button>
-                </div>
-
-                <div class="concept-card data-driven">
-                    <h3>Crédito Express Real</h3>
-                    <p class="concept-principle">3 minutos reales garantizados, no falsos express</p>
-                    <p>Dinero Extra promete "express" pero toma lo mismo que Préstamo Personal. Nosotros garantizamos 3 minutos reales o te regalamos R$ 50.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge data-metric">3 min Garantizados</span>
-                        <span class="metric-badge data-metric">95% Primer Intento</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-credito-express-real.html'">
-                        Ver Ejemplo
-                    </button>
-                </div>
-
-                <div class="concept-card data-driven">
-                    <h3>Tu Asesor Personal</h3>
-                    <p class="concept-principle">IA que conoce tu historial y recomienda específicamente</p>
-                    <p>Usuarios esperan que Verdichat sea personalizado a su cuenta. Nuestro asesor conoce tu panadería, tus ventas y te recomienda el crédito exacto para Navidad.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge data-metric">95% Personalizado</span>
-                        <span class="metric-badge data-metric">80% Adopción</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-asesor-personal.html'">
-                        Ver Ejemplo
-                    </button>
-                </div>
-
-                <div class="concept-card data-driven">
-                    <h3>Gestión Unificada</h3>
-                    <p class="concept-principle">Un dashboard para usuarios mixtos (personal + negocio)</p>
-                    <p>Usuarios mixtos se frustran usando administradores separados. Un solo lugar para ver todos tus créditos: personales y del negocio.</p>
-                    <div class="concept-metrics">
-                        <span class="metric-badge data-metric">80% Menos Tiempo</span>
-                        <span class="metric-badge data-metric">100% Visibilidad</span>
-                    </div>
-                    <button class="concept-button" onclick="window.location.href='./generated-wireframes/concept-gestion-unificada.html'">
-                        Ver Ejemplo
-                    </button>
-                </div>
-            </div>
-        </section>
 
         <section id="concepts">
             <h2 style="text-align: center; margin: 35px 0 25px 0; font-size: 2em; font-weight: 300;">Conceptos Cognitivos</h2>
@@ -642,27 +522,15 @@
             </div>
         </section>
 
-        <section class="actions" id="actions">
-            <h2 style="margin: 35px 0 25px 0; font-size: 1.8em; font-weight: 300; color: #10b981;">Siguientes Pasos</h2>
+        <section class="actions">
+            <h2 style="margin: 35px 0 25px 0; font-size: 1.5em; font-weight: 300;">Acciones</h2>
             
-            <div style="text-align: center; margin: 20px 0;">
-                <a href="./hub-fintech-especificos.html" 
-                   style="display: inline-block; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 15px 25px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-right: 15px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;">
-                    🎯 VER CONCEPTOS ESPECÍFICOS
-                </a>
-                <small style="display: block; margin-top: 10px; color: #6b7280;">5 conceptos basados en datos reales de usuarios brasileños</small>
-            </div>
-            
-            <button class="action-button" onclick="window.location.href='./CONTEXTO_PROPUESTAS.md'">
-                Crear Nuevos Conceptos
+            <button class="action-button" onclick="openRegenerateModal()">
+                Regenerar Conceptos
             </button>
             
-            <button class="action-button" onclick="window.location.href='./GUIA_CONTEXTO.md'">
-                Metodología
-            </button>
-            
-            <button class="action-button" onclick="window.location.href='./README_EMPRENDEDORES.md'">
-                Documentación
+            <button class="action-button" onclick="window.location.href='./HUB_README.md'">
+                Ver Documentación
             </button>
         </section>
     </div>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito: Ecosistema de Recompensas</title>
+    <link rel="stylesheet" href="../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/wireframe-components.css">
+    <link rel="stylesheet" href="../styles/concept-simulator.css">
+    <style>
+        /* Behavior Selector Styles */
+        .behavior-selector {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .behavior-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 90px;
+        }
+        
+        .behavior-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .behavior-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-color: rgba(255, 255, 255, 1);
+        }
+        
+        .behavior-level {
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .behavior-desc {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+        
+        /* Ecosystem Rewards Styles */
+        .ecosystem-rewards {
+            margin: 20px 0;
+        }
+        
+        /* Status Message */
+        .status-message {
+            margin-bottom: 20px;
+        }
+        
+        .status-content {
+            position: relative;
+            min-height: 60px;
+        }
+        
+        .status {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .status.active {
+            display: block;
+        }
+        
+        .status p {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Rewards Card */
+        .rewards-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        
+        .rewards-content {
+            position: relative;
+            min-height: 220px;
+        }
+        
+        .rewards-version {
+            display: none;
+        }
+        
+        .rewards-version.active {
+            display: block;
+        }
+        
+        .rewards-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .rewards-header h3 {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .level-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .level-badge.bronze {
+            background: rgba(205, 127, 50, 0.8);
+        }
+        
+        .level-badge.silver {
+            background: rgba(192, 192, 192, 0.8);
+        }
+        
+        .level-badge.gold {
+            background: rgba(255, 215, 0, 0.8);
+            color: #000;
+        }
+        
+        .current-offer {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .benefit-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+        
+        .benefit-value {
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .next-level-preview {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 8px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        
+        .next-level-preview h4 {
+            color: white;
+            font-size: 12px;
+            margin: 0 0 4px 0;
+        }
+        
+        .next-level-preview p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            margin: 0;
+        }
+        
+        /* Actions */
+        .rewards-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .action-primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1;
+            display: none;
+        }
+        
+        .action-primary.active {
+            display: block;
+        }
+        
+        .action-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 8px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-fill.bronze {
+            background: rgba(205, 127, 50, 0.8);
+            width: 30%;
+        }
+        
+        .progress-fill.silver {
+            background: rgba(192, 192, 192, 0.8);
+            width: 60%;
+        }
+        
+        .progress-fill.gold {
+            background: rgba(255, 215, 0, 0.8);
+            width: 90%;
+        }
+        
+        .progress-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            text-align: center;
+            margin-top: 4px;
+        }
+        
+        /* Concept Explanation Styles */
+        .concept-explanation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .concept-explanation h2 {
+            color: white;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+        
+        .concept-explanation > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin: 0 0 12px 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .simple-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .benefit {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-frame">
+            <div class="mobile-header">
+                <div class="mobile-header-content">
+                    <div class="mobile-status">
+                        <span class="mobile-time">14:30</span>
+                        <div class="mobile-indicators">
+                            <span class="mobile-signal"></span>
+                            <span class="mobile-battery"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mobile-content">
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">Quanto mais você cuida das suas finanças</h1>
+                        <p class="hero-subtitle">Mais o ecossistema cuida de você<br>
+                        Veja como suas atitudes melhoram suas condições</p>
+                    </div>
+
+                    <!-- Conceito Explicado -->
+                    <div class="concept-explanation">
+                        <h2>Como funciona</h2>
+                        <p>Bom comportamento financeiro → Melhores condições → Mais benefícios</p>
+                        
+                        <div class="simple-benefits">
+                            <span class="benefit">Taxas menores</span>
+                            <span class="benefit">Limites maiores</span>
+                            <span class="benefit">Vantagens exclusivas</span>
+                        </div>
+                    </div>
+
+                    <!-- Behavior Selector -->
+                    <div class="concept-section">
+                        <h2 class="concept-title">Escolha seu perfil financeiro:</h2>
+                        <div class="behavior-selector">
+                            <button class="behavior-btn active" data-level="bronze">
+                                <span class="behavior-level">Iniciante</span>
+                                <span class="behavior-desc">Começando</span>
+                            </button>
+                            <button class="behavior-btn" data-level="silver">
+                                <span class="behavior-level">Cuidadoso</span>
+                                <span class="behavior-desc">Organizado</span>
+                            </button>
+                            <button class="behavior-btn" data-level="gold">
+                                <span class="behavior-level">Exemplar</span>
+                                <span class="behavior-desc">Disciplinado</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ecosystem Rewards -->
+                    <div class="ecosystem-rewards">
+                        <!-- Status Message -->
+                        <div class="status-message">
+                            <div class="status-content" id="statusContent">
+                                <div class="status bronze active">
+                                    <p>Você está começando sua jornada financeira. Vamos te ajudar a construir um histórico sólido com benefícios desde o início.</p>
+                                </div>
+                                <div class="status silver">
+                                    <p>Parabéns! Seu comportamento organizado já está trazendo melhores condições. Continue assim para desbloquear mais vantagens.</p>
+                                </div>
+                                <div class="status gold">
+                                    <p>Excepcional! Sua disciplina financeira te coloca entre nossos clientes premium. Aproveite as melhores condições do mercado.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rewards Card -->
+                        <div class="rewards-card">
+                            <div class="rewards-content" id="rewardsContent">
+                                <!-- Bronze Level -->
+                                <div class="rewards-version bronze active">
+                                    <div class="rewards-header">
+                                        <h3>Seu Crédito Atual</h3>
+                                        <span class="level-badge bronze">Nível Iniciante</span>
+                                    </div>
+                                    <div class="current-offer">R$ 3.000</div>
+                                    <div class="benefits-grid">
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Taxa mensal</div>
+                                            <div class="benefit-value">4,5%</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Cashback</div>
+                                            <div class="benefit-value">0,5%</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Anuidade</div>
+                                            <div class="benefit-value">R$ 12</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Suporte</div>
+                                            <div class="benefit-value">Chat</div>
+                                        </div>
+                                    </div>
+                                    <div class="next-level-preview">
+                                        <h4>Próximo nível: Cuidadoso</h4>
+                                        <p>Pague em dia por 6 meses e ganhe taxa de 3,2% + limite de R$ 8.000</p>
+                                    </div>
+                                </div>
+
+                                <!-- Silver Level -->
+                                <div class="rewards-version silver">
+                                    <div class="rewards-header">
+                                        <h3>Seu Crédito Atual</h3>
+                                        <span class="level-badge silver">Nível Cuidadoso</span>
+                                    </div>
+                                    <div class="current-offer">R$ 8.000</div>
+                                    <div class="benefits-grid">
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Taxa mensal</div>
+                                            <div class="benefit-value">3,2%</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Cashback</div>
+                                            <div class="benefit-value">1,5%</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Anuidade</div>
+                                            <div class="benefit-value">Grátis</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Suporte</div>
+                                            <div class="benefit-value">Prioritário</div>
+                                        </div>
+                                    </div>
+                                    <div class="next-level-preview">
+                                        <h4>Próximo nível: Exemplar</h4>
+                                        <p>Mantenha score alto e ganhe taxa de 2,1% + limite de R$ 25.000</p>
+                                    </div>
+                                </div>
+
+                                <!-- Gold Level -->
+                                <div class="rewards-version gold">
+                                    <div class="rewards-header">
+                                        <h3>Seu Crédito Premium</h3>
+                                        <span class="level-badge gold">Nível Exemplar</span>
+                                    </div>
+                                    <div class="current-offer">R$ 25.000</div>
+                                    <div class="benefits-grid">
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Taxa mensal</div>
+                                            <div class="benefit-value">2,1%</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Cashback</div>
+                                            <div class="benefit-value">3,0%</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Anuidade</div>
+                                            <div class="benefit-value">Grátis</div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-label">Suporte</div>
+                                            <div class="benefit-value">Gerente</div>
+                                        </div>
+                                    </div>
+                                    <div class="next-level-preview">
+                                        <h4>Você chegou ao topo!</h4>
+                                        <p>Continue assim para manter seus benefícios premium</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rewards-actions" id="rewardsActions">
+                                <button class="action-primary bronze active">Começar jornada</button>
+                                <button class="action-primary silver">Solicitar upgrade</button>
+                                <button class="action-primary gold">Aproveitar benefícios</button>
+                                <button class="action-secondary" onclick="changeBehaviorLevel()">Ver outro nível</button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Section -->
+                        <div class="progress-section">
+                            <h4>Seu progresso no ecossistema:</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill bronze" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">
+                                30% - Continue pagando em dia para evoluir
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle behavior selector interaction
+        function handleBehaviorSelector() {
+            const behaviorButtons = document.querySelectorAll('.behavior-btn');
+            
+            behaviorButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const level = this.dataset.level;
+                    
+                    // Update active button
+                    behaviorButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update status message
+                    const statuses = document.querySelectorAll('.status');
+                    statuses.forEach(status => status.classList.remove('active'));
+                    const activeStatus = document.querySelector('.status.' + level);
+                    if (activeStatus) {
+                        activeStatus.classList.add('active');
+                    }
+                    
+                    // Update rewards content
+                    const rewards = document.querySelectorAll('.rewards-version');
+                    rewards.forEach(reward => reward.classList.remove('active'));
+                    const activeReward = document.querySelector('.rewards-version.' + level);
+                    if (activeReward) {
+                        activeReward.classList.add('active');
+                    }
+                    
+                    // Update action buttons
+                    const actions = document.querySelectorAll('.action-primary');
+                    actions.forEach(action => action.classList.remove('active'));
+                    const activeAction = document.querySelector('.action-primary.' + level);
+                    if (activeAction) {
+                        activeAction.classList.add('active');
+                    }
+                    
+                    // Update progress bar
+                    const progressFill = document.getElementById('progressFill');
+                    const progressText = document.getElementById('progressText');
+                    
+                    progressFill.className = 'progress-fill ' + level;
+                    
+                    if (level === 'bronze') {
+                        progressText.textContent = '30% - Continue pagando em dia para evoluir';
+                    } else if (level === 'silver') {
+                        progressText.textContent = '60% - Mantenha seu score alto para o próximo nível';
+                    } else if (level === 'gold') {
+                        progressText.textContent = '90% - Você está no topo do ecossistema!';
+                    }
+                });
+            });
+        }
+        
+        // Function to handle level change
+        function changeBehaviorLevel() {
+            const behaviorButtons = document.querySelectorAll('.behavior-btn');
+            const currentActive = document.querySelector('.behavior-btn.active');
+            
+            if (currentActive) {
+                let nextIndex = [...behaviorButtons].indexOf(currentActive) + 1;
+                if (nextIndex >= behaviorButtons.length) nextIndex = 0;
+                
+                behaviorButtons[nextIndex].click();
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            handleBehaviorSelector();
+        });
+    </script>
+</body>
+</html> 

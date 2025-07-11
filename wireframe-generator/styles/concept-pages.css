@@ -56,7 +56,7 @@
 
 .nav-title {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     font-weight: 400;
     color: white;
 }
@@ -129,7 +129,7 @@
 }
 
 .price-highlight {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: white;
     margin: 16px 0;

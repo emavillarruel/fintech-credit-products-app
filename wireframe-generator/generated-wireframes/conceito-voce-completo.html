@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito C: Você Completo - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        /* Context Selector Styles */
+        .context-comparison {
+            margin: 20px 0;
+        }
+        
+        .comparison-title {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .comparison-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .context-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 0px;
+            scroll-behavior: smooth;
+        }
+        
+        .context-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .context-card {
+            flex: 0 0 240px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .context-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .context-card.selected {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 1);
+            color: #000;
+        }
+        
+        .context-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .context-header h3 {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .context-card.selected .context-header h3 {
+            color: #000;
+        }
+        
+        .context-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .context-badge.personal {
+            background: rgba(75, 192, 192, 0.8);
+        }
+        
+        .context-badge.business {
+            background: rgba(255, 159, 64, 0.8);
+        }
+        
+        .context-badge.unified {
+            background: rgba(153, 102, 255, 0.8);
+        }
+        
+        .context-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .detail-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .detail-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .context-card.selected .detail-label {
+            color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .detail-value {
+            color: white;
+            font-size: 14px;
+        }
+        
+        .context-card.selected .detail-value {
+            color: #000;
+        }
+        
+        /* Unified Dashboard Styles */
+        .unified-dashboard {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .dashboard-title {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .context-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .context-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .limits-overview {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+        
+        .limits-title {
+            color: white;
+            font-size: 14px;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+        
+        .limits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .limit-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .limit-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+        
+        .limit-value {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .limit-available {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 10px;
+            margin-top: 2px;
+        }
+        
+        /* Button Styles */
+        .answer-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 4px;
+        }
+        
+        .answer-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .answer-btn.selected {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 1);
+            color: #000;
+        }
+        
+        .cta-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #000;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        
+        .cta-button:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+        
+        .cta-button:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+        }
+        
+        .result-cta {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 4px;
+        }
+        
+        .result-cta.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            width: 100%;
+        }
+        
+        .result-cta.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .result-cta:hover {
+            transform: translateY(-1px);
+        }
+        
+        .result-cta.primary:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .result-cta.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Offer Section Styles */
+        .offer-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        
+        .offer-amount {
+            margin-bottom: 8px;
+        }
+        
+        .offer-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .offer-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .offer-details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .offer-detail {
+            text-align: center;
+            margin: 4px;
+        }
+        
+        .offer-detail-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .offer-detail-value {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        /* Concept Explanation Styles */
+        .concept-explanation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .concept-explanation h2 {
+            color: white;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+        
+        .concept-explanation > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin: 0 0 12px 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .simple-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .benefit {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        /* Result Reasons */
+        .result-reasons {
+            margin: 16px 0;
+        }
+        
+        .result-reasons h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .result-reasons ul {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .result-reasons li {
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .result-reasons li:before {
+            content: "•";
+            color: #fff;
+            font-weight: bold;
+            padding-right: 8px;
+            left: 0;
+            position: absolute;
+        }
+        
+        .result-actions {
+            gap: 8px;
+            margin-top: 16px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Você Completo</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">Uma interface para toda a sua vida financeira</h1>
+                        <p class="hero-subtitle">Pessoa física + vendedor<br>
+                        Tudo unificado em um só lugar</p>
+                    </div>
+
+                    <!-- Conceito Explicado -->
+                    <div class="concept-explanation">
+                        <h2>Como funciona</h2>
+                        <p>Detecção automática de contexto → Interface adaptada → Limites transparentes</p>
+                        
+                        <div class="simple-benefits">
+                            <span class="benefit">Contexto automático</span>
+                            <span class="benefit">Limites unificados</span>
+                            <span class="benefit">Zero confusão</span>
+                        </div>
+                    </div>
+
+                    <!-- Context Comparison -->
+                    <div class="context-comparison">
+                        <h2 class="comparison-title">Compare os contextos</h2>
+                        <p class="comparison-description">Deslize para ver a diferença</p>
+                        
+                        <div class="context-scroll">
+                            <div class="context-card" data-context="personal">
+                                <div class="context-header">
+                                    <h3>Pessoal</h3>
+                                    <span class="context-badge personal">Pessoa Física</span>
+                                </div>
+                                <div class="context-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Produtos</span>
+                                        <span class="detail-value">LC Pessoal, Empréstimo</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Limite disponível</span>
+                                        <span class="detail-value">R$ 8.500</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Para</span>
+                                        <span class="detail-value">Compras, emergências</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Taxas</span>
+                                        <span class="detail-value">3,2% a.m.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="context-card" data-context="business">
+                                <div class="context-header">
+                                    <h3>Negócio</h3>
+                                    <span class="context-badge business">Vendedor</span>
+                                </div>
+                                <div class="context-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Produtos</span>
+                                        <span class="detail-value">Merchant Credits</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Limite disponível</span>
+                                        <span class="detail-value">R$ 12.000</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Para</span>
+                                        <span class="detail-value">Estoque, capital de giro</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Taxas</span>
+                                        <span class="detail-value">2,8% a.m.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="context-card" data-context="unified">
+                                <div class="context-header">
+                                    <h3>Unificado</h3>
+                                    <span class="context-badge unified">Você Completo</span>
+                                </div>
+                                <div class="context-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Experiência</span>
+                                        <span class="detail-value">Uma só interface</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Total disponível</span>
+                                        <span class="detail-value">R$ 20.500</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Gestão</span>
+                                        <span class="detail-value">Tudo transparente</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Confusão</span>
+                                        <span class="detail-value">Zero</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Unified Dashboard Preview -->
+                    <div class="unified-dashboard">
+                        <div class="dashboard-header">
+                            <h3 class="dashboard-title">Sua visão unificada</h3>
+                            <button class="context-toggle" id="contextToggle">Pessoal ⇄ Negócio</button>
+                        </div>
+                        
+                        <div class="limits-overview">
+                            <h4 class="limits-title">Limites compartidos transparentes</h4>
+                            <div class="limits-grid">
+                                <div class="limit-item">
+                                    <div class="limit-label">Pessoal</div>
+                                    <div class="limit-value">R$ 15.000</div>
+                                    <div class="limit-available">R$ 8.500 disponível</div>
+                                </div>
+                                <div class="limit-item">
+                                    <div class="limit-label">Negócio</div>
+                                    <div class="limit-value">R$ 20.000</div>
+                                    <div class="limit-available">R$ 12.000 disponível</div>
+                                </div>
+                                <div class="limit-item">
+                                    <div class="limit-label">Total usado</div>
+                                    <div class="limit-value">R$ 14.500</div>
+                                    <div class="limit-available">41% do total</div>
+                                </div>
+                                <div class="limit-item">
+                                    <div class="limit-label">Disponível</div>
+                                    <div class="limit-value">R$ 20.500</div>
+                                    <div class="limit-available">59% livre</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recomendação -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">EXPERIÊNCIA PERSONALIZADA</div>
+                        <h2 class="recommendation-title">Conte-nos sobre você</h2>
+                        
+                        <!-- Questions (Initially shown) -->
+                        <div class="question-flow" id="questionsFlow">
+                            <div class="question-item">
+                                <p class="question-text"><strong>1.</strong> Como você usa o MercadoLibre?</p>
+                                <div class="answer-options">
+                                    <button class="answer-btn" data-question="1" data-value="personal">Só compro para mim</button>
+                                    <button class="answer-btn" data-question="1" data-value="seller">Só vendo produtos</button>
+                                    <button class="answer-btn" data-question="1" data-value="both">Compro e vendo</button>
+                                </div>
+                            </div>
+                            
+                            <div class="question-item">
+                                <p class="question-text"><strong>2.</strong> O que mais te confunde?</p>
+                                <div class="answer-options">
+                                    <button class="answer-btn" data-question="2" data-value="products">Diferença entre produtos</button>
+                                    <button class="answer-btn" data-question="2" data-value="limits">Como funcionam os limites</button>
+                                    <button class="answer-btn" data-question="2" data-value="context">Quando usar cada um</button>
+                                </div>
+                            </div>
+                            
+                            <div class="question-item">
+                                <p class="question-text"><strong>3.</strong> O que você mais precisa?</p>
+                                <div class="answer-options">
+                                    <button class="answer-btn" data-question="3" data-value="clarity">Clareza total</button>
+                                    <button class="answer-btn" data-question="3" data-value="unification">Tudo em um lugar</button>
+                                    <button class="answer-btn" data-question="3" data-value="transparency">Limites transparentes</button>
+                                </div>
+                            </div>
+                            
+                            <button class="cta-button" id="getRecommendation" disabled>Ver Minha Interface</button>
+                        </div>
+                        
+                        <!-- Result Section (Initially Hidden) -->
+                        <div class="recommendation-result" id="recommendationResult" style="display: none;">
+                            <div class="result-header">
+                                <h3 id="resultTitle">Sua Interface Personalizada</h3>
+                                <p id="resultDescription">Feita especialmente para você!</p>
+                            </div>
+                            
+                            <div class="offer-section">
+                                <div class="offer-amount">
+                                    <span class="offer-label">Total disponível unificado</span>
+                                    <span class="offer-value" id="offerAmount">R$ 20.500</span>
+                                </div>
+                                <div class="offer-details">
+                                    <div class="offer-detail">
+                                        <span class="offer-detail-label">Contextos</span>
+                                        <span class="offer-detail-value" id="offerContexts">Pessoal + Negócio</span>
+                                    </div>
+                                    <div class="offer-detail">
+                                        <span class="offer-detail-label">Transparência</span>
+                                        <span class="offer-detail-value" id="offerTransparency">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="result-reasons">
+                                <h4>Por que funciona para você:</h4>
+                                <ul id="resultReasons"></ul>
+                            </div>
+                            
+                            <div class="result-actions">
+                                <button class="result-cta primary" id="primaryAction">Acessar Interface Unificada</button>
+                                <button class="result-cta secondary" onclick="resetRecommendation()">Refazer Teste</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito C: Você Completo</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🎯 Conceito</h3>
+                    <p class="modal-text">
+                        <strong>Você Completo:</strong> Uma interface unificada que detecta automaticamente o contexto (pessoal vs negócio) e adapta a experiência, eliminando fragmentação para usuários mistos.
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🧠 Princípio Cognitivo</h3>
+                    <p class="modal-text">
+                        <strong>Contextual Design + Unificação:</strong> Reduzir carga cognitiva ao eliminar troca entre interfaces diferentes, mantendo contexto automático e limites transparentes.
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">💡 Por que funciona</h3>
+                    <ul class="modal-list">
+                        <li><strong>Contexto automático:</strong> Sistema detecta se é pessoal ou negócio</li>
+                        <li><strong>Limites transparentes:</strong> Usuário vê como são compartidos</li>
+                        <li><strong>Uma só interface:</strong> Não precisa trocar entre apps/seções</li>
+                        <li><strong>Zero confusão:</strong> Produtos certos para cada contexto</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🎯 Hipótesis</h3>
+                    <p class="modal-text italic">
+                        "Uma experiência unificada elimina fragmentação para usuários mistos, reduzindo confusão e aumentando confiança na plataforma."
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">📊 Métricas de Negócio</h3>
+                    <ul class="modal-list">
+                        <li><strong>-75% contatos suporte:</strong> Menos dúvidas sobre contextos</li>
+                        <li><strong>+60% conversão:</strong> Interface adaptada aumenta uso</li>
+                        <li><strong>-40% abandono:</strong> Experiência unificada retém mais</li>
+                        <li><strong>+85% satisfação:</strong> Usuários mistos valorizam unificação</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">👤 Métricas de Usuário</h3>
+                    <ul class="modal-list">
+                        <li><strong>Compreensão:</strong> 95% entendem diferença entre contextos</li>
+                        <li><strong>Velocidade:</strong> 70% mais rápido para encontrar produto certo</li>
+                        <li><strong>Confiança:</strong> 90% confiam mais na transparência</li>
+                        <li><strong>Unificação:</strong> 85% preferem interface única</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🎯 Público-alvo</h3>
+                    <p class="modal-text">
+                        Usuários "mistos" (pessoa física + vendedor) que representam 35% da base Brasil e são responsáveis por 60% dos contatos de suporte por confusão entre produtos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let answers = {};
+        let answeredQuestions = 0;
+        
+        // Handle context card selection
+        document.querySelectorAll('.context-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.context-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Handle context toggle
+        document.getElementById('contextToggle').addEventListener('click', function() {
+            const currentText = this.textContent;
+            if (currentText.includes('Pessoal')) {
+                this.textContent = 'Negócio ⇄ Pessoal';
+            } else {
+                this.textContent = 'Pessoal ⇄ Negócio';
+            }
+        });
+        
+        // Handle answer buttons
+        document.querySelectorAll('.answer-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const question = this.dataset.question;
+                const value = this.dataset.value;
+                
+                // Remove selected class from other buttons in the same question
+                document.querySelectorAll(`[data-question="${question}"]`).forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                
+                // Add selected class to this button
+                this.classList.add('selected');
+                
+                // Store answer
+                if (!answers[question]) {
+                    answeredQuestions++;
+                }
+                answers[question] = value;
+                
+                // Enable CTA button if all questions answered
+                if (answeredQuestions >= 3) {
+                    document.getElementById('getRecommendation').disabled = false;
+                }
+            });
+        });
+        
+        // Handle CTA button
+        document.getElementById('getRecommendation').addEventListener('click', function() {
+            generateRecommendation();
+        });
+        
+        function generateRecommendation() {
+            // Determine user type based on answers
+            let userType, title, amount, contexts, transparency, reasons, action;
+            
+            if (answers['1'] === 'both') {
+                // Mixed user - main target
+                userType = 'mixed';
+                title = 'Interface Unificada Completa';
+                amount = 'R$ 20.500';
+                contexts = 'Pessoal + Negócio';
+                transparency = '100%';
+                reasons = [
+                    'Você usa tanto contexto pessoal quanto negócio',
+                    'Interface única elimina troca entre seções',
+                    'Limites compartidos ficam transparentes',
+                    'Detecção automática de contexto por transação'
+                ];
+                action = 'Ativar Interface Unificada';
+            } else if (answers['1'] === 'seller') {
+                // Seller focused
+                userType = 'seller';
+                title = 'Interface Focada em Negócio';
+                amount = 'R$ 12.000';
+                contexts = 'Negócio (principal)';
+                transparency = '100%';
+                reasons = [
+                    'Foco principal em produtos para vendedores',
+                    'Merchant Credits em destaque',
+                    'Capital de giro e estoque priorizados',
+                    'Métricas de negócio sempre visíveis'
+                ];
+                action = 'Acessar Versão Negócio';
+            } else {
+                // Personal focused
+                userType = 'personal';
+                title = 'Interface Pessoal Simplificada';
+                amount = 'R$ 8.500';
+                contexts = 'Pessoal';
+                transparency = '100%';
+                reasons = [
+                    'Foco em produtos para pessoa física',
+                    'Linha de crédito e empréstimo em destaque',
+                    'Compras e emergências priorizadas',
+                    'Interface limpa sem informação de negócio'
+                ];
+                action = 'Acessar Versão Pessoal';
+            }
+            
+            // Add specific reasons based on other answers
+            if (answers['2'] === 'limits') {
+                reasons.push('Visão clara de como os limites funcionam');
+            }
+            if (answers['2'] === 'context') {
+                reasons.push('Recomendação automática do produto certo');
+            }
+            if (answers['3'] === 'unification') {
+                reasons.push('Gestão centralizada de todos os créditos');
+            }
+            
+            // Update UI
+            document.getElementById('resultTitle').textContent = title;
+            document.getElementById('offerAmount').textContent = amount;
+            document.getElementById('offerContexts').textContent = contexts;
+            document.getElementById('offerTransparency').textContent = transparency;
+            document.getElementById('primaryAction').textContent = action;
+            
+            // Update reasons list
+            const reasonsList = document.getElementById('resultReasons');
+            reasonsList.innerHTML = '';
+            reasons.forEach(reason => {
+                const li = document.createElement('li');
+                li.textContent = reason;
+                reasonsList.appendChild(li);
+            });
+            
+            // Show result section
+            document.getElementById('questionsFlow').style.display = 'none';
+            document.getElementById('recommendationResult').style.display = 'block';
+        }
+        
+        function resetRecommendation() {
+            // Reset variables
+            answers = {};
+            answeredQuestions = 0;
+            
+            // Reset UI
+            document.querySelectorAll('.answer-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            document.getElementById('getRecommendation').disabled = true;
+            document.getElementById('questionsFlow').style.display = 'block';
+            document.getElementById('recommendationResult').style.display = 'none';
+        }
+        
+        // Modal functions
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 

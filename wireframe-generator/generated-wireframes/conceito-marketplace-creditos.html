@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito G: Marketplace de Créditos - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        .marketplace-section {
+            margin-bottom: 24px;
+        }
+
+        .marketplace-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
+            color: white;
+            width: 100px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .filter-button {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .filter-button.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .credit-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .credit-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .credit-card:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .credit-card.recommended {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .credit-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .credit-tag.recommended {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+
+        .credit-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .credit-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .credit-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .credit-amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .credit-rate {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .credit-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .compare-btn {
+            flex: 1;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .compare-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .apply-btn {
+            flex: 1;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .apply-btn:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stats-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .comparison-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 16px 16px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+            z-index: 500;
+            border-radius: 12px 12px 0 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-panel.active {
+            transform: translateY(0);
+        }
+
+        .comparison-handle {
+            width: 40px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 2px;
+            margin: 0 auto 12px;
+        }
+
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .comparison-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .close-comparison {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .comparison-content {
+            max-height: 40vh;
+            overflow-y: auto;
+        }
+
+        .comparison-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .comparison-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comparison-item-info {
+            flex: 1;
+        }
+
+        .comparison-item-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .comparison-item-details {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .comparison-item-remove {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px;
+        }
+
+        .comparison-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .comparison-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .comparison-btn.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+
+        .comparison-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device" style="position: relative;">
+            <div class="mobile-screen">
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Marketplace de Créditos</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2 class="hero-title">Marketplace de Créditos</h2>
+                        <p class="hero-description">Todos os créditos que você precisa, em um só lugar</p>
+                    </div>
+
+                    <!-- Marketplace Section -->
+                    <div class="marketplace-section">
+                        <h2 class="marketplace-title">Créditos Disponíveis</h2>
+                        
+                        <div class="search-filter">
+                            <input type="text" class="search-input" placeholder="Buscar créditos...">
+                            <button class="filter-button active" onclick="filterCredits('all')">Todos</button>
+                            <button class="filter-button" onclick="filterCredits('recommended')">Indicados</button>
+                        </div>
+
+                        <div class="credit-grid">
+                            <!-- Linha de Crédito -->
+                            <div class="credit-card recommended" data-type="linha">
+                                <div class="credit-tag recommended">Recomendado</div>
+                                <div class="credit-name">Linha de Crédito</div>
+                                <div class="credit-description">Flexibilidade total: use quando precisar</div>
+                                <div class="credit-details">
+                                    <div class="credit-amount">R$ 15.000</div>
+                                    <div class="credit-rate">2,5% a.m.</div>
+                                </div>
+                                <div class="credit-actions">
+                                    <button class="compare-btn" onclick="addToComparison('linha')">Comparar</button>
+                                    <button class="apply-btn">Solicitar</button>
+                                </div>
+                            </div>
+
+                            <!-- Empréstimo Pessoal -->
+                            <div class="credit-card" data-type="emprestimo">
+                                <div class="credit-tag">Empréstimo</div>
+                                <div class="credit-name">Empréstimo Pessoal</div>
+                                <div class="credit-description">Valor fixo com parcelas mensais</div>
+                                <div class="credit-details">
+                                    <div class="credit-amount">R$ 25.000</div>
+                                    <div class="credit-rate">3,2% a.m.</div>
+                                </div>
+                                <div class="credit-actions">
+                                    <button class="compare-btn" onclick="addToComparison('emprestimo')">Comparar</button>
+                                    <button class="apply-btn">Solicitar</button>
+                                </div>
+                            </div>
+
+                            <!-- Cartão de Crédito -->
+                            <div class="credit-card" data-type="cartao">
+                                <div class="credit-tag">Cartão</div>
+                                <div class="credit-name">Cartão de Crédito</div>
+                                <div class="credit-description">Compras no cartão com limite renovável</div>
+                                <div class="credit-details">
+                                    <div class="credit-amount">R$ 8.000</div>
+                                    <div class="credit-rate">12,9% a.m.</div>
+                                </div>
+                                <div class="credit-actions">
+                                    <button class="compare-btn" onclick="addToComparison('cartao')">Comparar</button>
+                                    <button class="apply-btn">Solicitar</button>
+                                </div>
+                            </div>
+
+                            <!-- Microcrédito -->
+                            <div class="credit-card" data-type="micro">
+                                <div class="credit-tag">Microcrédito</div>
+                                <div class="credit-name">Microcrédito</div>
+                                <div class="credit-description">Valores pequenos, aprovação rápida</div>
+                                <div class="credit-details">
+                                    <div class="credit-amount">R$ 2.000</div>
+                                    <div class="credit-rate">4,5% a.m.</div>
+                                </div>
+                                <div class="credit-actions">
+                                    <button class="compare-btn" onclick="addToComparison('micro')">Comparar</button>
+                                    <button class="apply-btn">Solicitar</button>
+                                </div>
+                            </div>
+
+                            <!-- Financiamento -->
+                            <div class="credit-card" data-type="financiamento">
+                                <div class="credit-tag">Financiamento</div>
+                                <div class="credit-name">Financiamento</div>
+                                <div class="credit-description">Para compras específicas com garantia</div>
+                                <div class="credit-details">
+                                    <div class="credit-amount">R$ 50.000</div>
+                                    <div class="credit-rate">1,8% a.m.</div>
+                                </div>
+                                <div class="credit-actions">
+                                    <button class="compare-btn" onclick="addToComparison('financiamento')">Comparar</button>
+                                    <button class="apply-btn">Solicitar</button>
+                                </div>
+                            </div>
+
+                            <!-- Crédito Consignado -->
+                            <div class="credit-card" data-type="consignado">
+                                <div class="credit-tag">Consignado</div>
+                                <div class="credit-name">Crédito Consignado</div>
+                                <div class="credit-description">Desconto direto na folha de pagamento</div>
+                                <div class="credit-details">
+                                    <div class="credit-amount">R$ 35.000</div>
+                                    <div class="credit-rate">1,2% a.m.</div>
+                                </div>
+                                <div class="credit-actions">
+                                    <button class="compare-btn" onclick="addToComparison('consignado')">Comparar</button>
+                                    <button class="apply-btn">Solicitar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="stats-section">
+                        <h2 class="stats-title">Marketplace em Números</h2>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">6</div>
+                                <div class="stat-label">Tipos de Crédito</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24h</div>
+                                <div class="stat-label">Aprovação</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Satisfação</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">Tarifas Ocultas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Panel -->
+                <div class="comparison-panel" id="comparisonPanel">
+                    <div class="comparison-handle"></div>
+                    <div class="comparison-header">
+                        <div class="comparison-title">Comparar Créditos</div>
+                        <button class="close-comparison" onclick="closeComparison()">×</button>
+                    </div>
+                    <div class="comparison-content">
+                        <div id="comparisonContent">
+                            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">Selecione créditos para comparar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito G: Marketplace de Créditos</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Centralizar escolhas reduz carga cognitiva e aumenta conversão</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Catálogo Completo:</strong> 6 tipos de crédito em um só lugar</li>
+                    <li><strong>Comparação Transparente:</strong> Valores, taxas e condições lado a lado</li>
+                    <li><strong>Filtros Inteligentes:</strong> Encontre exatamente o que precisa</li>
+                    <li><strong>Contratação Unificada:</strong> Um processo para todos os produtos</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Se centralizarmos todos os produtos de crédito em uma plataforma transparente, conversão aumenta 60% e tempo de decisão reduz 75%.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: Produtos espalhados, decisão difícil</li>
+                    <li>Tempo médio atual: 2-3 semanas para escolher</li>
+                    <li>Meta: 24h para decisão e contratação</li>
+                    <li>Impacto esperado: +60% conversão, -75% tempo decisão</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Produtos disponíveis: 6 tipos de crédito</li>
+                    <li>Tempo para aprovação: 24 horas</li>
+                    <li>Satisfação com comparação: 98%</li>
+                    <li>Tarifas ocultas: 0</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let comparisonList = [];
+
+        // Credit data
+        const creditData = {
+            'linha': {
+                name: 'Linha de Crédito',
+                amount: 'R$ 15.000',
+                rate: '2,5% a.m.',
+                description: 'Flexibilidade total: use quando precisar'
+            },
+            'emprestimo': {
+                name: 'Empréstimo Pessoal',
+                amount: 'R$ 25.000',
+                rate: '3,2% a.m.',
+                description: 'Valor fixo com parcelas mensais'
+            },
+            'cartao': {
+                name: 'Cartão de Crédito',
+                amount: 'R$ 8.000',
+                rate: '12,9% a.m.',
+                description: 'Compras no cartão com limite renovável'
+            },
+            'micro': {
+                name: 'Microcrédito',
+                amount: 'R$ 2.000',
+                rate: '4,5% a.m.',
+                description: 'Valores pequenos, aprovação rápida'
+            },
+            'financiamento': {
+                name: 'Financiamento',
+                amount: 'R$ 50.000',
+                rate: '1,8% a.m.',
+                description: 'Para compras específicas com garantia'
+            },
+            'consignado': {
+                name: 'Crédito Consignado',
+                amount: 'R$ 35.000',
+                rate: '1,2% a.m.',
+                description: 'Desconto direto na folha de pagamento'
+            }
+        };
+
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        function filterCredits(type) {
+            const buttons = document.querySelectorAll('.filter-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.credit-card');
+            cards.forEach(card => {
+                if (type === 'all') {
+                    card.style.display = 'block';
+                } else if (type === 'recommended') {
+                    card.style.display = card.classList.contains('recommended') ? 'block' : 'none';
+                }
+            });
+        }
+
+        function addToComparison(creditType) {
+            if (!comparisonList.includes(creditType)) {
+                comparisonList.push(creditType);
+                updateComparisonPanel();
+            }
+        }
+
+        function removeFromComparison(creditType) {
+            const index = comparisonList.indexOf(creditType);
+            if (index > -1) {
+                comparisonList.splice(index, 1);
+                updateComparisonPanel();
+            }
+        }
+
+        function updateComparisonPanel() {
+            const panel = document.getElementById('comparisonPanel');
+            const content = document.getElementById('comparisonContent');
+            
+            if (comparisonList.length > 0) {
+                panel.classList.add('active');
+                
+                let itemsHTML = '';
+                comparisonList.forEach(creditType => {
+                    const credit = creditData[creditType];
+                    itemsHTML += `
+                        <div class="comparison-item">
+                            <div class="comparison-item-info">
+                                <div class="comparison-item-name">${credit.name}</div>
+                                <div class="comparison-item-details">${credit.amount} • ${credit.rate}</div>
+                            </div>
+                            <button class="comparison-item-remove" onclick="removeFromComparison('${creditType}')">×</button>
+                        </div>
+                    `;
+                });
+                
+                content.innerHTML = `
+                    <div class="comparison-items">
+                        ${itemsHTML}
+                    </div>
+                    <div class="comparison-actions">
+                        <button class="comparison-btn secondary" onclick="clearComparison()">Limpar</button>
+                        <button class="comparison-btn primary" onclick="compareCredits()">Comparar ${comparisonList.length}</button>
+                    </div>
+                `;
+            } else {
+                panel.classList.remove('active');
+            }
+        }
+
+        function clearComparison() {
+            comparisonList = [];
+            updateComparisonPanel();
+        }
+
+        function compareCredits() {
+            // Simulate comparison functionality
+            alert(`Comparando ${comparisonList.length} créditos:\n${comparisonList.map(type => creditData[type].name).join('\n')}`);
+        }
+
+        function closeComparison() {
+            document.getElementById('comparisonPanel').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeComparison();
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito E: Ecosistema de Recompensas - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        /* Level Selector Styles */
+        .level-comparison {
+            margin: 20px 0;
+        }
+        
+        .comparison-title {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .comparison-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .level-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 0px;
+            scroll-behavior: smooth;
+        }
+        
+        .level-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .level-card {
+            flex: 0 0 220px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .level-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .level-card.selected {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 1);
+            color: #000;
+        }
+        
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .level-header h3 {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .level-card.selected .level-header h3 {
+            color: #000;
+        }
+        
+        .level-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .level-badge.bronze {
+            background: rgba(205, 127, 50, 0.8);
+        }
+        
+        .level-badge.silver {
+            background: rgba(192, 192, 192, 0.8);
+        }
+        
+        .level-badge.gold {
+            background: rgba(255, 215, 0, 0.8);
+            color: #000;
+        }
+        
+        .level-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .detail-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .detail-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .level-card.selected .detail-label {
+            color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .detail-value {
+            color: white;
+            font-size: 14px;
+        }
+        
+        .level-card.selected .detail-value {
+            color: #000;
+        }
+        
+        /* Button Styles */
+        .answer-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 4px;
+        }
+        
+        .answer-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .answer-btn.selected {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 1);
+            color: #000;
+        }
+        
+        .cta-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #000;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        
+        .cta-button:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+        
+        .cta-button:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+        }
+        
+        .result-cta {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 4px;
+        }
+        
+        .result-cta.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            width: 100%;
+        }
+        
+        .result-cta.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .result-cta:hover {
+            transform: translateY(-1px);
+        }
+        
+        .result-cta.primary:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .result-cta.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Offer Section Styles */
+        .offer-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        
+        .offer-amount {
+            margin-bottom: 8px;
+        }
+        
+        .offer-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .offer-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .offer-details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .offer-detail {
+            text-align: center;
+            margin: 4px;
+        }
+        
+        .offer-detail-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .offer-detail-value {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        /* Concept Explanation Styles */
+        .concept-explanation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .concept-explanation h2 {
+            color: white;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+        
+        .concept-explanation > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin: 0 0 12px 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .simple-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .benefit {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        /* Result Reasons */
+        .result-reasons {
+            margin: 16px 0;
+        }
+        
+        .result-reasons h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .result-reasons ul {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .result-reasons li {
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .result-reasons li:before {
+            content: "•";
+            color: #fff;
+            font-weight: bold;
+            padding-right: 8px;
+            left: 0;
+            position: absolute;
+        }
+        
+        .result-actions {
+            gap: 8px;
+            margin-top: 16px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Ecosistema de Recompensas</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">Quanto melhor você cuida das suas finanças</h1>
+                        <p class="hero-subtitle">Melhores são as suas condições<br>
+                        Um ecossistema que cresce com você</p>
+                    </div>
+
+                    <!-- Conceito Explicado -->
+                    <div class="concept-explanation">
+                        <h2>Como funciona o ecosistema</h2>
+                        <p>Bom comportamento → Melhor nível → Mais benefícios</p>
+                        
+                        <div class="simple-benefits">
+                            <span class="benefit">Taxas menores</span>
+                            <span class="benefit">Limites maiores</span>
+                            <span class="benefit">Vantagens exclusivas</span>
+                        </div>
+                    </div>
+
+                    <!-- Level Comparison -->
+                    <div class="level-comparison">
+                        <h2 class="comparison-title">Compare os níveis</h2>
+                        <p class="comparison-description">Deslize para ver as diferenças</p>
+                        
+                        <div class="level-scroll">
+                            <div class="level-card" data-level="bronze">
+                                <div class="level-header">
+                                    <h3>Iniciante</h3>
+                                    <span class="level-badge bronze">Bronze</span>
+                                </div>
+                                <div class="level-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Limite</span>
+                                        <span class="detail-value">R$ 3.000</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Taxa mensal</span>
+                                        <span class="detail-value">4,5%</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Cashback</span>
+                                        <span class="detail-value">0,5%</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Suporte</span>
+                                        <span class="detail-value">Chat</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="level-card" data-level="silver">
+                                <div class="level-header">
+                                    <h3>Cuidadoso</h3>
+                                    <span class="level-badge silver">Silver</span>
+                                </div>
+                                <div class="level-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Limite</span>
+                                        <span class="detail-value">R$ 8.000</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Taxa mensal</span>
+                                        <span class="detail-value">3,2%</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Cashback</span>
+                                        <span class="detail-value">1,5%</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Suporte</span>
+                                        <span class="detail-value">Prioritário</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="level-card" data-level="gold">
+                                <div class="level-header">
+                                    <h3>Exemplar</h3>
+                                    <span class="level-badge gold">Gold</span>
+                                </div>
+                                <div class="level-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Limite</span>
+                                        <span class="detail-value">R$ 25.000</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Taxa mensal</span>
+                                        <span class="detail-value">2,1%</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Cashback</span>
+                                        <span class="detail-value">3,0%</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Suporte</span>
+                                        <span class="detail-value">Gerente</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recomendação -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-badge">DESCUBRA SEU NÍVEL</div>
+                        <h2 class="recommendation-title">Responda 3 perguntas</h2>
+                        
+                        <!-- Questions (Initially shown) -->
+                        <div class="question-flow" id="questionsFlow">
+                            <div class="question-item">
+                                <p class="question-text"><strong>1.</strong> Como é seu histórico financeiro?</p>
+                                <div class="answer-options">
+                                    <button class="answer-btn" data-question="1" data-value="new">Sou novo no sistema</button>
+                                    <button class="answer-btn" data-question="1" data-value="good">Pago contas em dia</button>
+                                    <button class="answer-btn" data-question="1" data-value="excellent">Tenho excelente histórico</button>
+                                </div>
+                            </div>
+                            
+                            <div class="question-item">
+                                <p class="question-text"><strong>2.</strong> Como você planeja seus gastos?</p>
+                                <div class="answer-options">
+                                    <button class="answer-btn" data-question="2" data-value="learning">Estou aprendendo</button>
+                                    <button class="answer-btn" data-question="2" data-value="organized">Sou organizado</button>
+                                    <button class="answer-btn" data-question="2" data-value="disciplined">Muito disciplinado</button>
+                                </div>
+                            </div>
+                            
+                            <div class="question-item">
+                                <p class="question-text"><strong>3.</strong> Como usa produtos de crédito?</p>
+                                <div class="answer-options">
+                                    <button class="answer-btn" data-question="3" data-value="occasional">Ocasionalmente</button>
+                                    <button class="answer-btn" data-question="3" data-value="regular">Regularmente</button>
+                                    <button class="answer-btn" data-question="3" data-value="strategic">Estrategicamente</button>
+                                </div>
+                            </div>
+                            
+                            <button class="cta-button" id="getRecommendation" disabled>Ver Meu Nível</button>
+                        </div>
+                        
+                        <!-- Result Section (Initially Hidden) -->
+                        <div class="recommendation-result" id="recommendationResult" style="display: none;">
+                            <div class="result-header">
+                                <h3 id="resultTitle">Seu Nível no Ecosistema</h3>
+                                <p id="resultDescription">Baseado no seu perfil!</p>
+                            </div>
+                            
+                            <div class="offer-section">
+                                <div class="offer-amount">
+                                    <span class="offer-label">Seu limite atual</span>
+                                    <span class="offer-value" id="offerAmount">R$ 3.000</span>
+                                </div>
+                                <div class="offer-details">
+                                    <div class="offer-detail">
+                                        <span class="offer-detail-label">Taxa</span>
+                                        <span class="offer-detail-value" id="offerRate">4,5% a.m.</span>
+                                    </div>
+                                    <div class="offer-detail">
+                                        <span class="offer-detail-label">Cashback</span>
+                                        <span class="offer-detail-value" id="offerCashback">0,5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="result-reasons">
+                                <h4 id="motivationTitle">Como evoluir:</h4>
+                                <ul id="resultReasons"></ul>
+                            </div>
+                            
+                            <div class="result-actions">
+                                <button class="result-cta primary" id="primaryAction">Solicitar Crédito</button>
+                                <button class="result-cta secondary" onclick="resetRecommendation()">Refazer Teste</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito E: Ecosistema de Recompensas</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🎯 Conceito</h3>
+                    <p class="modal-text">
+                        <strong>Ecosistema de Recompensas:</strong> Um sistema que premia bom comportamento financeiro com melhores condições, criando um ciclo virtuoso de evolução.
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🧠 Princípio Cognitivo</h3>
+                    <p class="modal-text">
+                        <strong>Gamificação + Reforço Positivo:</strong> Transformar comportamento financeiro em jogo com níveis, recompensas e progressão clara para motivar melhores decisões.
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">💡 Por que funciona</h3>
+                    <ul class="modal-list">
+                        <li><strong>Motivação intrínseca:</strong> Usuários se sentem recompensados por bom comportamento</li>
+                        <li><strong>Progresso visível:</strong> Níveis claros mostram evolução e próximos objetivos</li>
+                        <li><strong>Benefícios tangíveis:</strong> Melhores condições são recompensa real, não simbólica</li>
+                        <li><strong>Transparência total:</strong> Sistema de pontuação claro e previsível</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">🎯 Hipótesis</h3>
+                    <p class="modal-text italic">
+                        "Recompensar bom comportamento financeiro com benefícios tangíveis gera mais fidelidade, reduz risco e aumenta engajamento dos usuários."
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">📊 Métricas de Negócio</h3>
+                    <ul class="modal-list">
+                        <li><strong>+200% engajamento:</strong> Usuários interagem 3x mais com produtos</li>
+                        <li><strong>-40% inadimplência:</strong> Comportamento incentivado reduz risco</li>
+                        <li><strong>+150% retenção:</strong> Sistema de níveis aumenta fidelidade</li>
+                        <li><strong>85% satisfação:</strong> Usuários valorizam recompensas reais</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="modal-subtitle">👤 Métricas de Usuário</h3>
+                    <ul class="modal-list">
+                        <li><strong>Motivação:</strong> 90% querem evoluir para próximo nível</li>
+                        <li><strong>Compreensão:</strong> 95% entendem como funciona o sistema</li>
+                        <li><strong>Adoção:</strong> 80% modificam comportamento para ganhar benefícios</li>
+                        <li><strong>Recomendação:</strong> NPS de 85 (sistema é valorizado)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let answers = {};
+        let answeredQuestions = 0;
+        
+        // Handle level card selection
+        document.querySelectorAll('.level-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.level-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Handle answer buttons
+        document.querySelectorAll('.answer-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const question = this.dataset.question;
+                const value = this.dataset.value;
+                
+                // Remove selected class from other buttons in the same question
+                document.querySelectorAll(`[data-question="${question}"]`).forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                
+                // Add selected class to this button
+                this.classList.add('selected');
+                
+                // Store answer
+                if (!answers[question]) {
+                    answeredQuestions++;
+                }
+                answers[question] = value;
+                
+                // Enable CTA button if all questions answered
+                if (answeredQuestions >= 3) {
+                    document.getElementById('getRecommendation').disabled = false;
+                }
+            });
+        });
+        
+        // Handle CTA button
+        document.getElementById('getRecommendation').addEventListener('click', function() {
+            generateRecommendation();
+        });
+        
+        function generateRecommendation() {
+            // Calculate level based on answers
+            let score = 0;
+            
+            // Question 1: Financial history
+            if (answers['1'] === 'good') score += 1;
+            if (answers['1'] === 'excellent') score += 2;
+            
+            // Question 2: Planning
+            if (answers['2'] === 'organized') score += 1;
+            if (answers['2'] === 'disciplined') score += 2;
+            
+            // Question 3: Credit usage
+            if (answers['3'] === 'regular') score += 1;
+            if (answers['3'] === 'strategic') score += 2;
+            
+            // Determine level
+            let level, levelName, limit, rate, cashback, motivation, action;
+            
+            if (score >= 5) {
+                level = 'gold';
+                levelName = 'Nível Exemplar';
+                limit = 'R$ 25.000';
+                rate = '2,1% a.m.';
+                cashback = '3,0%';
+                motivation = ['Parabéns! Você está no nível máximo', 'Continue com sua disciplina financeira exemplar', 'Mantenha seu score alto para preservar benefícios premium'];
+                action = 'Aproveitar Benefícios Premium';
+            } else if (score >= 3) {
+                level = 'silver';
+                levelName = 'Nível Cuidadoso';
+                limit = 'R$ 8.000';
+                rate = '3,2% a.m.';
+                cashback = '1,5%';
+                motivation = ['Muito bem! Você está no nível intermediário', 'Mantenha score alto para evoluir', 'Próximo: Nível Exemplar com R$ 25.000 e taxa 2,1%'];
+                action = 'Solicitar Upgrade';
+            } else {
+                level = 'bronze';
+                levelName = 'Nível Iniciante';
+                limit = 'R$ 3.000';
+                rate = '4,5% a.m.';
+                cashback = '0,5%';
+                motivation = ['Você está começando sua jornada', 'Pague contas em dia por 6 meses', 'Próximo: Nível Cuidadoso com R$ 8.000 e taxa 3,2%'];
+                action = 'Começar Jornada';
+            }
+            
+            // Update UI
+            document.getElementById('resultTitle').textContent = levelName;
+            document.getElementById('offerAmount').textContent = limit;
+            document.getElementById('offerRate').textContent = rate;
+            document.getElementById('offerCashback').textContent = cashback;
+            document.getElementById('primaryAction').textContent = action;
+            
+            // Update motivation list
+            const reasonsList = document.getElementById('resultReasons');
+            reasonsList.innerHTML = '';
+            motivation.forEach(reason => {
+                const li = document.createElement('li');
+                li.textContent = reason;
+                reasonsList.appendChild(li);
+            });
+            
+            // Show result section
+            document.getElementById('questionsFlow').style.display = 'none';
+            document.getElementById('recommendationResult').style.display = 'block';
+        }
+        
+        function resetRecommendation() {
+            // Reset variables
+            answers = {};
+            answeredQuestions = 0;
+            
+            // Reset UI
+            document.querySelectorAll('.answer-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            document.getElementById('getRecommendation').disabled = true;
+            document.getElementById('questionsFlow').style.display = 'block';
+            document.getElementById('recommendationResult').style.display = 'none';
+        }
+        
+        // Modal functions
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 

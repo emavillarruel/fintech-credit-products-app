@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crédito Brasil - Soluções Unificadas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/hub.css">
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://http2.mlstatic.com/frontend-assets/meli-studio-fe/meli.svg" 
+                         alt="MercadoLibre" 
+                         class="meli-logo" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="text-white font-regular text-xl" style="display: none;">ML</div>
+                    <div class="text-white font-regular text-lg">Alternativas conceituais IA</div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="#concepts" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Conceitos</a>
+                        <a href="#problem" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Problema</a>
+                        <a href="#solutions" class="text-white/70 hover:text-white transition-colors text-sm font-regular">Produtos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16 min-h-screen">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- 1. Hero Section (Resumido) -->
+            <div class="text-center mb-12">
+                <div class="glass-panel rounded-xl p-6 w-full">
+                    <h1 class="text-3xl font-light text-white mb-4">
+                        Um lugar onde contratar e gerenciar crédito é fácil, claro e confiável
+                    </h1>
+                    <p class="text-white/80 font-light">
+                        Desde o primeiro clique até a última parcela
+                    </p>
+                     <!-- 2. Conceitos de Solução (PROTAGONISMO) -->
+                    <p class="text-white/80 font-light">
+                        <strong>Princípios UX:</strong> Simplicidade Cognitiva • Transparência Total • 
+                        Personalização Inteligente • Redução de Fricção
+                    </p>
+                </div>
+            </div>
+
+           
+            <div id="concepts" class="mb-16">
+               
+                <!-- Concepts Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    <!-- Conceito 1: Clarificação de Produtos -->
+                    <div class="concept-card concept-a rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito A</div>
+                            <h3 class="concept-title">Linha ou Empréstimo?</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">35%</div>
+                                <div class="text-xs text-white/60">Confusão</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">85k</div>
+                                <div class="text-xs text-white/60">USD/mês</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">0</div>
+                                <div class="text-xs text-white/60">Meta</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Explicação visual das diferenças</div>
+                            <div>• Recomendação baseada em necessidade</div>
+                            <div>• "Para que serve" sempre visível</div>
+                            <div>• Reduz 35% dos contatos de suporte</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Se o usuário entende a diferença desde o início, reduzimos 85k USD/mês em suporte."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-linha-ou-emprestimo.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+
+                    <!-- Conceito 2: Banco Adaptativo -->
+                    <div class="concept-card concept-b rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito B</div>
+                            <h3 class="concept-title">Banco Adaptativo</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">Datas</div>
+                                <div class="text-xs text-white/60">Especiais</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">100%</div>
+                                <div class="text-xs text-white/60">Personalizado</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">3</div>
+                                <div class="text-xs text-white/60">Ocasiões</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Ofertas por data especial (casamento, negócio)</div>
+                            <div>• Condições personalizadas por ocasião</div>
+                            <div>• Cronograma adaptado ao objetivo</div>
+                            <div>• Banco que se adapta aos seus sonhos</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Ofertas conectadas a momentos especiais geram mais engajamento e satisfação."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-banco-adaptativo.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+
+                    <!-- Conceito 3: Experiência Unificada -->
+                    <div class="concept-card concept-c rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito C</div>
+                            <h3 class="concept-title">Você Completo</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">1</div>
+                                <div class="text-xs text-white/60">Lugar</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">Misto</div>
+                                <div class="text-xs text-white/60">Usuário</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">0</div>
+                                <div class="text-xs text-white/60">Confusão</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Uma interface para pessoa + vendedor</div>
+                            <div>• Contexto automático (pessoal/negócio)</div>
+                            <div>• Limites compartidos transparentes</div>
+                            <div>• Gestão unificada de todos os créditos</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Uma experiência unificada elimina fragmentação para usuários mistos."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-voce-completo.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+
+                    <!-- Conceito 4: Limites Inteligentes -->
+                    <div class="concept-card concept-d rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito D</div>
+                            <h3 class="concept-title">Limites Inteligentes</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">100%</div>
+                                <div class="text-xs text-white/60">Transparente</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">Auto</div>
+                                <div class="text-xs text-white/60">Renovação</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">0</div>
+                                <div class="text-xs text-white/60">Surpresas</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Como funcionam limites compartidos</div>
+                            <div>• Por que ofertas se "apagam"</div>
+                            <div>• Renovação automática transparente</div>
+                            <div>• Recálculo de limite explicado</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Limites transparentes eliminam frustração e geram confiança."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-limites-inteligentes.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+
+                    <!-- Conceito 5: Ecosistema de Recompensas -->
+                    <div class="concept-card concept-e rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito E</div>
+                            <h3 class="concept-title">Ecosistema de Recompensas</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">Win</div>
+                                <div class="text-xs text-white/60">Win</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">3</div>
+                                <div class="text-xs text-white/60">Níveis</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">2.1%</div>
+                                <div class="text-xs text-white/60">Taxa mín</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Quanto melhor você, melhores condições</div>
+                            <div>• Níveis: Iniciante, Cuidadoso, Exemplar</div>
+                            <div>• Benefícios crescentes por comportamento</div>
+                            <div>• Gamificação transparente e motivadora</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Recompensar bom comportamento financeiro gera fidelidade e reduz risco."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-ecosistema-recompensas.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+
+                    <!-- Conceito 6: Contratação Express -->
+                    <div class="concept-card concept-f rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito F</div>
+                            <h3 class="concept-title">Contratação Express</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">60</div>
+                                <div class="text-xs text-white/60">Segundos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">3</div>
+                                <div class="text-xs text-white/60">Passos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">0</div>
+                                <div class="text-xs text-white/60">Documentos</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Contratação em 60 segundos</div>
+                            <div>• Sem documentos, só confirmações</div>
+                            <div>• Progresso visual em tempo real</div>
+                            <div>• Aprovação instantânea transparente</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Eliminar fricção no processo aumenta conversão em 40% e satisfação em 35%."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-contratacao-express.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+
+                    <!-- Conceito 7: Marketplace de Créditos -->
+                    <div class="concept-card concept-g rounded-2xl p-8">
+                        <div class="mb-6">
+                            <div class="badge-concept mb-3">Conceito G</div>
+                            <h3 class="concept-title">Marketplace de Créditos</h3>
+                        </div>
+                        
+                        <div class="stats-grid mb-6">
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">6</div>
+                                <div class="text-xs text-white/60">Tipos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">24h</div>
+                                <div class="text-xs text-white/60">Aprovação</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="text-2xl font-regular text-white">98%</div>
+                                <div class="text-xs text-white/60">Satisfação</div>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-description mb-6 space-y-2">
+                            <div>• Todos os créditos em um só lugar</div>
+                            <div>• Comparação transparente e inteligente</div>
+                            <div>• Filtros por necessidade e perfil</div>
+                            <div>• Contratação unificada e simplificada</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-xl mb-6">
+                            <div class="hypothesis-text text-sm">
+                                "Centralizar todos os produtos aumenta conversão em 60% e reduz tempo de decisão em 75%."
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='generated-wireframes/conceito-marketplace-creditos.html'" 
+                                class="btn-primary w-full py-4 px-6 rounded-xl text-sm font-medium">
+                            Ver Conceito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Explicação Detalhada -->
+            <div id="explanation" class="mb-16">
+                <div class="text-center mb-8">
+                    <div class="glass-panel rounded-xl p-8 w-full">
+                        <!-- Problem Explanation -->
+                        <div class="bg-white/5 rounded-xl p-6 mb-6 text-left">
+                            <h2 class="text-xl font-regular text-white mb-4">🎯 O Problema Real</h2>
+                            <div class="space-y-3 text-white/90">
+                                <p>• <strong>35% dos contatos mensais</strong> são de usuários com linha de crédito disponível que não sabem para que serve</p>
+                                <p>• <strong>Custo: 85k USD por mês</strong> em atendimento por confusão</p>
+                                <p>• Usuários "mistos" (pessoa + vendedor) têm experiência fragmentada</p>
+                                <p>• Diferença entre Linha de Crédito e Empréstimo Pessoal não é clara</p>
+                                <p>• Ofertas se "apagam" ao contratar uma, gerando frustração</p>
+                            </div>
+                        </div>
+
+                        <!-- Hypothesis -->
+                        <div class="bg-blue-500/10 border border-blue-400/20 rounded-xl p-6 mb-6">
+                            <h3 class="text-blue-200 text-lg font-regular mb-3">💡 Nossa Hipótese</h3>
+                            <p class="text-white/90 text-base font-light italic">
+                                "Se o processo de contratação for claro desde o início, o usuário confia mais, toma melhores decisões e conclui mais operações em menor tempo."
+                            </p>
+                        </div>
+
+                        <!-- Key Stats -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-white/5 rounded-xl p-4">
+                                <div class="text-2xl font-regular text-white">4</div>
+                                <div class="text-xs text-white/60">Produtos Principais</div>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4">
+                                <div class="text-2xl font-regular text-white">80%</div>
+                                <div class="text-xs text-white/60">Satisfação MC</div>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4">
+                                <div class="text-2xl font-regular text-white">85k</div>
+                                <div class="text-xs text-white/60">USD/mês custo</div>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4">
+                                <div class="text-2xl font-regular text-white">35%</div>
+                                <div class="text-xs text-white/60">Confusão LC</div>
+                            </div>
+                        </div>
+
+                        <!-- Target Audience -->
+                        <div class="text-sm text-white/70 font-light">
+                            <span class="font-regular">Foco:</span> Usuários "mistos" (pessoa + vendedor) no Brasil • 
+                            <span class="font-regular">Concorrência:</span> Nubank México e Brasil
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4. Portfólio de Produtos (contexto) -->
+            <div id="problem" class="mb-16">
+                <h2 class="text-2xl font-light text-white text-center mb-8">📊 Portfólio de Produtos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Linha de Crédito -->
+                    <div class="glass-panel rounded-xl p-6">
+                        <h3 class="text-lg font-regular text-white mb-3">Linha de Crédito (LC) / BNPL</h3>
+                        <div class="text-sm text-white/80 space-y-2">
+                            <p><strong>Problema:</strong> 35% não sabem para que serve</p>
+                            <p><strong>Confusão:</strong> Parece cartão de crédito, mas é empréstimo</p>
+                            <p><strong>Uso:</strong> Compras ML, pagamentos, emergências</p>
+                            <p><strong>Limitação:</strong> Limites compartidos não são claros</p>
+                        </div>
+                    </div>
+
+                    <!-- Empréstimo Pessoal -->
+                    <div class="glass-panel rounded-xl p-6">
+                        <h3 class="text-lg font-regular text-white mb-3">Empréstimo Pessoal (PL)</h3>
+                        <div class="text-sm text-white/80 space-y-2">
+                            <p><strong>Percepção:</strong> Empréstimo bancário padrão</p>
+                            <p><strong>Confusão:</strong> Diferença vs LC não é clara</p>
+                            <p><strong>Uso:</strong> Imprevistos (46%), consumo próprio (13%)</p>
+                            <p><strong>Limitação:</strong> Cálculo de juros não transparente</p>
+                        </div>
+                    </div>
+
+                    <!-- Merchant Credits -->
+                    <div class="glass-panel rounded-xl p-6">
+                        <h3 class="text-lg font-regular text-white mb-3">Créditos para Comerciantes</h3>
+                        <div class="text-sm text-white/80 space-y-2">
+                            <p><strong>Satisfação:</strong> 80% (melhor experiência)</p>
+                            <p><strong>Valorizado:</strong> Tempo e facilidade de aprovação</p>
+                            <p><strong>PPV:</strong> >80% consideram boa opção</p>
+                            <p><strong>Limitação:</strong> Limites percebidos como baixos</p>
+                        </div>
+                    </div>
+
+                    <!-- Financiamento de Veículos -->
+                    <div class="glass-panel rounded-xl p-6">
+                        <h3 class="text-lg font-regular text-white mb-3">Financiamento de Veículos</h3>
+                        <div class="text-sm text-white/80 space-y-2">
+                            <p><strong>Modelo único:</strong> Veículo deve estar publicado</p>
+                            <p><strong>Confusão:</strong> Garantias e funcionamento</p>
+                            <p><strong>Expectativa:</strong> ML garanta estado do auto</p>
+                            <p><strong>Percepção:</strong> Produto muito complexo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Próximos Passos -->
+            <div class="text-center">
+                <div class="glass-panel rounded-xl p-6 inline-block">
+                    <h3 class="text-white text-lg font-regular mb-4">Próximos Passos</h3>
+                    <div class="flex gap-4 flex-wrap justify-center">
+                        <button class="btn-primary px-6 py-3 rounded-xl text-sm font-medium" 
+                                onclick="alert('Iniciando geração de conceitos específicos')">
+                            Gerar Conceitos Detalhados
+                        </button>
+                        <button class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl text-sm font-medium transition-colors" 
+                                onclick="window.location.href='../CONTEXTO_PROPUESTAS.md'">
+                            Ver Contexto Completo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

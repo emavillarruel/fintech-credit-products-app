@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito B: Banco Adaptativo - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <link rel="stylesheet" href="../styles/concept-simulator.css">
+    <style>
+        /* Date Selector Styles */
+        .date-selector {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .date-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 100px;
+        }
+        
+        .date-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .date-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-color: rgba(255, 255, 255, 1);
+        }
+        
+        .date-name {
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .date-desc {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+        
+        /* Adaptive Offer Styles */
+        .adaptive-offer {
+            margin: 20px 0;
+        }
+        
+        /* Personal Message */
+        .personal-message {
+            margin-bottom: 20px;
+        }
+        
+        .message-content {
+            position: relative;
+            min-height: 60px;
+        }
+        
+        .message {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .message.active {
+            display: block;
+        }
+        
+        .message p {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Credit Offer Card */
+        .credit-offer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        
+        .offer-content {
+            position: relative;
+            min-height: 220px;
+        }
+        
+        .offer-version {
+            display: none;
+        }
+        
+        .offer-version.active {
+            display: block;
+        }
+        
+        .offer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .offer-header h3 {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .offer-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .offer-amount {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+        
+        .offer-purpose {
+            margin: 12px 0;
+        }
+        
+        .offer-purpose h4 {
+            color: white;
+            font-size: 14px;
+            margin: 0 0 8px 0;
+        }
+        
+        .purpose-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .purpose-items span {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+        
+        .offer-timeline {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 8px;
+            margin: 12px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .timeline-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .timeline-text {
+            color: white;
+            font-size: 13px;
+        }
+        
+        /* Offer Actions */
+        .offer-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .action-primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1;
+            display: none;
+        }
+        
+        .action-primary.active {
+            display: block;
+        }
+        
+        .action-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+        }
+        
+        .progress-content {
+            position: relative;
+            min-height: 100px;
+        }
+        
+        .progress-casamento, .progress-negocio, .progress-casa {
+            display: none;
+        }
+        
+        .progress-casamento.active, .progress-negocio.active, .progress-casa.active {
+            display: block;
+        }
+        
+        .progress-content h4 {
+            color: white;
+            font-size: 14px;
+            margin: 0 0 12px 0;
+        }
+        
+        .progress-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .progress-item.completed .progress-dot {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .progress-item.current .progress-dot {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .progress-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+        }
+        
+        .progress-item.completed .progress-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .progress-item.current .progress-text {
+            color: white;
+            font-weight: 500;
+        }
+        
+        /* Concept Explanation Styles */
+        .concept-explanation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .concept-explanation h2 {
+            color: white;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+        
+        .concept-explanation > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin: 0 0 12px 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .simple-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .benefit {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Banco Adaptativo</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h1 class="hero-title">Um banco que se adapta a quem você é</h1>
+                        <p class="hero-subtitle">Conte-nos sobre um momento especial<br>
+                        Vamos ajudar você a realizá-lo</p>
+                    </div>
+
+                    <!-- Conceito Explicado -->
+                    <div class="concept-explanation">
+                        <h2>Como funciona</h2>
+                        <p>Escolha sua data especial → Receba oferta personalizada → Acompanhe seu progresso</p>
+                        
+                        <div class="simple-benefits">
+                            <span class="benefit">Ofertas pensadas para seu momento</span>
+                            <span class="benefit">Prazos que fazem sentido</span>
+                            <span class="benefit">Acompanhamento até o objetivo</span>
+                        </div>
+                    </div>
+
+                    <!-- Special Date Selector -->
+                    <div class="concept-section">
+                        <h2 class="concept-title">Qual é sua próxima data especial?</h2>
+                        <div class="date-selector">
+                            <button class="date-btn active" data-occasion="casamento">
+                                <span class="date-name">Meu Casamento</span>
+                                <span class="date-desc">Em 8 meses</span>
+                            </button>
+                            <button class="date-btn" data-occasion="negocio">
+                                <span class="date-name">Abrir Negócio</span>
+                                <span class="date-desc">Em 4 meses</span>
+                            </button>
+                            <button class="date-btn" data-occasion="casa">
+                                <span class="date-name">Comprar Casa</span>
+                                <span class="date-desc">Em 1 ano</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Adaptive Offer -->
+                    <div class="adaptive-offer">
+                        <!-- Personal Message -->
+                        <div class="personal-message">
+                            <div class="message-content" id="personalMessage">
+                                <div class="message casamento active">
+                                    <p>Que emocionante! Seu casamento será um momento único. Vamos te ajudar a realizar esse sonho sem preocupações financeiras.</p>
+                                </div>
+                                <div class="message negocio">
+                                    <p>Empreender é corajoso! Vamos garantir que você tenha o capital necessário para começar seu negócio com segurança.</p>
+                                </div>
+                                <div class="message casa">
+                                    <p>Casa própria é um sonho especial! Vamos te ajudar a juntar a entrada e realizar esse grande passo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customized Credit Offer -->
+                        <div class="credit-offer-card">
+                            <div class="offer-content" id="offerContent">
+                                <!-- Wedding Offer -->
+                                <div class="offer-version casamento active">
+                                    <div class="offer-header">
+                                        <h3>Crédito para seu Casamento</h3>
+                                        <span class="offer-tag">Sonho realizado</span>
+                                    </div>
+                                    <div class="offer-amount">R$ 15.000</div>
+                                    <div class="offer-purpose">
+                                        <h4>Para que você pode usar:</h4>
+                                        <div class="purpose-items">
+                                            <span>Festa de casamento</span>
+                                            <span>Luna de mel</span>
+                                            <span>Decoração</span>
+                                            <span>Fotografia</span>
+                                        </div>
+                                    </div>
+                                    <div class="offer-timeline">
+                                        <span class="timeline-label">Pagamento:</span>
+                                        <span class="timeline-text">Comece a pagar depois do casamento</span>
+                                    </div>
+                                </div>
+
+                                <!-- Business Offer -->
+                                <div class="offer-version negocio">
+                                    <div class="offer-header">
+                                        <h3>Crédito Empresarial</h3>
+                                        <span class="offer-tag">Capital de trabalho</span>
+                                    </div>
+                                    <div class="offer-amount">R$ 25.000</div>
+                                    <div class="offer-purpose">
+                                        <h4>Para seu negócio:</h4>
+                                        <div class="purpose-items">
+                                            <span>Estoque inicial</span>
+                                            <span>Equipamentos</span>
+                                            <span>Reforma do local</span>
+                                            <span>Capital de giro</span>
+                                        </div>
+                                    </div>
+                                    <div class="offer-timeline">
+                                        <span class="timeline-label">Carência:</span>
+                                        <span class="timeline-text">3 meses para começar a pagar</span>
+                                    </div>
+                                </div>
+
+                                <!-- House Offer -->
+                                <div class="offer-version casa">
+                                    <div class="offer-header">
+                                        <h3>Poupança + Crédito Casa</h3>
+                                        <span class="offer-tag">Entrada garantida</span>
+                                    </div>
+                                    <div class="offer-amount">R$ 35.000</div>
+                                    <div class="offer-purpose">
+                                        <h4>Seu plano habitacional:</h4>
+                                        <div class="purpose-items">
+                                            <span>Entrada da casa</span>
+                                            <span>Documentação</span>
+                                            <span>ITBI e cartório</span>
+                                            <span>Mudança</span>
+                                        </div>
+                                    </div>
+                                    <div class="offer-timeline">
+                                        <span class="timeline-label">Rendimento:</span>
+                                        <span class="timeline-text">Poupança especial até a compra</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="offer-actions" id="offerActions">
+                                <button class="action-primary casamento active">Planejar meu casamento</button>
+                                <button class="action-primary negocio">Começar meu negócio</button>
+                                <button class="action-primary casa">Comprar minha casa</button>
+                                <button class="action-secondary" onclick="changeDateSelector()">Mudar data especial</button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Tracker -->
+                        <div class="progress-section">
+                            <div class="progress-content" id="progressContent">
+                                <div class="progress-casamento active">
+                                    <h4>Seu planejamento:</h4>
+                                    <div class="progress-timeline">
+                                        <div class="progress-item completed">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Crédito aprovado</span>
+                                        </div>
+                                        <div class="progress-item current">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Planeje os gastos (8 meses)</span>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Dia do casamento</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progress-negocio">
+                                    <h4>Cronograma de abertura:</h4>
+                                    <div class="progress-timeline">
+                                        <div class="progress-item completed">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Capital aprovado</span>
+                                        </div>
+                                        <div class="progress-item current">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Prepare tudo (4 meses)</span>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Abertura do negócio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progress-casa">
+                                    <h4>Caminho para casa própria:</h4>
+                                    <div class="progress-timeline">
+                                        <div class="progress-item completed">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Poupança ativada</span>
+                                        </div>
+                                        <div class="progress-item current">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Juntando entrada (1 ano)</span>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span class="progress-dot"></span>
+                                            <span class="progress-text">Compra da casa</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito B: Banco Adaptativo</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Adaptação da experiência baseada em perfil emocional e funcional do usuário</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Personalização Emocional:</strong> Interface se adapta ao estado emocional</li>
+                    <li><strong>Comunicação Contextual:</strong> Tom e linguagem baseados no perfil</li>
+                    <li><strong>Ritmo Individual:</strong> Respeita a velocidade de decisão preferida</li>
+                    <li><strong>Redução de Friction:</strong> Elimina elementos desnecessários por perfil</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Usuarios que recebem uma experiência adaptada ao seu perfil emocional e funcional têm maior satisfação, confiança e taxa de conversão.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: Experiência única para todos os perfis</li>
+                    <li>Meta: 95% de precisão na detecção de perfil</li>
+                    <li>Impacto esperado: +30% satisfação usuário</li>
+                    <li>Conversão esperada: +25% em contratações</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Tempo para detecção de perfil: 3 perguntas</li>
+                    <li>Adaptação de interface: Automática</li>
+                    <li>Precisão de recomendação: 95%</li>
+                    <li>Satisfação com personalização: Meta 95%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle date selector interaction
+        function handleDateSelector() {
+            const dateButtons = document.querySelectorAll('.date-btn');
+            
+            dateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const occasion = this.dataset.occasion;
+                    
+                    // Update active button
+                    dateButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update personal message
+                    const messages = document.querySelectorAll('.message');
+                    messages.forEach(msg => msg.classList.remove('active'));
+                    const activeMessage = document.querySelector('.message.' + occasion);
+                    if (activeMessage) {
+                        activeMessage.classList.add('active');
+                    }
+                    
+                    // Update offer content
+                    const offers = document.querySelectorAll('.offer-version');
+                    offers.forEach(offer => offer.classList.remove('active'));
+                    const activeOffer = document.querySelector('.offer-version.' + occasion);
+                    if (activeOffer) {
+                        activeOffer.classList.add('active');
+                    }
+                    
+                    // Update action buttons
+                    const actions = document.querySelectorAll('.action-primary');
+                    actions.forEach(action => action.classList.remove('active'));
+                    const activeAction = document.querySelector('.action-primary.' + occasion);
+                    if (activeAction) {
+                        activeAction.classList.add('active');
+                    }
+                    
+                    // Update progress content
+                    const progressSections = document.querySelectorAll('.progress-casamento, .progress-negocio, .progress-casa');
+                    progressSections.forEach(section => section.classList.remove('active'));
+                    const activeProgress = document.querySelector('.progress-' + occasion);
+                    if (activeProgress) {
+                        activeProgress.classList.add('active');
+                    }
+                });
+            });
+        }
+        
+        // Function to handle date change
+        function changeDateSelector() {
+            const dateButtons = document.querySelectorAll('.date-btn');
+            const currentActive = document.querySelector('.date-btn.active');
+            
+            if (currentActive) {
+                let nextIndex = [...dateButtons].indexOf(currentActive) + 1;
+                if (nextIndex >= dateButtons.length) nextIndex = 0;
+                
+                dateButtons[nextIndex].click();
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            handleDateSelector();
+        });
+        
+        // Modal functions
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 
