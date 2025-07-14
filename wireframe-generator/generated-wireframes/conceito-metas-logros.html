@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito P: Metas e Conquistas - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        .achievements-overview {
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .user-progress {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .level-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            position: relative;
+        }
+
+        .level-badge::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .user-level {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .user-title {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .xp-progress {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            height: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .xp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+
+        .xp-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        .goals-section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .goal-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-card.completed {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .goal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .goal-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .goal-info {
+            flex: 1;
+            margin-left: 12px;
+        }
+
+        .goal-name {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .goal-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        .goal-reward {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 4px 8px;
+            color: white;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .goal-progress {
+            margin-bottom: 12px;
+        }
+
+        .progress-bar-goal {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            height: 6px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .progress-fill-goal {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            border-radius: 6px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text-goal {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .achievement-item.unlocked {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: scale(1.02);
+        }
+
+        .achievement-item.locked {
+            opacity: 0.5;
+        }
+
+        .achievement-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .achievement-name {
+            color: white;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .achievement-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 9px;
+            line-height: 1.2;
+        }
+
+        .streak-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .streak-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .streak-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .streak-count {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .streak-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-day {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .calendar-day.completed {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .calendar-day.today {
+            border: 2px solid #f59e0b;
+        }
+
+        .challenges-section {
+            margin-bottom: 20px;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .challenge-badge {
+            position: absolute;
+            top: -8px;
+            right: 12px;
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .challenge-timer {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        .leaderboard-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+
+        .leaderboard-rank {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            margin-right: 12px;
+        }
+
+        .leaderboard-rank.gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .leaderboard-rank.silver {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+        }
+
+        .leaderboard-rank.bronze {
+            background: linear-gradient(135deg, #d2691e, #a0522d);
+        }
+
+        .leaderboard-info {
+            flex: 1;
+        }
+
+        .leaderboard-name {
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .leaderboard-score {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+
+        .celebration-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .celebration-content {
+            text-align: center;
+            color: white;
+        }
+
+        .celebration-icon {
+            font-size: 80px;
+            margin-bottom: 16px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .floating-add-goal {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s;
+            z-index: 100;
+        }
+
+        .floating-add-goal:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device" style="position: relative;">
+            <div class="mobile-screen">
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Metas e Conquistas</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2 class="hero-title">Seus Objetivos Financeiros</h2>
+                        <p class="hero-description">Cresça financeiramente com metas gamificadas</p>
+                    </div>
+
+                    <!-- User Progress -->
+                    <div class="user-progress">
+                        <div class="level-badge">15</div>
+                        <div class="user-level">Nível 15</div>
+                        <div class="user-title">Investidor Inteligente</div>
+                        <div class="xp-progress">
+                            <div class="xp-fill" style="width: 73%"></div>
+                        </div>
+                        <div class="xp-text">2.190 / 3.000 XP para próximo nível</div>
+                    </div>
+
+                    <!-- Current Goals -->
+                    <div class="achievements-overview">
+                        <div class="goals-section">
+                            <div class="section-title">
+                                🎯 Metas Ativas
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <div style="display: flex; align-items: center;">
+                                        <div class="goal-icon">💰</div>
+                                        <div class="goal-info">
+                                            <div class="goal-name">Reserva de Emergência</div>
+                                            <div class="goal-description">Economizar R$ 5.000 em 6 meses</div>
+                                        </div>
+                                    </div>
+                                    <div class="goal-reward">+500 XP</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-bar-goal">
+                                        <div class="progress-fill-goal" style="width: 68%"></div>
+                                    </div>
+                                    <div class="progress-text-goal">
+                                        <span>R$ 3.400 economizados</span>
+                                        <span>68% completo</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <div style="display: flex; align-items: center;">
+                                        <div class="goal-icon">📊</div>
+                                        <div class="goal-info">
+                                            <div class="goal-name">Melhorar Score</div>
+                                            <div class="goal-description">Atingir score 900 em 3 meses</div>
+                                        </div>
+                                    </div>
+                                    <div class="goal-reward">+300 XP</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-bar-goal">
+                                        <div class="progress-fill-goal" style="width: 85%"></div>
+                                    </div>
+                                    <div class="progress-text-goal">
+                                        <span>Score atual: 850</span>
+                                        <span>85% completo</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-card completed">
+                                <div class="goal-header">
+                                    <div style="display: flex; align-items: center;">
+                                        <div class="goal-icon">✅</div>
+                                        <div class="goal-info">
+                                            <div class="goal-name">Primeira Aplicação</div>
+                                            <div class="goal-description">Fazer primeiro investimento</div>
+                                        </div>
+                                    </div>
+                                    <div class="goal-reward">Completo!</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Streak Section -->
+                        <div class="streak-section">
+                            <div class="streak-header">
+                                <div class="streak-title">🔥 Sequência de Pagamentos</div>
+                                <div class="streak-count">12 dias</div>
+                            </div>
+                            <div class="streak-calendar">
+                                <div class="calendar-day completed">S</div>
+                                <div class="calendar-day completed">T</div>
+                                <div class="calendar-day completed">Q</div>
+                                <div class="calendar-day completed">Q</div>
+                                <div class="calendar-day completed">S</div>
+                                <div class="calendar-day completed">S</div>
+                                <div class="calendar-day completed">D</div>
+                                <div class="calendar-day completed">S</div>
+                                <div class="calendar-day completed">T</div>
+                                <div class="calendar-day completed">Q</div>
+                                <div class="calendar-day completed">Q</div>
+                                <div class="calendar-day completed">S</div>
+                                <div class="calendar-day today">S</div>
+                                <div class="calendar-day">D</div>
+                            </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div class="section-title">
+                            🏆 Conquistas Recentes
+                        </div>
+
+                        <div class="achievements-grid">
+                            <div class="achievement-item unlocked">
+                                <span class="achievement-icon">🥇</span>
+                                <div class="achievement-name">Primeiro Passo</div>
+                                <div class="achievement-description">Primeira transação</div>
+                            </div>
+                            <div class="achievement-item unlocked">
+                                <span class="achievement-icon">💸</span>
+                                <div class="achievement-name">Pagador</div>
+                                <div class="achievement-description">10 pagamentos em dia</div>
+                            </div>
+                            <div class="achievement-item unlocked">
+                                <span class="achievement-icon">📈</span>
+                                <div class="achievement-name">Em Alta</div>
+                                <div class="achievement-description">Score aumentou 50 pontos</div>
+                            </div>
+                            <div class="achievement-item unlocked">
+                                <span class="achievement-icon">💎</span>
+                                <div class="achievement-name">Disciplina</div>
+                                <div class="achievement-description">30 dias pagando em dia</div>
+                            </div>
+                            <div class="achievement-item locked">
+                                <span class="achievement-icon">👑</span>
+                                <div class="achievement-name">Rei das Finanças</div>
+                                <div class="achievement-description">Score 950+</div>
+                            </div>
+                            <div class="achievement-item locked">
+                                <span class="achievement-icon">🚀</span>
+                                <div class="achievement-name">Investidor</div>
+                                <div class="achievement-description">R$ 10k investidos</div>
+                            </div>
+                        </div>
+
+                        <!-- Challenges -->
+                        <div class="challenges-section">
+                            <div class="section-title">
+                                ⚡ Desafios da Semana
+                            </div>
+
+                            <div class="challenge-card">
+                                <div class="challenge-badge">NOVO</div>
+                                <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                                    <div class="goal-icon">⚡</div>
+                                    <div class="goal-info">
+                                        <div class="goal-name">Desafio Flash</div>
+                                        <div class="goal-description">Pague 3 contas esta semana</div>
+                                    </div>
+                                    <div class="goal-reward">+100 XP</div>
+                                </div>
+                                <div class="progress-bar-goal">
+                                    <div class="progress-fill-goal" style="width: 33%"></div>
+                                </div>
+                                <div class="challenge-timer">⏰ Expira em 4 dias</div>
+                            </div>
+                        </div>
+
+                        <!-- Leaderboard -->
+                        <div class="leaderboard-section">
+                            <div class="section-title">
+                                🏅 Ranking dos Amigos
+                            </div>
+
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank gold">1</div>
+                                <div class="leaderboard-info">
+                                    <div class="leaderboard-name">Maria Silva</div>
+                                    <div class="leaderboard-score">3.250 XP este mês</div>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank silver">2</div>
+                                <div class="leaderboard-info">
+                                    <div class="leaderboard-name">Você</div>
+                                    <div class="leaderboard-score">2.190 XP este mês</div>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item">
+                                <div class="leaderboard-rank bronze">3</div>
+                                <div class="leaderboard-info">
+                                    <div class="leaderboard-name">João Santos</div>
+                                    <div class="leaderboard-score">1.870 XP este mês</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Add Goal Button -->
+                <button class="floating-add-goal" onclick="addNewGoal()">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Animation -->
+    <div class="celebration-animation" id="celebrationAnimation">
+        <div class="celebration-content">
+            <div class="celebration-icon">🎉</div>
+            <h3 style="margin-bottom: 8px;">Parabéns!</h3>
+            <p>Você conquistou um novo nível!</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito P: Metas e Conquistas</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Gamificação financeira cria hábitos sustentáveis e melhora disciplina através de recompensas</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Sistema de Níveis:</strong> Progressão clara e motivadora</li>
+                    <li><strong>Metas Personalizadas:</strong> Objetivos adaptados ao perfil do usuário</li>
+                    <li><strong>Recompensas Imediatas:</strong> XP e conquistas por bons hábitos</li>
+                    <li><strong>Social e Competitivo:</strong> Ranking com amigos motiva engajamento</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Se gamificarmos a educação financeira com metas claras e recompensas, usuários desenvolvem 80% melhores hábitos e aumentam engajamento em 150%.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: Baixo engajamento com educação financeira</li>
+                    <li>Tempo médio atual: 2 minutos/mês em conteúdo educativo</li>
+                    <li>Meta: 15 minutos/semana de engajamento ativo</li>
+                    <li>Impacto esperado: +150% engajamento, +80% hábitos financeiros</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Metas ativas simultâneas: 3-5 objetivos</li>
+                    <li>Taxa de conclusão: 75% das metas</li>
+                    <li>Sequência média: 12 dias pagando em dia</li>
+                    <li>Conquistas desbloqueadas: 8-12 por mês</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        function addNewGoal() {
+            alert('Abrindo criador de metas...\n\nOpções:\n• Reserva de emergência\n• Melhorar score\n• Economizar para viagem\n• Quitar dívidas\n• Primeiro investimento');
+        }
+
+        function showCelebration() {
+            const celebration = document.getElementById('celebrationAnimation');
+            celebration.style.display = 'flex';
+            
+            setTimeout(() => {
+                celebration.style.display = 'none';
+            }, 3000);
+        }
+
+        // Simulate achievement unlock
+        function simulateProgress() {
+            const progressBars = document.querySelectorAll('.progress-fill-goal');
+            progressBars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width);
+                if (currentWidth < 100) {
+                    bar.style.width = Math.min(currentWidth + 5, 100) + '%';
+                }
+            });
+
+            // Simulate XP gain
+            const xpBar = document.querySelector('.xp-fill');
+            const currentXP = parseInt(xpBar.style.width.replace('%', ''));
+            if (currentXP < 100) {
+                xpBar.style.width = Math.min(currentXP + 3, 100) + '%';
+            }
+        }
+
+        // Simulate real-time progress every 10 seconds
+        setInterval(simulateProgress, 10000);
+
+        // Unlock achievement animation
+        function unlockAchievement(element) {
+            element.classList.add('unlocked');
+            element.style.animation = 'bounce 0.6s ease';
+            setTimeout(() => {
+                element.style.animation = '';
+            }, 600);
+        }
+
+        // Add click handlers to locked achievements for demo
+        document.querySelectorAll('.achievement-item.locked').forEach(item => {
+            item.addEventListener('click', () => {
+                if (Math.random() > 0.7) { // 30% chance to unlock for demo
+                    unlockAchievement(item);
+                    setTimeout(showCelebration, 500);
+                }
+            });
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

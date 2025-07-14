@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito H: Dashboard Integral - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <style>
+        .dashboard-overview {
+            margin-bottom: 24px;
+        }
+
+        .financial-summary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .summary-title {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .summary-period {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .summary-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .metric-change {
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .metric-change.positive {
+            color: #10b981;
+        }
+
+        .metric-change.negative {
+            color: #ef4444;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.2s;
+        }
+
+        .product-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .product-name {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .product-status {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .product-status.active {
+            background: rgba(16, 185, 129, 0.3);
+            color: #10b981;
+        }
+
+        .product-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .detail-group {
+            text-align: center;
+        }
+
+        .detail-value {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .detail-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+
+        .product-progress {
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-actions {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .quick-actions-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .quick-action {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-action:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .action-icon {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .action-text {
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .insights-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .insights-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .insight-item:last-child {
+            border-bottom: none;
+        }
+
+        .insight-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 12px;
+        }
+
+        .insight-content {
+            flex: 1;
+        }
+
+        .insight-text {
+            color: white;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .insight-detail {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .floating-summary {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-summary.active {
+            transform: translateX(0);
+        }
+
+        .floating-summary-toggle {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 101;
+            color: white;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .floating-summary-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device" style="position: relative;">
+            <div class="mobile-screen">
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Dashboard Integral</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2 class="hero-title">Visão Completa</h2>
+                        <p class="hero-description">Todos os seus produtos financeiros em um só lugar</p>
+                    </div>
+
+                    <!-- Financial Summary -->
+                    <div class="financial-summary">
+                        <div class="summary-header">
+                            <div class="summary-title">Resumo Financeiro</div>
+                            <div class="summary-period">Dezembro 2024</div>
+                        </div>
+                        <div class="summary-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">R$ 45.000</div>
+                                <div class="metric-label">Crédito Total</div>
+                                <div class="metric-change positive">+12% vs mês anterior</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">R$ 8.250</div>
+                                <div class="metric-label">Utilizado</div>
+                                <div class="metric-change negative">18% do limite</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">R$ 36.750</div>
+                                <div class="metric-label">Disponível</div>
+                                <div class="metric-change positive">Pronto para usar</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">850</div>
+                                <div class="metric-label">Score</div>
+                                <div class="metric-change positive">+25 pontos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Overview -->
+                    <div class="dashboard-overview">
+                        <h3 style="color: white; font-size: 16px; font-weight: 600; margin-bottom: 16px;">Seus Produtos</h3>
+                        
+                        <div class="products-grid">
+                            <!-- Linha de Crédito -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <div class="product-name">Linha de Crédito</div>
+                                    <div class="product-status active">Ativa</div>
+                                </div>
+                                <div class="product-details">
+                                    <div class="detail-group">
+                                        <div class="detail-value">R$ 15.000</div>
+                                        <div class="detail-label">Limite</div>
+                                    </div>
+                                    <div class="detail-group">
+                                        <div class="detail-value">R$ 3.500</div>
+                                        <div class="detail-label">Usado</div>
+                                    </div>
+                                    <div class="detail-group">
+                                        <div class="detail-value">2,5%</div>
+                                        <div class="detail-label">Taxa a.m.</div>
+                                    </div>
+                                </div>
+                                <div class="product-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 23%"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        <span>23% utilizado</span>
+                                        <span>R$ 11.500 disponível</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="action-btn secondary">Ver Detalhes</button>
+                                    <button class="action-btn primary">Usar Agora</button>
+                                </div>
+                            </div>
+
+                            <!-- Empréstimo Pessoal -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <div class="product-name">Empréstimo Pessoal</div>
+                                    <div class="product-status active">Em Pagamento</div>
+                                </div>
+                                <div class="product-details">
+                                    <div class="detail-group">
+                                        <div class="detail-value">R$ 12.000</div>
+                                        <div class="detail-label">Emprestado</div>
+                                    </div>
+                                    <div class="detail-group">
+                                        <div class="detail-value">R$ 4.750</div>
+                                        <div class="detail-label">Restante</div>
+                                    </div>
+                                    <div class="detail-group">
+                                        <div class="detail-value">8/12</div>
+                                        <div class="detail-label">Parcelas</div>
+                                    </div>
+                                </div>
+                                <div class="product-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 67%"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        <span>67% pago</span>
+                                        <span>4 parcelas restantes</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="action-btn secondary">Ver Parcelas</button>
+                                    <button class="action-btn primary">Antecipar</button>
+                                </div>
+                            </div>
+
+                            <!-- Cartão de Crédito -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <div class="product-name">Cartão de Crédito</div>
+                                    <div class="product-status active">Ativo</div>
+                                </div>
+                                <div class="product-details">
+                                    <div class="detail-group">
+                                        <div class="detail-value">R$ 8.000</div>
+                                        <div class="detail-label">Limite</div>
+                                    </div>
+                                    <div class="detail-group">
+                                        <div class="detail-value">R$ 1.200</div>
+                                        <div class="detail-label">Fatura</div>
+                                    </div>
+                                    <div class="detail-group">
+                                        <div class="detail-value">15/01</div>
+                                        <div class="detail-label">Vencimento</div>
+                                    </div>
+                                </div>
+                                <div class="product-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 15%"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        <span>15% utilizado</span>
+                                        <span>R$ 6.800 disponível</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="action-btn secondary">Ver Fatura</button>
+                                    <button class="action-btn primary">Pagar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <div class="quick-actions-title">Ações Rápidas</div>
+                        <div class="actions-grid">
+                            <div class="quick-action" onclick="quickAction('transfer')">
+                                <div class="action-icon">💸</div>
+                                <div class="action-text">Transferir</div>
+                            </div>
+                            <div class="quick-action" onclick="quickAction('pay')">
+                                <div class="action-icon">💳</div>
+                                <div class="action-text">Pagar Fatura</div>
+                            </div>
+                            <div class="quick-action" onclick="quickAction('new-credit')">
+                                <div class="action-icon">➕</div>
+                                <div class="action-text">Novo Crédito</div>
+                            </div>
+                            <div class="quick-action" onclick="quickAction('simulate')">
+                                <div class="action-icon">📊</div>
+                                <div class="action-text">Simular</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insights -->
+                    <div class="insights-section">
+                        <div class="insights-title">Insights Personalizados</div>
+                        <div class="insight-item">
+                            <div class="insight-content">
+                                <div class="insight-text">Oportunidade de Economia</div>
+                                <div class="insight-detail">Pode economizar R$ 180/mês consolidando créditos</div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-content">
+                                <div class="insight-text">Score em Alta</div>
+                                <div class="insight-detail">Seu score subiu 25 pontos este mês</div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-content">
+                                <div class="insight-text">Vencimento Próximo</div>
+                                <div class="insight-detail">Fatura do cartão vence em 3 dias</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Summary Toggle -->
+                <div class="floating-summary-toggle" onclick="toggleFloatingSummary()">
+                    <span id="summaryToggleIcon">📊</span>
+                </div>
+
+                <!-- Floating Summary -->
+                <div class="floating-summary" id="floatingSummary">
+                    <div style="color: white; font-size: 12px; font-weight: 600; margin-bottom: 8px;">Resumo Rápido</div>
+                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 11px; margin-bottom: 4px;">Total Disponível: R$ 36.750</div>
+                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 11px; margin-bottom: 4px;">Score: 850 (+25)</div>
+                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 11px;">Próximo Vencimento: 3 dias</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito H: Dashboard Integral</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Visão unificada reduz carga mental e melhora tomada de decisões financeiras</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Visão Completa:</strong> Todos os produtos em uma tela</li>
+                    <li><strong>Insights Automáticos:</strong> Análises proativas e oportunidades</li>
+                    <li><strong>Ações Contextuais:</strong> Botões relevantes em cada produto</li>
+                    <li><strong>Métricas Chave:</strong> Indicadores importantes sempre visíveis</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Se consolidarmos toda informação financeira em um dashboard inteligente, o usuário toma 70% melhores decisões e usa 50% mais produtos.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: Usuário não vê oportunidades entre produtos</li>
+                    <li>Tempo médio atual: 5 minutos para revisar tudo</li>
+                    <li>Meta: 30 segundos para entender situação completa</li>
+                    <li>Impacto esperado: +50% uso produtos, +70% decisões acertadas</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Produtos integrados: Todos os ativos</li>
+                    <li>Tempo para overview: 30 segundos</li>
+                    <li>Insights personalizados: 3-5 por sessão</li>
+                    <li>Satisfação com clareza: 95%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let floatingSummaryActive = false;
+
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        function quickAction(action) {
+            const actions = {
+                'transfer': 'Iniciando transferência...',
+                'pay': 'Abrindo pagamento de fatura...',
+                'new-credit': 'Redirecionando para marketplace...',
+                'simulate': 'Abrindo simulador...'
+            };
+            
+            alert(actions[action] || 'Ação em desenvolvimento');
+        }
+
+        function toggleFloatingSummary() {
+            const summary = document.getElementById('floatingSummary');
+            const icon = document.getElementById('summaryToggleIcon');
+            
+            floatingSummaryActive = !floatingSummaryActive;
+            
+            if (floatingSummaryActive) {
+                summary.classList.add('active');
+                icon.textContent = '✕';
+            } else {
+                summary.classList.remove('active');
+                icon.textContent = '📊';
+            }
+        }
+
+        // Auto-update metrics (simulation)
+        function updateMetrics() {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                // Add subtle animation to show data is live
+                metric.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    metric.style.transform = 'scale(1)';
+                }, 200);
+            });
+        }
+
+        // Simulate real-time updates every 30 seconds
+        setInterval(updateMetrics, 30000);
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 
