@@ -192,6 +192,18 @@ body {
     --accent-color: linear-gradient(90deg, #3b82f6, #2563eb);
 }
 
+.concept-card.concept-l {
+    --accent-color: linear-gradient(90deg, #1e40af, #3b82f6);
+}
+
+.concept-card.concept-m {
+    --accent-color: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.concept-card.concept-n {
+    --accent-color: linear-gradient(90deg, #b45309, #f59e0b);
+}
+
 .concept-title {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.25rem;
