@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito I: Transparencia Total - Fintech Brasil</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Transparencia Total</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido do Simulador -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2 class="hero-title">Entenda Cada Centavo</h2>
+                        <p class="hero-description">Zero mistério: veja exatamente como calculamos tudo</p>
+                    </div>
+
+                    <!-- Explicação Simple -->
+                    <div class="step-content">
+                        <h2 class="step-title">Calculadora Interativa</h2>
+                        <p class="step-description">Mude os valores e veja como impacta seu crédito em tempo real. Cada cálculo é explicado passo a passo.</p>
+                    </div>
+
+                    <!-- Proposta Principal -->
+                    <div class="recommendation-card">
+                        <h2 class="recommendation-title">Empréstimo de R$ 5.000</h2>
+                        
+                        <!-- Simulador Interativo -->
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: rgba(255,255,255,0.8); font-size: 14px; display: block; margin-bottom: 5px;">Valor do Empréstimo</label>
+                                <input type="range" id="valorRange" min="1000" max="50000" value="5000" style="width: 100%; margin-bottom: 10px;">
+                                <div style="color: white; font-size: 18px; font-weight: bold;" id="valorDisplay">R$ 5.000</div>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: rgba(255,255,255,0.8); font-size: 14px; display: block; margin-bottom: 5px;">Prazo (meses)</label>
+                                <input type="range" id="prazoRange" min="3" max="36" value="12" style="width: 100%; margin-bottom: 10px;">
+                                <div style="color: white; font-size: 18px; font-weight: bold;" id="prazoDisplay">12 meses</div>
+                            </div>
+                        </div>
+
+                        <!-- Desglose Transparente -->
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <h3 style="color: white; margin-bottom: 10px; font-size: 16px;">Desglose Completo</h3>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: rgba(255,255,255,0.8);">Valor solicitado:</span>
+                                <span style="color: white; font-weight: bold;" id="valorSolicitado">R$ 5.000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: rgba(255,255,255,0.8);">Taxa de juros (2.5% a.m.):</span>
+                                <span style="color: white; font-weight: bold;" id="jurosTotal">R$ 625</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: rgba(255,255,255,0.8);">IOF (0.38%):</span>
+                                <span style="color: white; font-weight: bold;" id="iofTotal">R$ 19</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: rgba(255,255,255,0.8);">Tarifa de análise:</span>
+                                <span style="color: white; font-weight: bold;">R$ 0</span>
+                            </div>
+                            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; margin-top: 8px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: white; font-weight: bold;">Total a pagar:</span>
+                                    <span style="color: white; font-weight: bold;" id="totalPagar">R$ 5.644</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                                    <span style="color: rgba(255,255,255,0.8);">Parcela mensal:</span>
+                                    <span style="color: white; font-weight: bold;" id="parcelaMensal">R$ 470</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comparação -->
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <h3 style="color: white; margin-bottom: 10px; font-size: 16px;">Comparação com Outras Opções</h3>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.8);">
+                                <div style="margin-bottom: 5px;">• Cartão de crédito: R$ 8.200 (45% mais caro)</div>
+                                <div style="margin-bottom: 5px;">• Cheque especial: R$ 9.500 (68% mais caro)</div>
+                                <div>• Linha de crédito: R$ 5.400 (4% mais barato)</div>
+                            </div>
+                        </div>
+                        
+                        <button class="cta-button" style="width: 100%; margin-top: 20px;">
+                            Solicitar Empréstimo
+                        </button>
+                    </div>
+
+                    <!-- Stats Básicas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Transparente</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0</div>
+                            <div class="stat-label">Taxas ocultas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Real-time</div>
+                            <div class="stat-label">Cálculos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Comparações</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Conceito I: Transparencia Total</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Transparência radical elimina desconfiança e aumenta conversão através de compreensão total</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Cálculos Interativos:</strong> Usuário experimenta e entende em tempo real</li>
+                    <li><strong>Desglose Completo:</strong> Cada centavo é explicado e justificado</li>
+                    <li><strong>Comparação Contextual:</strong> Mostra por que essa opção é melhor</li>
+                    <li><strong>Zero Surpresas:</strong> Eliminação completa de taxas ocultas</li>
+                </ul>
+                
+                <h3>Hipótese</h3>
+                <p>Se o usuário entende exatamente como calculamos tudo, a confiança aumenta 80% e as consultas de suporte se reduzem 60%.</p>
+                
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 35% de confusão sobre cálculos e taxas</li>
+                    <li>Custo atual: 85k USD/mês em suporte por dúvidas</li>
+                    <li>Meta: Reduzir 60% consultas sobre cálculos</li>
+                    <li>Impacto esperado: +80% confiança, -60% suporte</li>
+                </ul>
+                
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Tempo de compreensão: 45 segundos vs 8 minutos atual</li>
+                    <li>Taxa de conversão: +25% por maior confiança</li>
+                    <li>Satisfação: +80% por eliminação de surpresas</li>
+                    <li>Abandono: -40% por clareza total</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Simulador interativo
+        const valorRange = document.getElementById('valorRange');
+        const prazoRange = document.getElementById('prazoRange');
+        const valorDisplay = document.getElementById('valorDisplay');
+        const prazoDisplay = document.getElementById('prazoDisplay');
+
+        function updateCalculations() {
+            const valor = parseInt(valorRange.value);
+            const prazo = parseInt(prazoRange.value);
+            
+            valorDisplay.textContent = `R$ ${valor.toLocaleString('pt-BR')}`;
+            prazoDisplay.textContent = `${prazo} meses`;
+            
+            // Cálculos
+            const taxaJuros = 0.025; // 2.5% a.m.
+            const iof = 0.0038; // 0.38%
+            
+            const jurosTotal = Math.round(valor * taxaJuros * prazo);
+            const iofTotal = Math.round(valor * iof);
+            const totalPagar = valor + jurosTotal + iofTotal;
+            const parcelaMensal = Math.round(totalPagar / prazo);
+            
+            document.getElementById('valorSolicitado').textContent = `R$ ${valor.toLocaleString('pt-BR')}`;
+            document.getElementById('jurosTotal').textContent = `R$ ${jurosTotal.toLocaleString('pt-BR')}`;
+            document.getElementById('iofTotal').textContent = `R$ ${iofTotal.toLocaleString('pt-BR')}`;
+            document.getElementById('totalPagar').textContent = `R$ ${totalPagar.toLocaleString('pt-BR')}`;
+            document.getElementById('parcelaMensal').textContent = `R$ ${parcelaMensal.toLocaleString('pt-BR')}`;
+        }
+
+        valorRange.addEventListener('input', updateCalculations);
+        prazoRange.addEventListener('input', updateCalculations);
+        
+        // Inicializar
+        updateCalculations();
+    </script>
+</body>
+</html> 
