@@ -1112,6 +1112,7 @@
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 16px;
+    color: #fff;
 }
 
 .tip-header {
@@ -1133,6 +1134,7 @@
     border-radius: 8px;
     padding: 12px;
     margin: 12px 0;
+    color: #fff;
 }
 
 .simulation-row {
@@ -1223,6 +1225,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+    color: #fff;
 }
 
 .alert-timing {
