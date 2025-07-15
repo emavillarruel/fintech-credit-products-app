@@ -410,4 +410,382 @@ body {
     .matrix-grid {
         grid-template-columns: 1fr;
     }
-} 
+}
+
+/* =================================================================== */
+/* ESTILOS ÚNICOS PARA CADA CARD DE CONCEPTO - MAYOR DIFERENCIACIÓN  */
+/* =================================================================== */
+
+/* Conceito A - Diferenciação Visual (Verde/Azul) */
+.concept-card.concept-a {
+    position: relative;
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
+}
+
+.concept-card.concept-a::before {
+    content: "🎯";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-a:hover {
+    transform: translateY(-5px);
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+}
+
+/* Conceito B - Banco Adaptativo (Roxo) */
+.concept-card.concept-b {
+    position: relative;
+    border: 2px solid rgba(147, 51, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.1);
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.05), rgba(139, 92, 246, 0.05));
+}
+
+.concept-card.concept-b::before {
+    content: "💎";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-b:hover {
+    transform: translateY(-5px) rotate(1deg);
+    border-color: rgba(147, 51, 234, 0.5);
+    box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
+}
+
+/* Conceito C - Você Completo (Rosa) */
+.concept-card.concept-c {
+    position: relative;
+    border: 2px solid rgba(236, 72, 153, 0.3);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+    background: radial-gradient(circle at top right, rgba(236, 72, 153, 0.1), transparent);
+}
+
+.concept-card.concept-c::before {
+    content: "🌟";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-c:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2);
+}
+
+/* Conceito D - Limites Inteligentes (Cyan) */
+.concept-card.concept-d {
+    position: relative;
+    border: 2px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+    border-radius: 24px;
+}
+
+.concept-card.concept-d::before {
+    content: "🧠";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-d:hover {
+    transform: translateY(-8px);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 25px 50px rgba(6, 182, 212, 0.2);
+}
+
+/* Conceito E - Educação Simples (Laranja) */
+.concept-card.concept-e {
+    position: relative;
+    border: 2px solid rgba(249, 115, 22, 0.3);
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+    border-radius: 16px;
+}
+
+.concept-card.concept-e::before {
+    content: "📚";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-e:hover {
+    transform: translateY(-5px) rotate(-1deg);
+    border-color: rgba(249, 115, 22, 0.5);
+    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+}
+
+/* Conceito F - Hub de Produtos (Índigo) */
+.concept-card.concept-f {
+    position: relative;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.03), rgba(129, 140, 248, 0.03));
+}
+
+.concept-card.concept-f::before {
+    content: "🏪";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-f:hover {
+    transform: translateY(-6px);
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 22px 44px rgba(99, 102, 241, 0.2);
+}
+
+/* Conceito G - Marketplace de Créditos (Dourado) */
+.concept-card.concept-g {
+    position: relative;
+    border: 2px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+    background: conic-gradient(from 45deg, rgba(245, 158, 11, 0.05), transparent, rgba(245, 158, 11, 0.05));
+}
+
+.concept-card.concept-g::before {
+    content: "🛒";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-g:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: rgba(245, 158, 11, 0.5);
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
+}
+
+/* Conceito H - Transparência Total (Esmeralda) */
+.concept-card.concept-h {
+    position: relative;
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+    border-radius: 20px;
+}
+
+.concept-card.concept-h::before {
+    content: "🔍";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-h:hover {
+    transform: translateY(-7px);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2);
+}
+
+/* Conceito I - Copiloto Financeiro (Violeta) */
+.concept-card.concept-i {
+    position: relative;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+.concept-card.concept-i::before {
+    content: "🧭";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-i:hover {
+    transform: translateY(-5px) rotate(0.5deg);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+/* Conceito J - Asistente Inteligente (Turquesa) */
+.concept-card.concept-j {
+    position: relative;
+    border: 2px solid rgba(20, 184, 166, 0.3);
+    box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05), transparent);
+}
+
+.concept-card.concept-j::before {
+    content: "🤖";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-j:hover {
+    transform: translateY(-6px);
+    border-color: rgba(20, 184, 166, 0.5);
+    box-shadow: 0 22px 44px rgba(20, 184, 166, 0.2);
+}
+
+/* Conceito K - Previsão Financeira (Azul Claro) */
+.concept-card.concept-k {
+    position: relative;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+    border-radius: 28px;
+}
+
+.concept-card.concept-k::before {
+    content: "🔮";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-k:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+}
+
+/* Conceito L - Educação Contextual (Azul) */
+.concept-card.concept-l {
+    position: relative;
+    border: 2px solid rgba(30, 64, 175, 0.3);
+    box-shadow: 0 10px 30px rgba(30, 64, 175, 0.1);
+}
+
+.concept-card.concept-l::before {
+    content: "🎓";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-l:hover {
+    transform: translateY(-5px) rotate(-0.5deg);
+    border-color: rgba(30, 64, 175, 0.5);
+    box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+}
+
+/* Conceito M - Predição de Necessidades (Vermelho) */
+.concept-card.concept-m {
+    position: relative;
+    border: 2px solid rgba(220, 38, 38, 0.3);
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+    background: radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.08), transparent);
+}
+
+.concept-card.concept-m::before {
+    content: "⚡";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-m:hover {
+    transform: translateY(-7px);
+    border-color: rgba(220, 38, 38, 0.5);
+    box-shadow: 0 25px 50px rgba(220, 38, 38, 0.2);
+}
+
+/* Conceito N - Comunidade Financeira (Laranja) */
+.concept-card.concept-n {
+    position: relative;
+    border: 2px solid rgba(180, 83, 9, 0.3);
+    box-shadow: 0 10px 30px rgba(180, 83, 9, 0.1);
+    border-radius: 24px;
+}
+
+.concept-card.concept-n::before {
+    content: "👥";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-n:hover {
+    transform: translateY(-6px) rotate(1deg);
+    border-color: rgba(180, 83, 9, 0.5);
+    box-shadow: 0 22px 44px rgba(180, 83, 9, 0.2);
+}
+
+/* Conceito O - Copiloto Financeiro (Roxo) */
+.concept-card.concept-o {
+    position: relative;
+    border: 2px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+    background: linear-gradient(45deg, rgba(124, 58, 237, 0.05), rgba(139, 92, 246, 0.05));
+}
+
+.concept-card.concept-o::before {
+    content: "✈️";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.concept-card.concept-o:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(124, 58, 237, 0.5);
+    box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
+}
+
+/* Efecto de pulsación para badges */
+.badge-concept {
+    animation: pulse-soft 2s infinite;
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Transición suave para todas las cards */
+.concept-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto especial para botones de cada card */
+.concept-card.concept-a .btn-primary { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+.concept-card.concept-b .btn-primary { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
+.concept-card.concept-c .btn-primary { background: linear-gradient(135deg, #ec4899, #db2777); color: white; }
+.concept-card.concept-d .btn-primary { background: linear-gradient(135deg, #06b6d4, #0891b2); color: white; }
+.concept-card.concept-e .btn-primary { background: linear-gradient(135deg, #f97316, #ea580c); color: white; }
+.concept-card.concept-f .btn-primary { background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; }
+.concept-card.concept-g .btn-primary { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+.concept-card.concept-h .btn-primary { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+.concept-card.concept-i .btn-primary { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
+.concept-card.concept-j .btn-primary { background: linear-gradient(135deg, #14b8a6, #0d9488); color: white; }
+.concept-card.concept-k .btn-primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; }
+.concept-card.concept-l .btn-primary { background: linear-gradient(135deg, #1e40af, #1d4ed8); color: white; }
+.concept-card.concept-m .btn-primary { background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; }
+.concept-card.concept-n .btn-primary { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+.concept-card.concept-o .btn-primary { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; }
