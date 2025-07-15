@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito P: Previsão Financeira</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                
+                <!-- Navegação -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Previsão Financeira</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <h1 class="hero-title">Veja seu futuro financeiro como a previsão do tempo</h1>
+                    <p class="hero-subtitle">Timeline inteligente que antecipa problemas e sugere soluções de crédito no momento ideal</p>
+                </div>
+
+                <!-- Simulação da Previsão -->
+                <div class="weather-forecast-simulation">
+                    <div class="forecast-header">
+                        <div class="current-balance">
+                            <span class="balance-label">Saldo Atual</span>
+                            <span class="balance-amount">R$ 1.247</span>
+                        </div>
+                        <div class="forecast-period">Próximos 30 dias</div>
+                    </div>
+
+                    <!-- Timeline Financeiro -->
+                    <div class="financial-timeline">
+                        
+                        <!-- Hoje -->
+                        <div class="timeline-day current">
+                            <div class="day-header">
+                                <span class="day-date">Hoje</span>
+                                <span class="day-weather sunny">☀️</span>
+                            </div>
+                            <div class="day-balance positive">R$ 1.247</div>
+                            <div class="day-events">
+                                <div class="event income">+ R$ 350 (Freelance)</div>
+                            </div>
+                        </div>
+
+                        <!-- Dia 3 -->
+                        <div class="timeline-day">
+                            <div class="day-header">
+                                <span class="day-date">3 dias</span>
+                                <span class="day-weather sunny">☀️</span>
+                            </div>
+                            <div class="day-balance positive">R$ 897</div>
+                            <div class="day-events">
+                                <div class="event expense">- R$ 700 (Aluguel)</div>
+                            </div>
+                        </div>
+
+                        <!-- Dia 8 -->
+                        <div class="timeline-day">
+                            <div class="day-header">
+                                <span class="day-date">8 dias</span>
+                                <span class="day-weather cloudy">⛅</span>
+                            </div>
+                            <div class="day-balance neutral">R$ 347</div>
+                            <div class="day-events">
+                                <div class="event expense">- R$ 550 (Fatura cartão)</div>
+                            </div>
+                        </div>
+
+                        <!-- Dia 12 - ALERTA -->
+                        <div class="timeline-day alert">
+                            <div class="day-header">
+                                <span class="day-date">12 dias</span>
+                                <span class="day-weather stormy">⛈️</span>
+                            </div>
+                            <div class="day-balance negative">-R$ 153</div>
+                            <div class="day-events">
+                                <div class="event expense">- R$ 500 (Escola)</div>
+                            </div>
+                            <div class="alert-badge">RISCO</div>
+                        </div>
+
+                        <!-- Dia 15 -->
+                        <div class="timeline-day">
+                            <div class="day-header">
+                                <span class="day-date">15 dias</span>
+                                <span class="day-weather sunny">☀️</span>
+                            </div>
+                            <div class="day-balance positive">R$ 3.347</div>
+                            <div class="day-events">
+                                <div class="event income">+ R$ 3.500 (Salário)</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Alertas Inteligentes -->
+                    <div class="smart-alerts">
+                        <div class="alert-item urgent">
+                            <div class="alert-icon">⚠️</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Saldo negativo em 12 dias</div>
+                                <div class="alert-description">Fatura da escola criará descoberto de R$ 153</div>
+                            </div>
+                        </div>
+
+                        <div class="alert-item suggestion">
+                            <div class="alert-icon">💡</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Sugestão inteligente</div>
+                                <div class="alert-description">Antecipe R$ 300 com 0,89% a.m. para evitar descoberto</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quebra-cabeça do Crédito -->
+                    <div class="credit-puzzle">
+                        <h3>Encaixe o crédito no seu plano</h3>
+                        <div class="puzzle-pieces">
+                            <div class="puzzle-piece income">
+                                <span class="piece-label">Entradas</span>
+                                <span class="piece-value">R$ 3.850</span>
+                            </div>
+                            <div class="puzzle-piece expenses">
+                                <span class="piece-label">Gastos fixos</span>
+                                <span class="piece-value">R$ 2.750</span>
+                            </div>
+                            <div class="puzzle-piece credit highlight">
+                                <span class="piece-label">Crédito sugerido</span>
+                                <span class="piece-value">R$ 300</span>
+                            </div>
+                            <div class="puzzle-piece goals">
+                                <span class="piece-label">Reserva</span>
+                                <span class="piece-value">R$ 400</span>
+                            </div>
+                        </div>
+                        <div class="puzzle-result">
+                            <div class="result-label">Sobra projetada:</div>
+                            <div class="result-value positive">R$ 700</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proposta Principal -->
+                <div class="main-proposal">
+                    <h2>Antecipação Inteligente</h2>
+                    <p>Com base na sua previsão financeira, oferecemos:</p>
+                    <div class="credit-offer highlight">
+                        <div class="offer-amount">R$ 300</div>
+                        <div class="offer-details">
+                            <span class="offer-rate">0,89% a.m.</span>
+                            <span class="offer-purpose">Para evitar descoberto</span>
+                        </div>
+                    </div>
+                    <div class="offer-benefits">
+                        <div class="benefit">✓ Sem juros de descoberto</div>
+                        <div class="benefit">✓ Economia de R$ 47 em taxas</div>
+                        <div class="benefit">✓ Pagamento automático no salário</div>
+                    </div>
+                    <button class="cta-button">Aceitar sugestão inteligente</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Informações -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Concepto P: Previsão Financeira</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Visualização preditiva que transforma dados complexos de fluxo de caixa em metáforas familiares (previsão do tempo), permitindo antecipação de problemas financeiros e tomada de decisões informadas.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Familiaridade Cognitiva:</strong> Usa metáfora da previsão do tempo que todos entendem intuitivamente</li>
+                    <li><strong>Antecipação de Problemas:</strong> Detecta riscos antes que se tornem crises financeiras</li>
+                    <li><strong>Contextualização Temporal:</strong> Mostra o impacto futuro de decisões atuais</li>
+                    <li><strong>Simplicidade Visual:</strong> Timeline torna complexo em simples</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Usuários com visibilidade preditiva de seu fluxo de caixa tomarão decisões de crédito mais inteligentes, aceitando antecipações menores para evitar descobertos maiores, resultando em menor inadimplência e maior satisfação.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 67% dos descobertos poderiam ser evitados com antecipação</li>
+                    <li>Oportunidade: R$ 2.3 milhões em juros de descoberto evitáveis por mês</li>
+                    <li>Meta: 40% de redução em descobertos não programados</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Tempo para entender situação financeira: <30 segundos</li>
+                    <li>Precisão das previsões: >85%</li>
+                    <li>Taxa de aceitação de sugestões: >60%</li>
+                    <li>Satisfação com visibilidade: >4.5/5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Fechar modal com ESC ou clique fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Animação de entrada dos elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineDays = document.querySelectorAll('.timeline-day');
+            timelineDays.forEach((day, index) => {
+                setTimeout(() => {
+                    day.style.opacity = '1';
+                    day.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Destacar alerta após animação
+            setTimeout(() => {
+                const alertDay = document.querySelector('.timeline-day.alert');
+                alertDay.style.animation = 'pulse 2s infinite';
+            }, 3000);
+        });
+    </script>
+
+    <style>
+        .timeline-day {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+    </style>
+
+</body>
+</html> 

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito Q: Crédito Contextual</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                
+                <!-- Navegação -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../hub-brasil-creditos.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Crédito Contextual</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <h1 class="hero-title">Crédito no lugar, hora e momento certo</h1>
+                    <p class="hero-subtitle">IA que cruza localização, hábitos e contexto para oferecer crédito como utilidade, não como venda</p>
+                </div>
+
+                <!-- Simulação de Contextos -->
+                <div class="contextual-scenarios">
+                    <div class="scenario-header">
+                        <h3>Assistente Invisível em Ação</h3>
+                        <p>Veja como o crédito aparece no momento exato que você precisa</p>
+                    </div>
+
+                    <!-- Cenário 1: Supermercado -->
+                    <div class="context-scenario active" data-scenario="supermarket">
+                        <div class="scenario-location">
+                            <div class="location-icon">🛒</div>
+                            <div class="location-info">
+                                <div class="location-name">Carrefour Barra</div>
+                                <div class="location-time">Sábado, 14:30 • Compras do mês</div>
+                            </div>
+                        </div>
+                        
+                        <div class="context-detection">
+                            <h4>IA detectou:</h4>
+                            <div class="detection-items">
+                                <div class="detection-item">📍 Localização: Supermercado grande</div>
+                                <div class="detection-item">⏰ Padrão: Compras mensais aos sábados</div>
+                                <div class="detection-item">💰 Gasto médio histórico: R$ 450</div>
+                                <div class="detection-item">📊 Carrinho atual: R$ 520 (16% acima)</div>
+                            </div>
+                        </div>
+
+                        <div class="contextual-notification">
+                            <div class="notification-content">
+                                <div class="notification-icon">🛡️</div>
+                                <div class="notification-text">
+                                    <div class="notification-title">Crédito disponível para suas compras</div>
+                                    <div class="notification-message">Detectamos gasto acima da média. Temos R$ 800 pré-aprovados para completar suas compras sem comprometer seu orçamento.</div>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="btn-utility">Usar R$ 200 agora</button>
+                                <button class="btn-secondary">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cenário 2: Concessionária -->
+                    <div class="context-scenario" data-scenario="dealership">
+                        <div class="scenario-location">
+                            <div class="location-icon">🚗</div>
+                            <div class="location-info">
+                                <div class="location-name">Honda Barra</div>
+                                <div class="location-time">Terça, 16:45 • 3ª visita este mês</div>
+                            </div>
+                        </div>
+                        
+                        <div class="context-detection">
+                            <h4>IA detectou:</h4>
+                            <div class="detection-items">
+                                <div class="detection-item">📍 Localização: Concessionária premium</div>
+                                <div class="detection-item">🔄 Padrão: 3 visitas em 2 semanas</div>
+                                <div class="detection-item">💡 Intenção: Alta probabilidade de compra</div>
+                                <div class="detection-item">💳 Meta ativa: "Trocar carro até dezembro"</div>
+                            </div>
+                        </div>
+
+                        <div class="contextual-notification">
+                            <div class="notification-content">
+                                <div class="notification-icon">🎯</div>
+                                <div class="notification-text">
+                                    <div class="notification-title">Realize sua meta: carro novo</div>
+                                    <div class="notification-message">Vimos que você está interessado em trocar de carro. Liberamos R$ 15.000 para entrada com condições especiais.</div>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="btn-utility">Usar para entrada</button>
+                                <button class="btn-secondary">Simular parcelas</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cenário 3: Farmácia -->
+                    <div class="context-scenario" data-scenario="pharmacy">
+                        <div class="scenario-location">
+                            <div class="location-icon">💊</div>
+                            <div class="location-info">
+                                <div class="location-name">Drogasil Centro</div>
+                                <div class="location-time">Domingo, 19:20 • Compra não planejada</div>
+                            </div>
+                        </div>
+                        
+                        <div class="context-detection">
+                            <h4>IA detectou:</h4>
+                            <div class="detection-items">
+                                <div class="detection-item">📍 Localização: Farmácia fora da rota</div>
+                                <div class="detection-item">⏰ Horário: Domingo à noite (urgência)</div>
+                                <div class="detection-item">💰 Saldo atual: R$ 89 (limitado)</div>
+                                <div class="detection-item">🚨 Contexto: Compra de emergência</div>
+                            </div>
+                        </div>
+
+                        <div class="contextual-notification">
+                            <div class="notification-content">
+                                <div class="notification-icon">🆘</div>
+                                <div class="notification-text">
+                                    <div class="notification-title">Ajuda para emergência</div>
+                                    <div class="notification-message">Percebemos que pode ser uma compra urgente. R$ 300 liberados na hora para não se preocupar.</div>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="btn-utility">Liberar agora</button>
+                                <button class="btn-secondary">Não preciso</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navegação entre cenários -->
+                    <div class="scenario-navigation">
+                        <button class="scenario-btn active" onclick="showScenario('supermarket')">Supermercado</button>
+                        <button class="scenario-btn" onclick="showScenario('dealership')">Concessionária</button>
+                        <button class="scenario-btn" onclick="showScenario('pharmacy')">Farmácia</button>
+                    </div>
+                </div>
+
+                <!-- Como Funciona a IA -->
+                <div class="ai-intelligence">
+                    <h3>Inteligência Contextual</h3>
+                    <div class="intelligence-layers">
+                        <div class="layer">
+                            <div class="layer-icon">📍</div>
+                            <div class="layer-content">
+                                <div class="layer-title">Localização</div>
+                                <div class="layer-description">GPS + histórico de lugares visitados</div>
+                            </div>
+                        </div>
+                        <div class="layer">
+                            <div class="layer-icon">⏰</div>
+                            <div class="layer-content">
+                                <div class="layer-title">Temporal</div>
+                                <div class="layer-description">Hora, dia, padrões de comportamento</div>
+                            </div>
+                        </div>
+                        <div class="layer">
+                            <div class="layer-icon">🎯</div>
+                            <div class="layer-content">
+                                <div class="layer-title">Intenção</div>
+                                <div class="layer-description">Metas ativas + padrão de compras</div>
+                            </div>
+                        </div>
+                        <div class="layer">
+                            <div class="layer-icon">💡</div>
+                            <div class="layer-content">
+                                <div class="layer-title">Contexto</div>
+                                <div class="layer-description">Saldo atual + gastos recentes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proposta Principal -->
+                <div class="main-proposal">
+                    <h2>Crédito como Utilidade</h2>
+                    <p>O crédito certo, na hora certa, no lugar certo:</p>
+                    <div class="utility-features">
+                        <div class="feature">✓ Aparece só quando você precisa</div>
+                        <div class="feature">✓ Valores baseados no contexto real</div>
+                        <div class="feature">✓ Zero vendas agressivas</div>
+                        <div class="feature">✓ Aprovação instantânea no local</div>
+                    </div>
+                    <div class="credit-example">
+                        <div class="example-title">Exemplo de hoje:</div>
+                        <div class="example-content">
+                            <span class="example-amount">R$ 800</span>
+                            <span class="example-context">para compras no Carrefour</span>
+                        </div>
+                        <div class="example-terms">Disponível até amanhã • 1,2% a.m.</div>
+                    </div>
+                    <button class="cta-button">Ativar assistente contextual</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Informações -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Concepto Q: Crédito Contextual</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Relevância contextual que transforma crédito de "produto vendido" para "utilidade oferecida", usando dados de localização, tempo e comportamento para detectar momentos de necessidade real e oferecer ajuda no momento exato.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Timing Perfeito:</strong> Aparece quando você realmente precisa, não quando o banco quer vender</li>
+                    <li><strong>Relevância Contextual:</strong> Ofertas baseadas em situação real, não em perfis genéricos</li>
+                    <li><strong>Redução de Fricção:</strong> Elimina busca ativa por crédito em momentos de necessidade</li>
+                    <li><strong>Utilidade vs Venda:</strong> Percebido como ajuda, não como produto empurrado</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Usuários que recebem ofertas de crédito contextualizadas no momento e local exatos de necessidade têm 3x maior aceitação e 50% menor arrependimento, transformando crédito de "mal necessário" em "assistente útil".</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 89% das ofertas de crédito são ignoradas por serem genéricas</li>
+                    <li>Oportunidade: R$ 45 milhões em ofertas contextuais não exploradas</li>
+                    <li>Meta: 60% de taxa de aceitação vs 12% atual</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Relevância percebida: >4.7/5</li>
+                    <li>Tempo para decisão: <2 minutos</li>
+                    <li>Taxa de arrependimento: <15%</li>
+                    <li>NPS de experiência: >8.5/10</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Fechar modal com ESC ou clique fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Navegação entre cenários
+        function showScenario(scenario) {
+            // Esconder todos os cenários
+            document.querySelectorAll('.context-scenario').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Mostrar cenário selecionado
+            document.querySelector(`[data-scenario="${scenario}"]`).classList.add('active');
+            
+            // Atualizar botões
+            document.querySelectorAll('.scenario-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animar layers de inteligência
+            const layers = document.querySelectorAll('.layer');
+            layers.forEach((layer, index) => {
+                setTimeout(() => {
+                    layer.style.opacity = '1';
+                    layer.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+
+            // Rotação automática dos cenários
+            let currentScenario = 0;
+            const scenarios = ['supermarket', 'dealership', 'pharmacy'];
+            
+            setInterval(() => {
+                currentScenario = (currentScenario + 1) % scenarios.length;
+                
+                // Atualizar visualmente
+                document.querySelectorAll('.context-scenario').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.querySelector(`[data-scenario="${scenarios[currentScenario]}"]`).classList.add('active');
+                
+                document.querySelectorAll('.scenario-btn').forEach((btn, index) => {
+                    btn.classList.toggle('active', index === currentScenario);
+                });
+            }, 4000);
+        });
+    </script>
+
+    <style>
+        .layer {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+    </style>
+
+</body>
+</html> 

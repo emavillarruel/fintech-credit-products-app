@@ -177,7 +177,11 @@ body {
 }
 
 .concept-card.concept-p {
-    --accent-color: linear-gradient(90deg, #8b5cf6, #7c3aed);
+    --accent-color: linear-gradient(90deg, #10b981, #059669);
+}
+
+.concept-card.concept-q {
+    --accent-color: linear-gradient(90deg, #e11d48, #be185d);
 }
 
 .concept-card.concept-i {
@@ -202,6 +206,10 @@ body {
 
 .concept-card.concept-n {
     --accent-color: linear-gradient(90deg, #b45309, #f59e0b);
+}
+
+.concept-card.concept-o {
+    --accent-color: linear-gradient(90deg, #7c3aed, #8b5cf6);
 }
 
 .concept-title {
