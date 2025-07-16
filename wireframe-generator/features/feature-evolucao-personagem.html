@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Evolução do Personagem</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <link rel="stylesheet" href="../styles/grayscale-system.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Evolução do Personagem</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2>Seu Perfil Financeiro</h2>
+                        <p>Avatar que evolui conforme suas decisões financeiras</p>
+                    </div>
+
+                    <!-- Personagem Atual -->
+                    <h3>Poupador Dedicado - Nível 7</h3>
+                    <div class="profile-card">
+                        <div class="profile-status">
+                            <div class="status-indicator active"></div>
+                            <span>Perfil Ativo</span>
+                        </div>
+                        <div class="profile-description">
+                            Demonstra disciplina financeira consistente e está construindo uma base sólida para o futuro.
+                        </div>
+                        <div class="profile-benefits">
+                            <div class="benefit-item">Taxa preferencial em poupança +0.2%</div>
+                            <div class="benefit-item">Limite cartão aumentado automaticamente</div>
+                            <div class="benefit-item">Consultoria financeira gratuita mensal</div>
+                        </div>
+                    </div>
+
+                    <!-- Jornada de Evolução -->
+                    <h3>Jornada de Evolução</h3>
+                    <div class="evolution-timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Iniciante Financeiro</div>
+                                <div class="timeline-level">Nível 1-5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item current">
+                            <div class="timeline-marker active"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Poupador Dedicado</div>
+                                <div class="timeline-level">Nível 6-15</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item upcoming">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Investidor Estratégico</div>
+                                <div class="timeline-level">Nível 16-30</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item upcoming">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Especialista Financeiro</div>
+                                <div class="timeline-level">Nível 31-50</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item upcoming">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Mestre das Finanças</div>
+                                <div class="timeline-level">Nível 51+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progresso Atual -->
+                    <h3>Progresso para Próximo Nível</h3>
+                    <div class="progress-section">
+                        <div class="next-level-info">
+                            <div class="next-level-title">Investidor Estratégico</div>
+                            <div class="next-level-subtitle">Requisitos para evolução</div>
+                        </div>
+                        
+                        <div class="requirements-list">
+                            <div class="requirement-item completed">
+                                <div class="req-checkbox checked"></div>
+                                <span>Manter poupança por 6 meses</span>
+                            </div>
+                            <div class="requirement-item completed">
+                                <div class="req-checkbox checked"></div>
+                                <span>Score acima de 700</span>
+                            </div>
+                            <div class="requirement-item progress">
+                                <div class="req-checkbox partial">75%</div>
+                                <span>Fazer primeiro investimento</span>
+                            </div>
+                            <div class="requirement-item pending">
+                                <div class="req-checkbox"></div>
+                                <span>Diversificar portfolio (3+ produtos)</span>
+                            </div>
+                        </div>
+
+                        <div class="evolution-estimate">
+                            <div class="estimate-label">Tempo estimado para evolução</div>
+                            <div class="estimate-value">2-3 meses</div>
+                        </div>
+                    </div>
+
+                    <!-- Atributos -->
+                    <h3>Atributos Financeiros</h3>
+                    <div class="attributes-section">
+                        <div class="attribute-item">
+                            <div class="attribute-label">Disciplina Financeira</div>
+                            <div class="attribute-bar">
+                                <div class="attribute-fill" style="width: 85%"></div>
+                            </div>
+                            <div class="attribute-value">85/100</div>
+                        </div>
+                        
+                        <div class="attribute-item">
+                            <div class="attribute-label">Conhecimento Investimentos</div>
+                            <div class="attribute-bar">
+                                <div class="attribute-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="attribute-value">45/100</div>
+                        </div>
+                        
+                        <div class="attribute-item">
+                            <div class="attribute-label">Planejamento Longo Prazo</div>
+                            <div class="attribute-bar">
+                                <div class="attribute-fill" style="width: 70%"></div>
+                            </div>
+                            <div class="attribute-value">70/100</div>
+                        </div>
+                        
+                        <div class="attribute-item">
+                            <div class="attribute-label">Controle de Riscos</div>
+                            <div class="attribute-bar">
+                                <div class="attribute-fill" style="width: 60%"></div>
+                            </div>
+                            <div class="attribute-value">60/100</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Evolução do Personagem</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Representação visual progressiva que materializa crescimento financeiro através de avatares evolutivos, aproveitando nossa conexão emocional com identidade visual e progressão tangível.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Identidade Visual:</strong> Avatar cria conexão emocional e senso de propriedade</li>
+                    <li><strong>Progressão Tangível:</strong> Evolução visual torna progresso financeiro concreto</li>
+                    <li><strong>Gamificação Avançada:</strong> Combina elementos RPG com metas financeiras</li>
+                    <li><strong>Status Social:</strong> Avatar representa competência financeira para outros</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Um sistema de avatar evolutivo que visualiza progresso financeiro através de personagens que evoluem aumentará em 80% o engajamento com metas de longo prazo e reduzirá em 35% o abandono de objetivos financeiros ao criar conexão emocional visual.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 65% dos usuários abandonam metas financeiras de longo prazo</li>
+                    <li>Meta: Reduzir abandono para 30% através de gamificação visual</li>
+                    <li>KPI: Tempo de permanência em telas de planejamento financeiro</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Engajamento com metas: +80%</li>
+                    <li>Retenção mensal: +45%</li>
+                    <li>Progressão em objetivos: +60%</li>
+                    <li>Satisfação com gamificação: 8.5/10</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('infoModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        /* Variables CSS para sistema grayscale */
+        :root {
+            --bg-primary: rgba(255,255,255,0.03);
+            --bg-secondary: rgba(255,255,255,0.08);
+            --bg-highlighted: rgba(255,255,255,0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255,255,255,0.08);
+            --border-primary: rgba(255,255,255,0.15);
+            --border-highlighted: rgba(255,255,255,0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255,255,255,0.9);
+            --text-tertiary: rgba(255,255,255,0.7);
+            --text-muted: rgba(255,255,255,0.5);
+            --text-action: black;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+        }
+
+        .hero-section h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Section Headers */
+        h3 {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h3:first-of-type {
+            margin-top: 1rem;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+
+        .status-indicator.active {
+            background: var(--bg-action);
+        }
+
+        .profile-status span {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .profile-description {
+            color: var(--text-tertiary);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .benefit-item {
+            background: var(--bg-highlighted);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 0.75rem;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Evolution Timeline */
+        .evolution-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item.current {
+            background: var(--bg-highlighted);
+            border-color: var(--border-highlighted);
+        }
+
+        .timeline-item.upcoming {
+            opacity: 0.6;
+        }
+
+        .timeline-marker {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .timeline-marker.active {
+            background: var(--bg-action);
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-level {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .next-level-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .next-level-title {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .next-level-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .requirements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .requirement-item.completed {
+            background: var(--bg-highlighted);
+            border-color: var(--border-highlighted);
+        }
+
+        .requirement-item.progress {
+            background: var(--bg-highlighted);
+            border-color: var(--border-primary);
+        }
+
+        .req-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            background: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--text-action);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .req-checkbox.checked {
+            background: var(--bg-action);
+        }
+
+        .req-checkbox.partial {
+            background: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .requirement-item span {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .evolution-estimate {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-highlighted);
+            border-radius: 6px;
+        }
+
+        .estimate-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .estimate-value {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Attributes Section */
+        .attributes-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .attribute-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .attribute-label {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .attribute-bar {
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .attribute-fill {
+            height: 100%;
+            background: var(--bg-action);
+            transition: width 0.3s ease;
+        }
+
+        .attribute-value {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-align: right;
+        }
+    </style>
+</body>
+</html> 

@@ -1538,8 +1538,7 @@
     font-size: 14px;
     color: #374151;
     font-weight: 500;
-    background: #e5e7eb;
-    padding: 6px 12px;
+    padding: 6px 8px;
     border-radius: 16px;
 }
 
@@ -1646,7 +1645,7 @@
 }
 
 .alert-item {
-    display: flex;
+    display: block;
     align-items: flex-start;
     gap: 12px;
     padding: 16px;

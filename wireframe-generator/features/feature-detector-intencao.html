@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Detector de Intenção</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <link rel="stylesheet" href="../styles/grayscale-system.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Detector de Intenção</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="">
+                        <h2>Detector de Intenção</h2>
+                        <p>Sistema que identifica necessidades do usuário através de comportamento e contexto.</p>
+                    </div>
+
+                    <!-- Intenção Atual -->
+                    <h3>Intenção Detectada</h3>
+                    <div class="current-intent-card">
+                        <div class="intent-header">
+                            <div class="intent-info">
+                                <div class="intent-title">Busca por Moradia</div>
+                                <div class="intent-confidence">Confiança: 87%</div>
+                                <div class="intent-source">Baseado em: pesquisas, tempo gasto, navegação</div>
+                            </div>
+                            <div class="confidence-level">87%</div>
+                        </div>
+                        
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: 87%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sinais Principais -->
+                    <h3>Sinais de Comportamento</h3>
+                    <div class="behavior-signals">
+                        <div class="signal-item high-signal">
+                            <div class="signal-content">
+                                <div class="signal-text">15 min em seção "Financiamento"</div>
+                                <div class="signal-weight">+25 pts</div>
+                            </div>
+                        </div>
+
+                        <div class="signal-item high-signal">
+                            <div class="signal-content">
+                                <div class="signal-text">Simulação de crédito imobiliário</div>
+                                <div class="signal-weight">+30 pts</div>
+                            </div>
+                        </div>
+
+                        <div class="signal-item medium-signal">
+                            <div class="signal-content">
+                                <div class="signal-text">Pesquisa "documentos casa própria"</div>
+                                <div class="signal-weight">+20 pts</div>
+                            </div>
+                        </div>
+
+                        <div class="signal-item medium-signal">
+                            <div class="signal-content">
+                                <div class="signal-text">Visualização de calculadoras</div>
+                                <div class="signal-weight">+12 pts</div>
+                            </div>
+                        </div>
+
+                        <div class="signal-item low-signal">
+                            <div class="signal-content">
+                                <div class="signal-text">Acesso frequente ao app</div>
+                                <div class="signal-weight">+8 pts</div>
+                            </div>
+                        </div>
+
+                        <div class="signal-item low-signal">
+                            <div class="signal-content">
+                                <div class="signal-text">Leitura de artigos sobre imóveis</div>
+                                <div class="signal-weight">+6 pts</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Análise de Conversa -->
+                    <h3>Análise de Texto</h3>
+                    <div class="text-analysis">
+                        <div class="analysis-result">
+                            <div class="user-message">"Preciso entender melhor as opções de financiamento para compra do primeiro imóvel"</div>
+                            <div class="analysis-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Intenção detectada:</span>
+                                    <span class="detail-value">Financiamento habitacional (94%)</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Urgência:</span>
+                                    <span class="detail-value">Média</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Palavras-chave:</span>
+                                    <span class="detail-value">financiamento, primeiro imóvel</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analysis-result">
+                            <div class="user-message">"Quais documentos são necessários?"</div>
+                            <div class="analysis-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Intenção detectada:</span>
+                                    <span class="detail-value">Documentação (76%)</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Urgência:</span>
+                                    <span class="detail-value">Alta</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Palavras-chave:</span>
+                                    <span class="detail-value">documentos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intenções Secundárias -->
+                    <h3>Intenções Secundárias</h3>
+                    <div class="secondary-intents">
+                        <div class="intent-item">
+                            <div class="intent-name">Investimento</div>
+                            <div class="intent-confidence">23%</div>
+                        </div>
+                        <div class="intent-item">
+                            <div class="intent-name">Refinanciamento</div>
+                            <div class="intent-confidence">18%</div>
+                        </div>
+                        <div class="intent-item">
+                            <div class="intent-name">Portabilidade</div>
+                            <div class="intent-confidence">12%</div>
+                        </div>
+                        <div class="intent-item">
+                            <div class="intent-name">Liquidação</div>
+                            <div class="intent-confidence">8%</div>
+                        </div>
+                    </div>
+
+                    <!-- Métricas do Sistema -->
+                    <h3>Métricas do Sistema</h3>
+                    <div class="system-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Precisão das detecções</div>
+                            <div class="metric-value">91%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Tempo médio de detecção</div>
+                            <div class="metric-value">2.3 seg</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Sinais processados hoje</div>
+                            <div class="metric-value">1.247</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Taxa de conversão</div>
+                            <div class="metric-value positive">+34%</div>
+                        </div>
+                    </div>
+
+                    <!-- Ações Baseadas na Intenção -->
+                    <h3>Ações Sugeridas</h3>
+                    <div class="suggested-actions">
+                        <button class="action-btn primary" onclick="triggerRecommendation()">
+                            <div class="btn-content">
+                                <div class="btn-title">Apresentar Produtos</div>
+                                <div class="btn-subtitle">Financiamento habitacional personalizado</div>
+                            </div>
+                        </button>
+
+                        <button class="action-btn secondary" onclick="scheduleContact()">
+                            <div class="btn-content">
+                                <div class="btn-title">Agendar Consulta</div>
+                                <div class="btn-subtitle">Especialista em crédito imobiliário</div>
+                            </div>
+                        </button>
+
+                        <button class="action-btn secondary" onclick="sendDocumentation()">
+                            <div class="btn-content">
+                                <div class="btn-title">Enviar Documentação</div>
+                                <div class="btn-subtitle">Lista de documentos necessários</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Detector de Intenção</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Sistema que identifica necessidades não expressas através de análise comportamental, permitindo antecipação proativa de soluções e reduzindo fricção na jornada do usuário.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Antecipação de Necessidades:</strong> Identifica intenções antes do usuário verbalizar</li>
+                    <li><strong>Redução de Fricção:</strong> Elimina steps desnecessários na jornada</li>
+                    <li><strong>Personalização Contextual:</strong> Oferece soluções baseadas em comportamento real</li>
+                    <li><strong>Timing Perfeito:</strong> Apresenta ofertas no momento ideal de receptividade</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Um detector de intenção que analisa comportamento em tempo real aumentará em 40% a conversão de produtos ao identificar necessidades latentes e apresentar soluções personalizadas no momento ideal, criando experiência proativa e eficiente.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 60% das necessidades não são identificadas pelos sistemas</li>
+                    <li>Conversão esperada: +40% em contratação de produtos</li>
+                    <li>Tempo de jornada: -35% redução</li>
+                    <li>Satisfação: +45% por proatividade</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Precisão de detecção: 91% das intenções identificadas corretamente</li>
+                    <li>Tempo de resposta: 2.3 segundos para detectar intenção</li>
+                    <li>Redução de fricção: 35% menos steps na jornada</li>
+                    <li>Relevância das ofertas: 78% consideram sugestões úteis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: black;
+        }
+
+        .current-intent-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .intent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .intent-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .intent-confidence {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .intent-source {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .confidence-level {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .confidence-bar {
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: var(--bg-highlighted);
+            transition: width 0.5s ease;
+        }
+
+        .behavior-signals {
+            margin-bottom: 24px;
+        }
+
+        .signal-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .signal-item.high-signal {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .signal-item.medium-signal {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .signal-item.low-signal {
+            border-color: var(--border-subtle);
+        }
+
+        .signal-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .signal-text {
+            color: var(--text-secondary);
+        }
+
+        .signal-weight {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .text-analysis {
+            margin-bottom: 24px;
+        }
+
+        .analysis-result {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .user-message {
+            color: var(--text-primary);
+            font-style: italic;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+        }
+
+        .analysis-details {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 12px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .detail-label {
+            color: var(--text-tertiary);
+        }
+
+        .detail-value {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .secondary-intents {
+            margin-bottom: 24px;
+        }
+
+        .intent-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .intent-name {
+            color: var(--text-secondary);
+        }
+
+        .intent-confidence {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .system-metrics {
+            margin-bottom: 24px;
+        }
+
+        .metric-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .metric-label {
+            color: var(--text-tertiary);
+        }
+
+        .metric-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .metric-value.positive {
+            color: #4ade80;
+        }
+
+        .suggested-actions {
+            margin-bottom: 24px;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 12px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .action-btn.primary {
+            background: var(--bg-action);
+            color: var(--text-action);
+        }
+
+        .action-btn.secondary {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            color: var(--text-primary);
+        }
+
+        .btn-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .btn-subtitle {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        function triggerRecommendation() {
+            alert('Apresentando produtos de financiamento habitacional...');
+        }
+
+        function scheduleContact() {
+            alert('Agendando consulta com especialista...');
+        }
+
+        function sendDocumentation() {
+            alert('Enviando lista de documentos...');
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

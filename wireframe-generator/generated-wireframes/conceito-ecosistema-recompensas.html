@@ -356,8 +356,8 @@
                         <h1 class="nav-title">Ecosistema de Recompensas</h1>
                     </div>
                     <button class="nav-info-button" onclick="openModal()">Info</button>
-                </div>
-
+            </div>
+            
                 <!-- Contenido del Simulador -->
                 <div class="simulator-content">
                     <!-- Hero Section -->
@@ -406,7 +406,7 @@
                                     <div class="detail-row">
                                         <span class="detail-label">Suporte</span>
                                         <span class="detail-value">Chat</span>
-                                    </div>
+                                </div>
                                 </div>
                             </div>
                             
@@ -414,7 +414,7 @@
                                 <div class="level-header">
                                     <h3>Cuidadoso</h3>
                                     <span class="level-badge silver">Silver</span>
-                                </div>
+                        </div>
                                 <div class="level-details">
                                     <div class="detail-row">
                                         <span class="detail-label">Limite</span>
@@ -423,18 +423,18 @@
                                     <div class="detail-row">
                                         <span class="detail-label">Taxa mensal</span>
                                         <span class="detail-value">3,2%</span>
-                                    </div>
+                                        </div>
                                     <div class="detail-row">
                                         <span class="detail-label">Cashback</span>
                                         <span class="detail-value">1,5%</span>
-                                    </div>
+                                        </div>
                                     <div class="detail-row">
                                         <span class="detail-label">Suporte</span>
                                         <span class="detail-value">Prioritário</span>
                                     </div>
+                                    </div>
                                 </div>
-                            </div>
-                            
+
                             <div class="level-card" data-level="gold">
                                 <div class="level-header">
                                     <h3>Exemplar</h3>
@@ -448,11 +448,11 @@
                                     <div class="detail-row">
                                         <span class="detail-label">Taxa mensal</span>
                                         <span class="detail-value">2,1%</span>
-                                    </div>
+                                        </div>
                                     <div class="detail-row">
                                         <span class="detail-label">Cashback</span>
                                         <span class="detail-value">3,0%</span>
-                                    </div>
+                                        </div>
                                     <div class="detail-row">
                                         <span class="detail-label">Suporte</span>
                                         <span class="detail-value">Gerente</span>
@@ -484,33 +484,33 @@
                                     <button class="answer-btn" data-question="2" data-value="learning">Estou aprendendo</button>
                                     <button class="answer-btn" data-question="2" data-value="organized">Sou organizado</button>
                                     <button class="answer-btn" data-question="2" data-value="disciplined">Muito disciplinado</button>
+                                    </div>
                                 </div>
-                            </div>
-                            
+
                             <div class="question-item">
                                 <p class="question-text"><strong>3.</strong> Como usa produtos de crédito?</p>
                                 <div class="answer-options">
                                     <button class="answer-btn" data-question="3" data-value="occasional">Ocasionalmente</button>
                                     <button class="answer-btn" data-question="3" data-value="regular">Regularmente</button>
                                     <button class="answer-btn" data-question="3" data-value="strategic">Estrategicamente</button>
-                                </div>
-                            </div>
+                                    </div>
+                                        </div>
                             
                             <button class="cta-button" id="getRecommendation" disabled>Ver Meu Nível</button>
-                        </div>
+                                        </div>
                         
                         <!-- Result Section (Initially Hidden) -->
                         <div class="recommendation-result" id="recommendationResult" style="display: none;">
                             <div class="result-header">
                                 <h3 id="resultTitle">Seu Nível no Ecosistema</h3>
                                 <p id="resultDescription">Baseado no seu perfil!</p>
-                            </div>
+                                        </div>
                             
                             <div class="offer-section">
                                 <div class="offer-amount">
                                     <span class="offer-label">Seu limite atual</span>
                                     <span class="offer-value" id="offerAmount">R$ 3.000</span>
-                                </div>
+                                        </div>
                                 <div class="offer-details">
                                     <div class="offer-detail">
                                         <span class="offer-detail-label">Taxa</span>
@@ -522,12 +522,12 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="result-reasons">
                                 <h4 id="motivationTitle">Como evoluir:</h4>
                                 <ul id="resultReasons"></ul>
-                            </div>
-                            
+                        </div>
+
                             <div class="result-actions">
                                 <button class="result-cta primary" id="primaryAction">Solicitar Crédito</button>
                                 <button class="result-cta secondary" onclick="resetRecommendation()">Refazer Teste</button>
@@ -616,10 +616,10 @@
         
         // Handle answer buttons
         document.querySelectorAll('.answer-btn').forEach(button => {
-            button.addEventListener('click', function() {
+                button.addEventListener('click', function() {
                 const question = this.dataset.question;
                 const value = this.dataset.value;
-                
+                    
                 // Remove selected class from other buttons in the same question
                 document.querySelectorAll(`[data-question="${question}"]`).forEach(btn => {
                     btn.classList.remove('selected');
@@ -627,7 +627,7 @@
                 
                 // Add selected class to this button
                 this.classList.add('selected');
-                
+                    
                 // Store answer
                 if (!answers[question]) {
                     answeredQuestions++;
@@ -689,8 +689,8 @@
                 cashback = '0,5%';
                 motivation = ['Você está começando sua jornada', 'Pague contas em dia por 6 meses', 'Próximo: Nível Cuidadoso com R$ 8.000 e taxa 3,2%'];
                 action = 'Começar Jornada';
-            }
-            
+                    }
+                    
             // Update UI
             document.getElementById('resultTitle').textContent = levelName;
             document.getElementById('offerAmount').textContent = limit;
@@ -706,7 +706,7 @@
                 li.textContent = reason;
                 reasonsList.appendChild(li);
             });
-            
+        
             // Show result section
             document.getElementById('questionsFlow').style.display = 'none';
             document.getElementById('recommendationResult').style.display = 'block';

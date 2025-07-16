@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertas Preditivos</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation Header -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Alertas Preditivos</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Predictive Alerts Interface -->
+                    <h3>Alertas Ativos</h3>
+                    <div class="alert-card critical">
+                        <div class="alert-header">
+                            <span class="alert-icon">!</span>
+                            <div class="alert-info">
+                                <h4>Necessidade de Crédito Detectada</h4>
+                                <div class="confidence-score">95% de confiança</div>
+                            </div>
+                        </div>
+                        <p class="alert-description">Padrão de gastos indica necessidade de R$ 3.500 nos próximos 15 dias</p>
+                        <div class="alert-action">
+                            <button class="alert-button">Ver Ofertas</button>
+                        </div>
+                    </div>
+
+                    <div class="alert-item medium-priority" style="margin-bottom: 32px;">
+                        <div class="alert-header">
+                            <span class="alert-icon">G</span>
+                            <div class="alert-info">
+                                <h4>Oportunidade de Investimento</h4>
+                                <div class="confidence-score">78% de confiança</div>
+                            </div>
+                        </div>
+                        <p class="alert-description">Sobra financeira de R$ 1.200 identificada para o próximo mês</p>
+                        <div class="alert-action">
+                            <button class="alert-button">Explorar</button>
+                        </div>
+                    </div>
+
+                    <div class="alert-item low-priority">
+                        <div class="alert-header">
+                            <span class="alert-icon">$</span>
+                            <div class="alert-info">
+                                <h4>Potencial Economia</h4>
+                                <div class="confidence-score">65% de confiança</div>
+                            </div>
+                        </div>
+                        <p class="alert-description">Renegociação de débitos pode economizar R$ 450/mês</p>
+                        <div class="alert-action">
+                            <button class="alert-button">Simular</button>
+                        </div>
+                    </div>
+
+                    <!-- Alert History -->
+                    <h3>Histórico de Alertas</h3>
+                    <div class="alert-history">
+                        <div class="timeline">
+                            <div class="timeline-item active">
+                                <div class="timeline-date">Hoje</div>
+                                <div class="timeline-content">
+                                    <h4>Análise Ativa</h4>
+                                    <p>Monitorando padrões</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">7 dias</div>
+                                <div class="timeline-content">
+                                    <h4>Conta Energia</h4>
+                                    <p>R$ 320 (estimativa)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">15 dias</div>
+                                <div class="timeline-content">
+                                    <h4>Necessidade Crédito</h4>
+                                    <p>R$ 3.500 projetados</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">30 dias</div>
+                                <div class="timeline-content">
+                                    <h4>Sobra p/ Investir</h4>
+                                    <p>R$ 1.200 disponível</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prediction Engine -->
+                    <h3>Engine de Predição</h3>
+                    <div class="prediction-engine">
+                        <div class="">
+                            <div class="recommendation-badge">IA Recomenda</div>
+                            <h2 class="recommendation-title">Ação Sugerida</h2>
+                            <p class="step-description">Baseado na análise preditiva do seu comportamento financeiro</p>
+                            <div class="price-highlight">Economia de R$ 450/mês</div>
+                            <button class="cta-button">Ativar Alertas Inteligentes</button>
+                        </div>
+                    </div>
+
+                    <div class="spacer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Alertas Preditivos</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Proactividad cognitiva - anticipar necesidades reduce carga mental y ansiedad financiera, transformando el usuario de reactivo a proactivo en sus decisiones.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Reducción de Ansiedad:</strong> Saber lo que viene elimina incertidumbre y estrés financiero</li>
+                    <li><strong>Sensación de Control:</strong> Usuario se siente acompañado por IA que "entiende" sus patrones</li>
+                    <li><strong>Timing Perfecto:</strong> Ofertas llegan en momento de necesidad real, no spam</li>
+                    <li><strong>Confianza Progresiva:</strong> Predicciones certeras generan confianza en el sistema</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Alertas que antecipaem riscos financeiros reduzirão em 65% casos de inadimplência e aumentarão em 50% a satisfação do usuário ao prevenir problemas antes que aconteçam, criando sensação de cuidado proativo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Alert interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const alertButtons = document.querySelectorAll('.alert-button');
+            alertButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    button.textContent = 'Processando...';
+                    button.style.opacity = '0.7';
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Ação Realizada';
+                        button.style.background = 'rgba(255, 255, 255, 0.2)';
+                    }, 1500);
+                });
+            });
+
+            // Simulate real-time updates
+            setInterval(() => {
+                const confidenceScores = document.querySelectorAll('.confidence-score');
+                confidenceScores.forEach(score => {
+                    const currentValue = parseInt(score.textContent);
+                    const variation = Math.random() > 0.5 ? 1 : -1;
+                    const newValue = Math.max(50, Math.min(99, currentValue + variation));
+                    score.textContent = `${newValue}% de confiança`;
+                });
+            }, 5000);
+        });
+    </script>
+
+    <style>
+        /* Section headers */
+        h3 {
+            margin: 24px 0 16px 0;
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        h3:first-of-type {
+            margin-top: 16px;
+        }
+
+        /* Section spacing */
+        .alert-card,
+        .alert-history,
+        .prediction-engine {
+            margin-bottom: 32px;
+        }
+
+        /* Alert Cards */
+        .alert-card {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .alert-card.critical {
+            border-color: rgba(255, 87, 87, 0.3);
+            background: rgba(255, 87, 87, 0.05);
+        }
+
+        .alert-card.medium-priority {
+            border-color: rgba(255, 193, 7, 0.3);
+            background: rgba(255, 193, 7, 0.05);
+        }
+
+        .alert-card.low-priority {
+            border-color: rgba(100, 100, 100, 0.3);
+            background: rgba(100, 100, 100, 0.05);
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0px;
+        }
+
+        .alert-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        .alert-info h4 {
+            margin: 0 0 4px 0;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .confidence-score {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .alert-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .alert-action {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .alert-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .alert-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .alert-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            position: relative;
+            gap: 0px;
+        }
+
+        .alert-item.high-priority {
+            border-color: rgba(255, 87, 87, 0.3);
+            background: rgba(255, 87, 87, 0.05);
+        }
+
+        .alert-item.medium-priority {
+            border-color: rgba(255, 193, 7, 0.3);
+            background: rgba(255, 193, 7, 0.05);
+        }
+
+        .alert-item.low-priority {
+            border-color: rgba(100, 100, 100, 0.3);
+            background: rgba(100, 100, 100, 0.05);
+        }
+
+        .alert-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        .alert-info h4 {
+            margin: 0 0 4px 0;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .confidence-score {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .alert-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .alert-action {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .alert-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .alert-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 16px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            padding-left: 20px;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .timeline-item.active {
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+
+        .timeline-item.active::before {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .timeline-date {
+            min-width: 60px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-right: 16px;
+        }
+
+        .timeline-content h4 {
+            margin: 0 0 2px 0;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+        }
+
+        /* Prediction Engine */
+        .prediction-engine {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .recommendation-card {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .recommendation-badge {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .recommendation-title {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .price-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+    </style>
+</body>
+</html> 

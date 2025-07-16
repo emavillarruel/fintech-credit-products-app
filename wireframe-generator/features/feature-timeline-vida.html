@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Timeline da Vida</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Timeline da Vida</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Current Stage -->
+                    <h3>Estágio Atual</h3>
+                    <div class="current-stage">
+                        <div class="stage-icon">25</div>
+                        <div class="stage-info">
+                            <div class="stage-title">Jovem Profissional</div>
+                            <div class="stage-description">Construindo carreira e independência financeira</div>
+                            <div class="stage-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="progress-text">65% concluído</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Visualization -->
+                    <h3>Linha do Tempo Financeira</h3>
+                    <div class="recommendation-card" style="    text-align: left;">
+                        <div class="timeline-item completed" onclick="selectStage(0)">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-age">18-24</div>
+                                <div class="timeline-stage">Estudante</div>
+                                <div class="timeline-needs">Educação, Primeiro Emprego</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item current" onclick="selectStage(1)">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-age">25-35</div>
+                                <div class="timeline-stage">Jovem Profissional</div>
+                                <div class="timeline-needs">Independência, Moradia</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item future" onclick="selectStage(2)">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-age">30-40</div>
+                                <div class="timeline-stage">Formação Familiar</div>
+                                <div class="timeline-needs">Casa Própria, Família</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item future" onclick="selectStage(3)">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-age">40-55</div>
+                                <div class="timeline-stage">Crescimento</div>
+                                <div class="timeline-needs">Educação Filhos, Investimentos</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item future" onclick="selectStage(4)">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-age">55+</div>
+                                <div class="timeline-stage">Preparação</div>
+                                <div class="timeline-needs">Aposentadoria, Saúde</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Needs Prediction -->
+                    <h3>Necessidades Previstas</h3>
+                    <div class="needs-prediction">
+                        <div class="need-item">
+                            <div class="need-header">
+                                <span class="need-title">Financiamento Imobiliário</span>
+                                <span class="need-probability">85%</span>
+                            </div>
+                            <div class="need-timeline">Necessidade prevista em 2-4 anos</div>
+                            <div class="need-amount">R$ 180.000 - R$ 350.000</div>
+                        </div>
+
+                        <div class="need-item">
+                            <div class="need-header">
+                                <span class="need-title">Crédito Pessoal</span>
+                                <span class="need-probability">65%</span>
+                            </div>
+                            <div class="need-timeline">Necessidade prevista em 1-2 anos</div>
+                            <div class="need-amount">R$ 15.000 - R$ 45.000</div>
+                        </div>
+
+                        <div class="need-item">
+                            <div class="need-header">
+                                <span class="need-title">Cartão de Crédito Premium</span>
+                                <span class="need-probability">70%</span>
+                            </div>
+                            <div class="need-timeline">Necessidade atual</div>
+                            <div class="need-amount">Limite R$ 8.000 - R$ 25.000</div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Forecast -->
+                    <h3>Projeção Financeira</h3>
+                    <div class="financial-forecast">
+                        <div class="forecast-grid">
+                            <div class="forecast-item">
+                                <div class="forecast-label">Renda Projetada</div>
+                                <div class="forecast-value">R$ 8.500</div>
+                                <div class="forecast-period">em 3 anos</div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="forecast-label">Capacidade Crédito</div>
+                                <div class="forecast-value">R$ 425.000</div>
+                                <div class="forecast-period">estimada</div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="forecast-label">Score Futuro</div>
+                                <div class="forecast-value">780+</div>
+                                <div class="forecast-period">projeção</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Life Events -->
+                    <div class="recommendation-card">
+                        <h3>Eventos de Vida Relevantes</h3>
+                        <div class="events-list">
+                            <div class="event-item">
+                                <div class="event-date">6 meses</div>
+                                <div class="event-content">
+                                    <div class="event-title">Possível Promoção</div>
+                                    <div class="event-impact">+25% renda, +creditabilidade</div>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">1-2 anos</div>
+                                <div class="event-content">
+                                    <div class="event-title">Mudança para Casa Própria</div>
+                                    <div class="event-impact">Financiamento necessário</div>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">3-5 anos</div>
+                                <div class="event-content">
+                                    <div class="event-title">Planejamento Familiar</div>
+                                    <div class="event-impact">Aumento gastos, seguros</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Timeline da Vida</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Visualização temporal que conecta decisões financeiras atuais com objetivos de vida futuros, aproveitando nossa tendência natural de planejamento sequencial e antecipação.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Pensamento Sequencial:</strong> O cérebro processa melhor informações organizadas temporalmente</li>
+                    <li><strong>Antecipação:</strong> Visualizar o futuro aumenta motivação para ações presentes</li>
+                    <li><strong>Contextualização:</strong> Conecta produtos financeiros a momentos de vida específicos</li>
+                    <li><strong>Progressão Visual:</strong> Barras de progresso e marcos criam senso de conquista</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Uma timeline visual que mapeia necessidades financeiras por estágios de vida aumentará em 50% a contratação proativa de produtos financeiros, reduzindo em 30% a contratação reativa de emergência ao mostrar quando cada produto será relevante.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stages = [
+            {
+                title: "Estudante (18-24 anos)",
+                needs: [
+                    {
+                        title: "Conta Universitária",
+                        probability: "90%",
+                        timeline: "Necessidade atual",
+                        amount: "Sem taxas, limite R$ 500"
+                    },
+                    {
+                        title: "Cartão Estudantil",
+                        probability: "75%",
+                        timeline: "Primeira experiência",
+                        amount: "Limite R$ 800 - R$ 2.000"
+                    },
+                    {
+                        title: "Crédito Educativo",
+                        probability: "45%",
+                        timeline: "Para cursos/especializações",
+                        amount: "R$ 5.000 - R$ 50.000"
+                    }
+                ]
+            },
+            {
+                title: "Jovem Profissional (25-35 anos)",
+                needs: [
+                    {
+                        title: "Financiamento Imobiliário",
+                        probability: "85%",
+                        timeline: "Necessidade prevista em 2-4 anos",
+                        amount: "R$ 180.000 - R$ 350.000"
+                    },
+                    {
+                        title: "Crédito Pessoal",
+                        probability: "65%",
+                        timeline: "Necessidade prevista em 1-2 anos",
+                        amount: "R$ 15.000 - R$ 45.000"
+                    },
+                    {
+                        title: "Cartão de Crédito Premium",
+                        probability: "70%",
+                        timeline: "Necessidade atual",
+                        amount: "Limite R$ 8.000 - R$ 25.000"
+                    }
+                ]
+            },
+            {
+                title: "Formação Familiar (30-40 anos)",
+                needs: [
+                    {
+                        title: "Financiamento Casa Própria",
+                        probability: "95%",
+                        timeline: "Prioridade máxima",
+                        amount: "R$ 300.000 - R$ 600.000"
+                    },
+                    {
+                        title: "Seguro de Vida",
+                        probability: "80%",
+                        timeline: "Proteção familiar",
+                        amount: "Cobertura R$ 200.000+"
+                    },
+                    {
+                        title: "Crédito Veicular",
+                        probability: "70%",
+                        timeline: "Necessidade familiar",
+                        amount: "R$ 40.000 - R$ 80.000"
+                    }
+                ]
+            },
+            {
+                title: "Crescimento (40-55 anos)",
+                needs: [
+                    {
+                        title: "Crédito Educação Filhos",
+                        probability: "85%",
+                        timeline: "Investimento no futuro",
+                        amount: "R$ 50.000 - R$ 200.000"
+                    },
+                    {
+                        title: "Investimentos Premium",
+                        probability: "75%",
+                        timeline: "Crescimento patrimônio",
+                        amount: "R$ 100.000 - R$ 500.000"
+                    },
+                    {
+                        title: "Linha Crédito Empresarial",
+                        probability: "55%",
+                        timeline: "Oportunidades negócio",
+                        amount: "R$ 200.000 - R$ 1.000.000"
+                    }
+                ]
+            },
+            {
+                title: "Preparação (55+ anos)",
+                needs: [
+                    {
+                        title: "Previdência Privada",
+                        probability: "90%",
+                        timeline: "Planejamento aposentadoria",
+                        amount: "Contribuição mensal R$ 2.000+"
+                    },
+                    {
+                        title: "Plano de Saúde Premium",
+                        probability: "95%",
+                        timeline: "Cuidados saúde",
+                        amount: "R$ 1.500 - R$ 3.000/mês"
+                    },
+                    {
+                        title: "Seguro Patrimônio",
+                        probability: "80%",
+                        timeline: "Proteção bens",
+                        amount: "Cobertura total patrimônio"
+                    }
+                ]
+            }
+        ];
+
+        function selectStage(stageIndex) {
+            const stage = stages[stageIndex];
+            document.getElementById('stageTitle').textContent = stage.title;
+            
+            const detailsContainer = document.getElementById('stageDetails');
+            detailsContainer.innerHTML = stage.needs.map(need => `
+                <div class="need-item">
+                    <div class="need-header">
+                        <span class="need-title">${need.title}</span>
+                        <span class="need-probability">${need.probability}</span>
+                    </div>
+                    <div class="need-timeline">${need.timeline}</div>
+                    <div class="need-amount">${need.amount}</div>
+                </div>
+            `).join('');
+
+            // Update timeline visual state
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                item.classList.remove('current');
+                if (index === stageIndex) {
+                    item.classList.add('current');
+                }
+            });
+        }
+
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('infoModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        /* Section headers */
+        h3 {
+            margin: 24px 0 16px 0;
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        h3:first-of-type {
+            margin-top: 16px;
+        }
+
+        /* Section spacing */
+        .current-stage,
+        .timeline-container,
+        .needs-prediction,
+        .financial-forecast {
+            margin-bottom: 32px;
+        }
+
+        /* Stage Display */
+        .current-stage {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .stage-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .stage-info {
+            flex: 1;
+        }
+
+        .stage-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4px;
+        }
+
+        .stage-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .stage-progress {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .timeline-container {
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 62px;
+            width: 2px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item.completed .timeline-marker {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .timeline-item.current .timeline-marker {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-age {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .timeline-stage {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 2px 0;
+        }
+
+        .timeline-needs {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .need-item {
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .need-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .need-title {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .need-probability {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .need-timeline {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 4px;
+        }
+
+        .need-amount {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .forecast-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        .forecast-item {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .forecast-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .forecast-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 4px;
+        }
+
+        .forecast-period {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .events-list {
+            space-y: 12px;
+        }
+
+        .event-item {
+            display: flex;
+            gap: 16px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .event-date {
+            font-size: 12px;
+            color: #f59e0b;
+            font-weight: bold;
+            min-width: 60px;
+        }
+
+        .event-content {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4px;
+        }
+
+        .event-impact {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</body>
+</html> 

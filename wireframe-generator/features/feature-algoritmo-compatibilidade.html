@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Algoritmo de Compatibilidade</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Algoritmo de Compatibilidade</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Estado do Sistema -->
+                    <h3>Estado do Sistema</h3>
+                    <div class="content-section">
+                        <div class="system-status">
+                            <div class="status-indicator active"></div>
+                            <div class="status-info">
+                                <div class="status-title">Sistema ML Ativo</div>
+                                <div class="status-desc">Processando 847 variáveis em tempo real</div>
+                            </div>
+                            <div class="system-metrics">
+                                <div class="metric-item">
+                                    <div class="metric-value">2.3ms</div>
+                                    <div class="metric-label">Latência</div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-value">94.7%</div>
+                                    <div class="metric-label">Precisão</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Melhores Matches -->
+                    <h3>Melhores Matches</h3>
+                    <div class="content-section">
+                        <div class="matches-list">
+                            <div class="match-item">
+                                <div class="match-header">
+                                    <div class="match-info">
+                                        <div class="match-name">Crédito Habitação Plus</div>
+                                        <div class="match-category">Financiamento Imobiliário</div>
+                                    </div>
+                                    <div class="match-score">92%</div>
+                                </div>
+                                <div class="match-details">
+                                    <span class="detail-tag">Taxa 9.8%</span>
+                                    <span class="detail-tag">Aprovação rápida</span>
+                                    <span class="detail-tag">Sem comissões</span>
+                                </div>
+                            </div>
+                            <div class="match-item">
+                                <div class="match-header">
+                                    <div class="match-info">
+                                        <div class="match-name">Investimento Premium</div>
+                                        <div class="match-category">CDB com Liquidez</div>
+                                    </div>
+                                    <div class="match-score">84%</div>
+                                </div>
+                                <div class="match-details">
+                                    <span class="detail-tag">CDI + 1.5%</span>
+                                    <span class="detail-tag">Liquidez diária</span>
+                                    <span class="detail-tag">FGC</span>
+                                </div>
+                            </div>
+                            <div class="match-item">
+                                <div class="match-header">
+                                    <div class="match-info">
+                                        <div class="match-name">Cartão Black Premium</div>
+                                        <div class="match-category">Cartão de Crédito</div>
+                                    </div>
+                                    <div class="match-score">67%</div>
+                                </div>
+                                <div class="match-details">
+                                    <span class="detail-tag">Cashback 2%</span>
+                                    <span class="detail-tag">Lounge acesso</span>
+                                    <span class="detail-tag">Anuidade R$ 800</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Processo de Cálculo -->
+                    <h3>Processo de Cálculo</h3>
+                    <div class="content-section">
+                        <div class="calculation-steps">
+                            <div class="calc-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Coleta de Dados</div>
+                                    <div class="step-desc">847 variáveis comportamentais e financeiras</div>
+                                </div>
+                            </div>
+                            <div class="calc-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Processamento ML</div>
+                                    <div class="step-desc">Random Forest + Neural Networks</div>
+                                </div>
+                            </div>
+                            <div class="calc-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Ponderação</div>
+                                    <div class="step-desc">Pesos adaptativos por contexto do usuário</div>
+                                </div>
+                            </div>
+                            <div class="calc-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <div class="step-title">Score Final</div>
+                                    <div class="step-desc">Normalização e ranking de produtos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fatores Principais -->
+                    <h3>Fatores Principais</h3>
+                    <div class="content-section">
+                        <div class="factor-weights">
+                            <div class="weight-item">
+                                <div class="weight-label">Capacidade Financeira</div>
+                                <div class="weight-bar">
+                                    <div class="weight-fill" style="width: 35%"></div>
+                                </div>
+                                <div class="weight-value">35%</div>
+                            </div>
+                            <div class="weight-item">
+                                <div class="weight-label">Perfil de Risco</div>
+                                <div class="weight-bar">
+                                    <div class="weight-fill" style="width: 25%"></div>
+                                </div>
+                                <div class="weight-value">25%</div>
+                            </div>
+                            <div class="weight-item">
+                                <div class="weight-label">Comportamento Histórico</div>
+                                <div class="weight-bar">
+                                    <div class="weight-fill" style="width: 20%"></div>
+                                </div>
+                                <div class="weight-value">20%</div>
+                            </div>
+                            <div class="weight-item">
+                                <div class="weight-label">Contexto Atual</div>
+                                <div class="weight-bar">
+                                    <div class="weight-fill" style="width: 20%"></div>
+                                </div>
+                                <div class="weight-value">20%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance do Modelo -->
+                    <h3>Performance do Modelo</h3>
+                    <div class="content-section">
+                        <div class="model-info">
+                            <div class="model-version">
+                                <div class="version-title">Modelo v2.7.3</div>
+                                <div class="version-date">Treinado em 15 Nov 2024</div>
+                            </div>
+                            <div class="performance-metrics">
+                                <div class="perf-metric">
+                                    <div class="perf-label">Amostras de Treino</div>
+                                    <div class="perf-value">2.8M transações</div>
+                                </div>
+                                <div class="perf-metric">
+                                    <div class="perf-label">Validação Cross</div>
+                                    <div class="perf-value">94.7% ± 0.3%</div>
+                                </div>
+                                <div class="perf-metric">
+                                    <div class="perf-label">A/B Test Lift</div>
+                                    <div class="perf-value">+12.3% conversão</div>
+                                </div>
+                                <div class="perf-metric">
+                                    <div class="perf-label">Throughput</div>
+                                    <div class="perf-value">15K req/s</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulação de Perfil -->
+                    <h3>Simulação de Perfil</h3>
+                    <div class="content-section">
+                        <div class="profile-simulation">
+                            <div class="current-profile">
+                                <div class="profile-title">Perfil Atual</div>
+                                <div class="profile-details">
+                                    <div class="profile-item">
+                                        <span class="profile-label">Renda:</span>
+                                        <span class="profile-value">R$ 8.500</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Score:</span>
+                                        <span class="profile-value">750</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Idade:</span>
+                                        <span class="profile-value">27 anos</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Histórico:</span>
+                                        <span class="profile-value">3 anos cliente</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="impact-scenarios">
+                                <div class="scenario-title">Cenários de Impacto</div>
+                                <div class="scenario-list">
+                                    <div class="scenario-item">
+                                        <div class="scenario-change">Renda +R$ 2.000</div>
+                                        <div class="scenario-impact">Match +6-8%</div>
+                                    </div>
+                                    <div class="scenario-item">
+                                        <div class="scenario-change">Score +50pts</div>
+                                        <div class="scenario-impact">Match +4-6%</div>
+                                    </div>
+                                    <div class="scenario-item">
+                                        <div class="scenario-change">Histórico +1 ano</div>
+                                        <div class="scenario-impact">Match +2-3%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Algoritmo de Compatibilidade</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Machine Learning ensemble que calcula compatibilidade precisa entre perfil do usuário e produtos financeiros, eliminando tentativa-e-erro através de matching algorítmico baseado em padrões de sucesso históricos.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Precisão Algorítmica:</strong> ML elimina viés humano e inconsistência na recomendação</li>
+                    <li><strong>Aprendizado Contínuo:</strong> Melhora precisão constantemente com novos dados</li>
+                    <li><strong>Personalização Profunda:</strong> 847+ variáveis criam perfil único e preciso</li>
+                    <li><strong>Redução de Fricção:</strong> Elimina necessidade de explorar múltiplas opções</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Um algoritmo de ML ensemble com 94%+ de precisão aumentará em 60% a taxa de aprovação de crédito e reduzirá em 45% a inadimplência ao processar 847 variáveis para match otimizado entre perfil do usuário e produto financeiro.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 34% de inadimplência por matching inadequado</li>
+                    <li>Meta: Reduzir inadimplência para 19% com algoritmo de precisão</li>
+                    <li>ROI esperado: +€5,2M anual em redução de perdas + novas aprovações</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Taxa de aprovação de crédito: +60%</li>
+                    <li>Tempo para encontrar produto adequado: -80%</li>
+                    <li>Satisfação com recomendações: 4.8/5</li>
+                    <li>Taxa de sucesso em produtos recomendados: 94.7%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('infoModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: black;
+        }
+
+        .content-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* System Status */
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-action);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .status-info {
+            flex: 1;
+        }
+
+        .status-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .status-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .system-metrics {
+            display: flex;
+            gap: 16px;
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .metric-label {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Matches List */
+        .matches-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .match-item {
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .match-info {
+            flex: 1;
+        }
+
+        .match-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .match-category {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .match-score {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-primary);
+            background: var(--bg-action);
+            color: var(--text-action);
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .match-details {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .detail-tag {
+            padding: 2px 6px;
+            background: var(--bg-highlighted);
+            border: 1px solid var(--border-subtle);
+            border-radius: 3px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+
+        /* Calculation Steps */
+        .calculation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .calc-step {
+            display: flex;
+            gap: 12px;
+            padding: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-action);
+            color: var(--text-action);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .step-desc {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        /* Factor Weights */
+        .factor-weights {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .weight-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .weight-label {
+            min-width: 140px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .weight-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .weight-fill {
+            height: 100%;
+            background: var(--bg-action);
+        }
+
+        .weight-value {
+            min-width: 30px;
+            font-size: 11px;
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        /* Model Info */
+        .model-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .model-version {
+            padding: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .version-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .version-date {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .perf-metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+        }
+
+        .perf-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        .perf-value {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        /* Profile Simulation */
+        .profile-simulation {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .current-profile {
+            padding: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .profile-title, .scenario-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .profile-details, .scenario-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .profile-item, .scenario-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 2px 0;
+            font-size: 11px;
+        }
+
+        .profile-label, .scenario-change {
+            color: var(--text-tertiary);
+        }
+
+        .profile-value, .scenario-impact {
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        .impact-scenarios {
+            padding: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+    </style>
+</body>
+</html> 

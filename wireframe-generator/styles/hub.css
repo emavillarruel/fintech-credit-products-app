@@ -74,18 +74,60 @@ body {
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
     min-height: 64px;
+    width: 100%;
+}
+
+.nav-header .flex {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.nav-header .space-x-4 > * + * {
+    margin-left: 1rem !important;
+}
+
+.nav-header .space-x-6 > * + * {
+    margin-left: 1.5rem !important;
 }
 
 .meli-logo {
-    height: 32px;
-    width: auto;
-    filter: brightness(0) invert(1);
+    height: 32px !important;
+    width: auto !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+.nav-header a {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.875rem !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.nav-header a:hover {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.nav-header .text-white {
+    color: white !important;
+}
+
+.nav-header .font-regular {
+    font-weight: 400 !important;
+}
+
+.nav-header .text-lg {
+    font-size: 1.125rem !important;
+}
+
+.nav-header .text-xl {
+    font-size: 1.25rem !important;
 }
 
 /* Hero Section */

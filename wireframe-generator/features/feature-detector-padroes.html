@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Detector de Padrões</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <link rel="stylesheet" href="../styles/grayscale-system.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Detector de Padrões</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    
+                    <!-- Hero Section -->
+                    <div class="hero-section">
+                        <h2>Análise Preditiva</h2>
+                        <p>Identifica padrões financeiros para antecipar necessidades de crédito</p>
+                    </div>
+
+                    <!-- Status da Análise -->
+                    <h3>Status da Análise</h3>
+                    <div class="analysis-status">
+                        <div class="status-grid">
+                            <div class="status-item">
+                                <div class="status-label">Padrões Identificados</div>
+                                <div class="status-value">4</div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-label">Precisão Média</div>
+                                <div class="status-value">92%</div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-label">Dados Analisados</div>
+                                <div class="status-value">6 meses</div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-label">Próxima Atualização</div>
+                                <div class="status-value">7 dias</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Padrões Detectados -->
+                    <h3>Padrões Financeiros Detectados</h3>
+                    <div class="patterns-list">
+                        <div class="pattern-card high-confidence">
+                            <div class="pattern-header">
+                                <div class="pattern-info">
+                                    <div class="pattern-name">Gastos Sazonais - Dezembro</div>
+                                    <div class="pattern-detail">Aumento de 40% nos gastos todo dezembro</div>
+                                </div>
+                                <div class="pattern-metrics">
+                                    <div class="confidence-badge">94%</div>
+                                </div>
+                            </div>
+                            <div class="pattern-prediction">
+                                <div class="prediction-label">Próxima ocorrência:</div>
+                                <div class="prediction-value">25 Nov - R$ 3.500</div>
+                            </div>
+                        </div>
+
+                        <div class="pattern-card medium-confidence">
+                            <div class="pattern-header">
+                                <div class="pattern-info">
+                                    <div class="pattern-name">Pagamento Anual - Fevereiro</div>
+                                    <div class="pattern-detail">Pagamento de matrícula escolar</div>
+                                </div>
+                                <div class="pattern-metrics">
+                                    <div class="confidence-badge">87%</div>
+                                </div>
+                            </div>
+                            <div class="pattern-prediction">
+                                <div class="prediction-label">Próxima ocorrência:</div>
+                                <div class="prediction-value">01 Feb - R$ 1.200</div>
+                            </div>
+                        </div>
+
+                        <div class="pattern-card medium-confidence">
+                            <div class="pattern-header">
+                                <div class="pattern-info">
+                                    <div class="pattern-name">Emergências Veiculares</div>
+                                    <div class="pattern-detail">Manutenção a cada 8 meses</div>
+                                </div>
+                                <div class="pattern-metrics">
+                                    <div class="confidence-badge">78%</div>
+                                </div>
+                            </div>
+                            <div class="pattern-prediction">
+                                <div class="prediction-label">Próxima ocorrência:</div>
+                                <div class="prediction-value">Mar 2025 - R$ 600</div>
+                            </div>
+                        </div>
+
+                        <div class="pattern-card low-confidence">
+                            <div class="pattern-header">
+                                <div class="pattern-info">
+                                    <div class="pattern-name">Viagens de Férias</div>
+                                    <div class="pattern-detail">Gastos em julho e dezembro</div>
+                                </div>
+                                <div class="pattern-metrics">
+                                    <div class="confidence-badge">65%</div>
+                                </div>
+                            </div>
+                            <div class="pattern-prediction">
+                                <div class="prediction-label">Próxima ocorrência:</div>
+                                <div class="prediction-value">Jul 2025 - R$ 2.800</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insights Principais -->
+                    <h3>Insights Principais</h3>
+                    <div class="insights-section">
+                        <div class="insight-card">
+                            <div class="insight-title">Padrão Sazonal Forte</div>
+                            <div class="insight-description">
+                                Dezembro apresenta consistentemente aumento de 40% nos gastos. 
+                                Recomenda-se linha de crédito sazonal.
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-title">Emergências Previsíveis</div>
+                            <div class="insight-description">
+                                Gastos com veículo seguem padrão temporal. 
+                                Sugestão de reserva automática para manutenção.
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-title">Comportamento Compensatório</div>
+                            <div class="insight-description">
+                                Períodos de gastos altos são seguidos por economia rigorosa. 
+                                Produto flexível adequado ao perfil.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Próximos Meses -->
+                    <h3>Previsões Próximos 6 Meses</h3>
+                    <div class="timeline-section">
+                        <div class="timeline-month current">
+                            <div class="month-name">Nov</div>
+                            <div class="month-events">
+                                <div class="event-item high">Início Gastos Sazonais</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-month predicted">
+                            <div class="month-name">Dez</div>
+                            <div class="month-events">
+                                <div class="event-item high">Pico Sazonal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-month predicted">
+                            <div class="month-name">Jan</div>
+                            <div class="month-events">
+                                <div class="event-item low">Período Normal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-month predicted">
+                            <div class="month-name">Fev</div>
+                            <div class="month-events">
+                                <div class="event-item medium">Pagamento Escola</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-month predicted">
+                            <div class="month-name">Mar</div>
+                            <div class="month-events">
+                                <div class="event-item medium">Possível Manutenção</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-month predicted">
+                            <div class="month-name">Abr</div>
+                            <div class="month-events">
+                                <div class="event-item low">Período Normal</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Histórico de Precisão -->
+                    <h3>Precisão das Previsões</h3>
+                    <div class="accuracy-section">
+                        <div class="accuracy-stats">
+                            <div class="accuracy-item">
+                                <div class="accuracy-category">Gastos Sazonais</div>
+                                <div class="accuracy-bar">
+                                    <div class="accuracy-fill" style="width: 94%"></div>
+                                </div>
+                                <div class="accuracy-value">94%</div>
+                            </div>
+                            
+                            <div class="accuracy-item">
+                                <div class="accuracy-category">Pagamentos Anuais</div>
+                                <div class="accuracy-bar">
+                                    <div class="accuracy-fill" style="width: 87%"></div>
+                                </div>
+                                <div class="accuracy-value">87%</div>
+                            </div>
+                            
+                            <div class="accuracy-item">
+                                <div class="accuracy-category">Emergências Veiculares</div>
+                                <div class="accuracy-bar">
+                                    <div class="accuracy-fill" style="width: 78%"></div>
+                                </div>
+                                <div class="accuracy-value">78%</div>
+                            </div>
+                            
+                            <div class="accuracy-item">
+                                <div class="accuracy-category">Gastos Variáveis</div>
+                                <div class="accuracy-bar">
+                                    <div class="accuracy-fill" style="width: 65%"></div>
+                                </div>
+                                <div class="accuracy-value">65%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="accuracy-summary">
+                            Precisão média de 81% nas previsões dos últimos 6 meses.
+                            O algoritmo melhora continuamente com mais dados.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Detector de Padrões</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Machine Learning que identifica padrões comportamentais recorrentes nos gastos financeiros, permitindo antecipação proativa de necessidades de crédito baseada em dados históricos e sazonalidade.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Análise Preditiva:</strong> Identifica ciclos e padrões que usuário não percebe conscientemente</li>
+                    <li><strong>Antecipação Proativa:</strong> Oferece soluções antes da necessidade se tornar urgente</li>
+                    <li><strong>Personalização Precisa:</strong> Cada padrão é único do comportamento individual</li>
+                    <li><strong>Aprendizado Contínuo:</strong> Melhora precisão conforme mais dados são coletados</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Um sistema ML que detecta padrões financeiros aumentará em 60% a precisão de recomendações de crédito e reduzirá em 40% casos de inadimplência ao antecipar necessidades com base em comportamentos históricos recorrentes.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 45% das necessidades de crédito são reativas e urgentes</li>
+                    <li>Meta: Antecipar 70% das necessidades através de análise preditiva</li>
+                    <li>KPI: Taxa de conversão em ofertas proativas de crédito</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Precisão de previsões: 81%</li>
+                    <li>Antecipação de necessidades: +60%</li>
+                    <li>Redução de inadimplência: -40%</li>
+                    <li>Satisfação com recomendações: 8.7/10</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('infoModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        /* Variables CSS para sistema grayscale */
+        :root {
+            --bg-primary: rgba(255,255,255,0.03);
+            --bg-secondary: rgba(255,255,255,0.08);
+            --bg-highlighted: rgba(255,255,255,0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255,255,255,0.08);
+            --border-primary: rgba(255,255,255,0.15);
+            --border-highlighted: rgba(255,255,255,0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255,255,255,0.9);
+            --text-tertiary: rgba(255,255,255,0.7);
+            --text-muted: rgba(255,255,255,0.5);
+            --text-action: black;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+        }
+
+        .hero-section h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Section Headers */
+        h3 {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h3:first-of-type {
+            margin-top: 1rem;
+        }
+
+        /* Analysis Status */
+        .analysis-status {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .status-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 6px;
+        }
+
+        .status-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-value {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Patterns List */
+        .patterns-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pattern-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .pattern-card.high-confidence {
+            border-color: var(--border-highlighted);
+            background: var(--bg-highlighted);
+        }
+
+        .pattern-card.medium-confidence {
+            background: var(--bg-secondary);
+        }
+
+        .pattern-card.low-confidence {
+            opacity: 0.8;
+            background: var(--bg-primary);
+        }
+
+        .pattern-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .pattern-info {
+            flex: 1;
+        }
+
+        .pattern-name {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .pattern-detail {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .pattern-metrics {
+            text-align: right;
+        }
+
+        .confidence-badge {
+            background: var(--bg-action);
+            color: var(--text-action);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pattern-prediction {
+            background: var(--bg-primary);
+            padding: 0.75rem;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .prediction-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .prediction-value {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Insights Section */
+        .insights-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .insight-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .insight-title {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-description {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-month {
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-month.current .month-name {
+            background: var(--bg-action);
+            color: var(--text-action);
+        }
+
+        .timeline-month.predicted .month-name {
+            background: var(--bg-secondary);
+            color: var(--text-tertiary);
+        }
+
+        .month-name {
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .month-events {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .event-item {
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
+        .event-item.high {
+            background: var(--bg-highlighted);
+            color: var(--text-secondary);
+        }
+
+        .event-item.medium {
+            background: var(--bg-secondary);
+            color: var(--text-tertiary);
+        }
+
+        .event-item.low {
+            background: var(--bg-primary);
+            color: var(--text-muted);
+        }
+
+        /* Accuracy Section */
+        .accuracy-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .accuracy-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .accuracy-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .accuracy-category {
+            min-width: 120px;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .accuracy-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .accuracy-fill {
+            height: 100%;
+            background: var(--bg-action);
+            transition: width 0.3s ease;
+        }
+
+        .accuracy-value {
+            min-width: 40px;
+            text-align: right;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .accuracy-summary {
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 6px;
+        }
+    </style>
+</body>
+</html> 

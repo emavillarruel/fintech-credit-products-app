@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Explicador de Match</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Explicador de Match</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Produto Analisado -->
+                    <h3>Produto Analisado</h3>
+                    <div class="content-section">
+                        <div class="product-match-header">
+                            <div class="product-info">
+                                <div class="product-name">Crédito Habitação Plus</div>
+                                <div class="product-details">Taxa 9,8% a.a • Até 35 anos • R$ 300k-800k</div>
+                            </div>
+                            <div class="match-display">
+                                <div class="match-score">92%</div>
+                                <div class="match-label">Compatibilidade</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fatores de Compatibilidade -->
+                    <h3>Fatores de Compatibilidade</h3>
+                    <div class="content-section">
+                        <div class="factor-list">
+                            <div class="factor-item positive">
+                                <span class="factor-name">Perfil de Renda</span>
+                                <span class="factor-value">+28 pts</span>
+                                <div class="factor-desc">R$ 8.500 ideal para o produto</div>
+                            </div>
+                            <div class="factor-item positive">
+                                <span class="factor-name">Score de Crédito</span>
+                                <span class="factor-value">+25 pts</span>
+                                <div class="factor-desc">Score 750 garante melhor taxa</div>
+                            </div>
+                            <div class="factor-item positive">
+                                <span class="factor-name">Histórico Bancário</span>
+                                <span class="factor-value">+20 pts</span>
+                                <div class="factor-desc">3 anos como cliente</div>
+                            </div>
+                            <div class="factor-item positive">
+                                <span class="factor-name">Idade e Estabilidade</span>
+                                <span class="factor-value">+15 pts</span>
+                                <div class="factor-desc">27 anos, profissional estável</div>
+                            </div>
+                            <div class="factor-item warning">
+                                <span class="factor-name">Comprometimento Renda</span>
+                                <span class="factor-value">-5 pts</span>
+                                <div class="factor-desc">32% já comprometida (limite 35%)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Justificativas do Match -->
+                    <h3>Justificativas do Match</h3>
+                    <div class="content-section">
+                        <div class="justification-list">
+                            <div class="justification-item">
+                                <div class="justification-title">Taxa Competitiva</div>
+                                <div class="justification-text">Score 750 garante taxa preferencial de 9,8% a.a</div>
+                            </div>
+                            <div class="justification-item">
+                                <div class="justification-title">Prazo Adequado</div>
+                                <div class="justification-text">35 anos mantém parcela R$ 2.890 no orçamento</div>
+                            </div>
+                            <div class="justification-item">
+                                <div class="justification-title">Perfil Ideal</div>
+                                <div class="justification-text">Jovem profissional é público-alvo do produto</div>
+                            </div>
+                            <div class="justification-item">
+                                <div class="justification-title">Relacionamento</div>
+                                <div class="justification-text">Cliente há 3 anos garante condições especiais</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avaliação de Risco -->
+                    <h3>Avaliação de Risco</h3>
+                    <div class="content-section">
+                        <div class="risk-summary">
+                            <div class="risk-level low">Risco Baixo</div>
+                            <div class="risk-description">Perfil adequado com alta probabilidade de sucesso</div>
+                        </div>
+                        <div class="risk-factors">
+                            <div class="risk-factor">
+                                <span class="risk-label">Estabilidade Profissional</span>
+                                <span class="risk-status positive">Excelente</span>
+                            </div>
+                            <div class="risk-factor">
+                                <span class="risk-label">Capacidade de Pagamento</span>
+                                <span class="risk-status positive">Adequada</span>
+                            </div>
+                            <div class="risk-factor">
+                                <span class="risk-label">Margem de Segurança</span>
+                                <span class="risk-status warning">Limitada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produtos Alternativos -->
+                    <h3>Produtos Alternativos</h3>
+                    <div class="content-section">
+                        <div class="alternatives-list">
+                            <div class="alternative-item current">
+                                <div class="alt-name">Crédito Habitação Plus</div>
+                                <div class="alt-match">92%</div>
+                                <div class="alt-reason">Melhor taxa + prazo ideal</div>
+                            </div>
+                            <div class="alternative-item">
+                                <div class="alt-name">Crédito Habitação Standard</div>
+                                <div class="alt-match">78%</div>
+                                <div class="alt-reason">Taxa 11,2% - menos vantajoso</div>
+                            </div>
+                            <div class="alternative-item">
+                                <div class="alt-name">Crédito Habitação Premium</div>
+                                <div class="alt-match">65%</div>
+                                <div class="alt-reason">Renda mínima R$ 12k - acima do perfil</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metodologia do Cálculo -->
+                    <h3>Metodologia do Cálculo</h3>
+                    <div class="content-section">
+                        <div class="methodology-steps">
+                            <div class="method-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Análise de Perfil</div>
+                                    <div class="step-desc">Avaliação de renda, idade, score e histórico</div>
+                                </div>
+                            </div>
+                            <div class="method-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Compatibilidade</div>
+                                    <div class="step-desc">Comparação com critérios do produto</div>
+                                </div>
+                            </div>
+                            <div class="method-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Peso Ponderado</div>
+                                    <div class="step-desc">Cada fator tem peso específico no cálculo</div>
+                                </div>
+                            </div>
+                            <div class="method-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <div class="step-title">Score Final</div>
+                                    <div class="step-desc">Soma ponderada gera percentual de compatibilidade</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Explicador de Match</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Transparência algorítmica que decompõe decisões complexas em fatores compreensíveis, aumentando confiança através da explicabilidade e reduzindo ansiedade da decisão.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Transparência Algorítmica:</strong> Explicar o "porquê" reduz desconfiança em sistemas IA</li>
+                    <li><strong>Redução de Ansiedade:</strong> Entender fatores diminui incerteza na decisão</li>
+                    <li><strong>Controle Percebido:</strong> Mostrar como melhorar aumenta senso de agency</li>
+                    <li><strong>Justificação Cognitiva:</strong> Pessoas precisam racionalizar decisões importantes</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Explicar transparentemente o algoritmo de compatibilidade aumentará em 40% a confiança do usuário em produtos recomendados e reduzirá em 55% o abandono de contratação ao eliminar a "caixa preta" da recomendação.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 68% dos usuários abandonam recomendações por desconfiança</li>
+                    <li>Meta: Reduzir abandono para 30% com explicabilidade</li>
+                    <li>ROI esperado: +€2,1M anual em conversões recuperadas</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Confiança em recomendações: +40%</li>
+                    <li>Tempo de decisão: -25%</li>
+                    <li>Satisfação com transparência: 4.6/5</li>
+                    <li>Taxa de conversão em produtos explicados: +55%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('infoModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: black;
+        }
+
+        .content-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* Product Match Header */
+        .product-match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .product-details {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .match-display {
+            text-align: center;
+        }
+
+        .match-score {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--bg-action);
+            color: var(--text-action);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .match-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Factor List */
+        .factor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .factor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .factor-item.positive {
+            border-left: 3px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .factor-item.warning {
+            border-left: 3px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .factor-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .factor-value {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-left: 8px;
+        }
+
+        .factor-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            flex-basis: 100%;
+        }
+
+        /* Justification List */
+        .justification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .justification-item {
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .justification-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .justification-text {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Risk Assessment */
+        .risk-summary {
+            text-align: center;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .risk-level {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .risk-description {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .risk-factors {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .risk-factor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+        }
+
+        .risk-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .risk-status {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .risk-status.positive {
+            color: var(--text-primary);
+        }
+
+        .risk-status.warning {
+            color: var(--text-secondary);
+        }
+
+        /* Alternatives List */
+        .alternatives-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .alternative-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .alternative-item.current {
+            background: var(--bg-highlighted);
+            border-color: var(--border-highlighted);
+        }
+
+        .alt-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .alt-match {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin: 0 8px;
+        }
+
+        .alt-reason {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: right;
+            flex: 1;
+        }
+
+        /* Methodology Steps */
+        .methodology-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .method-step {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-action);
+            color: var(--text-action);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+        .step-content {
+            background: none;
+            border: 0;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+    </style>
+</body>
+</html> 

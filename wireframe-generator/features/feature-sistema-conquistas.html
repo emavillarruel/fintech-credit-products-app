@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Conquistas</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation Header -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Sistema de Conquistas</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Contenido del Simulador -->
+                <div class="simulator-content">
+                    <!-- Current Level Progress -->
+                    <h3>Progresso Atual</h3>
+                    <div class="level-info">
+                        <div class="level-text">2,250 / 3,000 XP para próximo nível</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="level-status">75% concluído - Nível 16</div>
+                    </div>
+
+                    <!-- Recent Achievements -->
+                    <h3>Conquistas Recentes</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-name">Primeiro Empréstimo</div>
+                            <div class="achievement-xp">+500 XP</div>
+                            <div class="achievement-date">Conquistado hoje</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-name">Poupador Consistente</div>
+                            <div class="achievement-xp">+300 XP</div>
+                            <div class="achievement-date">Conquistado há 2 dias</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-name">Analista de Dados</div>
+                            <div class="achievement-xp">+200 XP</div>
+                            <div class="achievement-date">Conquistado há 1 semana</div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement Categories -->
+                    <h3>Progresso por Categoria</h3>
+                    <div class="category-list">
+                        <div class="category-item">
+                            <div class="category-header">
+                                <div class="category-name">Poupança</div>
+                                <div class="category-progress">8/12 conquistas</div>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 67%"></div>
+                            </div>
+                            <div class="category-status">67% completa</div>
+                        </div>
+                        
+                        <div class="category-item">
+                            <div class="category-header">
+                                <div class="category-name">Crédito</div>
+                                <div class="category-progress">5/10 conquistas</div>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 50%"></div>
+                            </div>
+                            <div class="category-status">50% completa</div>
+                        </div>
+                        
+                        <div class="category-item">
+                            <div class="category-header">
+                                <div class="category-name">Educação Financeira</div>
+                                <div class="category-progress">12/15 conquistas</div>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 80%"></div>
+                            </div>
+                            <div class="category-status">80% completa</div>
+                        </div>
+                        
+                        <div class="category-item">
+                            <div class="category-header">
+                                <div class="category-name">Social</div>
+                                <div class="category-progress">3/8 conquistas</div>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 37%"></div>
+                            </div>
+                            <div class="category-status">37% completa</div>
+                        </div>
+                    </div>
+
+                    <!-- Next Achievement -->
+                    <h3>Próxima Conquista</h3>
+                    <div class="next-achievement">
+                        <div class="achievement-title">Mestre do Crédito</div>
+                        <div class="achievement-description">Complete 3 empréstimos consecutivos</div>
+                        <div class="achievement-progress-text">2/3 empréstimos completados</div>
+                        <div class="achievement-bar">
+                            <div class="achievement-bar-fill" style="width: 67%"></div>
+                        </div>
+                        <div class="achievement-reward">Recompensa: +1,000 XP</div>
+                    </div>
+                    <button class="cta-button">Ver Todas as Conquistas</button>
+
+                    <!-- Stats Summary -->
+                    <h3>Resumo de Conquistas</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">28</div>
+                            <div class="stat-label">Total de Conquistas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">Conquistas Disponíveis</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Nível Atual</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">62%</div>
+                            <div class="stat-label">Progresso Geral</div>
+                        </div>
+                    </div>
+
+                    <div class="spacer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Sistema de Conquistas</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Gamificação aplicada a produtos financeiros - transformar tarefas financieras en experiencias de juego que motivan el engagement continuo.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Recompensa Inmediata:</strong> Cada acción financiera genera satisfacción instantánea através de XP y badges</li>
+                    <li><strong>Progreso Visual:</strong> Interface que muestra claramente el avance hacia objetivos</li>
+                    <li><strong>Competencia Social:</strong> Comparación e rankings que incentivan mejores hábitos</li>
+                    <li><strong>Categorización:</strong> Organiza logros por áreas específicas creando sensación de maestría</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Un sistema de conquistas aumentará el engagement financiero en 40% y la retención en 25%, transformando comportamientos financieros en hábitos sostenibles através de gratificación inmediata y progreso visible.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        /* ===========================================
+           FINTECH FEATURES - GRAYSCALE DESIGN SYSTEM
+           =========================================== */
+        
+        /* Base Variables */
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: #000000;
+        }
+
+        /* Section headers */
+        h3 {
+            margin: 24px 0 16px 0;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        h3:first-of-type {
+            margin-top: 16px;
+        }
+
+        /* Section spacing */
+        .level-info,
+        .achievement-list,
+        .category-list,
+        .next-achievement,
+        .stats-grid {
+            margin-bottom: 32px;
+        }
+
+        /* Level Progress */
+        .level-info {
+            text-align: center;
+        }
+
+        .level-text {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bg-secondary), var(--bg-highlighted));
+            transition: width 1s ease;
+        }
+
+        .level-status {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Achievement List */
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .achievement-item {
+            padding: 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .achievement-item:hover {
+            background: var(--bg-secondary);
+            border-color: var(--border-highlighted);
+        }
+
+        .achievement-name {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .achievement-xp {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .achievement-date {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Category List */
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .category-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .category-item:hover {
+            background: var(--bg-secondary);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .category-progress {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+        .category-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .category-fill {
+            height: 100%;
+            background: var(--bg-highlighted);
+            transition: width 0.8s ease;
+        }
+
+        .category-status {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Next Achievement */
+        .next-achievement {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-highlighted);
+            border-radius: 12px;
+        }
+
+        .achievement-title {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .achievement-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .achievement-progress-text {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .achievement-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .achievement-bar-fill {
+            height: 100%;
+            background: var(--bg-highlighted);
+            transition: width 1s ease;
+        }
+
+        .achievement-reward {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            margin-top: 16px;
+            background: var(--bg-action);
+            color: var(--text-action);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .stat-item:hover {
+            background: var(--bg-secondary);
+            border-color: var(--border-highlighted);
+        }
+
+        .stat-number {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+    </style>
+</body>
+</html> 

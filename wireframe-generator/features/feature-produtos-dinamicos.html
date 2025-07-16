@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Produtos Dinâmicos</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <link rel="stylesheet" href="../styles/grayscale-system.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Produtos Dinâmicos</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="">
+                        <h2>Produtos Dinâmicos</h2>
+                        <p>Produtos financeiros que se adaptam automaticamente aos seus objetivos e contexto.</p>
+                    </div>
+
+                    <!-- Produtos Recomendados -->
+                    <h3>Produtos Personalizados</h3>
+                    <div class="products-section">
+                        <div class="product-item primary">
+                            <div class="product-header">
+                                <div class="product-info">
+                                    <div class="product-name">Conta Casa Própria</div>
+                                    <div class="product-subtitle">Produto híbrido inteligente</div>
+                                </div>
+                                <div class="product-match">98%</div>
+                            </div>
+                            <div class="product-features">
+                                <div class="feature-text">Poupança 120% CDI + Linha pré-aprovada + Taxa fixa 60 dias</div>
+                            </div>
+                            <div class="product-tags">
+                                <span class="product-tag">Sem taxas</span>
+                                <span class="product-tag">Flexível</span>
+                                <span class="product-tag">Taxa preferencial</span>
+                            </div>
+                        </div>
+
+                        <div class="product-item secondary">
+                            <div class="product-header">
+                                <div class="product-info">
+                                    <div class="product-name">Investimento Casa</div>
+                                    <div class="product-subtitle">CDB com liquidez para entrada</div>
+                                </div>
+                                <div class="product-match">89%</div>
+                            </div>
+                            <div class="product-features">
+                                <div class="feature-text">Rendimento 135% CDI + Liquidez parcial + Aportes flexíveis</div>
+                            </div>
+                            <div class="product-tags">
+                                <span class="product-tag">Alto rendimento</span>
+                                <span class="product-tag">Seguro</span>
+                            </div>
+                        </div>
+
+                        <div class="product-item tertiary">
+                            <div class="product-header">
+                                <div class="product-info">
+                                    <div class="product-name">Cartão Conquistador</div>
+                                    <div class="product-subtitle">Cashback para entrada de casa</div>
+                                </div>
+                                <div class="product-match">76%</div>
+                            </div>
+                            <div class="product-features">
+                                <div class="feature-text">5% cashback construção + 2% supermercados + Acúmulo automático</div>
+                            </div>
+                            <div class="product-tags">
+                                <span class="product-tag">Sem anuidade</span>
+                                <span class="product-tag">Cashback alto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Como Funciona -->
+                    <h3>Como Funciona</h3>
+                    <div class="process-section">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Detectar Intenção</div>
+                                <div class="step-desc">Análise comportamental e declarada</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Mapear Necessidades</div>
+                                <div class="step-desc">Identificar produtos necessários</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Configurar Produtos</div>
+                                <div class="step-desc">Adaptar características automaticamente</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Evoluir Continuamente</div>
+                                <div class="step-desc">Ajustar conforme progresso</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alinhamento com Objetivos -->
+                    <h3>Alinhamento com Objetivos</h3>
+                    <div class="goals-section">
+                        <div class="goal-item active">
+                            <div class="goal-info">
+                                <div class="goal-name">Casa Própria</div>
+                                <div class="goal-progress">71% concluído</div>
+                            </div>
+                            <div class="goal-products">
+                                <div class="goal-product">Conta Casa Própria</div>
+                                <div class="goal-product">Investimento Casa</div>
+                            </div>
+                        </div>
+
+                        <div class="goal-item active">
+                            <div class="goal-info">
+                                <div class="goal-name">Viagem Europa</div>
+                                <div class="goal-progress">57% concluído</div>
+                            </div>
+                            <div class="goal-products">
+                                <div class="goal-product">Cartão Conquistador</div>
+                            </div>
+                        </div>
+
+                        <div class="goal-item inactive">
+                            <div class="goal-info">
+                                <div class="goal-name">Carro Novo</div>
+                                <div class="goal-progress">16% concluído</div>
+                            </div>
+                            <div class="goal-products">
+                                <div class="goal-product dormant">Aguardando</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Configuração Dinâmica -->
+                    <h3>Configuração Atual</h3>
+                    <div class="config-section">
+                        <div class="config-item">
+                            <div class="config-title">Taxa de Rendimento</div>
+                            <div class="config-value">120% CDI</div>
+                            <div class="config-desc">Otimizada para liquidez em 18 meses</div>
+                        </div>
+                        <div class="config-item">
+                            <div class="config-title">Limite Pré-aprovado</div>
+                            <div class="config-value">R$ 15.000</div>
+                            <div class="config-desc">Baseado em capacidade e objetivo</div>
+                        </div>
+                        <div class="config-item">
+                            <div class="config-title">Cashback Personalizado</div>
+                            <div class="config-value">5% construção</div>
+                            <div class="config-desc">Focado em gastos relacionados ao objetivo</div>
+                        </div>
+                        <div class="config-item">
+                            <div class="config-title">Prazo de Carência</div>
+                            <div class="config-value">45 dias</div>
+                            <div class="config-desc">Alinhado com sazonalidade</div>
+                        </div>
+                    </div>
+
+                    <!-- Evolução dos Produtos -->
+                    <h3>Evolução Prevista</h3>
+                    <div class="evolution-section">
+                        <div class="scenario-item current">
+                            <div class="scenario-info">
+                                <div class="scenario-phase">Fase Atual: Aceleração</div>
+                                <div class="scenario-desc">Cashback + Rendimento otimizado</div>
+                            </div>
+                            <div class="scenario-status">Ativa</div>
+                        </div>
+                        <div class="scenario-item future">
+                            <div class="scenario-info">
+                                <div class="scenario-phase">Próxima: Consolidação</div>
+                                <div class="scenario-desc">Foco em entrada + financiamento</div>
+                            </div>
+                            <div class="scenario-status">6-8 meses</div>
+                        </div>
+                        <div class="scenario-item future">
+                            <div class="scenario-info">
+                                <div class="scenario-phase">Futura: Diversificação</div>
+                                <div class="scenario-desc">Expandir para investimentos + seguros</div>
+                            </div>
+                            <div class="scenario-status">12+ meses</div>
+                        </div>
+                    </div>
+
+                    <!-- Performance -->
+                    <h3>Performance do Sistema</h3>
+                    <div class="metrics-section">
+                        <div class="metric-item">
+                            <div class="metric-label">Relevância</div>
+                            <div class="metric-value">94%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Conversão</div>
+                            <div class="metric-value">67%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Satisfação</div>
+                            <div class="metric-value">4.8/5</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Alinhamento</div>
+                            <div class="metric-value">98%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Produtos Dinâmicos</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Adaptação contextual que oferece produtos financeiros híbridos e personalizados baseados em objetivos específicos, eliminando decisões complexas ao automatizar configuração ótima para cada situação.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Eliminação de Escolha Paradoxal:</strong> Reduz sobrecarga cognitiva de múltiplas opções</li>
+                    <li><strong>Contextualização Perfeita:</strong> Produtos se moldam automaticamente ao objetivo</li>
+                    <li><strong>Evolução Inteligente:</strong> Adaptação contínua conforme progresso em direção às metas</li>
+                    <li><strong>Otimização Automática:</strong> Sistema encontra configuração ideal sem esforço do usuário</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Produtos que se adaptam dinamicamente ao contexto do usuário aumentarão em 70% a relevância percebida e em 45% a taxa de contratação ao evoluir condições, features e apresentação conforme mudanças na vida financeira.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 58% dos clientes têm produtos desalinhados com objetivos</li>
+                    <li>Alinhamento esperado: +95% com produtos dinâmicos</li>
+                    <li>Conversão: +45% em contratação de produtos recomendados</li>
+                    <li>Cross-sell: +70% em produtos complementares</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Relevância percebida: 94% consideram produtos alinhados</li>
+                    <li>Satisfação geral: 4.8/5 com recomendações</li>
+                    <li>Tempo para encontrar produto: -85% redução</li>
+                    <li>Taxa de abandono: -60% por produtos inadequados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: black;
+        }
+
+        .products-section {
+            margin-bottom: 24px;
+        }
+
+        .product-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .product-item.primary {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .product-item.secondary {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .product-item.tertiary {
+            border-color: var(--border-subtle);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .product-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .product-subtitle {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .product-match {
+            background: var(--bg-action);
+            color: var(--text-action);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .product-features {
+            margin-bottom: 12px;
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .product-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .product-tag {
+            background: var(--bg-highlighted);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        .process-section {
+            margin-bottom: 24px;
+        }
+
+        .process-step {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-action);
+            color: var(--text-action);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .goals-section {
+            margin-bottom: 24px;
+        }
+
+        .goal-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .goal-item.inactive {
+            opacity: 0.6;
+        }
+
+        .goal-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .goal-progress {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .goal-products {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: flex-end;
+        }
+
+        .goal-product {
+            background: var(--bg-highlighted);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        .goal-product.dormant {
+            background: var(--bg-primary);
+            color: var(--text-muted);
+        }
+
+        .config-section {
+            margin-bottom: 24px;
+        }
+
+        .config-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .config-title {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .config-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .config-desc {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .evolution-section {
+            margin-bottom: 24px;
+        }
+
+        .scenario-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .scenario-item.current {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .scenario-phase {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .scenario-desc {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .scenario-status {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .metrics-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .metric-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 18px;
+        }
+    </style>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

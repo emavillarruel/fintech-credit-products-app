@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Rastreador de Objetivos</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+    <link rel="stylesheet" href="../styles/grayscale-system.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Rastreador de Objetivos</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Hero Section -->
+                    <div class="">
+                        <h2>Rastreador de Objetivos</h2>
+                        <p>Acompanhe o progresso de suas metas financeiras com insights inteligentes.</p>
+                    </div>
+
+                    <!-- Visão Geral -->
+                    <h3>Visão Geral</h3>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Objetivos Ativos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">67%</div>
+                            <div class="stat-label">Progresso Médio</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Metas Concluídas</div>
+                        </div>
+                    </div>
+
+                    <!-- Objetivos Principais -->
+                    <h3>Objetivos em Andamento</h3>
+                    <div class="goals-list">
+                        <div class="goal-item high-priority">
+                            <div class="goal-header">
+                                <div class="goal-info">
+                                    <div class="goal-title">Casa Própria</div>
+                                    <div class="goal-target">Meta: R$ 60.000</div>
+                                    <div class="goal-deadline">Prazo: Dezembro 2025</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-amount">R$ 42.500</div>
+                                    <div class="progress-percentage">71%</div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 71%"></div>
+                            </div>
+                        </div>
+
+                        <div class="goal-item medium-priority">
+                            <div class="goal-header">
+                                <div class="goal-info">
+                                    <div class="goal-title">Viagem Europa</div>
+                                    <div class="goal-target">Meta: R$ 15.000</div>
+                                    <div class="goal-deadline">Prazo: Julho 2025</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-amount">R$ 8.500</div>
+                                    <div class="progress-percentage">57%</div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 57%"></div>
+                            </div>
+                        </div>
+
+                        <div class="goal-item medium-priority">
+                            <div class="goal-header">
+                                <div class="goal-info">
+                                    <div class="goal-title">Carro Novo</div>
+                                    <div class="goal-target">Meta: R$ 35.000</div>
+                                    <div class="goal-deadline">Prazo: Janeiro 2026</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-amount">R$ 22.800</div>
+                                    <div class="progress-percentage">65%</div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+
+                        <div class="goal-item low-priority">
+                            <div class="goal-header">
+                                <div class="goal-info">
+                                    <div class="goal-title">Reserva de Emergência</div>
+                                    <div class="goal-target">Meta: R$ 25.000</div>
+                                    <div class="goal-deadline">Prazo: Dezembro 2024</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-amount">R$ 4.000</div>
+                                    <div class="progress-percentage">16%</div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 16%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insights Inteligentes -->
+                    <h3>Insights Principais</h3>
+                    <div class="insights-section">
+                        <div class="insight-item">
+                            <div class="insight-title">Oportunidade de Aceleração</div>
+                            <div class="insight-description">Com R$ 200/mês a mais, você antecipa sua reserva em 4 meses</div>
+                            <div class="insight-action">Transferência automática nos dias de recebimento</div>
+                        </div>
+                        
+                        <div class="insight-item">
+                            <div class="insight-title">Análise de Gastos</div>
+                            <div class="insight-description">Categoria 'Entretenimento' subiu 40% impactando economia</div>
+                            <div class="insight-action">Definir limite mensal para esta categoria</div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-title">Otimização de Prazo</div>
+                            <div class="insight-description">Próximo aumento salarial acelera 'Casa Própria' em 8 meses</div>
+                            <div class="insight-action">Ajustar meta assim que renda aumentar</div>
+                        </div>
+                    </div>
+
+                    <!-- Cronograma -->
+                    <h3>Cronograma de Conquistas</h3>
+                    <div class="timeline-section">
+                        <div class="timeline-item achieved">
+                            <div class="timeline-date">Set 2024</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Reserva R$ 15k atingida</div>
+                                <div class="timeline-status">Concluído</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item current">
+                            <div class="timeline-date">Dez 2024</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Casa própria: 80%</div>
+                                <div class="timeline-status">Em andamento</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item future">
+                            <div class="timeline-date">Jul 2025</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Viagem Europa</div>
+                                <div class="timeline-status">Planejado</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item future">
+                            <div class="timeline-date">Dez 2025</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Casa própria finalizada</div>
+                                <div class="timeline-status">Planejado</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Mensal -->
+                    <h3>Performance Mensal</h3>
+                    <div class="performance-section">
+                        <div class="performance-chart">
+                            <div class="chart-item">
+                                <div class="month-label">Jun</div>
+                                <div class="month-bar" style="height: 30%"></div>
+                                <div class="month-value">R$ 2.1k</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="month-label">Jul</div>
+                                <div class="month-bar" style="height: 45%"></div>
+                                <div class="month-value">R$ 3.2k</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="month-label">Ago</div>
+                                <div class="month-bar" style="height: 35%"></div>
+                                <div class="month-value">R$ 2.5k</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="month-label">Set</div>
+                                <div class="month-bar" style="height: 60%"></div>
+                                <div class="month-value">R$ 4.3k</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="month-label">Out</div>
+                                <div class="month-bar" style="height: 40%"></div>
+                                <div class="month-value">R$ 2.9k</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="month-label">Nov</div>
+                                <div class="month-bar" style="height: 55%"></div>
+                                <div class="month-value">R$ 3.9k</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Métricas de Consistência -->
+                    <h3>Métricas Principais</h3>
+                    <div class="metrics-section">
+                        <div class="metric-item">
+                            <div class="metric-label">Aportes médios/mês</div>
+                            <div class="metric-value">R$ 3.150</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Consistência</div>
+                            <div class="metric-value">92%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Velocidade vs planejado</div>
+                            <div class="metric-value positive">+8%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Objetivos no prazo</div>
+                            <div class="metric-value">3/4</div>
+                        </div>
+                    </div>
+
+                    <!-- Ações Rápidas -->
+                    <h3>Ações Disponíveis</h3>
+                    <div class="actions-section">
+                        <button class="action-btn primary" onclick="addNewGoal()">
+                            <div class="btn-content">
+                                <div class="btn-title">Novo Objetivo</div>
+                                <div class="btn-subtitle">Adicionar nova meta</div>
+                            </div>
+                        </button>
+                        
+                        <button class="action-btn secondary" onclick="makeContribution()">
+                            <div class="btn-content">
+                                <div class="btn-title">Fazer Aporte</div>
+                                <div class="btn-subtitle">Contribuir para objetivos</div>
+                            </div>
+                        </button>
+                        
+                        <button class="action-btn secondary" onclick="optimizeGoals()">
+                            <div class="btn-content">
+                                <div class="btn-title">Otimizar Metas</div>
+                                <div class="btn-subtitle">Ajustar estratégias</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Rastreador de Objetivos</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Visualização de progresso que motiva comportamento consistente através de gamificação sutil e feedback visual, aproveitando o princípio psicológico de recompensa por avanço incremental.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Motivação Visual:</strong> Progresso visual estimula continuidade de comportamento</li>
+                    <li><strong>Metas Fragmentadas:</strong> Objetivos grandes divididos em marcos alcançáveis</li>
+                    <li><strong>Feedback Imediato:</strong> Reconhecimento instantâneo de contribuições</li>
+                    <li><strong>Insights Proativos:</strong> Sugestões baseadas em padrões de comportamento</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Um sistema de rastreamento visual de objetivos com insights inteligentes aumentará em 50% a consistência de aportes e reduzirá em 30% o tempo para atingir metas ao fornecer motivação contínua e orientação estratégica.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 65% abandonam objetivos por falta de acompanhamento</li>
+                    <li>Consistência esperada: +50% em aportes regulares</li>
+                    <li>Tempo para metas: -30% redução</li>
+                    <li>Engajamento: +40% uso regular do app</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Motivação: 92% consideram visualização motivadora</li>
+                    <li>Consistência média: 89% dos aportes mensais cumpridos</li>
+                    <li>Velocidade: 8% acima do planejado em média</li>
+                    <li>Conclusão: 75% das metas atingidas no prazo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: black;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .stat-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .goals-list {
+            margin-bottom: 24px;
+        }
+
+        .goal-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .goal-item.high-priority {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .goal-item.medium-priority {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .goal-item.low-priority {
+            border-color: var(--border-subtle);
+        }
+
+        .goal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .goal-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .goal-target {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .goal-deadline {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .goal-progress {
+            text-align: right;
+        }
+
+        .progress-amount {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .progress-percentage {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--bg-highlighted);
+            transition: width 0.3s ease;
+        }
+
+        .insights-section {
+            margin-bottom: 24px;
+        }
+
+        .insight-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .insight-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .insight-description {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .insight-action {
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        .timeline-section {
+            margin-bottom: 24px;
+        }
+
+        .timeline-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-item.achieved {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .timeline-item.current {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-date {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-status {
+            color: var(--text-tertiary);
+            font-size: 12px;
+        }
+
+        .performance-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .performance-chart {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 50px;
+        }
+
+        .chart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .month-label {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .month-bar {
+            width: 20px;
+            background: var(--bg-highlighted);
+            border-radius: 2px;
+            margin-bottom: 8px;
+            min-height: 4px;
+        }
+
+        .month-value {
+            color: var(--text-secondary);
+            font-size: 11px;
+        }
+
+        .metrics-section {
+            margin-bottom: 24px;
+        }
+
+        .metric-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .metric-label {
+            color: var(--text-tertiary);
+        }
+
+        .metric-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .metric-value.positive {
+            color: #4ade80;
+        }
+
+        .actions-section {
+            margin-bottom: 24px;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 12px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .action-btn.primary {
+            background: var(--bg-action);
+            color: var(--text-action);
+        }
+
+        .action-btn.secondary {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            color: var(--text-primary);
+        }
+
+        .btn-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .btn-subtitle {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        function addNewGoal() {
+            alert('Criando novo objetivo...');
+        }
+
+        function makeContribution() {
+            alert('Fazendo aporte...');
+        }
+
+        function optimizeGoals() {
+            alert('Otimizando metas...');
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Swipe</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation Header -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Interface Swipe</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Como Interagir -->
+                    <h3>Como Interagir</h3>
+                    <div class="content-section">
+                        <div class="interaction-guide">
+                            <div class="guide-item">
+                                <div class="gesture-icon">←</div>
+                                <div class="gesture-desc">Arraste para esquerda = Rejeitar produto</div>
+                            </div>
+                            <div class="guide-item">
+                                <div class="gesture-icon">→</div>
+                                <div class="gesture-desc">Arraste para direita = Aceitar produto</div>
+                            </div>
+                            <div class="guide-item">
+                                <div class="gesture-icon">↑</div>
+                                <div class="gesture-desc">Toque no card = Ver mais detalhes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Swipe Interface -->
+                    <h3>Produtos Recomendados</h3>
+                    <div class="content-section">
+                        <div class="swipe-container">
+                            <div class="swipe-card active" id="card1">
+                                <div class="card-header">
+                                    <h3>Crédito Pessoal</h3>
+                                    <div class="match-score">87%</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="loan-amount">R$ 5.000</div>
+                                    <div class="loan-details">
+                                        <p>12x de R$ 485</p>
+                                        <p>Taxa: 2,9% a.m.</p>
+                                        <p>Aprovação: Instantânea</p>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <div class="swipe-hint">← Rejeitar | Aceitar →</div>
+                                </div>
+                            </div>
+
+                            <div class="swipe-card" id="card2">
+                                <div class="card-header">
+                                    <h3>Cartão de Crédito</h3>
+                                    <div class="match-score">75%</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="loan-amount">R$ 3.000</div>
+                                    <div class="loan-details">
+                                        <p>Limite disponível</p>
+                                        <p>Sem anuidade</p>
+                                        <p>Cashback: 1%</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swipe-card" id="card3">
+                                <div class="card-header">
+                                    <h3>Crédito com Garantia</h3>
+                                    <div class="match-score">92%</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="loan-amount">R$ 15.000</div>
+                                    <div class="loan-details">
+                                        <p>24x de R$ 695</p>
+                                        <p>Taxa: 1,5% a.m.</p>
+                                        <p>Garantia: FGTS</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estatísticas de Uso -->
+                    <h3>Estatísticas de Uso</h3>
+                    <div class="content-section">
+                        <div class="match-results">
+                            <div class="stat-card">
+                                <div class="stat-number">23</div>
+                                <div class="stat-label">Ofertas vistas</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">7</div>
+                                <div class="stat-label">Aprovadas</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2</div>
+                                <div class="stat-label">Contratadas</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">Precisão</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Padrões de Preferência -->
+                    <h3>Padrões de Preferência</h3>
+                    <div class="content-section">
+                        <div class="preference-patterns">
+                            <div class="pattern-item">
+                                <div class="pattern-title">Valor Preferido</div>
+                                <div class="pattern-value">R$ 3.000 - R$ 8.000</div>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-title">Prazo Ideal</div>
+                                <div class="pattern-value">12 - 18 meses</div>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-title">Taxa Aceita</div>
+                                <div class="pattern-value">Até 3,5% a.m.</div>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-title">Tipo Rejeitado</div>
+                                <div class="pattern-value">Garantia imóvel</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Próximas Recomendações -->
+                    <h3>Próximas Recomendações</h3>
+                    <div class="content-section">
+                        <div class="next-recommendations">
+                            <div class="next-item">
+                                <div class="next-title">Crédito Consignado</div>
+                                <div class="next-match">94% Match</div>
+                                <div class="next-desc">Baseado no seu perfil profissional</div>
+                            </div>
+                            <div class="next-item">
+                                <div class="next-title">Refinanciamento</div>
+                                <div class="next-match">81% Match</div>
+                                <div class="next-desc">Para otimizar taxas atuais</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Interface Swipe</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Gamificação aplicada a decisões financeiras - transformar a comparação de produtos crediticios em uma experiência familiar e intuitiva como as apps de dating.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Familiaridad:</strong> Usa patrão de interação já conhecido (Tinder) para reduzir fricção cognitiva</li>
+                    <li><strong>Decisão Rápida:</strong> Simplifica comparação de créditos a gesto binário simples (sim/não)</li>
+                    <li><strong>Feedback Instantâneo:</strong> Score de compatibilidade gera confiança e reduz incerteza</li>
+                    <li><strong>Engagement Alto:</strong> Interface lúdica mantém usuário explorando mais ofertas</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Interface de swipe aplicada a produtos financeiros aumentará em 90% o engagement com recomendações e reduzirá em 70% o tempo de decisão ao simplificar escolhas complexas em gestos intuitivos familiares.</p>
+
+                <h3>Métricas de Negócio</h3>
+                <ul>
+                    <li>Problema atual: 42% dos usuários abandonam comparação por complexidade</li>
+                    <li>Meta: Aumentar conversão para 85% com interface gamificada</li>
+                    <li>ROI esperado: +€3,8M anual em produtos contratados via swipe</li>
+                </ul>
+
+                <h3>Métricas de Usuário</h3>
+                <ul>
+                    <li>Engagement com recomendações: +90%</li>
+                    <li>Tempo médio de decisão: -70%</li>
+                    <li>Satisfação com interface: 4.7/5</li>
+                    <li>Taxa de exploração de produtos: +180%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Swipe functionality
+        let currentCardIndex = 0;
+        const cards = document.querySelectorAll('.swipe-card');
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        function showCard(index) {
+            cards.forEach((card, i) => {
+                card.classList.remove('active');
+                if (i === index) {
+                    card.classList.add('active');
+                }
+            });
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % cards.length;
+            showCard(currentCardIndex);
+        }
+
+        // Touch events
+        cards.forEach(card => {
+            card.addEventListener('touchstart', handleStart, { passive: true });
+            card.addEventListener('touchmove', handleMove, { passive: false });
+            card.addEventListener('touchend', handleEnd, { passive: true });
+
+            // Mouse events for desktop
+            card.addEventListener('mousedown', handleStart);
+            card.addEventListener('mousemove', handleMove);
+            card.addEventListener('mouseup', handleEnd);
+        });
+
+        function handleStart(e) {
+            isDragging = true;
+            startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+        }
+
+        function handleMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            
+            currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+            const diffX = currentX - startX;
+            
+            const activeCard = document.querySelector('.swipe-card.active');
+            if (activeCard) {
+                activeCard.style.transform = `translateX(${diffX}px) rotate(${diffX * 0.1}deg)`;
+                activeCard.style.opacity = 1 - Math.abs(diffX) / 200;
+            }
+        }
+
+        function handleEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const activeCard = document.querySelector('.swipe-card.active');
+            const diffX = currentX - startX;
+            
+            if (Math.abs(diffX) > 100) {
+                // Swipe complete
+                activeCard.style.transform = `translateX(${diffX > 0 ? '100%' : '-100%'}) rotate(${diffX > 0 ? '20deg' : '-20deg'})`;
+                activeCard.style.opacity = '0';
+                
+                setTimeout(() => {
+                    activeCard.style.transform = '';
+                    activeCard.style.opacity = '';
+                    nextCard();
+                }, 300);
+            } else {
+                // Snap back
+                activeCard.style.transform = '';
+                activeCard.style.opacity = '';
+            }
+        }
+
+        // Auto-advance demo
+        setInterval(() => {
+            if (!isDragging) {
+                nextCard();
+            }
+        }, 5000);
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: black;
+        }
+
+        .content-section {
+            background: none;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            margin-bottom: 26px;
+        }
+
+        /* Interaction Guide */
+        .interaction-guide {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .guide-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .gesture-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-action);
+            color: var(--text-action);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .gesture-desc {
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+
+        /* Swipe Container */
+        .swipe-container {
+            position: relative;
+            height: 280px;
+            margin: 20px 0;
+            perspective: 1000px;
+        }
+
+        .swipe-card {
+            position: absolute;
+            width: -webkit-fill-available;
+            height: 260px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: grab;
+            transition: all 0.3s ease;
+            transform-origin: center;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .swipe-card.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        .swipe-card:active {
+            cursor: grabbing;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .match-score {
+            background: var(--bg-action);
+            color: var(--text-action);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .card-body {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .loan-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .loan-details p {
+            margin: 6px 0;
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .card-actions {
+            text-align: center;
+        }
+
+        .swipe-hint {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* Match Results */
+        .match-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* Preference Patterns */
+        .preference-patterns {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pattern-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .pattern-title {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .pattern-value {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-secondary);
+        }
+
+        /* Next Recommendations */
+        .next-recommendations {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .next-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+
+        .next-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .next-match {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin: 0 8px;
+        }
+
+        .next-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: right;
+            flex: 1;
+        }
+    </style>
+</body>
+</html> 

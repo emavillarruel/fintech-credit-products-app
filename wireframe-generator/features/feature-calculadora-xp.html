@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature: Calculadora de XP</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Calculadora de XP</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- XP Calculator Interface -->
+                    <h3>Ações Disponíveis</h3>
+                    <div class="action-grid">
+                                <div class="action-card" data-xp="50" onclick="addXP(this, 50)">
+                                    <div class="action-title">Pagamento em Dia</div>
+                                    <div class="xp-value">+50 XP</div>
+                                </div>
+                                <div class="action-card" data-xp="100" onclick="addXP(this, 100)">
+                                    <div class="action-title">Quitação Antecipada</div>
+                                    <div class="xp-value">+100 XP</div>
+                                </div>
+                                <div class="action-card" data-xp="25" onclick="addXP(this, 25)">
+                                    <div class="action-title">Login Diário</div>
+                                    <div class="xp-value">+25 XP</div>
+                                </div>
+                                <div class="action-card" data-xp="75" onclick="addXP(this, 75)">
+                                    <div class="action-title">Completar Perfil</div>
+                                    <div class="xp-value">+75 XP</div>
+                                </div>
+                                <div class="action-card" data-xp="200" onclick="addXP(this, 200)">
+                                    <div class="action-title">Primeira Contratação</div>
+                                    <div class="xp-value">+200 XP</div>
+                                </div>
+                                <div class="action-card" data-xp="150" onclick="addXP(this, 150)">
+                                    <div class="action-title">Indicação de Amigo</div>
+                                    <div class="xp-value">+150 XP</div>
+                                </div>
+                            </div>
+
+                    <!-- XP Display -->
+                    <h3>Seu XP Atual</h3>
+                    <div class="xp-display">
+                                <div class="current-xp">
+                                    <span id="totalXP">0</span> XP
+                                </div>
+                                <div class="level-info">
+                                    <div class="level-text">Nível <span id="currentLevel">1</span></div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="progressBar"></div>
+                                    </div>
+                                    <div class="next-level">Próximo nível: <span id="nextLevelXP">100</span> XP</div>
+                                </div>
+                            </div>
+
+                    <!-- Recent Actions -->
+                    <h3>Ações Recentes</h3>
+                    <div class="recent-actions" id="recentActions">
+                                <div class="no-actions">Nenhuma ação realizada ainda</div>
+                            </div>
+
+                    <!-- Multipliers -->
+                    <h3>Multiplicadores Ativos</h3>
+                    <div class="multipliers-grid">
+                                <div class="multiplier-item">
+                                    <span>Streak 7 dias</span>
+                                    <span class="multiplier-value">x1.5</span>
+                                </div>
+                                <div class="multiplier-item">
+                                    <span>Cliente Premium</span>
+                                    <span class="multiplier-value">x1.2</span>
+                                </div>
+                                <div class="multiplier-item inactive">
+                                    <span>Weekend Bonus</span>
+                                    <span class="multiplier-value">x2.0</span>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Calculadora de XP</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Gamificação através de pontuação quantificada que transforma ações financeiras em conquistas mensuráveis, aproveitando o loop de recompensa do cérebro.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Feedback Imediato:</strong> Cada ação gera pontos instantâneos, criando satisfação neurológica</li>
+                    <li><strong>Progresso Visível:</strong> Barras de progresso e níveis tornam o crescimento tangível</li>
+                    <li><strong>Multiplicadores:</strong> Sistemas de bônus incentivam comportamentos consistentes</li>
+                    <li><strong>Quantificação:</strong> Transforma comportamentos abstratos em números concretos</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Um sistema de pontuação que converte ações financeiras em XP aumentará em 40% a frequência de comportamentos positivos (pagamentos em dia, uso do app, contratações) ao tornar o progresso financeiro gameificado e recompensador.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalXP = 0;
+        let recentActions = [];
+
+        function addXP(element, xpValue) {
+            // Add visual feedback
+            element.style.transform = 'scale(0.95)';
+            element.style.background = 'rgba(46, 160, 67, 0.3)';
+            
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+                element.style.background = '';
+            }, 150);
+
+            // Calculate XP with multipliers
+            const multiplier = 1.5 * 1.2; // Active multipliers
+            const finalXP = Math.round(xpValue * multiplier);
+            
+            // Update total
+            totalXP += finalXP;
+            document.getElementById('totalXP').textContent = totalXP;
+
+            // Update level and progress
+            updateLevel();
+
+            // Add to recent actions
+            const actionTitle = element.querySelector('.action-title').textContent;
+            addRecentAction(actionTitle, finalXP);
+
+            // Show XP gain animation
+            showXPGain(element, finalXP);
+        }
+
+        function updateLevel() {
+            const level = Math.floor(totalXP / 100) + 1;
+            const currentLevelXP = (level - 1) * 100;
+            const nextLevelXP = level * 100;
+            const progress = ((totalXP - currentLevelXP) / 100) * 100;
+
+            document.getElementById('currentLevel').textContent = level;
+            document.getElementById('nextLevelXP').textContent = nextLevelXP;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function addRecentAction(action, xp) {
+            recentActions.unshift({
+                action: action,
+                xp: xp,
+                time: new Date().toLocaleTimeString()
+            });
+
+            if (recentActions.length > 5) {
+                recentActions.pop();
+            }
+
+            updateRecentActions();
+        }
+
+        function updateRecentActions() {
+            const container = document.getElementById('recentActions');
+            
+            if (recentActions.length === 0) {
+                container.innerHTML = '<div class="no-actions">Nenhuma ação realizada ainda</div>';
+                return;
+            }
+
+            container.innerHTML = recentActions.map(action => 
+                `<div class="recent-action">
+                    <span class="action-name">${action.action}</span>
+                    <span class="action-time">${action.time}</span>
+                    <span class="action-xp">+${action.xp} XP</span>
+                </div>`
+            ).join('');
+        }
+
+        function showXPGain(element, xp) {
+            const gain = document.createElement('div');
+            gain.className = 'xp-gain';
+            gain.textContent = `+${xp} XP`;
+            gain.style.position = 'absolute';
+            gain.style.color = '#2ea043';
+            gain.style.fontWeight = 'bold';
+            gain.style.fontSize = '14px';
+            gain.style.opacity = '1';
+            gain.style.transform = 'translateY(0)';
+            gain.style.transition = 'all 1s ease-out';
+            gain.style.pointerEvents = 'none';
+            gain.style.zIndex = '1000';
+
+            const rect = element.getBoundingClientRect();
+            gain.style.left = (rect.left + rect.width/2 - 25) + 'px';
+            gain.style.top = (rect.top - 10) + 'px';
+
+            document.body.appendChild(gain);
+
+            setTimeout(() => {
+                gain.style.opacity = '0';
+                gain.style.transform = 'translateY(-30px)';
+            }, 100);
+
+            setTimeout(() => {
+                document.body.removeChild(gain);
+            }, 1100);
+        }
+
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('infoModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <style>
+        /* ===========================================
+           FINTECH FEATURES - GRAYSCALE DESIGN SYSTEM
+           =========================================== */
+        
+        /* Base Variables */
+        :root {
+            --bg-primary: rgba(255, 255, 255, 0.03);
+            --bg-secondary: rgba(255, 255, 255, 0.08);
+            --bg-highlighted: rgba(255, 255, 255, 0.12);
+            --bg-action: white;
+            
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-highlighted: rgba(255, 255, 255, 0.25);
+            
+            --text-primary: white;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-tertiary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-action: #000000;
+        }
+
+        /* Section headers */
+        h3 {
+            margin: 24px 0 16px 0;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        h3:first-of-type {
+            margin-top: 16px;
+        }
+
+        /* Section spacing */
+        .action-grid,
+        .xp-display,
+        .recent-actions,
+        .multipliers-grid {
+            margin-bottom: 32px;
+        }
+
+        /* Action Cards */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .action-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-card:hover {
+            background: var(--bg-secondary);
+            border-color: var(--border-highlighted);
+            transform: translateY(-2px);
+        }
+
+        .action-title {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .xp-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        /* XP Display */
+        .xp-display {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-highlighted);
+            border-radius: 12px;
+        }
+
+        .current-xp {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .level-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .level-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--bg-highlighted);
+            transition: width 0.5s ease;
+        }
+
+        .next-level {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Recent Actions */
+        .recent-actions {
+            min-height: 100px;
+        }
+
+        .no-actions {
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+            padding: 40px 20px;
+        }
+
+        .recent-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .action-name {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .action-time {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .action-xp {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        /* Multipliers */
+        .multipliers-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .multiplier-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+        }
+
+        .multiplier-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* XP Gain Animation */
+        .xp-gain {
+            position: fixed;
+            color: var(--text-primary) !important;
+            font-weight: bold !important;
+            font-size: 14px !important;
+            z-index: 1000;
+            pointer-events: none;
+        }
+    </style>
+</body>
+</html> 

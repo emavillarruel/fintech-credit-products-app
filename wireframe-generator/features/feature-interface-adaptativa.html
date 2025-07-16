@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Adaptativa</title>
+    <link rel="stylesheet" href="../../styles/mobile-simulator.css">
+    <link rel="stylesheet" href="../styles/concept-pages.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="mobile-device">
+            <div class="mobile-screen">
+                <!-- Navigation Header -->
+                <div class="nav-header">
+                    <div class="nav-back">
+                        <a href="../features-hub.html" class="nav-back-button">←</a>
+                        <h1 class="nav-title">Interface Adaptativa</h1>
+                    </div>
+                    <button class="nav-info-button" onclick="openModal()">Info</button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="simulator-content">
+                    <!-- Adaptive Interface -->
+                    <h3>Interface Adaptada para Você</h3>
+                    <div class="adaptive-layout">
+                            <!-- Savings Mode Layout -->
+                            <div class="layout-mode active" data-mode="savings">
+                                <div class="quick-actions-grid">
+                                    <div class="quick-action primary">
+                                        <span class="action-icon">P</span>
+                                        <span class="action-label">Poupança</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">M</span>
+                                        <span class="action-label">Metas</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">R</span>
+                                        <span class="action-label">Rendimento</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">G</span>
+                                        <span class="action-label">Gastos</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="priority-content">
+                                    <h4>Sua Meta de Poupança</h4>
+                                    <div class="goal-progress">
+                                        <div class="goal-amount">R$ 2.340 / R$ 5.000</div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 47%"></div>
+                                        </div>
+                                        <div class="goal-timeline">Faltam 8 meses</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Credit Mode Layout -->
+                            <div class="layout-mode" data-mode="credit">
+                                <div class="quick-actions-grid">
+                                    <div class="quick-action primary">
+                                        <span class="action-icon">C</span>
+                                        <span class="action-label">Crédito</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">L</span>
+                                        <span class="action-label">Limites</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">F</span>
+                                        <span class="action-label">Faturas</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">S</span>
+                                        <span class="action-label">Score</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="priority-content">
+                                    <h4>Melhor Crédito para Você</h4>
+                                    <div class="credit-offer">
+                                        <div class="offer-amount">R$ 15.000</div>
+                                        <div class="offer-details">Taxa: 2,5% a.m. | 24x</div>
+                                        <div class="offer-status">Pré-aprovado</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Investment Mode Layout -->
+                            <div class="layout-mode" data-mode="investment">
+                                <div class="quick-actions-grid">
+                                    <div class="quick-action primary">
+                                        <span class="action-icon">I</span>
+                                        <span class="action-label">Investir</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">R</span>
+                                        <span class="action-label">Renda</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">D</span>
+                                        <span class="action-label">Diversificar</span>
+                                    </div>
+                                    <div class="quick-action">
+                                        <span class="action-icon">A</span>
+                                        <span class="action-label">Análise</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="priority-content">
+                                    <h4>Oportunidade de Investimento</h4>
+                                    <div class="investment-opportunity">
+                                        <div class="investment-name">CDB Premium</div>
+                                        <div class="investment-return">12,5% ao ano</div>
+                                        <div class="investment-risk">Baixo risco</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Personalization Controls -->
+                    <h3>Controles de Personalização</h3>
+                    <div class="personalization-panel">
+                        <div class="mode-selector">
+                            <button class="mode-button active" onclick="switchMode('savings')">Poupança</button>
+                            <button class="mode-button" onclick="switchMode('credit')">Crédito</button>
+                            <button class="mode-button" onclick="switchMode('investment')">Investimento</button>
+                        </div>
+                    </div>
+
+                    <!-- Adaptation Analytics -->
+                    <h3>Análise de Adaptação</h3>
+                    <div class="adaptation-metrics">
+                        <div class="recommendation-card">
+                            <div class="recommendation-badge">Adaptação Inteligente</div>
+                            <h2 class="recommendation-title">Interface que Entende Você</h2>
+                            <p class="step-description">Cada momento financeiro tem necessidades diferentes - nossa IA adapta tudo automaticamente</p>
+                            <div class="price-highlight">+78% Eficiência</div>
+                            <button class="cta-button">Ativar Modo Adaptativo</button>
+                        </div>
+                    </div>
+
+                    <div class="spacer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Feature: Interface Adaptativa</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-section">
+                <p><strong>Princípio Cognitivo:</strong> Contextualização inteligente - interfaces que se adaptan al contexto cognitivo reducen carga mental y mejoran eficiencia en tareas financieras específicas.</p>
+                
+                <h3>Por que funciona?</h3>
+                <ul>
+                    <li><strong>Reducción de Fricción:</strong> Elimina navegación innecesaria mostrando só o que importa</li>
+                    <li><strong>Contexto Relevante:</strong> Cada modo prioriza ações específicas del objetivo atual</li>
+                    <li><strong>Carga Mental Menor:</strong> Interface simplificada para cada situação reduce sobrecarga cognitiva</li>
+                    <li><strong>Eficiência Aumentada:</strong> Tarefas completadas em menos passos e menor tempo</li>
+                </ul>
+
+                <h3>Hipótese</h3>
+                <p>Interface que se adapta automaticamente ao perfil do usuário aumentará em 50% a usabilidade percebida e reduzirá em 60% o tempo de conclusão de tarefas ao personalizar layout, linguagem e fluxos conforme contexto individual.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Adaptive interface functionality
+        function switchMode(mode) {
+            // Update mode buttons
+            document.querySelectorAll('.mode-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update intent display
+            const intentDisplay = document.querySelector('.current-intent');
+            const intentInfo = {
+                'savings': {
+                    icon: '$',
+                    title: 'Modo Poupança',
+                    description: 'Focado em economia e reservas',
+                    confidence: Math.floor(Math.random() * 10) + 90
+                },
+                'credit': {
+                    icon: 'C',
+                    title: 'Modo Crédito',
+                    description: 'Focado em soluções de crédito',
+                    confidence: Math.floor(Math.random() * 10) + 85
+                },
+                'investment': {
+                    icon: 'I',
+                    title: 'Modo Investimento',
+                    description: 'Focado em crescimento financeiro',
+                    confidence: Math.floor(Math.random() * 10) + 88
+                }
+            };
+
+            const info = intentInfo[mode];
+            intentDisplay.querySelector('.intent-icon').textContent = info.icon;
+            intentDisplay.querySelector('h4').textContent = info.title;
+            intentDisplay.querySelector('p').textContent = info.description;
+            intentDisplay.querySelector('.confidence-level').textContent = `Confiança: ${info.confidence}%`;
+
+            // Update layout
+            document.querySelectorAll('.layout-mode').forEach(layout => {
+                layout.classList.remove('active');
+            });
+            document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+        }
+
+        // Auto-cycle demo
+        let currentModeIndex = 0;
+        const modes = ['savings', 'credit', 'investment'];
+
+        function autoSwitch() {
+            currentModeIndex = (currentModeIndex + 1) % modes.length;
+            const mode = modes[currentModeIndex];
+            
+            // Trigger button click
+            const button = document.querySelector(`[onclick="switchMode('${mode}')"]`);
+            const event = new Event('click');
+            event.target = button;
+            switchMode(mode);
+        }
+
+        // Auto-cycle every 5 seconds
+        setInterval(autoSwitch, 5000);
+    </script>
+
+    <style>
+        /* Adaptive interface specific styles */
+        .intent-display {
+            margin-top: 16px;
+        }
+
+        .current-intent {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+        }
+
+        .intent-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-right: 16px;
+        }
+
+        .intent-info h4 {
+            margin: 0 0 4px 0;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .intent-info p {
+            margin: 0 0 8px 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .confidence-level {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .adaptive-layout {
+            margin-top: 16px;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .layout-mode {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            position: absolute;
+            width: 100%;
+        }
+
+        .layout-mode.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+        }
+
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quick-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .quick-action.primary {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .action-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .action-label {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .priority-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .priority-content h4 {
+            margin: 0 0 16px 0;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .goal-progress, .credit-offer, .investment-opportunity {
+            text-align: center;
+        }
+
+        .goal-amount, .offer-amount, .investment-return {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: width 1s ease;
+        }
+
+        .goal-timeline, .offer-details, .investment-risk {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        .offer-status {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .mode-button {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mode-button.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+    </style>
+</body>
+</html> 
